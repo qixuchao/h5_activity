@@ -4,155 +4,161 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>Document</title>
+	<script data-js-path="redraw.js">
+        !(function(f,o){var a=navigator.userAgent,b=/iphone|ipad|ipod/i.test(a),i=/android/ig.test(a),j=/Mobile/i.test(a)||b||i;var n=document.querySelector("[name=viewport]"),k=b?window.devicePixelRatio?Math.min(window.devicePixelRatio,3):1:1,c=document.documentElement,l=k*(c.dataset.mw||750),d=1/k,e;f=f||320;o=o||16;if(n){var h=n.content||"",g=h.match(/initial\-scale=([\d\.]+)/);if(g){h=h.replace(/initial\-scale=([\d\.]+)/,"initial-scale="+d)}else{h+=",initial-scale="+d}n.content=h.replace(/minimum\-scale=([\d\.]+)/,"").replace(/maximum\-scale=([\d\.]+)/,"")}else{n=doc.createElement("meta");n.name="viewport";n.content="maximum-scale="+d+",minimum-scale="+d+",user-scalable=0,width=device-width;initial-scale="+d;c.firstElementChild.appendChild(n)}var m=function(){var q=window.innerWidth;var p=Math.min(q,l)/f*o;c.style.fontSize=p+"px"};if(j){window.addEventListener("resize",function(){clearTimeout(e);e=setTimeout(m,300)},false);m()}else{c.style.fontSize="16px"}})(320,16);
+    </script>
 	<link rel="stylesheet" href="css/swiper.min.css">
-	<style>
-		body{
-			margin:0;
-		}
-		body{
-			background: #000;
-		}
-		ul,li{
-			list-style: none;
-		}
-		.gl-QA-wrapper{
-			width:90%;
-			background: #fff;
-			padding:5px;
-			margin:10px auto;
-		}
-		.gl-QA-inner{
-			border: 1px solid #000;
-		}
-		.gl-radio-box input{
-			display: none;
-		}
-		.gl-radio-box input:checked+.gl-radio{
-			background: #1D852E;
-		}
-		.gl-radio{
-			width:15px;
-			height: 15px;
-			border-radius: 50%;
-			background: #E1E1E1;
-			border: 1px solid #979797;
-			display: inline-block;
-		}
-		.gl-explain{
-			opacity: 0.99;
-			font-family: PingFangSC-Regular;
-			font-size: 12px;
-			color: #FFFFFF;
-			letter-spacing: 0.03px;
-		}
-		.gl-bmi-formula{
-			font-family: PingFangSC-Regular;
-			font-size: 24px;
-			color: #000000;
-			letter-spacing: 0.05px;
-			line-height: 33px;
-		}
-	</style>
+	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 	<div id="container">
 		<div class="swiper-container"  v-swiper="swiperOptions" ref="swiper">
-	        <div class="swiper-wrapper">
-	            <div class="swiper-slide">
+	        <div class="swiper-wrapper" style="display: none">
+	            <div class="swiper-slide swiper-no-swiping gl-bg1">
+	            	<div class="gl-page1-head">
+	            		<img src="img/logo-2.png" alt="" class="gl-logo"/>
+	            		<div class="gl-page-inner">
+	            			<h3 class="gl-QA-title">健康自测问卷</h3>
+			 				<p class="gl-QA-title2">HEALTH SELF - TEST QUESTIONNAIRE</p>
+	            		</div>
+	            	</div>
+	            	<div class="gl-page1-foot">
+			 				<button class="btn btn-green" 
+			 					@click="slideNext()">开始测试</button>
+			 				<p class="pl-page1-explain">生命花园Garden of Life就以“助力非凡健康”为己任<br>我们的目标则是为消费者提供最干净、最优质的
+			 				<br/>全食物营养成分</p>	
+			 				
+	            	</div>
+	            </div>
+	            <div class="swiper-slide gl-bg2">
 				 	<div class="gl-QA-wrapper">
 		            	<div class="gl-QA-inner">
-				 		 	<img src="" alt="" class="gl-logo"/>
-				 			<h3>健康自测问卷</h3>
-				 			<p>HEALTH SELF - TEST QUESTIONNAIRE</p>
-				 			<div>
-				 				<span>{{typeMap[0]}}</span>
-				 			</div>
-				 			<ul>
-				 				<li>性别
-				 					<label 
-		 								class="gl-radio-box">
-		 								<input type="radio" :name="'answer_'+0">
-		 								<span class="gl-radio"></span>
-		 								男
-		 							</label>
-		 							<label 
-		 								class="gl-radio-box">
-		 								<input type="radio" :name="'answer_'+0">
-		 								<span class="gl-radio"></span>
-		 								女
-		 							</label>
-				 				</li>
-				 				<li>
-				 					身高<input type="text" v-model="stature" @change="bmiUpdate"><span>CM</span>
-				 				</li>
-				 				<li>
-				 					体重<input type="text" @change="bmiUpdate" v-model="weight"><span>KG</span>
-				 				</li>
-				 			</ul>
-				 			<p class="gl-explain">
-				 				BMI（体重指数）=体重（kg）/身高2（cm）BMI是判断人体是否肥胖及肥胖程度的重要指标，其参考范围如下
-				 			</p>
-				 			<div class="gl-bmi-formula">BMI = <span>{{bmiValue}}</span></div>
-				 			<p class="gl-explain">
-				 				<div>
+				 		 	<img src="img/logo-2.png" alt="" class="gl-logo"/>
+				 			<h3 class="gl-QA-title">健康自测问卷</h3>
+				 			<p class="gl-QA-title2">HEALTH SELF - TEST QUESTIONNAIRE</p>
+				 			<div class="gl-main">
+					 			<div class="gl-QA-type">{{typeMap[0]}}
+					 			</div>
+					 			<ul class="gl-physical-form">
+					 				<li>性别
+					 				<span class="gl-physical-gender">
+					 					<label 
+			 								class="gl-radio-box">
+			 								<input type="radio" :name="'answer_'+0">
+			 								<span class="gl-radio"></span>
+			 								男
+			 							</label>
+			 						</span>
+					 				<span class="gl-physical-gender">
+					 					<label 
+			 								class="gl-radio-box">
+			 								<input type="radio" :name="'answer_'+0">
+			 								<span class="gl-radio"></span>
+			 								女
+			 							</label>
+					 				</span>	
+					 				</li>
+					 				<li class="gl-physical-form-inner">
+					 					身高<input type="number" v-model="stature" @change="bmiUpdate"><span>CM</span>
+					 				</li>
+					 				<li class="gl-physical-form-inner">
+					 					体重<input type="number" @change="bmiUpdate" v-model="weight"><span>KG</span>
+					 				</li>
+					 			</ul>
+					 			<p class="gl-explain gl-describe">
+					 				BMI（体重指数）=体重（kg）/身高 &sup2;（cm）BMI是判断人体是否肥胖及肥胖程度的重要指标，其参考范围如下
+					 			</p>
+					 			<div class="gl-bmi-formula">BMI = <span>{{bmiValueToFixed}}</span></div>
+				 				<div class="gl-describe">
 				 					过低：＜18.5     正常：18.5~23
 				 				</div>
-				 				<div>
+				 				<div class="gl-describe">
 				 					超重：23~27.4   肥胖：＞27.4
 				 				</div>
-				 			</p>
-				 			<button class="btn btn-green" 
-				 					@click="slidePrev()">首页</button>
-				 				<button class="btn btn-green"
-				 				@click="slideNext()">下一页</button>
+					 			<div class="gl-QA-btn-box">
+					 				<button class="btn btn-green" 
+					 					@click="slidePrev()">首页</button>
+					 				<button class="btn btn-green"
+					 				@click="slideNext()">下一页</button>
+					 			</div>				 				
+				 			</div>
 				 		</div>
 				 	</div>
 	            </div>
-	            <div class="swiper-slide" v-for="(item,index) in list">
+	            <div class="swiper-slide gl-bg2" v-for="(item,index) in list">
 				 	<div class="gl-QA-wrapper">
-				 	   {{total}}{{groupGrade}}
-				 		 	<div class="gl-QA-inner">
-				 		 		<img src="" alt="" class="gl-logo"/>
-				 			<h3>健康自测问卷</h3>
-				 			<p>HEALTH SELF - TEST QUESTIONNAIRE</p>
-				 			<div>
-				 				<span>{{typeMap[item.type-1]}}</span>
+			 		 	<div class="gl-QA-inner">
+			 		 	<img src="img/logo-2.png" alt="" class="gl-logo"/>
+			 			<h3 class="gl-QA-title">健康自测问卷</h3>
+			 			<p class="gl-QA-title2">HEALTH SELF - TEST QUESTIONNAIRE</p>
+			 			<div class="gl-main">				 				
+				 			<div class="gl-QA-type">{{typeMap[item.type-1]}}
 				 			</div>
-				 			<dl>
+				 			<dl class="gl-QA-list">
 				 				<dt>{{index+1+"."+item.query}}</dt>
-				 				<dd>{{item.value}}</dd>
+				 				<dd class="gl-describe">{{item.value}}</dd>
 				 				<dd>
 				 					<ul>
 				 						<li v-for="(answer,index2) in item.answer">
 				 							<label 
 				 								class="gl-radio-box"
 				 								@change="selectOptions(answer.grade,item.type,index+1)">
-					 							{{optionMap[index2]}}.
-					 							{{answer.text}}
 				 								<input type="radio" :name="'answer_'+index">
-				 								<span class="gl-radio"></span>
+				 								<span class="gl-radio"></span>					 {{optionMap[index2]}}.
+					 							{{answer.text}}
 				 							</label>
 				 						</li>
 				 					</ul>
 				 				</dd>
 				 			</dl>
-				 			<div>
+				 			<div class="gl-QA-btn-box">
 				 				<button class="btn btn-green" 
 				 					@click="slidePrev()">上一页</button>
 				 				<button class="btn btn-green" v-if="index != list.length-1"
 				 				@click="slideNext()">下一页</button>
-				 				<button class="btn btn-green" v-if="index == list.length-1">提交</button>
+				 				<button class="btn btn-green" @click="submit" v-if="index == list.length-1">提交</button>
 				 			</div> 
 				 		 	</div>
+				 		</div>
 				 	</div>
 	            </div>
 	        </div>
 	    </div>
+	    <div class="gl-conclusion">
+	    	<div class="gl-conclusion-head">
+        		<img src="img/logo-2.png" alt="" class="gl-logo"/>
+        		<div class="gl-page-inner">
+        			<h3 class="gl-QA-title">健康自测问卷</h3>
+	 				<p class="gl-QA-title2">HEALTH SELF - TEST QUESTIONNAIRE</p>
+        		</div>
+        	</div>
+        	<h3 class="gl-conclusion-title1">评分</h3>
+        	<div class="gl-conclusion-total">{{total}}</div>
+        	<div class="gl-conclusion-chart">
+
+        	</div>
+        	<div class="gl-total-text">{{}}</div>
+        	<ul>
+        		<li v-for="">
+        			<dl>
+        				<dt></dt>
+        				<dd></dd>
+        				<dd></dd>
+        			</dl>
+        		</li>
+        	</ul>
+        	<img src="" alt="">
+        	<div class="gl-QA-btn-box">
+        		<button class="btn btn-green" >在一次</button>
+        		<button class="btn btn-green" >分享</button>
+        	</div>
+	    </div>
 	</div>
 	
-<script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
+<script src="js/vue.js"></script>
 
 <script src="js/swiper.min.js"></script>
+<script src="js/echarts.min.js"></script>
 <script src="js/config.js"></script>
 <script src="js/index.js"></script>
 </body>

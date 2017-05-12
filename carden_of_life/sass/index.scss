@@ -1,0 +1,345 @@
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+  margin: 0;
+  padding: 0;
+}
+fieldset {
+  border: 0;
+}
+img {
+  border: 0;
+  display: block; 
+}
+html {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  /*font-size:62.5%;*/
+}
+input{
+   outline-style: none;
+}
+body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  /*font-size:62.5%;*/
+  font-family: PingFangSC-Regular,Microsoft YaHei;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style: none;
+}
+$rem:1rem/32;
+#container {
+  height: 100%;
+  color: #313333;
+}
+
+.swiper-slide {
+  background: #fff;
+}
+
+.gl-QA-wrapper {
+  width: 510*$rem;
+  background: #fff;
+  padding: 16*$rem;
+  margin: 0 auto;
+  height: 835*$rem;
+  position:relative;
+  box-shadow: 9*$rem 9*$rem 20*$rem rgba(14, 5, 9, 0.28);
+  &:before {
+    content: "";
+    position:absolute;
+    top:0;
+    left:0;
+    border-top: 8*$rem solid #53ac28;
+    border-left: 8*$rem solid #53ac28;
+    width:95*$rem; 
+    height:95*$rem; 
+  }
+   &:after {
+    content: "";
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:95*$rem; 
+    height:95*$rem; 
+    border-bottom: 8*$rem solid #53ac28;
+    border-right: 8*$rem solid #53ac28;
+  }
+}
+
+.gl-QA-inner {
+  border: 1px solid #000;
+  width: 100%;
+  height: 100%;
+}
+
+.gl-radio-box input {
+  display: none;
+  &:checked + .gl-radio {
+    background: #1D852E;
+  }
+}
+
+.gl-radio {
+  width: 30*$rem;
+  height: 30*$rem;
+  border-radius: 50%;
+  background: #E1E1E1;
+  border: 2*$rem solid #979797;
+  display: inline-block;
+  vertical-align: sub;
+}
+
+.gl-bmi-formula {
+  font-size: 33*$rem;
+  letter-spacing: 0.1*$rem;
+  line-height: 80*$rem;
+  color: #53ac28;
+  text-align:center;
+  font-weight: bold;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.gl-QA-type {
+  font-size: 0.8125rem;
+  letter-spacing: 0.04px;
+  /*height: rem;*/
+}
+
+.gl-QA-title {
+  color: #313333;
+  font-size:55*$rem;
+  line-height:85*$rem;
+  height:85*$rem;
+  position:relative;
+  &:before{
+    content:"";
+    position:absolute;
+    bottom:0;
+    display:inline-block;
+    left:124*$rem;
+    width:110*$rem;
+    height:2*$rem;
+    background:#8b8c8c;
+  }
+  &:after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    display:inline-block;
+    right:124*$rem;
+    width:110*$rem;
+    height:2*$rem;
+    background:#8b8c8c;
+  }
+}
+
+.gl-QA-title2 {
+  color: #159942;
+  font-size:12*$rem;
+  line-height:25*$rem;
+  margin-bottom:30*$rem;
+}
+
+.gl-QA-type{
+  display: inline-block;
+  border: 2*$rem solid #006e36;
+  line-height:30*$rem;
+  height:30*$rem;
+  font-size:20*$rem;
+  padding:0 30*$rem;
+  margin-bottom:20*$rem;
+}
+
+.gl-logo {
+  width: 24%;
+  margin: 20*$rem auto 15*$rem;
+}
+.gl-QA-list{
+    line-height:65*$rem;
+    text-align:left;
+    overflow-y:scroll;
+    height:400*$rem;
+    font-size:32*$rem;
+}
+.gl-describe,.gl-QA-list .gl-describe{
+    font-size:17*$rem;
+    line-height:22*$rem;
+  }
+.gl-QA-btn-box{
+  position:absolute;
+  bottom:50*$rem;
+  button:nth-of-type(1){
+    margin-left:5*$rem;
+    margin-right:80*$rem;
+  }
+}
+.gl-physical-form{
+  margin:0 60*$rem 30*$rem;
+  text-align:left;
+  li{
+    line-height:60*$rem;
+    font-size:28*$rem;
+  }
+}
+.gl-physical-form-inner{
+  input{
+    border:none;
+    display:inline-block;
+    width:150*$rem;
+    height:50*$rem;
+    line-height:50*$rem;
+    font-size:28*$rem;
+    text-indent:1em;
+  }
+  border-bottom:2*$rem solid #c7c6c6;
+}
+.gl-main{
+    padding:0 60*$rem 0 60*$rem;
+}
+.gl-physical-gender{
+  display:inline-block;
+  padding-left:15*$rem;
+  width:75*$rem;
+}
+
+.gl-explain{
+  text-align:left;
+}
+.gl-page1-head{
+  position:absolute;
+  top:170*$rem;
+  left:50%;
+  transform: translateX(-50%);
+  width:455*$rem;
+  .gl-QA-title {
+    font-size:60*$rem;
+    line-height:100*$rem;
+    height:100*$rem;
+    &:before{
+      left:60*$rem;
+      width:150*$rem;
+      height:2*$rem;
+    }
+    &:after{
+      right:60*$rem;
+      width:150*$rem;
+      height:2*$rem;
+    }
+  }
+
+  .gl-QA-title2 {
+    font-size:21*$rem;
+    line-height:50*$rem;
+    height:50*$rem;
+  }
+  .gl-logo {
+    width: 24%;
+    margin: 20*$rem auto 15*$rem;
+  }
+}
+.gl-page-inner{
+  position:relative;
+  &:before {
+    content: "";
+    position:absolute;
+    top:0;
+    left:0;
+    border-top: 4*$rem solid #53ac28;
+    border-left: 4*$rem solid #53ac28;
+    width:40*$rem; 
+    height:40*$rem; 
+  }
+   &:after {
+    content: "";
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:40*$rem; 
+    height:40*$rem; 
+    border-bottom: 4*$rem solid #53ac28;
+    border-right: 4*$rem solid #53ac28;
+  }
+}
+.gl-page1-foot{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding-bottom:30*$rem; 
+  font-size:$rem*20;
+
+  .btn{
+    margin-bottom:30*$rem; 
+    margin:0 auto;
+  }
+}
+.pl-page1-explain{
+  line-height:30*$rem; 
+  text-align:center;
+  font-size:$rem*15;
+  color:#fff;
+  margin-top:$rem*30;
+}
+.gl-bg1{
+  background:url(../img/C.png) no-repeat;
+  background-size:100% 100%;
+  &:before{
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:url(../img/D.png) no-repeat bottom;
+    background-size:100% auto;
+  }
+}
+.gl-bg2{
+  background:url(../img/A.jpg) no-repeat;
+  background-size:100% 100%;
+}
+.gl-conclusion-chart{
+  width:$rem*620;
+  height:$rem*550;
+}
+
+/*公共*/
+.btn{
+  width:140*$rem;
+  line-height:50*$rem;
+  height:50*$rem;
+  font-size:24*$rem;
+  border:none;
+}
+.btn-green{
+  color:#fff;
+  background:#53ac28;
+}
