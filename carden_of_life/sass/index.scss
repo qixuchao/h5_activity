@@ -343,6 +343,7 @@ $rem:1rem/32;
   .gl-QA-title{
     font-size:$rem*40;
     height:$rem*60;
+    line-height:$rem*60;
     margin:0 auto;
     &:after{
       display:none;
