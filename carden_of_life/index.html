@@ -17,7 +17,6 @@
 			ref="swiper"
 			v-if="!showResult" >
 	        <div class="swiper-wrapper">
-
 	            <div class="swiper-slide swiper-no-swiping gl-bg1">
 	            	<div class="gl-page1-head">
 	            		<img src="img/logo-2.png" alt="" class="gl-logo"/>
@@ -141,10 +140,10 @@
         	<ul>
         		<li v-for="">
         			<dl>
-        				<dt></dt>
-        				<dd></dd>
-        				<dt></dt>
-        				<dd></dd>
+        				<template v-for="(val,key) in comments">
+        					<dt>{{key}}</dt>
+        					<dd v-html="val"></dd>
+        				</template>
         			</dl>
         		</li>
         	</ul>
