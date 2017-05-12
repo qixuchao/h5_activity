@@ -1,82 +1,3 @@
-
-var myChart = echarts.init(document.querySelector('.gl-conclusion-chart'));
-option = {
-
-	tooltip: {},
-
-	radar: {
-		// shape: 'circle',
-		indicator: [{
-			name: '饮食',
-			max: 56
-		}, {
-			name: '运动',
-			max: 21
-		}, {
-			name: '情绪',
-			max: 4
-		}, {
-			name: '睡眠',
-			max: 6
-		}, {
-			name: '身体指标',
-			max: 13
-		}],
-		name: {
-			textStyle: {
-				color: 'rgb(83, 172, 40)',
-				fontSize: 24
-			}
-		},
-		splitLine: {
-			lineStyle: {
-				width: 3,
-				color: [
-					'#edf3e4', '#edf3e4'
-				]
-			}
-		},
-
-		splitArea: {
-			show: false
-		},
-		axisLine: {
-			lineStyle: {
-				width: 3,
-				color: 'rgba(83, 172, 40)'
-			}
-		}
-	},
-
-	series: [{
-			type: 'radar',
-			lineStyle: {
-				normal: {
-					width: 1,
-					opacity: 0.5
-				}
-			},
-			data: [
-				[30,20,2,3,10]
-			],
-			symbol: 'circle',
-			symbolSize: 10,
-			itemStyle: {
-				normal: {
-					color: '#cbe7a2'
-				}
-			},
-			areaStyle: {
-				normal: {
-					opacity: 0.4
-				}
-			}
-		},
-
-	]
-};
-
-
 Vue.directive('swiper', {
 	isFn: true,
 	deep: true,
@@ -85,12 +6,20 @@ Vue.directive('swiper', {
 	},
 	update: function(el, binding) {
 
-		if (!binding.value) {
+		if (!binding.value || el.$swiper) {
 			return;
 		}
-
 		var swiper = new Swiper(el, binding.value);
 		el.$swiper = swiper;
+	}
+});
+
+Vue.directive('echarts', {
+	isFn: true,
+	deep: true,
+	bind: function(el, binding) {
+		var myChart = echarts.init(el);
+		el.$echarts = myChart;
 	}
 });
 
@@ -110,7 +39,9 @@ var app = new Vue({
 		stature: "",
 		weight: "",
 		bmiValue: "0",
-		bmiValueToFixed: "？"
+		bmiValueToFixed: "？",
+		comments:[],
+		showResult:false
 	},
 	methods: {
 		slidePrev: function() {
@@ -154,12 +85,111 @@ var app = new Vue({
 			}
 		},
 		submit:function(){
-			myChart.setOption(option);
+			//this.$refs.echarts.$echarts.setOption(option);
+			var data = [],
+				map = [5,1,2,3,4];
+			for(var i=0,len=map.length;i<len;i++){
+				data.push(this.groupGrade[map[i]]);
+			}
+			setTimeout(function(){
+				option.series[0].data[0]  = data;
+				myChart.setOption(option);
+				this.showResult = true;
+			}.bind(this))
+		},
+		reset:function(){
+			this.showResult = false;
+		},
+		openShare:function(){
+			jskit.openShare({
+
+			})
 		}
 	},
 	mounted: function() {
 		this.swiperOptions = {};
-		this.submit()
 	}
 });
+
+var dpr = window.devicePixelRatio || 2;
+
+var fontSize = dpr / 2 * 24,
+	lineWidth = dpr / 2 * 5,
+	symbolSize = dpr / 2 * 10;
+
+var option = {
+	tooltip: {},
+	radar: {
+		// shape: 'circle',
+		indicator: [{
+			name: '饮食',
+			max: 56
+		}, {
+			name: '运动',
+			max: 21
+		}, {
+			name: '睡眠',
+			max: 6
+		}, {
+			name: '情绪',
+			max: 4
+		}, {
+			name: '身体指标',
+			max: 13
+		}],
+		name: {
+			textStyle: {
+				color: 'rgb(83, 172, 40)',
+				fontSize: fontSize
+			}
+		},
+		splitLine: {
+			lineStyle: {
+				width: lineWidth,
+				color: [
+					'#edf3e4', '#edf3e4'
+				]
+			}
+		},
+
+		splitArea: {
+			show: false
+		},
+		axisLine: {
+			lineStyle: {
+				width: lineWidth,
+				color: 'rgba(83, 172, 40)'
+			}
+		}
+	},
+
+	series: [{
+			type: 'radar',
+			lineStyle: {
+				normal: {
+					width: 1,
+					opacity: 0.5
+				}
+			},
+			data: [
+				[30,20,2,3,10]
+			],
+			symbol: 'circle',
+			symbolSize: symbolSize,
+			itemStyle: {
+				normal: {
+					color: '#cbe7a2'
+				}
+			},
+			areaStyle: {
+				normal: {
+					opacity: 0.4
+				}
+			}
+		},
+
+	]
+};
+
+var myChart = echarts.init(document.querySelector('.gl-conclusion-chart'));
 

@@ -12,8 +12,12 @@
 </head>
 <body>
 	<div id="container">
-		<div class="swiper-container"  v-swiper="swiperOptions" ref="swiper" style="display: none">
-	        <div class="swiper-wrapper" >
+		<div class="swiper-container"  
+			v-swiper="swiperOptions" 
+			ref="swiper"
+			v-if="!showResult">
+	        <div class="swiper-wrapper">
+
 	            <div class="swiper-slide swiper-no-swiping gl-bg1">
 	            	<div class="gl-page1-head">
 	            		<img src="img/logo-2.png" alt="" class="gl-logo"/>
@@ -44,7 +48,7 @@
 					 				<span class="gl-physical-gender">
 					 					<label 
 			 								class="gl-radio-box">
-			 								<input type="radio" :name="'answer_'+0">
+			 								<input type="radio" :name="'answer_sex'">
 			 								<span class="gl-radio"></span>
 			 								男
 			 							</label>
@@ -52,7 +56,7 @@
 					 				<span class="gl-physical-gender">
 					 					<label 
 			 								class="gl-radio-box">
-			 								<input type="radio" :name="'answer_'+0">
+			 								<input type="radio" :name="'answer_sex'">
 			 								<span class="gl-radio"></span>
 			 								女
 			 							</label>
@@ -124,13 +128,13 @@
 	            </div>
 	        </div>
 	    </div>
-	    <div class="gl-conclusion gl-bg3">
+	    <div class="gl-conclusion gl-bg3" v-show="showResult">
     		<img src="img/logo-1.png" alt="" class="gl-logo"/>
 			<h3 class="gl-QA-title">健康自测问卷</h3>
 			<p class="gl-QA-title2">HEALTH SELF - TEST QUESTIONNAIRE</p>
         	<h3 class="gl-conclusion-title1">评分</h3>
         	<div class="gl-conclusion-total">{{total}}</div>
-        	<div class="gl-conclusion-chart">
+        	<div class="gl-conclusion-chart" v-echarts ref="echarts">
 
         	</div>
         	<div class="gl-total-text">{{}}</div>
@@ -139,6 +143,7 @@
         			<dl>
         				<dt></dt>
         				<dd></dd>
+        				<dt></dt>
         				<dd></dd>
         			</dl>
         		</li>
@@ -152,10 +157,11 @@
 	</div>
 	
 <script src="js/vue.js"></script>
-
 <script src="js/swiper.min.js"></script>
 <script src="js/echarts.min.js"></script>
 <script src="js/config.js"></script>
+<script src="http://static.fancysmp.com/activity/libs/jskit.js"></script>
+<script src="http://static.fancysmp.com/activity/libs/jsweixin.js"></script>
 <script src="js/index.js"></script>
 </body>
 </html>
