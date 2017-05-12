@@ -12,8 +12,8 @@
 </head>
 <body>
 	<div id="container">
-		<div class="swiper-container"  v-swiper="swiperOptions" ref="swiper">
-	        <div class="swiper-wrapper" style="display: none">
+		<div class="swiper-container"  v-swiper="swiperOptions" ref="swiper" style="display: none">
+	        <div class="swiper-wrapper" >
 	            <div class="swiper-slide swiper-no-swiping gl-bg1">
 	            	<div class="gl-page1-head">
 	            		<img src="img/logo-2.png" alt="" class="gl-logo"/>
@@ -124,14 +124,10 @@
 	            </div>
 	        </div>
 	    </div>
-	    <div class="gl-conclusion">
-	    	<div class="gl-conclusion-head">
-        		<img src="img/logo-2.png" alt="" class="gl-logo"/>
-        		<div class="gl-page-inner">
-        			<h3 class="gl-QA-title">健康自测问卷</h3>
-	 				<p class="gl-QA-title2">HEALTH SELF - TEST QUESTIONNAIRE</p>
-        		</div>
-        	</div>
+	    <div class="gl-conclusion gl-bg3">
+    		<img src="img/logo-1.png" alt="" class="gl-logo"/>
+			<h3 class="gl-QA-title">健康自测问卷</h3>
+			<p class="gl-QA-title2">HEALTH SELF - TEST QUESTIONNAIRE</p>
         	<h3 class="gl-conclusion-title1">评分</h3>
         	<div class="gl-conclusion-total">{{total}}</div>
         	<div class="gl-conclusion-chart">
@@ -148,7 +144,7 @@
         		</li>
         	</ul>
         	<img src="" alt="">
-        	<div class="gl-QA-btn-box">
+        	<div class="gl-conclusion-btn-box">
         		<button class="btn btn-green" >在一次</button>
         		<button class="btn btn-green" >分享</button>
         	</div>
