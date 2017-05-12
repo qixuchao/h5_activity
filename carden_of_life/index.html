@@ -15,7 +15,7 @@
 		<div class="swiper-container"  
 			v-swiper="swiperOptions" 
 			ref="swiper"
-			v-if="!showResult" >
+			v-show="!showResult" >
 	        <div class="swiper-wrapper">
 	            <div class="swiper-slide swiper-no-swiping gl-bg1">
 	            	<div class="gl-page1-head">
@@ -136,7 +136,7 @@
         	<div class="gl-conclusion-chart" v-echarts ref="echarts">
 
         	</div>
-        	<div class="gl-total-text">{{}}</div>
+        	<div class="gl-total-text"></div>
         	<ul>
         		<li v-for="">
         			<dl>

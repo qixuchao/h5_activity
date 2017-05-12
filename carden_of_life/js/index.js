@@ -42,7 +42,8 @@ var app = new Vue({
 		bmiValueToFixed: "？",
 		comments:{
 		},
-		showResult:false
+		showResult:false,
+		BMI:''
 	},
 	methods: {
 		slidePrev: function() {
@@ -74,6 +75,7 @@ var app = new Vue({
 					value;
 				this.bmiValue = b * 1.0 / ((a * 1.0 / 100) * (a * 1.0 / 100));
 				this.bmiValueToFixed = this.bmiValue.toFixed(1);
+				
 				var bmi1 = this.bmiValue
 				if (bmi1 >= 27.4 || bmi1 < 18.5) {
 					value = 1;
@@ -82,6 +84,7 @@ var app = new Vue({
 				} else if (bmi1 >= 23 && bmi1 < 27.4) {
 					value = 4;
 				}
+				this.BMI = value;
 				this.selectOptions(value, 1, 0)
 			}
 		},
@@ -95,13 +98,13 @@ var app = new Vue({
 				score = this.groupGrade[map[i]]
 				data.push(score);
 				if(map[i] == 1){
-					if(score == 7){
+					if(this.BMI == 7){
 						index = 0 
-					}else if(score == 4){
+					}else if(this.BMI == 4){
 						index = 1
-					}else if(score > 7){
+					}else if(this.BMI > 7){
 						index = 2 
-					}else if(score < 4){
+					}else if(this.BMI < 4){
 						index = 3
 					}
 					this.comments['BMI'] = verdict[map[i]][index];
@@ -119,7 +122,10 @@ var app = new Vue({
 		},
 		openShare:function(){
 			jskit.openShare({
-
+				title:"",
+				desc:"",
+				img:"",
+				link:""
 			})
 		}
 	},
