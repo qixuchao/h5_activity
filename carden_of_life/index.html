@@ -12,8 +12,11 @@
 </head>
 <body>
 	<div id="container">
-		<div class="swiper-container"  v-swiper="swiperOptions" ref="swiper">
-	        <div class="swiper-wrapper" style="display: none">
+		<div class="swiper-container"  
+			v-swiper="swiperOptions" 
+			ref="swiper"
+			v-if="!showResult">
+	        <div class="swiper-wrapper">
 	            <div class="swiper-slide swiper-no-swiping gl-bg1">
 	            	<div class="gl-page1-head">
 	            		<img src="img/logo-2.png" alt="" class="gl-logo"/>
@@ -44,7 +47,7 @@
 					 				<span class="gl-physical-gender">
 					 					<label 
 			 								class="gl-radio-box">
-			 								<input type="radio" :name="'answer_'+0">
+			 								<input type="radio" :name="'answer_sex'">
 			 								<span class="gl-radio"></span>
 			 								男
 			 							</label>
@@ -52,7 +55,7 @@
 					 				<span class="gl-physical-gender">
 					 					<label 
 			 								class="gl-radio-box">
-			 								<input type="radio" :name="'answer_'+0">
+			 								<input type="radio" :name="'answer_sex'">
 			 								<span class="gl-radio"></span>
 			 								女
 			 							</label>
@@ -124,7 +127,7 @@
 	            </div>
 	        </div>
 	    </div>
-	    <div class="gl-conclusion">
+	    <div class="gl-conclusion" v-show="showResult">
 	    	<div class="gl-conclusion-head">
         		<img src="img/logo-2.png" alt="" class="gl-logo"/>
         		<div class="gl-page-inner">
@@ -134,7 +137,7 @@
         	</div>
         	<h3 class="gl-conclusion-title1">评分</h3>
         	<div class="gl-conclusion-total">{{total}}</div>
-        	<div class="gl-conclusion-chart">
+        	<div class="gl-conclusion-chart" v-echarts ref="echarts">
 
         	</div>
         	<div class="gl-total-text">{{}}</div>
@@ -143,23 +146,25 @@
         			<dl>
         				<dt></dt>
         				<dd></dd>
+        				<dt></dt>
         				<dd></dd>
         			</dl>
         		</li>
         	</ul>
         	<img src="" alt="">
         	<div class="gl-QA-btn-box">
-        		<button class="btn btn-green" >在一次</button>
-        		<button class="btn btn-green" >分享</button>
+        		<button class="btn btn-green" @click="reset">在一次</button>
+        		<button class="btn btn-green" @click="openShare">分享</button>
         	</div>
 	    </div>
 	</div>
 	
 <script src="js/vue.js"></script>
-
 <script src="js/swiper.min.js"></script>
 <script src="js/echarts.min.js"></script>
 <script src="js/config.js"></script>
+<script src="http://static.fancysmp.com/activity/libs/jskit.js"></script>
+<script src="http://static.fancysmp.com/activity/libs/jsweixin.js"></script>
 <script src="js/index.js"></script>
 </body>
 </html>
