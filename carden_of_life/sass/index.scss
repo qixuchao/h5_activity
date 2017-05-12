@@ -323,14 +323,44 @@ $rem:1rem/32;
   }
 }
 .gl-bg2{
-  background:url(../img/A.jpg) no-repeat;
+  background:url(../img/A.png) no-repeat;
   background-size:100% 100%;
+}
+.gl-bg3{
+  background:url(../img/E.png) no-repeat;
+  background-size:100% auto;
 }
 .gl-conclusion-chart{
   width:$rem*620;
   height:$rem*550;
 }
+.gl-conclusion{
+  .gl-logo{
+    margin-top:$rem*80;
+    width:$rem*195;
+    margin-bottom:$rem*20;
+  }
+  .gl-QA-title{
+    font-size:$rem*40;
+    height:$rem*60;
+    margin:0 auto;
+    &:after{
+      display:none;
+    }
+    &:before{
+      content:"";
+      width:$rem*200;
+    }
+  }
+  .gl-QA-title2{
+    margin:0 auto;
+  }
+}
+  
 
+.gl-conclusion-btn-box{
+
+}
 /*公共*/
 .btn{
   width:140*$rem;
