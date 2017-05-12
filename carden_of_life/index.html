@@ -15,7 +15,7 @@
 		<div class="swiper-container"  
 			v-swiper="swiperOptions" 
 			ref="swiper"
-			v-if="!showResult"  style="display: none">
+			v-if="!showResult" >
 	        <div class="swiper-wrapper">
 
 	            <div class="swiper-slide swiper-no-swiping gl-bg1">
@@ -150,8 +150,8 @@
         	</ul>
         	<img src="" alt="">
         	<div class="gl-conclusion-btn-box">
-        		<button class="btn btn-green" >在一次</button>
-        		<button class="btn btn-green" >分享</button>
+        		<button class="btn btn-green" @click="reset">在一次</button>
+        		<button class="btn btn-green" @click="openShare">分享</button>
         	</div>
 	    </div>
 	</div>

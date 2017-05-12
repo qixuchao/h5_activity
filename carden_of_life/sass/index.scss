@@ -344,6 +344,7 @@ $rem:1rem/32;
     font-size:$rem*40;
     height:$rem*60;
     line-height:$rem*60;
+    text-align:center;
     margin:0 auto;
     &:after{
       display:none;
@@ -351,11 +352,24 @@ $rem:1rem/32;
     &:before{
       content:"";
       width:$rem*200;
+      left:50%;
+      transform: translateX(-50%);
     }
   }
   .gl-QA-title2{
     margin:0 auto;
+    text-align:center;
+    line-height:$rem*26;
+    margin-bottom:$rem*20;
   }
+}
+.gl-conclusion-title1{
+  text-align:center;
+  font-size:$rem*35;
+}
+.gl-conclusion-total{
+  font-size:$rem*114;
+  line-height:$rem*260;
 }
   
 

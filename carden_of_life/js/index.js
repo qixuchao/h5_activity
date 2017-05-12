@@ -87,7 +87,7 @@ var app = new Vue({
 		submit:function(){
 			//this.$refs.echarts.$echarts.setOption(option);
 			var data = [],
-				map = [5,1,2,3,4];
+				map = [1,2,3,4,5];
 			for(var i=0,len=map.length;i<len;i++){
 				data.push(this.groupGrade[map[i]]);
 			}
@@ -99,6 +99,7 @@ var app = new Vue({
 		},
 		reset:function(){
 			this.showResult = false;
+			this.$refs.swiper.$swiper.slideTo(0)
 		},
 		openShare:function(){
 			jskit.openShare({
@@ -122,6 +123,9 @@ var option = {
 	radar: {
 		// shape: 'circle',
 		indicator: [{
+			name: '身体指标',
+			max: 13
+		},{
 			name: '饮食',
 			max: 56
 		}, {
@@ -133,9 +137,6 @@ var option = {
 		}, {
 			name: '情绪',
 			max: 4
-		}, {
-			name: '身体指标',
-			max: 13
 		}],
 		name: {
 			textStyle: {
