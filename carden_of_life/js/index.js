@@ -40,7 +40,8 @@ var app = new Vue({
 		weight: "",
 		bmiValue: "0",
 		bmiValueToFixed: "？",
-		comments:[],
+		comments:{
+		},
 		showResult:false
 	},
 	methods: {
@@ -87,9 +88,24 @@ var app = new Vue({
 		submit:function(){
 			//this.$refs.echarts.$echarts.setOption(option);
 			var data = [],
-				map = [1,2,3,4,5];
+				map = [1,2,3,4,5],
+				score,
+				index;
 			for(var i=0,len=map.length;i<len;i++){
-				data.push(this.groupGrade[map[i]]);
+				score = this.groupGrade[map[i]]
+				data.push(score);
+				if(map[i] == 1){
+					if(score == 7){
+						index = 0 
+					}else if(score == 4){
+						index = 1
+					}else if(score > 7){
+						index = 2 
+					}else if(score < 4){
+						index = 3
+					}
+					this.comments['BMI'] = verdict[map[i]][index];
+				}
 			}
 			setTimeout(function(){
 				option.series[0].data[0]  = data;
