@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<style>
+		body{
+			margin:0;
+		}
+		body{
+			background: #000;
+		}
+		ul,li{
+			list-style: none;
+		}
+		.gl-QA-wrapper{
+			width:90%;
+			background: #fff;
+			padding:5px;
+			margin:10px auto;
+		}
+		.gl-QA-inner{
+			border: 1px solid #000;
+		}
+		.gl-radio-box input{
+			display: none;
+		}
+		.gl-radio-box input:checked+.gl-radio{
+			background: #1D852E;
+		}
+		.gl-radio{
+			width:15px;
+			height: 15px;
+			border-radius: 50%;
+			background: #E1E1E1;
+			border: 1px solid #979797;
+			display: inline-block;
+		}
+		.gl-explain{
+			opacity: 0.99;
+			font-family: PingFangSC-Regular;
+			font-size: 12px;
+			color: #FFFFFF;
+			letter-spacing: 0.03px;
+		}
+		.gl-bmi-formula{
+			font-family: PingFangSC-Regular;
+			font-size: 24px;
+			color: #000000;
+			letter-spacing: 0.05px;
+			line-height: 33px;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div class="swiper-container"  v-swiper="swiperOptions" ref="swiper">
+	        <div class="swiper-wrapper">
+	            <div class="swiper-slide">
+				 	<div class="gl-QA-wrapper">
+		            	<div class="gl-QA-inner">
+				 		 	<img src="" alt="" class="gl-logo"/>
+				 			<h3>健康自测问卷</h3>
+				 			<p>HEALTH SELF - TEST QUESTIONNAIRE</p>
+				 			<div>
+				 				<span>{{typeMap[0]}}</span>
+				 			</div>
+				 			<ul>
+				 				<li>性别
+				 					<label 
+		 								class="gl-radio-box">
+		 								<input type="radio" :name="'answer_'+0">
+		 								<span class="gl-radio"></span>
+		 								男
+		 							</label>
+		 							<label 
+		 								class="gl-radio-box">
+		 								<input type="radio" :name="'answer_'+0">
+		 								<span class="gl-radio"></span>
+		 								女
+		 							</label>
+				 				</li>
+				 				<li>
+				 					身高<input type="text" v-model="stature" @change="bmiUpdate"><span>CM</span>
+				 				</li>
+				 				<li>
+				 					体重<input type="text" @change="bmiUpdate" v-model="weight"><span>KG</span>
+				 				</li>
+				 			</ul>
+				 			<p class="gl-explain">
+				 				BMI（体重指数）=体重（kg）/身高2（cm）BMI是判断人体是否肥胖及肥胖程度的重要指标，其参考范围如下
+				 			</p>
+				 			<div class="gl-bmi-formula">BMI = <span>{{bmiValue}}</span></div>
+				 			<p class="gl-explain">
+				 				<div>
+				 					过低：＜18.5     正常：18.5~23
+				 				</div>
+				 				<div>
+				 					超重：23~27.4   肥胖：＞27.4
+				 				</div>
+				 			</p>
+				 			<button class="btn btn-green" 
+				 					@click="slidePrev()">首页</button>
+				 				<button class="btn btn-green"
+				 				@click="slideNext()">下一页</button>
+				 		</div>
+				 	</div>
+	            </div>
+	            <div class="swiper-slide" v-for="(item,index) in list">
+				 	<div class="gl-QA-wrapper">
+				 	   {{total}}{{groupGrade}}
+				 		 	<div class="gl-QA-inner">
+				 		 		<img src="" alt="" class="gl-logo"/>
+				 			<h3>健康自测问卷</h3>
+				 			<p>HEALTH SELF - TEST QUESTIONNAIRE</p>
+				 			<div>
+				 				<span>{{typeMap[item.type-1]}}</span>
+				 			</div>
+				 			<dl>
+				 				<dt>{{index+1+"."+item.query}}</dt>
+				 				<dd>{{item.value}}</dd>
+				 				<dd>
+				 					<ul>
+				 						<li v-for="(answer,index2) in item.answer">
+				 							<label 
+				 								class="gl-radio-box"
+				 								@change="selectOptions(answer.grade,item.type,index+1)">
+					 							{{optionMap[index2]}}.
+					 							{{answer.text}}
+				 								<input type="radio" :name="'answer_'+index">
+				 								<span class="gl-radio"></span>
+				 							</label>
+				 						</li>
+				 					</ul>
+				 				</dd>
+				 			</dl>
+				 			<div>
+				 				<button class="btn btn-green" 
+				 					@click="slidePrev()">上一页</button>
+				 				<button class="btn btn-green" v-if="index != list.length-1"
+				 				@click="slideNext()">下一页</button>
+				 				<button class="btn btn-green" v-if="index == list.length-1">提交</button>
+				 			</div> 
+				 		 	</div>
+				 	</div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	
+<script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
+
+<script src="js/swiper.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
