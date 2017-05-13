@@ -172,6 +172,10 @@ var app = new Vue({
 	mounted: function() {
 		this.swiperOptions = {};
 
+	},
+	beforeUpdate:function(){
+		this.swiperOptions = {};
+
 	}
 });
 
