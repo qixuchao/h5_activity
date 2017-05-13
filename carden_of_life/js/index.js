@@ -44,7 +44,7 @@ var app = new Vue({
 		showResult:false,
 		showIndex:true,
 		BMI:'',
-		showShare:false,
+		showShare:true,
 		showChecked:""
 	},
 	methods: {

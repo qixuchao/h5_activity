@@ -218,21 +218,22 @@ $rem:1rem/32;
 }
 .gl-physical-form-inner{
   position:relative;
+  white-space: nowrap;
   input{
     border:none;
     display:inline-block;
-    width:140*$rem;
+    width:180*$rem;
     height:50*$rem;
     line-height:50*$rem;
     font-size:28*$rem;
     text-indent:1em;
   }
   border-bottom:2*$rem solid #c7c6c6;
-  .unit{
-    position: absolute;
-    right:0;
-    top:0;
-  }
+  // .unit{
+  //   position: absolute;
+  //   right:0;
+  //   top:0;
+  // }
 }
 .gl-main{
     padding:0 60*$rem 0 60*$rem;
@@ -433,7 +434,7 @@ text-align:center;
   bottom:0;
   right:0;
   background:rgba(0,0,0,0.7);
-  z-index:99;
+  z-index:999;
   display: none;
   &:before{
     content:"";
