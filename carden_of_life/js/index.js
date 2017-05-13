@@ -156,8 +156,7 @@ var app = new Vue({
 			this.bmiValueToFixed = "?"; 
 			this.groupGrade={};
 			this.total = 0;
-			// this.showChecked = false;
-			this.showChecked = " ";
+			this.showChecked = false;
 		},
 		openShare:function(){
 			this.showShare = true;
