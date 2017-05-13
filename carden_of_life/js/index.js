@@ -44,7 +44,7 @@ var app = new Vue({
 		showResult:false,
 		showIndex:true,
 		BMI:'',
-		showShare:true,
+		showShare:'',
 		showChecked:""
 	},
 	methods: {
@@ -54,7 +54,7 @@ var app = new Vue({
 		slideNext: function() {
 			this.$refs.swiper.$swiper.slideNext();
 		},
-		selectOptions: function(grade, type, index,checkeds) {
+		selectOptions: function(grade, type, index) {
 			var _grade = grade;
 			if (this.preSelect[index]) {
 				grade -= this.preSelect[index];
@@ -65,33 +65,34 @@ var app = new Vue({
 			this.groupGrade[type] += parseInt(grade); //
 
 			this.preSelect[index] = _grade;
-			console.log()
+			console.log(grade, type, index,this.preSelect,this.groupGrade)
 		},
 		bmiUpdate: function() {
 			if (this.stature > 0 && this.weight > 0) {
-				console.log(Math.pow(this.stature, 2))
 				var b = this.weight,
 					a = this.stature,
-					value;
-				this.bmiValue = b / ((a / 100) * (a / 100));
+					value,sum;
+				 sum = b / ((a / 100) * (a / 100));
 				//this.bmiValueToFixed = this.bmiValue.toFixed(1);
-				
-				var bmi1 = this.bmiValue
-				if (bmi1 >= 27.4) {
-					value = 1;
-					this.BMI = 2;
-				}else if(bmi1 < 18.5){
-					value = 1;
-					this.BMI = 3;
-				} else if (bmi1 >= 18.5 && bmi1 < 23) {
-					value = 7;
-					this.BMI = 0;
-				} else if (bmi1 >= 23 && bmi1 < 27.4) {
-					value = 4;
-					this.BMI = 1;
+				if(sum>0){
+					this.bmiValue = sum;
+					var bmi1 = this.bmiValue;
+					if (bmi1 >= 27.4){
+						value = 1;
+						this.BMI = 2;
+					}else if(bmi1 < 18.5){
+						value = 1;
+						this.BMI = 3;
+					} else if (bmi1 >= 18.5 && bmi1 < 23) {
+						value = 7;
+						this.BMI = 0;
+					} else if (bmi1 >= 23 && bmi1 < 27.4) {
+						value = 4;
+						this.BMI = 1;
+					}
+					// this.BMI = value;
+					this.selectOptions(value, 1, 0)	
 				}
-				// this.BMI = value;
-				this.selectOptions(value, 1, 0)
 			}
 		},
 		submit:function(){
@@ -155,12 +156,13 @@ var app = new Vue({
 			this.weight = "";
 			this.bmiValueToFixed = "?"; 
 			this.groupGrade={};
+			this.preSelect = {};
 			this.total = 0;
 			document.querySelectorAll('input[type="radio"]').forEach(function(e){e.checked = false})
 		},
 		openShare:function(){
 			this.showShare = true;
-			jskit.openShare({
+			jskit.openShare && jskit.openShare({
 				title:"健康自测问卷",
 				desc:"健康自测问卷",
 				img:"",
@@ -281,4 +283,5 @@ var option = {
 };
 
 var myChart = echarts.init(document.querySelector('.gl-conclusion-chart'));
-
+/*清除微信拖动超出范围*/
+// document.addEventListener('touchmove', function(event) {event.preventDefault();}, false);

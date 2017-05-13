@@ -9,10 +9,13 @@
     </script>
 	<link rel="stylesheet" href="css/swiper.min.css">
 	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/commonality-btn.css">
 	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+    <div class="loading">
+        <!-- <div class="loading-anim"><img src="images/loading1.png" class="loadingImg"></div> -->
+        <div class="loading-plan"><span>0</span></div>
+    </div> 
 	<div id="container">
 	 <div class="gl-bg1 gl-page1" v-show="showIndex">
         	<div class="gl-page1-head">
@@ -151,9 +154,11 @@
 
         	</div>
 	    </div>
-	    <div class="gl-share" v-show="showShare" @click="closeShare"></div>
+	    <div class="gl-share" style="display: none" v-show="showShare" @click="closeShare"></div>
 	</div>
 	
+<script src="js/jquery.min.js"></script>
+<script src="js/loadImg.js"></script>
 <script src="js/vue.js"></script>
 <script src="js/swiper.min.js"></script>
 <script src="js/echarts.min.js"></script>

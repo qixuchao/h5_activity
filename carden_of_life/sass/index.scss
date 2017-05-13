@@ -222,7 +222,7 @@ $rem:1rem/32;
   input{
     border:none;
     display:inline-block;
-    width:180*$rem;
+    width:150*$rem;
     height:50*$rem;
     line-height:50*$rem;
     font-size:28*$rem;
@@ -434,8 +434,7 @@ text-align:center;
   bottom:0;
   right:0;
   background:rgba(0,0,0,0.7);
-  z-index:999;
-  display: none;
+  z-index:90;
   &:before{
     content:"";
     position:absolute;
@@ -458,4 +457,20 @@ text-align:center;
 .btn-green{
   color:#fff;
   background:$green;
+}
+.loading{
+  position:fixed;
+  z-index:9;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  color:#53ac28;
+  background:rgb(238,238,238);
+}
+.loading-plan{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
 }

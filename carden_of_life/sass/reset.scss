@@ -14,9 +14,13 @@ html {
   height: 100%;
   width: 100%;
   /*font-size:62.5%;*/
+  -webkit-tap-highlight-color:transparent;
 }
-input{
+input,label{
    outline-style: none;
+   border:0;
+   background:none;
+ -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 body {
   position: relative;
@@ -32,3 +36,4 @@ body {
 ul, li {
   list-style: none;
 }
+
