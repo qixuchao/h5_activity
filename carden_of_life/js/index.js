@@ -44,7 +44,7 @@ var app = new Vue({
 		showResult:false,
 		showIndex:true,
 		BMI:'',
-		showShare:false
+		showShare:false,
 	},
 	methods: {
 		slidePrev: function() {
@@ -148,7 +148,10 @@ var app = new Vue({
 		reset:function(){
 			this.showResult = false;
 			this.showIndex = true;
-			this.$refs.swiper.$swiper.slideTo(0)
+			this.$refs.swiper.$swiper.slideTo(0);
+			this.stature = "";
+			this.weight = "";
+			this.bmiValueToFixed = "?";
 		},
 		openShare:function(){
 			this.showShare = true;
