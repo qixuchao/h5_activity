@@ -5,7 +5,6 @@ Vue.directive('swiper', {
 
 	},
 	update: function(el, binding) {
-console.log(binding)
 		if (!binding.value || el.$swiper) {
 			return;
 		}
@@ -163,14 +162,16 @@ var app = new Vue({
 		},
 		indexStart:function(){
 			this.showIndex = false;
-			this.$refs.swiper.$swiper.update();
+			setTimeout(function(){
+				this.swiperOptions = {};
+			}.bind(this))
+			//this.$refs.swiper.$swiper.update();
 		},
 		returnIndex:function(){
 			this.showIndex = true;
 		}
 	},
 	mounted: function() {
-		this.swiperOptions = {};
 
 	},
 	beforeUpdate:function(){
