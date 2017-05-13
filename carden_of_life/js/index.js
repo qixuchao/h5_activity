@@ -43,7 +43,8 @@ var app = new Vue({
 		},
 		showResult:false,
 		showIndex:true,
-		BMI:''
+		BMI:'',
+		showShare:false
 	},
 	methods: {
 		slidePrev: function() {
@@ -53,14 +54,11 @@ var app = new Vue({
 			this.$refs.swiper.$swiper.slideNext();
 		},
 		selectOptions: function(grade, type, index) {
-			console.log(grade, type, index)
 			var _grade = grade;
 			if (this.preSelect[index]) {
 				grade -= this.preSelect[index];
 			}
-			console.log(grade)
 			this.total += parseInt(grade);
-			console.log(this.groupGrade)
 			this.groupGrade[type] = this.groupGrade[type] || 0; //默认值0
 
 			this.groupGrade[type] += parseInt(grade); //
@@ -153,12 +151,16 @@ var app = new Vue({
 			this.$refs.swiper.$swiper.slideTo(0)
 		},
 		openShare:function(){
+			this.showShare = true;
 			jskit.openShare({
 				title:"",
 				desc:"",
 				img:"",
 				link:""
-			})
+			});
+		},
+		closeShare:function(){
+			this.showShare = false;
 		},
 		indexStart:function(){
 			this.showIndex = false;
@@ -174,10 +176,7 @@ var app = new Vue({
 	mounted: function() {
 
 	},
-	beforeUpdate:function(){
-		this.swiperOptions = {};
 
-	}
 });
 
 var dpr = window.devicePixelRatio || 2;

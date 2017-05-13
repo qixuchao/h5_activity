@@ -1,0 +1,34 @@
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+  margin: 0;
+  padding: 0;
+}
+fieldset {
+  border: 0;
+}
+img {
+  border: 0;
+  display: block; 
+}
+html {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  /*font-size:62.5%;*/
+}
+input{
+   outline-style: none;
+}
+body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  /*font-size:62.5%;*/
+  font-family: PingFangSC-Regular,Microsoft YaHei;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style: none;
+}

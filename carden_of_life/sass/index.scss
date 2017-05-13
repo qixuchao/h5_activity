@@ -416,7 +416,26 @@ text-align:center;
     margin-right:$rem*110;
   }
 }
-/*公共*/
+.gl-share{
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  background:rgba(0,0,0,0.7);
+  z-index:99;
+  &:before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background:url(../img/share.png) no-repeat;
+    background-size:100% auto;
+  }
+}
+/*btn*/
 .btn{
   width:140*$rem;
   line-height:50*$rem;
