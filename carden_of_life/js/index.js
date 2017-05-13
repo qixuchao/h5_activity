@@ -161,10 +161,10 @@ var app = new Vue({
 		openShare:function(){
 			this.showShare = true;
 			jskit.openShare({
-				title:"",
-				desc:"",
+				title:"健康自测问卷",
+				desc:"健康自测问卷",
 				img:"",
-				link:""
+				link:location.href
 			});
 		},
 		closeShare:function(){
@@ -182,7 +182,12 @@ var app = new Vue({
 		}
 	},
 	mounted: function() {
-
+		jskit.openShare({
+			title:"健康自测问卷",
+			desc:"健康自测问卷",
+			img:"",
+			link:location.href
+		});
 	},
 
 });

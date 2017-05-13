@@ -63,11 +63,9 @@
 			 							</label>
 					 				</span>	
 					 				</li>
-					 				<li class="gl-physical-form-inner">
-					 					身高<input type="number" v-model="stature" @change="bmiUpdate"><span>CM</span>
+					 				<li class="gl-physical-form-inner">身高<input type="number" v-model="stature" @change="bmiUpdate"><span class="unit">CM</span>
 					 				</li>
-					 				<li class="gl-physical-form-inner">
-					 					体重<input type="number" @change="bmiUpdate" v-model="weight"><span>KG</span>
+					 				<li class="gl-physical-form-inner">体重<input type="number" @change="bmiUpdate" v-model="weight"><span class="unit">KG</span>
 					 				</li>
 					 			</ul>
 					 			<p class="gl-explain gl-describe">
@@ -108,7 +106,7 @@
 				 							<label 
 				 								class="gl-radio-box" 
 				 								@change="selectOptions(answer.grade,item.type,index+1)">
-				 								<input type="radio" :name="'answer_'+index"  v-bind:checked = "showChecked">
+				 								<input type="radio" :name="'answer_'+index" >
 				 								<span class="gl-radio"></span>					 {{optionMap[index2]}}.
 					 							{{answer.text}}
 				 							</label>
@@ -160,8 +158,8 @@
 <script src="js/swiper.min.js"></script>
 <script src="js/echarts.min.js"></script>
 <script src="js/config.js"></script>
-<script src="http://static.fancysmp.com/activity/libs/jskit.js"></script>
-<script src="http://static.fancysmp.com/activity/libs/jsweixin.js"></script>
+<script type="text/javascript" src="http://static.fancysmp.com/xiawan/SDK/jsweixin.js"></script>
+<script type="text/javascript" src="http://static.fancysmp.com/xiawan/SDK/jskit.js"></script>
 <script src="js/index.js"></script>
 </body>
 </html>
