@@ -107,8 +107,9 @@
 				 						<li v-for="(answer,index2) in item.answer">
 				 							<label 
 				 								class="gl-radio-box" 
+				 								
 				 								@change="selectOptions(answer.grade,item.type,index+1)">
-				 								<input type="radio" :name="'answer_'+index" >
+				 								<input type="radio" :name="'answer_'+index"  v-bind:checked = "showChecked">
 				 								<span class="gl-radio"></span>					 {{optionMap[index2]}}.
 					 							{{answer.text}}
 				 							</label>

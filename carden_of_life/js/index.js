@@ -45,6 +45,7 @@ var app = new Vue({
 		showIndex:true,
 		BMI:'',
 		showShare:false,
+		showChecked:""
 	},
 	methods: {
 		slidePrev: function() {
@@ -53,7 +54,7 @@ var app = new Vue({
 		slideNext: function() {
 			this.$refs.swiper.$swiper.slideNext();
 		},
-		selectOptions: function(grade, type, index) {
+		selectOptions: function(grade, type, index,checkeds) {
 			var _grade = grade;
 			if (this.preSelect[index]) {
 				grade -= this.preSelect[index];
@@ -64,6 +65,7 @@ var app = new Vue({
 			this.groupGrade[type] += parseInt(grade); //
 
 			this.preSelect[index] = _grade;
+			console.log()
 		},
 		bmiUpdate: function() {
 			if (this.stature > 0 && this.weight > 0) {
@@ -151,7 +153,11 @@ var app = new Vue({
 			this.$refs.swiper.$swiper.slideTo(0);
 			this.stature = "";
 			this.weight = "";
-			this.bmiValueToFixed = "?";
+			this.bmiValueToFixed = "?"; 
+			this.groupGrade={};
+			this.total = 0;
+			// this.showChecked = false;
+			this.showChecked = " ";
 		},
 		openShare:function(){
 			this.showShare = true;
