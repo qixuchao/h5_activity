@@ -38,7 +38,7 @@ var app = new Vue({
 		stature: "",
 		weight: "",
 		bmiValue: "0",
-		bmiValueToFixed: "？",
+		//bmiValueToFixed: "？",
 		comments:{
 		},
 		showResult:false,
@@ -73,8 +73,8 @@ var app = new Vue({
 				var b = this.weight,
 					a = this.stature,
 					value;
-				this.bmiValue = b * 1.0 / ((a * 1.0 / 100) * (a * 1.0 / 100));
-				this.bmiValueToFixed = this.bmiValue.toFixed(1);
+				this.bmiValue = b / ((a / 100) * (a / 100));
+				//this.bmiValueToFixed = this.bmiValue.toFixed(1);
 				
 				var bmi1 = this.bmiValue
 				if (bmi1 >= 27.4) {
@@ -156,7 +156,7 @@ var app = new Vue({
 			this.bmiValueToFixed = "?"; 
 			this.groupGrade={};
 			this.total = 0;
-			this.showChecked = false;
+			document.querySelectorAll('input[type="radio"]').forEach(function(e){e.checked = false})
 		},
 		openShare:function(){
 			this.showShare = true;
@@ -181,8 +181,16 @@ var app = new Vue({
 			this.showIndex = true;
 		}
 	},
+	computed:{
+		bmiValueToFixed:function(){
+			if(!this.weight || !this.stature){
+				return '?'
+			}
+			return (this.weight / Math.pow(this.stature/100,2)).toFixed(1);
+		}
+	},
 	mounted: function() {
-		jskit.openShare({
+		jskit.openShare && jskit.openShare({
 			title:"健康自测问卷",
 			desc:"健康自测问卷",
 			img:"",
