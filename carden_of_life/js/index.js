@@ -5,7 +5,7 @@ Vue.directive('swiper', {
 
 	},
 	update: function(el, binding) {
-
+console.log(binding)
 		if (!binding.value || el.$swiper) {
 			return;
 		}
@@ -43,6 +43,7 @@ var app = new Vue({
 		comments:{
 		},
 		showResult:false,
+		showIndex:true,
 		BMI:''
 	},
 	methods: {
@@ -77,14 +78,20 @@ var app = new Vue({
 				this.bmiValueToFixed = this.bmiValue.toFixed(1);
 				
 				var bmi1 = this.bmiValue
-				if (bmi1 >= 27.4 || bmi1 < 18.5) {
+				if (bmi1 >= 27.4) {
 					value = 1;
+					this.BMI = 2;
+				}else if(bmi1 < 18.5){
+					value = 1;
+					this.BMI = 3;
 				} else if (bmi1 >= 18.5 && bmi1 < 23) {
 					value = 7;
+					this.BMI = 0;
 				} else if (bmi1 >= 23 && bmi1 < 27.4) {
 					value = 4;
+					this.BMI = 1;
 				}
-				this.BMI = value;
+				// this.BMI = value;
 				this.selectOptions(value, 1, 0)
 			}
 		},
@@ -95,20 +102,45 @@ var app = new Vue({
 				score,
 				index;
 			for(var i=0,len=map.length;i<len;i++){
-				score = this.groupGrade[map[i]]
+				score = this.groupGrade[map[i]];
 				data.push(score);
 				if(map[i] == 1){
-					if(this.BMI == 7){
-						index = 0 
-					}else if(this.BMI == 4){
-						index = 1
-					}else if(this.BMI > 7){
-						index = 2 
-					}else if(this.BMI < 4){
-						index = 3
+					this.comments['BMI'] = verdict[map[i]][this.BMI];
+				};
+				if(map[i] == 2){
+					if(score>40){
+						index = 0;
+					}else if(score>30&&score<=40){
+						index = 1;
+					}else if(score<=30){
+						index = 2;
 					}
-					this.comments['BMI'] = verdict[map[i]][index];
-				}
+					this.comments['饮食'] = verdict[map[i]][index];
+				};
+				if(map[i] == 3){
+					if(score>15){
+						index = 0;
+					}else if(score<=15){
+						index = 1;
+					}
+					this.comments['运动'] = verdict[map[i]][index];
+				};
+				if(map[i] == 4){
+					if(score>2){
+						index = 0;
+					}else if(score<=2){
+						index = 1;
+					}
+					this.comments['情绪'] = verdict[map[i]][index];
+				};
+				if(map[i] == 5){
+					if(score>3){
+						index = 0;
+					}else if(score<=3){
+						index = 1;
+					}
+					this.comments['睡眠'] = verdict[map[i]][index];
+				};
 			}
 			setTimeout(function(){
 				option.series[0].data[0]  = data;
@@ -118,6 +150,7 @@ var app = new Vue({
 		},
 		reset:function(){
 			this.showResult = false;
+			this.showIndex = true;
 			this.$refs.swiper.$swiper.slideTo(0)
 		},
 		openShare:function(){
@@ -127,10 +160,18 @@ var app = new Vue({
 				img:"",
 				link:""
 			})
+		},
+		indexStart:function(){
+			this.showIndex = false;
+			this.$refs.swiper.$swiper.update();
+		},
+		returnIndex:function(){
+			this.showIndex = true;
 		}
 	},
 	mounted: function() {
 		this.swiperOptions = {};
+
 	}
 });
 

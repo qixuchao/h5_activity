@@ -32,6 +32,7 @@ body {
 ul, li {
   list-style: none;
 }
+$green:#53ac28;
 $rem:1rem/32;
 #container {
   height: 100%;
@@ -55,8 +56,8 @@ $rem:1rem/32;
     position:absolute;
     top:0;
     left:0;
-    border-top: 8*$rem solid #53ac28;
-    border-left: 8*$rem solid #53ac28;
+    border-top: 8*$rem solid $green;
+    border-left: 8*$rem solid $green;
     width:95*$rem; 
     height:95*$rem; 
   }
@@ -67,8 +68,8 @@ $rem:1rem/32;
     right:0;
     width:95*$rem; 
     height:95*$rem; 
-    border-bottom: 8*$rem solid #53ac28;
-    border-right: 8*$rem solid #53ac28;
+    border-bottom: 8*$rem solid $green;
+    border-right: 8*$rem solid $green;
   }
 }
 
@@ -99,7 +100,7 @@ $rem:1rem/32;
   font-size: 33*$rem;
   letter-spacing: 0.1*$rem;
   line-height: 80*$rem;
-  color: #53ac28;
+  color: $green;
   text-align:center;
   font-weight: bold;
 }
@@ -126,6 +127,7 @@ $rem:1rem/32;
   -webkit-align-items: center;
   align-items: center;
 }
+
 
 .gl-QA-type {
   font-size: 0.8125rem;
@@ -233,6 +235,10 @@ $rem:1rem/32;
 .gl-explain{
   text-align:left;
 }
+.gl-page1{
+  height:100%;
+  width:100%;
+}
 .gl-page1-head{
   position:absolute;
   top:170*$rem;
@@ -264,16 +270,18 @@ $rem:1rem/32;
     width: 24%;
     margin: 20*$rem auto 15*$rem;
   }
+
 }
 .gl-page-inner{
   position:relative;
+  padding-left:$rem*30;
   &:before {
     content: "";
     position:absolute;
     top:0;
     left:0;
-    border-top: 4*$rem solid #53ac28;
-    border-left: 4*$rem solid #53ac28;
+    border-top: 4*$rem solid $green;
+    border-left: 4*$rem solid $green;
     width:40*$rem; 
     height:40*$rem; 
   }
@@ -284,8 +292,8 @@ $rem:1rem/32;
     right:0;
     width:40*$rem; 
     height:40*$rem; 
-    border-bottom: 4*$rem solid #53ac28;
-    border-right: 4*$rem solid #53ac28;
+    border-bottom: 4*$rem solid $green;
+    border-right: 4*$rem solid $green;
   }
 }
 .gl-page1-foot{
@@ -295,15 +303,16 @@ $rem:1rem/32;
   width:100%;
   padding-bottom:30*$rem; 
   font-size:$rem*20;
-
+text-align:center;
   .btn{
     margin-bottom:30*$rem; 
-    margin:0 auto;
+    width:$rem*240;
+    height:$rem*60;
+    position:relative;
   }
 }
 .pl-page1-explain{
   line-height:30*$rem; 
-  text-align:center;
   font-size:$rem*15;
   color:#fff;
   margin-top:$rem*30;
@@ -336,7 +345,7 @@ $rem:1rem/32;
 }
 .gl-conclusion{
   .gl-logo{
-    margin-top:$rem*80;
+    margin-top:$rem*180;
     width:$rem*195;
     margin-bottom:$rem*20;
   }
@@ -366,15 +375,46 @@ $rem:1rem/32;
 .gl-conclusion-title1{
   text-align:center;
   font-size:$rem*35;
+  color:$green;
 }
 .gl-conclusion-total{
   font-size:$rem*114;
   line-height:$rem*260;
+  text-align:center;
+  color:$green;
 }
-  
+.gl-conclusion-list{
+  color:#8d8d8d;
+  line-height:$rem*40;
+  font-size:$rem*24;
+  padding-bottom:$rem*45;
+} 
+.gl-conclusion-type{
+  color:#212121;
+  margin-top:$rem*50;
+} 
+.gl-conclusion-remark{
 
+}
+.gl-total-text{
+  margin-top:$rem*30;
+  color:$green;
+  font-size:$rem*24;
+  line-height:$rem*40;
+}
+.gl-conclusion-main{
+  padding:0 $rem*60;
+}
+.gl-product-img{
+  width:100%;
+}
 .gl-conclusion-btn-box{
-
+  padding-top:$rem*70;
+  padding-bottom:$rem*90;
+  .btn:nth-of-type(1){
+    margin-left:$rem*60;
+    margin-right:$rem*110;
+  }
 }
 /*公共*/
 .btn{
@@ -386,5 +426,5 @@ $rem:1rem/32;
 }
 .btn-green{
   color:#fff;
-  background:#53ac28;
+  background:$green;
 }

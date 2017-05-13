@@ -12,27 +12,27 @@
 </head>
 <body>
 	<div id="container">
+	 <div class="gl-bg1 gl-page1" v-show="showIndex">
+        	<div class="gl-page1-head">
+        		<img src="img/logo-2.png" alt="" class="gl-logo"/>
+        		<div class="gl-page-inner">
+        			<h3 class="gl-QA-title">健康自测问卷</h3>
+	 				<p class="gl-QA-title2">HEALTH SELF - TEST QUESTIONNAIRE</p>
+        		</div>
+        	</div>
+        	<div class="gl-page1-foot">
+	 				<button class="btn btn-green" 
+	 					@click="indexStart()">开始测试</button>
+	 				<p class="pl-page1-explain">生命花园Garden of Life就以“助力非凡健康”为己任<br>我们的目标则是为消费者提供最干净、最优质的
+	 				<br/>全食物营养成分</p>	
+	 				
+        	</div>
+        </div>
 		<div class="swiper-container"  
 			v-swiper="swiperOptions" 
 			ref="swiper"
-			v-show="!showResult" >
+			v-show="!showResult && !showIndex">
 	        <div class="swiper-wrapper">
-	            <div class="swiper-slide swiper-no-swiping gl-bg1">
-	            	<div class="gl-page1-head">
-	            		<img src="img/logo-2.png" alt="" class="gl-logo"/>
-	            		<div class="gl-page-inner">
-	            			<h3 class="gl-QA-title">健康自测问卷</h3>
-			 				<p class="gl-QA-title2">HEALTH SELF - TEST QUESTIONNAIRE</p>
-	            		</div>
-	            	</div>
-	            	<div class="gl-page1-foot">
-			 				<button class="btn btn-green" 
-			 					@click="slideNext()">开始测试</button>
-			 				<p class="pl-page1-explain">生命花园Garden of Life就以“助力非凡健康”为己任<br>我们的目标则是为消费者提供最干净、最优质的
-			 				<br/>全食物营养成分</p>	
-			 				
-	            	</div>
-	            </div>
 	            <div class="swiper-slide gl-bg2">
 				 	<div class="gl-QA-wrapper">
 		            	<div class="gl-QA-inner">
@@ -80,7 +80,7 @@
 				 				</div>
 					 			<div class="gl-QA-btn-box">
 					 				<button class="btn btn-green" 
-					 					@click="slidePrev()">首页</button>
+					 					@click="returnIndex()">首页</button>
 					 				<button class="btn btn-green"
 					 				@click="slideNext()">下一页</button>
 					 			</div>				 				
@@ -134,23 +134,21 @@
         	<h3 class="gl-conclusion-title1">评分</h3>
         	<div class="gl-conclusion-total">{{total}}</div>
         	<div class="gl-conclusion-chart" v-echarts ref="echarts">
-
         	</div>
-        	<div class="gl-total-text"></div>
-        	<ul>
-        		<li v-for="">
-        			<dl>
-        				<template v-for="(val,key) in comments">
-        					<dt>{{key}}</dt>
-        					<dd v-html="val"></dd>
-        				</template>
-        			</dl>
-        		</li>
-        	</ul>
-        	<img src="" alt="">
-        	<div class="gl-conclusion-btn-box">
-        		<button class="btn btn-green" @click="reset">在一次</button>
-        		<button class="btn btn-green" @click="openShare">分享</button>
+        	<div class="gl-conclusion-main">
+	        	<div class="gl-total-text"></div>
+				<dl class="gl-conclusion-list">
+					<template v-for="(val,key) in comments">
+						<dt  class="gl-conclusion-type">{{key}}</dt>
+						<dd v-html="val"></dd>
+					</template>
+				</dl>
+	        	<img src="img/lanzi.png" alt="" class="gl-product-img">
+	        	<div class="gl-conclusion-btn-box">
+	        		<button class="btn btn-green" @click="reset">在一次</button>
+	        		<button class="btn btn-green" @click="openShare">分享</button>
+	        	</div>
+
         	</div>
 	    </div>
 	</div>
