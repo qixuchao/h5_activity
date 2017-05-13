@@ -69,7 +69,6 @@ var app = new Vue({
 		},
 		bmiUpdate: function() {
 			if (this.stature > 0 && this.weight > 0) {
-				console.log(Math.pow(this.stature, 2))
 				var b = this.weight,
 					a = this.stature,
 					value;
@@ -160,7 +159,7 @@ var app = new Vue({
 		},
 		openShare:function(){
 			this.showShare = true;
-			jskit.openShare({
+			jskit.openShare && jskit.openShare({
 				title:"健康自测问卷",
 				desc:"健康自测问卷",
 				img:"",
