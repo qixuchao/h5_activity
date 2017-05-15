@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Garden of Life</title>
+	<meta name="description" content="Garden of Life 健康生活">
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script data-js-path="redraw.js">
+        !(function(f,o){var a=navigator.userAgent,b=/iphone|ipad|ipod/i.test(a),i=/android/ig.test(a),j=/Mobile/i.test(a)||b||i;var n=document.querySelector("[name=viewport]"),k=b?window.devicePixelRatio?Math.min(window.devicePixelRatio,3):1:1,c=document.documentElement,l=k*(c.dataset.mw||750),d=1/k,e;f=f||320;o=o||16;if(n){var h=n.content||"",g=h.match(/initial\-scale=([\d\.]+)/);if(g){h=h.replace(/initial\-scale=([\d\.]+)/,"initial-scale="+d)}else{h+=",initial-scale="+d}n.content=h.replace(/minimum\-scale=([\d\.]+)/,"").replace(/maximum\-scale=([\d\.]+)/,"")}else{n=doc.createElement("meta");n.name="viewport";n.content="maximum-scale="+d+",minimum-scale="+d+",user-scalable=0,width=device-width;initial-scale="+d;c.firstElementChild.appendChild(n)}var m=function(){var q=window.innerWidth;var p=Math.min(q,l)/f*o;c.style.fontSize=p+"px"};if(j){window.addEventListener("resize",function(){clearTimeout(e);e=setTimeout(m,300)},false);m()}else{c.style.fontSize="16px"}})(320,16);
+    </script>
+    <link rel="stylesheet" type="text/css" href="./css/game.css">
+</head>
+<body>
+	<section class="container">
+		<!--封面-->
+		<div class="gl-cover gl-start-cover" style="display: none;" 
+			v-show="step == 0">
+			<button class="start-btn" @click="step = 1"></button>
+		</div>
+		<!--选择性别-->
+		<div class="gl-select-sex" style="display: none;" v-show="step == 1">
+			<div class="gl-cover person-select-wrapper">
+				<div class="person-scene">
+					<label class="gl-checkbox">
+						<div class="person-part person-left"></div>
+						<input type="radio" name="sex" value="0" v-model="sex">
+						<span></span>
+					</label>
+				</div>
+				<div class="person-scene person-scene-right">
+					<label class="gl-checkbox">
+						<div class="person-part person-right"></div>
+						<input type="radio" name="sex" value="1" v-model="sex">
+						<span></span>
+					</label>
+				</div>
+				<button class="select-next-btn" @click="step = 2"></button>
+			</div>
+			
+		</div>
+		<!--开始答题-->
+		<div class="gl-subject gl-cover person-select-wrapper "
+				:class="{male:sex == 1}"
+			 v-show="step == 2">
+
+			<div class="person-body">
+				
+			</div>
+			<div class="organ mouth">
+				<div class="ball-scale-ripple-multiple"
+					@click="openDialog(1)"
+					:class="{'over':organ[1]}">
+		          <span class="spot"></span>
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		        </div>
+			</div>
+			<div class="organ belly">
+				<div class=" ball-scale-ripple-multiple"
+					@click="openDialog(3)"
+					:class="{'over':organ[3]}">
+		          <span class="spot"></span>
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		        </div>
+			</div>
+			<div class="organ intestine">
+				<div class=" ball-scale-ripple-multiple"
+				@click="openDialog(2)"
+				:class="{'over':organ[2]}">
+		          <span class="spot"></span>
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		        </div>
+			</div>
+			<div class="organ arm">
+				<div class=" ball-scale-ripple-multiple"
+					@click="openDialog(0)"
+					:class="{'over':organ[0]}">
+		          <span class="spot"></span>
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		          <div></div>
+		        </div>
+		    </div>
+		    <!--距离-->
+	        <div class="gl-distance">
+	        	<div class="gl-rule-wrapper">
+	        		<div class="slider" 
+	        			:style="'width:'+total/16*100+'%'"></div>
+	        		<div class="fire" :style="'left:'+(total/16*100)+'%'"></div>
+	        		<div class="headimg"></div>
+	        	</div>
+				<p>明星距离 {{total}}</p>
+	        </div>
+
+	        <div class="modal" style="display: none" 
+	        	v-show="showDialog"
+	        	@click="closeDialog()">
+	        	<div class="modal-dialog"
+	        		@click.stop="">
+	        		<div class="modal-dialog-hd">
+	        			{{subject[QAIndex].question}}
+	        		</div>
+	        		<div class="modal-dialog-bd">
+	        			<ul>
+	        				<li v-for="(item,index) in subject[QAIndex].answer">
+	        					<label class="gl-checkbox"
+	        						@click="setOption(index,item.score)">
+	        						<input type="radio" name="option" value="0">
+	        						<span></span>
+	        						A {{item.option}}
+	        					</label>
+	        				</li>
+	        			</ul>
+	        			<button class="gl-submit" @click="submit()"></button>
+	        		</div>
+	        		
+	        	</div>
+	        </div>
+		</div>
+		<!--结果页面-->
+		<div class="gl-result" v-show="step == 3">
+			<div class="result-bg">
+				<div class="result-status"></div>
+				<div class="result-descption">
+					身材火辣的你，更希望成为和男神比肩齐眉的女神。不要对自己太苛刻哦，匀称的好体型并不需要你剑拔弩张地对抗饥饿感。适当的营养和运动，搭配既可以燃脂又有饱腹感的蛋白粉，让男神的目光，每一寸都属于你。
+				</div>
+			</div>
+		</div>
+	</section>
+	<script src="js/vue.js"></script>
+	<script src="js/game.js"></script>
+</body>
+</html>
