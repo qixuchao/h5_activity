@@ -1,3 +1,8 @@
+if ('addEventListener' in document) {
+	document.addEventListener('DOMContentLoaded', function() {
+		FastClick.attach(document.body);
+	}, false);
+}
 Vue.directive('swiper', {
 	isFn: true,
 	deep: true,
@@ -45,7 +50,8 @@ var app = new Vue({
 		showIndex:true,
 		BMI:'',
 		showShare:'',
-		showChecked:""
+		selectState:selectState,
+		genderSelect:false
 	},
 	methods: {
 		slidePrev: function() {
@@ -56,6 +62,8 @@ var app = new Vue({
 		},
 		selectOptions: function(grade, type, index) {
 			var _grade = grade;
+			this.selectState[index] = true;
+			this.checkLockStatus();
 			if (this.preSelect[index]) {
 				grade -= this.preSelect[index];
 			}
@@ -65,10 +73,13 @@ var app = new Vue({
 			this.groupGrade[type] += parseInt(grade); //
 
 			this.preSelect[index] = _grade;
-			console.log(grade, type, index,this.preSelect,this.groupGrade)
 		},
-		bmiUpdate: function() {
-			if (this.stature > 0 && this.weight > 0) {
+		bmiUpdate: function(val) {
+			if(val == 'true'){
+				this.genderSelect = true;
+				this.checkLockStatus();
+			}
+			else if (this.stature > 0 && this.weight > 0) {
 				var b = this.weight,
 					a = this.stature,
 					value,sum;
@@ -76,23 +87,28 @@ var app = new Vue({
 				//this.bmiValueToFixed = this.bmiValue.toFixed(1);
 				if(sum>0){
 					this.bmiValue = sum;
-					var bmi1 = this.bmiValue;
-					if (bmi1 >= 27.4){
+					if (sum >= 27.4){
 						value = 1;
 						this.BMI = 2;
-					}else if(bmi1 < 18.5){
+					}else if(sum < 18.5){
 						value = 1;
 						this.BMI = 3;
-					} else if (bmi1 >= 18.5 && bmi1 < 23) {
+					} else if (sum >= 18.5 && sum < 23) {
 						value = 7;
 						this.BMI = 0;
-					} else if (bmi1 >= 23 && bmi1 < 27.4) {
+					} else if (sum >= 23 && sum < 27.4) {
 						value = 4;
 						this.BMI = 1;
 					}
 					// this.BMI = value;
-					this.selectOptions(value, 1, 0)	
+					this.selectOptions(value, 1, 0)	;
 				}
+			};
+			if(this.genderSelect == true && this.bmiValue > 0){
+				// console.log(this.genderSelect)
+				this.selectState[0] = true;
+				this.checkLockStatus()
+				// console.log(selectState)
 			}
 		},
 		submit:function(){
@@ -160,8 +176,6 @@ var app = new Vue({
 			this.total = 0;
 			var radio = Array.prototype.slice.call(document.querySelectorAll('input[type="radio"]'));
 			radio.forEach(function(e){e.checked = false});
-			console.log(radio);
-			// document.querySelectorAll('input[type="radio"]').forEach(function(e){e.checked = false})
 		},
 		openShare:function(){
 			this.showShare = true;
@@ -177,15 +191,50 @@ var app = new Vue({
 		},
 		indexStart:function(){
 			this.showIndex = false;
+			var self = this;
 			setTimeout(function(){
-				this.swiperOptions = {};
-			}.bind(this))
-			//this.$refs.swiper.$swiper.update();
+				this.swiperOptions = {
+					onInit:function(swiper){
+						swiper.lockSwipeToNext();
+						swiper.autoHeight();
+					},
+					onSlidePrevStart:function(swiper){
+						swiper.unlockSwipeToNext();
+					},
+					onSlideNextEnd:function(swiper){
+						var val = swiper.activeIndex;
+						console.log(val)
+						if(self.selectState[val+1]){
+							swiper.unlockSwipeToNext();
+						}else{
+							swiper.lockSwipeToNext();
+						}
+					}
+				};
+				
+			}.bind(this));
 		},
 		returnIndex:function(){
 			this.showIndex = true;
+		},
+		pageNext: function(val) {
+			this.$refs.swiper.$swiper.unlockSwipeToNext();
+			this.$refs.swiper.$swiper.slideNext();
+		
+		},
+		checkLockStatus:function(){
+			var swiper = this.$refs.swiper
+			if(swiper){
+				var index = swiper.$swiper.activeIndex;
+				if(this.selectState[index]){
+					swiper.$swiper.unlockSwipeToNext();
+				}else{
+					swiper.$swiper.lockSwipeToNext();
+				}
+			}
 		}
 	},
+	
 	computed:{
 		bmiValueToFixed:function(){
 			if(!this.weight || !this.stature){
@@ -201,7 +250,7 @@ var app = new Vue({
 			img:"",
 			link:location.href
 		});
-	},
+	}
 
 });
 
