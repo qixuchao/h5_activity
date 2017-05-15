@@ -29,7 +29,6 @@ Vue.directive('echarts', {
 
 var app = new Vue({
 	el: '#container',
-	//template:'<div><div v-for="item in list">{{item.type}}</div></div>',
 	data: {
 		counter: 0,
 		list: data,
@@ -50,7 +49,7 @@ var app = new Vue({
 		showIndex:true,
 		BMI:'',
 		showShare:'',
-		selectState:selectState,
+		selectState: {},
 		genderSelect:false
 	},
 	methods: {
@@ -62,7 +61,9 @@ var app = new Vue({
 		},
 		selectOptions: function(grade, type, index) {
 			var _grade = grade;
-			this.$set(this.selectState,index,true)
+
+			this.$set(this.selectState,index,true);
+
 			this.checkLockStatus();
 			if (this.preSelect[index]) {
 				grade -= this.preSelect[index];
@@ -73,15 +74,10 @@ var app = new Vue({
 			this.groupGrade[type] += parseInt(grade); //
 
 			this.preSelect[index] = _grade;
-
-			Vue.nextTick(function () {
-			  // DOM 更新了
-			})
 		},
 		bmiUpdate: function(val) {
 			if(val == 'true'){
 				this.genderSelect = true;
-				this.checkLockStatus();
 			}
 			else if (this.stature > 0 && this.weight > 0) {
 				var b = this.weight,
@@ -110,8 +106,8 @@ var app = new Vue({
 			};
 			if(this.genderSelect == true && this.bmiValue > 0){
 				// console.log(this.genderSelect)
-				this.selectState[0] = true;
-				this.checkLockStatus()
+				//this.selectState[0] = true;
+				//this.checkLockStatus()
 				// console.log(selectState)
 			}
 		},
@@ -207,7 +203,6 @@ var app = new Vue({
 					},
 					onSlideNextEnd:function(swiper){
 						var val = swiper.activeIndex;
-						console.log(val)
 						if(self.selectState[val+1]){
 							swiper.unlockSwipeToNext();
 						}else{
@@ -221,15 +216,11 @@ var app = new Vue({
 		returnIndex:function(){
 			this.showIndex = true;
 		},
-		pageNext: function(val) {
-			this.$refs.swiper.$swiper.unlockSwipeToNext();
-			this.$refs.swiper.$swiper.slideNext();
-		
-		},
 		checkLockStatus:function(){
 			var swiper = this.$refs.swiper
 			if(swiper){
 				var index = swiper.$swiper.activeIndex;
+				console.log(this.selectState[index])
 				if(this.selectState[index]){
 					swiper.$swiper.unlockSwipeToNext();
 				}else{
