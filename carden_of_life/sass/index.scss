@@ -338,7 +338,7 @@ $wrapper-min-height:800*$rem;
 }
 .gl-conclusion{
   .gl-logo{
-    margin-top:$rem*180;
+    margin-top:$rem*60;
     width:$rem*195;
     margin-bottom:$rem*20;
   }
@@ -372,13 +372,13 @@ $wrapper-min-height:800*$rem;
 }
 .gl-conclusion-total{
   font-size:$rem*114;
-  line-height:$rem*260;
+  line-height:$rem*200;
   text-align:center;
   color:$green;
 }
 .gl-conclusion-list{
   color:#8d8d8d;
-  line-height:$rem*40;
+  line-height:$rem*30;
   font-size:$rem*24;
   padding-bottom:$rem*45;
 } 

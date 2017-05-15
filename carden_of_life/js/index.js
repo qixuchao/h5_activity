@@ -62,7 +62,7 @@ var app = new Vue({
 		},
 		selectOptions: function(grade, type, index) {
 			var _grade = grade;
-			this.selectState[index] = true;
+			this.$set(this.selectState,index,true)
 			this.checkLockStatus();
 			if (this.preSelect[index]) {
 				grade -= this.preSelect[index];
@@ -73,6 +73,10 @@ var app = new Vue({
 			this.groupGrade[type] += parseInt(grade); //
 
 			this.preSelect[index] = _grade;
+
+			Vue.nextTick(function () {
+			  // DOM 更新了
+			})
 		},
 		bmiUpdate: function(val) {
 			if(val == 'true'){

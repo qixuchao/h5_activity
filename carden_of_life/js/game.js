@@ -90,7 +90,7 @@
 			selectIndex:0,
 			selectScore:0,
 			total:0,
-			step:3
+			step:0
 		},
 		methods:{
 			openDialog:function(index){

@@ -78,6 +78,8 @@ $rem:1rem/32;
 		display: inline-block;
 		background-image:url(../img/index_checkbox.png);
 		background-position:$rem*-204 0;
+		background-size:contain;
+		background-repeat:no-repeat;
 		margin:0 auto;
 	}
 }
