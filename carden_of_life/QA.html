@@ -79,7 +79,7 @@
 					 				<button class="btn btn-green" 
 					 					@click="returnIndex()">首页</button>
 					 					<button class="btn btn-green"
-					 							 @click="pageNext(0)"
+					 							@click="slideNext()"
 					 							 :disabled="!selectState[0]">下一页</button>
 					 			</div>				 				
 				 			</div>
@@ -117,7 +117,7 @@
 				 				<button class="btn btn-green" 
 				 					@click="slidePrev()">上一页</button>
 				 				<button class="btn btn-green"
-					 				@click="pageNext(index+1)"
+					 				@click="slideNext()"
 					 				:disabled="!this.selectState[index+1]"
 					 				v-if="index != list.length-1">下一页</button>
 				 				<button class="btn btn-green"
