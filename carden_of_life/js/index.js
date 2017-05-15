@@ -158,7 +158,10 @@ var app = new Vue({
 			this.groupGrade={};
 			this.preSelect = {};
 			this.total = 0;
-			document.querySelectorAll('input[type="radio"]').forEach(function(e){e.checked = false})
+			var radio = Array.prototype.slice.call(document.querySelectorAll('input[type="radio"]'));
+			radio.forEach(function(e){e.checked = false});
+			console.log(radio);
+			// document.querySelectorAll('input[type="radio"]').forEach(function(e){e.checked = false})
 		},
 		openShare:function(){
 			this.showShare = true;
@@ -203,7 +206,6 @@ var app = new Vue({
 });
 
 var dpr = window.devicePixelRatio || 2;
-
 var fontSize = dpr / 2 * 24,
 	lineWidth = dpr / 2 * 5,
 	symbolSize = dpr / 2 * 10;

@@ -1,4 +1,4 @@
-var arrImg=['./img/A.png','./img/B.png','./img/C.png','./img/D.png','./img/E.png','./img/lanzi.png','./img/logo-1.png','./img/logo-2.png','./img/share.png'];
+var arrImg=['./img/A.png','./img/C.png','./img/D.png','./img/E.png','./img/lanzi.png','./img/logo-1.png','./img/logo-2.png','./img/share.png'];
 var num=0;
 // window.loadingImgm = setInterval(function(){
 //     loadingNums++;
