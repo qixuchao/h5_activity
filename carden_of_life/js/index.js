@@ -50,7 +50,7 @@ var app = new Vue({
 		showIndex:true,
 		BMI:'',
 		showShare:'',
-		selectState: {},
+		selectState:selectState,
 		genderSelect:false
 	},
 	methods: {
@@ -63,7 +63,6 @@ var app = new Vue({
 		selectOptions: function(grade, type, index) {
 			var _grade = grade;
 			this.selectState[index] = true;
-			console.log(this.selectState[index] ,index)
 			this.checkLockStatus();			
 			if (this.preSelect[index]) {
 				grade -= this.preSelect[index];
@@ -222,7 +221,6 @@ var app = new Vue({
 				var index = swiper.$swiper.activeIndex;
 				console.log(this.selectState[index])
 				if(this.selectState[index]){
-					console.log("ya")
 					swiper.$swiper.unlockSwipeToNext();
 				}else{
 					swiper.$swiper.lockSwipeToNext();
