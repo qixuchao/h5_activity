@@ -1,4 +1,4 @@
-if ('addEventListener' in document) {
+if ('addEventListener' in document) { //解决 input选中延迟问题
 	document.addEventListener('DOMContentLoaded', function() {
 		FastClick.attach(document.body);
 	}, false);
@@ -196,8 +196,8 @@ var app = new Vue({
 				this.swiperOptions = {
 					onInit:function(swiper){
 						swiper.lockSwipeToNext();
-						swiper.autoHeight();
-					},
+						
+					},autoHeight:true,
 					onSlidePrevStart:function(swiper){
 						swiper.unlockSwipeToNext();
 					},
