@@ -120,6 +120,7 @@ $rem:1rem/32;
 		left:$rem*4;
 		top:$rem*5;
 		background:#ff4600;
+		transition: 0.6s width;
 	}
 	&>.fire{
 		position:absolute;
@@ -189,6 +190,82 @@ $rem:1rem/32;
 		}
 	}
 }
+
+.person-body{
+	position:absolute;
+	background-image:url(../img/person.png);
+	background-size:$rem*404 $rem*431;
+	height:$rem*431;
+	width:$rem*225;
+	top:$rem*300;
+	left:50%;
+	transform:translate(-50%,0) scale(1.5);
+	//180
+	
+	
+}
+.organ{
+	position:absolute;
+	&.mouth{
+		top:$rem*260;
+		left:$rem*250;
+	}
+	&.belly{
+		top:$rem*560;
+		left: $rem*270;
+	}
+	&.intestine{
+		top:$rem*500;
+		left:$rem*200;
+	}
+	&.arm{
+		top: $rem*480;
+		left: $rem*420;
+	}
+}
+
+
+.male{
+	.person-body{
+		width:$rem*180;
+		background-position:$rem*-225 0;
+	}
+	.organ{
+		position:absolute;
+		&.mouth{
+			top:$rem*280;
+			left:$rem*230;
+		}
+		&.belly{
+			top:$rem*640;
+			left: $rem*200;
+		}
+		&.intestine{
+			top:$rem*540;
+			left:$rem*280;
+		}
+		&.arm{
+			top: $rem*600;
+			left: $rem*380;
+		}
+	}
+}
+.result-bg{
+	background-image:url(../img/result_bg.jpg);
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+	height:$rem*980;
+}
+.result-status{
+	background-image:url(../img/female_01.png);
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+	height:$rem*619;
+}
+.result-descption{
+	background:#72bb72;
+}
+
 
 @-webkit-keyframes ball-scale-ripple-multiple {
   0% {
