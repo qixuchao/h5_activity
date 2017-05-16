@@ -31,6 +31,7 @@
 				</div>
 			</div>
 			<div class="start-btn-wrapper">
+
 				<button class="start-btn" @click="step = 1"></button>
 			</div>
 		</div>
@@ -117,8 +118,8 @@
 	        	</div>
 				<p>明星距离 {{total}}</p>
 	        </div>
-
-	        <div class="modal" style="display: none" 
+	        <transition name="fade-in">
+	        	<div class="modal" style="display: none" 
 	        	v-show="showDialog"
 	        	@click="closeDialog()">
 	        	<div class="modal-dialog"
@@ -142,6 +143,7 @@
 	        		
 	        	</div>
 	        </div>
+	        </transition>	        
 		</div>
 		<!--结果页面-->
 		<div class="gl-result" v-show="step == 3">

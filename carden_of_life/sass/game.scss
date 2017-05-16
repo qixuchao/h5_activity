@@ -239,6 +239,18 @@ $rem:1rem/32;
 	}
 }
 
+//弹层效果
+.fade-in{
+	&-enter-active,
+	&-leave-active{
+		transition: transform .5s
+	}
+	&-enter,
+	&-leave-active {
+		transform: scale(0);
+	}
+}
+
 .person-body{
 	position:absolute;
 	background-image:url(../img/person.png);
