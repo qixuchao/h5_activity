@@ -134,7 +134,6 @@
 	        			</ul>
 	        			<button class="gl-submit" @click="submit()"></button>
 	        		</div>
-	        		
 	        	</div>
 	        </div>
 	        </transition>	        
@@ -142,9 +141,9 @@
 		<!--结果页面-->
 		<div class="gl-result" v-show="step == 3">
 			<div class="result-bg">
-				<div class="result-status"></div>
+				<div class="result-status" :style="'background-image:url(../img/'+resultBg +'.png)'"></div>
 				<div class="result-descption">
-					身材火辣的你，更希望成为和男神比肩齐眉的女神。不要对自己太苛刻哦，匀称的好体型并不需要你剑拔弩张地对抗饥饿感。适当的营养和运动，搭配既可以燃脂又有饱腹感的蛋白粉，让男神的目光，每一寸都属于你。
+					{{remarkTitle}}
 				</div>
 				<img src="img/title_01.png" alt="" class="result-img-item">
 				<img src="img/discuss_01.png" alt="" class="result-img-item">

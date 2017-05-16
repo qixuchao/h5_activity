@@ -106,8 +106,10 @@
 				weixin01:"https://shop.m.jd.com?shopId=631019",
 				weixin02:"",
 				weixin03:"//h5.m.taobao.com/awp/core/detail.htm?id=545126126708",
-			}
-
+			},
+			remarkImgUrl:"",
+			remarkTitle:"",
+			resultBg:""
 		},
 		methods:{
 			openDialog:function(index){
@@ -122,12 +124,10 @@
 			setOption:function(index,score){
 				this.subject[this.QAIndex].answer[index].checked = true;
 				this.selectScore = score;
-
 				console.log(this.selectScore)
 			},
 			submit:function(){
 				this.organ[this.QAIndex] = this.selectScore;
-				console.log(this.organ)
 				this.closeDialog();
 				var length = 0,
 					total = 0;
@@ -138,10 +138,27 @@
 				this.total = total;
 				if(length == 4){
 					this.step = 3;
+					this.showResult();
 				}
 			},
 			showResult:function(){
-
+				var total = this.total;
+				var length = 0;
+				var type = "";
+				if(total>4&&total<9){
+					length = 1;
+				}else if(total>8&&total<13){
+					length = 2;
+				}else if(total>12&&total<17){
+					length = 3;
+				}
+				if(this.sex == 0){
+					type = "female_0"
+				}else{
+					type = "man_0"
+				}
+				this.resultBg = type+length;
+				this.remarkTitle = this.remark[type+length];
 			}
 		},
 		computed:{
