@@ -109,6 +109,9 @@
 	        	</div>
 				<p>明星距离 {{total}}</p>
 	        </div>
+	        <div class="modal-mask"  style="display: none" 
+	        	v-show="showDialog"
+	        	@click="closeDialog()"></div>
 	        <transition name="fade-in">
 	        	<div class="modal" style="display: none" 
 	        	v-show="showDialog"
