@@ -215,7 +215,7 @@ var app = new Vue({
 		openShare:function(){
 			this.showShare = true;
 			jskit.openShare && jskit.openShare({
-				title:"健康自测问卷",
+				title:"我的健康自测",
 				desc:"美国高端有机膳食补充剂品牌Garden of Life（生命花园）以“成就非凡健康”为己任，目标是为消费者提供最干净，最优质的全食物营养成分",
 				imgUrl:"http://static.fancysmp.com/activity/gardenLeft/img/share_200x200.png",
 				link:location.href

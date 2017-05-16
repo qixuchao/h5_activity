@@ -96,6 +96,8 @@
 			openDialog:function(index){
 				this.QAIndex = index;
 				this.showDialog = true;
+				var radio = Array.prototype.slice.call(document.querySelectorAll('input[type="radio"]'));
+				radio.forEach(function(e){e.checked = false});
 			},
 			closeDialog:function(){
 				this.showDialog = false;
@@ -107,11 +109,13 @@
 			submit:function(){
 				this.organ[this.QAIndex] = this.selectScore;
 				this.closeDialog();
-				var length = 0;
+				var length = 0,
+					total = 0;
 				for(var i in this.organ){
-					this.total += this.organ[i];
+					total += this.organ[i];
 					length ++;
 				}
+				this.total = total;
 				if(length == 4){
 					this.step = 3;
 				}
