@@ -209,6 +209,8 @@ var app = new Vue({
 			this.total = 0;
 			var radio = Array.prototype.slice.call(document.querySelectorAll('input[type="radio"]'));
 			radio.forEach(function(e){e.checked = false});
+			this.selectState = {};
+			this.checkLockStatus();
 		},
 		openShare:function(){
 			this.showShare = true;
