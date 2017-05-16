@@ -4,7 +4,7 @@ $rem:1rem/32;
 .container{
 	margin:0 auto;
 	position:relative;
-	height:100%;
+	min-height:100%;
 	overflow:hidden;
 }
 
@@ -132,8 +132,10 @@ $rem:1rem/32;
 	width:$rem*228;
 	height:$rem*72;
 	display:block;
+	background:none;
 	background-image:url(../img/index_next_bg.png);
 	background-repeat:no-repeat;
+	background-size:100% auto;
 	position: absolute;
 	top: $rem*950;
 	left: 50%;
@@ -239,6 +241,18 @@ $rem:1rem/32;
 	}
 }
 
+//弹层效果
+.fade-in{
+	&-enter-active,
+	&-leave-active{
+		transition: transform .5s
+	}
+	&-enter,
+	&-leave-active {
+		transform: scale(0);
+	}
+}
+
 .person-body{
 	position:absolute;
 	background-image:url(../img/person.png);
@@ -299,20 +313,74 @@ $rem:1rem/32;
 	}
 }
 .result-bg{
-	background-image:url(../img/result_bg.jpg);
+	background:url(../img/result_bg.jpg) #2fa933;
 	background-repeat:no-repeat;
-	background-size:100% 100%;
-	height:$rem*980;
+	background-size:100% auto;
+	// height:$rem*980;
+	text-align:center;
+	padding-top:$rem*86;
+	padding-bottom:$rem*25;
 }
 .result-status{
 	background-image:url(../img/female_01.png);
 	background-repeat:no-repeat;
-	background-size:100% 100%;
+	background-size:100% auto;
 	height:$rem*619;
+	min-height:100%;
+	margin-bottom:$rem*20;
 }
 .result-descption{
-	background:#72bb72;
+	// background:#72bb72;
+	font-size:$rem*21;
+	line-height:$rem*26;
+	color:#fff;
+	width:$rem*520;
+	margin:0 auto $rem*20;
+	min-height:$rem*130;
 }
+.result-img-item{
+	display:block;
+	width:100%;
+	height:auto;
+}
+
+.result-btn-box{
+ 	width:$rem*546;
+ 	padding-left:$rem*15;
+ 	margin:$rem*20 auto $rem*70;
+
+	white-space: nowrap;
+}
+.result-btn01{
+	display:inline-block;
+	padding-right:$rem*31;
+	height:$rem*85;
+	box-sizing:border-box;
+	padding-bottom:$rem*20;
+	font-size:$rem*25;
+	color:#fff;
+	width:$rem*250;
+	background:url(../img/btn_01.png) no-repeat;
+	color:#fff;
+	background-size:100% 100%;
+	box-sizing:border-box;
+	&:nth-of-type(1){
+		margin-right:$rem*50;
+	}
+}
+.result-btn02{
+	display:block;
+	width:$rem*240;
+	height:$rem*70;
+	display:block;
+	color:#fff;
+	font-size:$rem*27;
+	line-height:$rem*70;
+	margin:$rem*5 auto $rem*35;
+	background:url(../img/btn_03.png) no-repeat;
+	background-size:100% 100%;
+}
+
 
 
 @keyframes from-top2Bottom{
