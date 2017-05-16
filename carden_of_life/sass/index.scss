@@ -370,6 +370,13 @@ $wrapper-min-height:800*$rem;
   font-size:$rem*35;
   color:$green;
 }
+//总评分
+.gl-conclusion-general{
+  font-size:$rem*28;
+  color:$green;
+  padding:0 $rem*60;
+}
+
 .gl-conclusion-total{
   font-size:$rem*114;
   line-height:$rem*150;

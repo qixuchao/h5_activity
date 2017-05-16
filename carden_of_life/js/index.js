@@ -49,8 +49,11 @@ var app = new Vue({
 		showIndex:true,
 		BMI:'',
 		showShare:'',
-		selectState: {},
-		genderSelect:false
+		selectState:selectState,
+		genderSelect:false,
+		general:"",
+		sex:"",
+		answerList:{}
 	},
 	methods: {
 		slidePrev: function() {
@@ -59,15 +62,17 @@ var app = new Vue({
 		slideNext: function() {
 			this.$refs.swiper.$swiper.slideNext();
 		},
-		selectOptions: function(grade, type, index) {
+		selectOptions: function(grade, type, index , option) {
 			var _grade = grade;
-
 			this.$set(this.selectState,index,true);
 
 			this.checkLockStatus();
+
 			if (this.preSelect[index]) {
 				grade -= this.preSelect[index];
 			}
+			//保存选项
+			this.answerList[index] = option;
 			this.total += parseInt(grade);
 			this.groupGrade[type] = this.groupGrade[type] || 0; //默认值0
 
@@ -158,11 +163,39 @@ var app = new Vue({
 					this.comments['睡眠'] = verdict[map[i]][index];
 				};
 			}
+			if(this.total<60){
+				this.general = comments[0];
+			}else if(60<= this.total && this.total <= 70){
+				this.general = comments[1];
+			}else if(70<= this.total && this.total <= 80){
+				this.general = comments[2];
+			}else if(this.total > 80){
+				this.general = comments[3];
+			}
+
 			setTimeout(function(){
 				option.series[0].data[0]  = data;
 				myChart.setOption(option);
 				this.showResult = true;
-			}.bind(this))
+			}.bind(this));
+
+			var id = (new Date()).getTime()
+			this.$http.get('http://openapi.fancysmp.com/api/create?project=carden_of_life_total',{
+				params:{
+					stature:this.stature,
+					weight:this.weight,
+					sex:this.sex,
+					total:this.total,
+					record:JSON.stringify(this.answerList),
+					id:id
+				}
+			}).then(function(response){
+				console.log(response)
+			   // get body data
+
+			 },function(err){
+
+			 });
 		},
 		reset:function(){
 			this.showResult = false;
@@ -181,8 +214,8 @@ var app = new Vue({
 			this.showShare = true;
 			jskit.openShare && jskit.openShare({
 				title:"健康自测问卷",
-				desc:"健康自测问卷",
-				img:"",
+				desc:"美国高端有机膳食补充剂品牌Garden of Life（生命花园）以“成就非凡健康”为己任，目标是为消费者提供最干净，最优质的全食物营养成分",
+				imgUrl:"http://static.fancysmp.com/activity/gardenLeft/img/share_200x200.png",
 				link:location.href
 			});
 		},
@@ -241,8 +274,8 @@ var app = new Vue({
 	mounted: function() {
 		jskit.openShare && jskit.openShare({
 			title:"健康自测问卷",
-			desc:"健康自测问卷",
-			img:"",
+			desc:"美国高端有机膳食补充剂品牌Garden of Life（生命花园）以“成就非凡健康”为己任，目标是为消费者提供最干净，最优质的全食物营养成分",
+			imgUrl:"http://static.fancysmp.com/activity/gardenLeft/img/share_200x200.png",
 			link:location.href
 		});
 	}

@@ -10,6 +10,15 @@
 	<link rel="stylesheet" href="css/swiper.min.css">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/index.css">
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?45b472947281cad914aa315e6e59750f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
 </head>
 <body>
   
@@ -23,7 +32,7 @@
         	<div class="gl-page1-foot">
  				<button class="btn btn-green" 
  					@click="indexStart()">开始测试</button>
- 				<p class="pl-page1-explain">生命花园Garden of Life</br>就以“助力非凡健康”为己任</br>我们的目标则是为消费者提供</br>最干净、最优质的全食物营养成分</p>	
+ 				<p class="pl-page1-explain">美国高端有机膳食补充剂品牌</br>Garden of Life（生命花园）</br>以“成就非凡健康”为己任</br>目标是为消费者提供最干净</br>最优质的全食物营养成分</p>	
 	 				
         	</div>
         </div>
@@ -46,7 +55,10 @@
 					 				<span class="gl-physical-gender">
 					 					<label 
 			 								class="gl-radio-box">
-			 								<input type="radio" :name="'answer_sex'" @change="bmiUpdate('true')">
+			 								<input type="radio" 
+			 								name="answer_sex" @change="bmiUpdate('true')"
+			 								value="1"
+			 								v-model="sex">
 			 								<span class="gl-radio"></span>
 			 								男
 			 							</label>
@@ -54,7 +66,10 @@
 					 				<span class="gl-physical-gender" @click="bmiUpdate('true')">
 					 					<label 
 			 								class="gl-radio-box">
-			 								<input type="radio" :name="'answer_sex'">
+			 								<input type="radio" 
+			 								name="answer_sex"
+			 								value="2"
+			 								v-model="sex">
 			 								<span class="gl-radio"></span>
 			 								女
 			 							</label>
@@ -66,14 +81,14 @@
 					 				</li>
 					 			</ul>
 					 			<p class="gl-explain gl-describe">
-					 				BMI（体重指数）=体重（kg）/身高 &sup2;（cm）BMI是判断人体是否肥胖及肥胖程度的重要指标，其参考范围如下
+					 				BMI（体重指数）=体重（kg）/身高 &sup2;（cm）<br>BMI是判断人体是否肥胖及肥胖程度的重要指标，其参考范围如下
 					 			</p>
 					 			<div class="gl-bmi-formula">BMI = <span>{{bmiValueToFixed}}</span></div>
 				 				<div class="gl-describe">
-				 					过低：＜18.5     正常：18.5~23
+				 					过低：＜18.5     正常：18.5~23.9
 				 				</div>
 				 				<div class="gl-describe">
-				 					超重：23~27.4   肥胖：＞27.4
+				 					超重：24~27.4   肥胖：＞27.4
 				 				</div>
 					 			<div class="gl-QA-btn-box">
 					 				<button class="btn btn-green" 
@@ -103,7 +118,7 @@
 				 						<li v-for="(answer,index2) in item.answer" class="gl-QA-item">
 				 							<label 
 				 								class="gl-radio-box" 
-				 								@change="selectOptions(answer.grade,item.type,index+1)">
+				 								@change="selectOptions(answer.grade,item.type,index+1,index2)">
 				 								<input type="radio" :name="'answer_'+index" >
 				 								<span class="gl-radio"></span>	
 				 								<p class="gl-select-text">{{optionMap[index2]}}.
@@ -138,6 +153,7 @@
         	<div class="gl-conclusion-total">{{total}}</div>
         	<div class="gl-conclusion-chart" v-echarts ref="echarts">
         	</div>
+        	<div class="gl-conclusion-general">{{general}}</div>
         	<div class="gl-conclusion-main">
 	        	<div class="gl-total-text"></div>
 				<dl class="gl-conclusion-list">
@@ -156,8 +172,9 @@
 	    </div>
 	    <div class="gl-share" style="display: none" v-show="showShare" @click="closeShare"></div>
 	</div>
-	
+
 <script src="js/vue.js"></script>
+<script src="js/vue-resource.min.js"></script>
 <script src="js/swiper.min.js"></script>
 <script src="js/echarts.min.js"></script>
 <script src="js/config.js"></script>

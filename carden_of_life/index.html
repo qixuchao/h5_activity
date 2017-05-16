@@ -9,6 +9,15 @@
         !(function(f,o){var a=navigator.userAgent,b=/iphone|ipad|ipod/i.test(a),i=/android/ig.test(a),j=/Mobile/i.test(a)||b||i;var n=document.querySelector("[name=viewport]"),k=b?window.devicePixelRatio?Math.min(window.devicePixelRatio,3):1:1,c=document.documentElement,l=k*(c.dataset.mw||750),d=1/k,e;f=f||320;o=o||16;if(n){var h=n.content||"",g=h.match(/initial\-scale=([\d\.]+)/);if(g){h=h.replace(/initial\-scale=([\d\.]+)/,"initial-scale="+d)}else{h+=",initial-scale="+d}n.content=h.replace(/minimum\-scale=([\d\.]+)/,"").replace(/maximum\-scale=([\d\.]+)/,"")}else{n=doc.createElement("meta");n.name="viewport";n.content="maximum-scale="+d+",minimum-scale="+d+",user-scalable=0,width=device-width;initial-scale="+d;c.firstElementChild.appendChild(n)}var m=function(){var q=window.innerWidth;var p=Math.min(q,l)/f*o;c.style.fontSize=p+"px"};if(j){window.addEventListener("resize",function(){clearTimeout(e);e=setTimeout(m,300)},false);m()}else{c.style.fontSize="16px"}})(320,16);
     </script>
     <link rel="stylesheet" type="text/css" href="./css/game.css">
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?45b472947281cad914aa315e6e59750f";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
 </head>
 <body>
 	<section class="container">
