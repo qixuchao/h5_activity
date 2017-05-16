@@ -21,17 +21,62 @@ $rem:1rem/32;
 .gl-start-cover{
 	background-image:url(../img/index_cover.jpg);
 }
+//首页人物
+.index-wrapper{
+	position:absolute;
+	bottom:0;
+	height:$rem*840;
+	left:50%;
+	transform:translate(-50%,0);
+}
 
-.start-btn{
+.index-inner{
+	position:relative;
+	bottom:0;
+	width:$rem*556;
+	margin:0 auto;
+}
+.index-title{
+	width:$rem*556;
+	height:$rem*309;
+	background-image:url(../img/index_cover_title.png);
+	background-size:100% 100%;
+}
+.index-person{
+	width:$rem*452;
+	height:$rem*734;
+	background-image:url(../img/index_cover_person.png);
+	background-size:100% 100%;
+	position:absolute;
+	left:50%;
+	transform:translate(-50%,0);
+	top:$rem*120;
+}
+.start-btn-wrapper{
+	position:absolute;
+	bottom:$rem*100;
+	left:50%;
+	transform: translate(-50%,0);
 	width:$rem*276;
-	height:$rem*238;
+	height:$rem*168;
+	&:before{
+		-webkit-animation: from-top2Bottom .85s 0s infinite cubic-bezier(.21, .53, .56, .8) alternate;
+		        animation: from-top2Bottom .85s 0s infinite cubic-bezier(.21, .53, .56, .8) alternate; 
+		content: "";
+		display: block;
+		width:$rem*62;
+		height:$rem*61;
+		background:url(../img/start_btn_flag.png) no-repeat;
+		background-size: contain;
+		margin-left:$rem*50;
+	}
+}
+.start-btn{
+	width:$rem*282;
+	height:$rem*157;
 	background:url(../img/start_btn.png) no-repeat;
 	background-size: contain;
-	position:absolute;
-	bottom:$rem*158;
-	left:50%;
 	outline:none;
-	transform: translate(-50%,0);
 }
 
 .person-select-wrapper{
@@ -77,8 +122,8 @@ $rem:1rem/32;
 		width:$rem*38;
 		display: inline-block;
 		background-image:url(../img/index_checkbox.png);
-		background-position:$rem*-204 0;
-		background-size:contain;
+		background-position:$rem*-44 0;
+		background-size:$rem*81 $rem*38;
 		background-repeat:no-repeat;
 		margin:0 auto;
 	}
@@ -268,6 +313,26 @@ $rem:1rem/32;
 	background:#72bb72;
 }
 
+
+@keyframes from-top2Bottom{
+	to{
+		transform: translate(0,0);
+	}
+	from{
+		transform: translate(-30%,-30%);
+	}
+}
+@-webkit-keyframes from-top2Bottom{
+	to{
+		transform: translate(0,0);
+		-webkit-transform: translate(0,0);
+
+	}
+	from{
+		transform: translate(-30%,-30%);
+		-webkit-transform: translate(-30%,-30%);
+	}
+}
 
 @-webkit-keyframes ball-scale-ripple-multiple {
   0% {

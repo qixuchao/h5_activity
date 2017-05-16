@@ -24,7 +24,15 @@
 		<!--封面-->
 		<div class="gl-cover gl-start-cover" style="display: none;" 
 			v-show="step == 0">
-			<button class="start-btn" @click="step = 1"></button>
+			<div class="index-wrapper">
+				<div class="index-inner">
+					<div class="index-title"></div>
+					<div class="index-person"></div>
+				</div>
+			</div>
+			<div class="start-btn-wrapper">
+				<button class="start-btn" @click="step = 1"></button>
+			</div>
 		</div>
 		<!--选择性别-->
 		<div class="gl-select-sex" style="display: none;" v-show="step == 1">
