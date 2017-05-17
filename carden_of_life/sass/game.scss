@@ -244,21 +244,24 @@ $spotColor:#f7d542;
 .modal-dialog{
 	border-radius:$rem*16;
 	position:fixed;
-	width:80%;
+	width:$rem*430;
+	height:$rem*570;
+	box-shadow:$rem*20 $rem*20 rgba(255,255,255,0.17);
 	top:50%;
 	left:50%;
 	transform:translate(-50%,-50%);
 	background:#fff;
 	&-hd{
 		background:#f7931e;
-		padding: $rem*65 $rem*80;
+		padding: $rem*65 0;
+		text-align:center;
 		font-size: $rem*28;
 		color:#fff;
 		border-top-right-radius:$rem*16;
 		border-top-left-radius:$rem*16;
 	}
 	&-bd{
-		padding:$rem*30 $rem*80;
+		padding:$rem*30 $rem*60;
 		.gl-checkbox{
 			span{
 				vertical-align: $rem*-8;
@@ -277,6 +280,44 @@ $spotColor:#f7d542;
 			background-size:100% 100%;
 		}
 	}
+}
+.dialogLine{
+	div{
+		border-radius:$rem*3;
+		background:#fff;
+		position:absolute;
+		height:$rem*6;
+	}
+	div:nth-of-type(1){
+		width:$rem*40;
+		top:-$rem*30;
+		right:$rem*54;
+	}
+	div:nth-of-type(2){
+		width:$rem*260;
+		top:-$rem*16;
+		right:$rem*20;
+	}
+	div:nth-of-type(3){
+		width:$rem*260;
+		bottom:-$rem*10;
+		left:$rem*32;
+		box-shadow:$rem*20 $rem*14 $rem*0.5 rgba(255,255,255,0.17);
+	}
+	div:nth-of-type(4){
+		width:$rem*6;
+		height:$rem*70;
+		bottom:$rem*30;
+		left:-$rem*13;
+	}
+	div:nth-of-type(5){
+		width:$rem*6;
+		height:$rem*150;
+		top:$rem*222;
+		right:-$rem*13;
+		box-shadow:$rem*14 $rem*23 $rem*0.5  rgba(255,255,255,0.17);
+	}
+
 }
 .subject-tooltip{
 	color:#fff;
@@ -421,11 +462,12 @@ $spotColor:#f7d542;
 .fade-in{
 	&-enter-active,
 	&-leave-active{
-		transition: transform .5s
+		transition: opacity .8s
 	}
 	&-enter,
 	&-leave-active {
-		transform: scale(0);
+		opacity:0;
+		// transform: scale(0);
 	}
 }
 
@@ -597,7 +639,6 @@ $spotColor:#f7d542;
 	to{
 		transform: translate(0,0);
 		-webkit-transform: translate(0,0);
-
 	}
 	from{
 		transform: translate(-30%,-30%);

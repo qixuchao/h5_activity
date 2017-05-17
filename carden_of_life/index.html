@@ -140,32 +140,42 @@
 	        	</div>
 				<p>明星距离 {{total}}</p>
 	        </div>
-	        <div class="modal-mask"  style="display: none" 
-	        	v-show="showDialog"
-	        	@click="closeDialog()"></div>
+	       
+	        		
 	        <transition name="fade-in">
-	        	<div class="modal" style="display: none" 
+	         <div class="modal-mask"  style="display: none" 
 	        	v-show="showDialog"
+	        	name="fade-in"
 	        	@click="closeDialog()">
-	        	<div class="modal-dialog"
-	        		@click.stop="">
-	        		<div class="modal-dialog-hd">
-	        			{{subject[QAIndex].question}}
-	        		</div>
-	        		<div class="modal-dialog-bd">
-	        			<ul>
-	        				<li v-for="(item,index) in subject[QAIndex].answer">
-	        					<label class="gl-checkbox"
-	        						@click="setOption(index,item.score)">
-	        						<input type="radio" name="option" value="0">
-	        						<span></span>
-	        						A {{item.option}}
-	        					</label>
-	        				</li>
-	        			</ul>
-	        			<button class="gl-submit" @click="submit()"></button>
-	        		</div>
-	        	</div>
+		        	<div class="modal" style="display: none" 
+		        	v-show="showDialog"
+		        	@click="closeDialog()">
+		        	<div class="modal-dialog"
+		        		@click.stop="">
+		        		<div class="modal-dialog-hd">
+		        			{{subject[QAIndex].question}}
+		        		</div>
+		        		<div class="modal-dialog-bd">
+		        			<ul>
+		        				<li v-for="(item,index) in subject[QAIndex].answer">
+		        					<label class="gl-checkbox"
+		        						@click="setOption(index,item.score)">
+		        						<input type="radio" name="option" value="0">
+		        						<span></span>
+		        						A {{item.option}}
+		        					</label>
+		        				</li>
+		        			</ul>
+		        			<button class="gl-submit" @click="submit()"></button>
+		        		</div>
+		        		<div class="dialogLine">
+		        			<div></div>
+		        			<div></div>
+		        			<div></div>
+		        			<div></div>
+		        		</div>
+		        	</div>
+		        </div>
 	        </div>
 	        </transition>	        
 		</div>

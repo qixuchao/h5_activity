@@ -98,6 +98,7 @@ $wrapper-min-height:800*$rem;
     background: $green;
     border-color:$green;
   }
+  user-select:none;
 }
 
 .gl-radio {
@@ -109,6 +110,7 @@ $wrapper-min-height:800*$rem;
   display: inline-block;
   vertical-align: sub;
   pointer-events:none;
+  // user-select:none;
 }
 
 .gl-bmi-formula {
