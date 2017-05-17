@@ -15,20 +15,22 @@
 		<!--封面-->
 		<div class="gl-cover gl-start-cover" style="display: none;" 
 			v-show="step == 0">
+			<div class="gl-centerTop-logo"></div>
 			<div class="index-wrapper">
 				<div class="index-inner">
 					<div class="index-title"></div>
-					<div class="index-person"></div>
 				</div>
+				<div class="index-person"></div>
 			</div>
 			<div class="start-btn-wrapper">
-
 				<button class="start-btn" @click="step = 1"></button>
 			</div>
 		</div>
 		<!--选择性别-->
 		<div class="gl-select-sex" style="display: none;" v-show="step == 1">
 			<div class="gl-cover person-select-wrapper">
+				<div class="gl-leftTop-logo"></div>
+				<div class="gl-select-hint"><img src="img/select_hint.png" alt=""></div>
 				<div class="person-scene">
 					<label class="gl-checkbox">
 						<div class="person-part person-left"></div>
@@ -48,14 +50,23 @@
 			
 		</div>
 		<!--开始答题-->
-		<div class="gl-subject gl-cover person-select-wrapper "
+		<div class="gl-subject gl-cover person-select-wrapper"
 				:class="{male:sex == 1}"
-			 v-show="step == 2">
-
+			 v-show="step == 2" style = "display: none;">
+			<div class="gl-leftTop-logo"></div>
+			<div class="gl-select-hint"><img src="img/click_hint.png" alt=""></div>
 			<div class="person-body">
 				
 			</div>
 			<div class="organ mouth">
+			 	<div class="subject-tooltip tooltip-style2" v-show="sex == 1">
+					  <div class="tooltip" v-show="!organ[1]">燃烧</div>
+				 	  <div class="tooltip active" v-show="organ[1]">正在燃烧</div>
+				</div>
+				<div class="subject-tooltip tooltip-style1" v-show="sex == 0">
+					  <div class="tooltip" v-show="!organ[1]">燃烧</div>
+				 	  <div class="tooltip active" v-show="organ[1]">正在燃烧</div>
+				</div>
 				<div class="ball-scale-ripple-multiple"
 					@click="openDialog(1)"
 					:class="{'over':organ[1]}">
@@ -67,6 +78,14 @@
 		        </div>
 			</div>
 			<div class="organ belly">
+				<div class="subject-tooltip tooltip-style1"  v-show="sex == 1">
+					  <div class="tooltip" v-show="!organ[3]">燃烧</div>
+				 	  <div class="tooltip active" v-show="organ[3]">正在燃烧</div>
+				</div>
+				<div class="subject-tooltip tooltip-style2"  v-show="sex == 0">
+					  <div class="tooltip" v-show="!organ[3]">燃烧</div>
+				 	  <div class="tooltip active" v-show="organ[3]">正在燃烧</div>
+				</div>
 				<div class=" ball-scale-ripple-multiple"
 					@click="openDialog(3)"
 					:class="{'over':organ[3]}">
@@ -78,6 +97,14 @@
 		        </div>
 			</div>
 			<div class="organ intestine">
+				<div class="subject-tooltip tooltip-style3"  v-show="sex == 1">
+					  <div class="tooltip" v-show="!organ[2]">燃烧</div>
+				 	  <div class="tooltip active" v-show="organ[2]">正在燃烧</div>
+				</div>
+				<div class="subject-tooltip tooltip-style4"  v-show="sex == 0">
+					  <div class="tooltip" v-show="!organ[2]">燃烧</div>
+				 	  <div class="tooltip active" v-show="organ[2]">正在燃烧</div>
+				</div>
 				<div class=" ball-scale-ripple-multiple"
 				@click="openDialog(2)"
 				:class="{'over':organ[2]}">
@@ -89,6 +116,10 @@
 		        </div>
 			</div>
 			<div class="organ arm">
+				<div class="subject-tooltip tooltip-style1" >
+					  <div class="tooltip" v-show="!organ[0]">燃烧</div>
+				 	  <div class="tooltip active" v-show="organ[0]">正在燃烧</div>
+				</div>
 				<div class=" ball-scale-ripple-multiple"
 					@click="openDialog(0)"
 					:class="{'over':organ[0]}">
@@ -139,7 +170,8 @@
 	        </transition>	        
 		</div>
 		<!--结果页面-->
-		<div class="gl-result" v-show="step == 3">
+		<div class="gl-result" v-show="step == 3"  style = "display: none;">
+			<div class="gl-leftTop-logo"></div>
 			<div class="result-bg">
 				<div class="result-status" :style="'background-image:url(../img/'+resultBg +'.png)'"></div>
 				<div class="result-descption">
@@ -149,11 +181,11 @@
 				<img src="img/discuss_01.png" alt="" class="result-img-item">
 				<img src="img/title_02.png" alt="" class="result-img-item">
 				<div class="result-btn-box">
-					<button class="result-btn01">领取优惠券</button>
-					<button class="result-btn01">进入专业健康自测</button>
+					<a class="result-btn01" :href="cheap">领取优惠券</a>
+					<a class="result-btn01" :href="healthTest">进入专业健康自测</a>
 				</div>
 				<img src="img/result-item02.png" alt="" class="result-img-item">
-				<button class="result-btn02">去报暗号</button>
+				<a class="result-btn02" :href="cipher">去报暗号</a>
 				<img src="img/result-foot.png" alt="" class="result-img-item">
 			</div>
 		</div>

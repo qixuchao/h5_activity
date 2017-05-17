@@ -1,5 +1,6 @@
 @import "./reset.scss";
 $rem:1rem/32;
+$spotColor:#f7d542;
 
 .container{
 	margin:0 auto;
@@ -28,6 +29,7 @@ $rem:1rem/32;
 	height:$rem*840;
 	left:50%;
 	transform:translate(-50%,0);
+	width:100%;
 }
 
 .index-inner{
@@ -43,14 +45,12 @@ $rem:1rem/32;
 	background-size:100% 100%;
 }
 .index-person{
-	width:$rem*452;
-	height:$rem*734;
+	width:100%;
+	height:$rem*730;
 	background-image:url(../img/index_cover_person.png);
 	background-size:100% 100%;
 	position:absolute;
-	left:50%;
-	transform:translate(-50%,0);
-	top:$rem*120;
+	bottom:0;
 }
 .start-btn-wrapper{
 	position:absolute;
@@ -84,14 +84,15 @@ $rem:1rem/32;
 }
 .person-scene{
 	position:absolute;
-	top:$rem*350;
-	left:$rem*46;
+	top:$rem*200;
+	left:$rem*80;
 	text-align:center;
 	width:$rem*280;
 }
 .person-scene-right{
-	top:$rem*340;
+	top:$rem*200;
 	left:$rem*360;
+	width:$rem*239;
 }
 
 .person-part{
@@ -101,14 +102,15 @@ $rem:1rem/32;
 }
 .person-left{
 	background-image:url(../img/index_select_female.png);
-	width:$rem*280;
-	height:$rem*487;
+	width:$rem*295;
+	height:$rem*493;
+	margin-bottom:$rem*15;
 }
 .person-right{
 	background-image:url(../img/index_select_male.png);
-	width:$rem*268;
-	height:$rem*467;
-	margin-bottom:$rem*25;
+	width:$rem*239;
+	height:$rem*493;
+	margin-bottom:$rem*15;
 }
 .gl-checkbox{
 	input{
@@ -137,16 +139,45 @@ $rem:1rem/32;
 	background-repeat:no-repeat;
 	background-size:100% auto;
 	position: absolute;
-	top: $rem*950;
+	top: $rem*765;
 	left: 50%;
 	transform:translate(-50%,0);
 }
-
+.gl-centerTop-logo{
+	position:absolute;
+	top:$rem*30;
+	left:50%;
+	transform:translateX(-50%);
+	width:$rem*130;
+	height:$rem*104;
+	background:url(../img/logo-1.png) no-repeat;
+	background-size:100% auto;
+}
+.gl-leftTop-logo{
+	position:absolute;
+	top:$rem*50;
+	left:$rem*30;
+	width:$rem*140;
+	height:$rem*140;
+	background:url(../img/logo-1.png) no-repeat;
+	background-size:100% auto;
+}
+.gl-select-hint{
+	position:absolute;
+	top:$rem*45;
+	right:$rem*35;
+	width:$rem*190;
+	height:$rem*174;
+	img{
+		display:block;
+		width:100%;
+	}
+}
 //明星距离
 .gl-distance{
 	position:absolute;
 	text-align:center;
-	bottom:$rem*100;
+	bottom:$rem*90;
 	left:50%;
 	transform:translate(-50%,0);
 	color:#fff;
@@ -247,6 +278,144 @@ $rem:1rem/32;
 		}
 	}
 }
+.subject-tooltip{
+	color:#fff;
+	padding-top:$rem*15;
+	.tooltip{
+		width:$rem*70;
+		height:$rem*27;
+		line-height:$rem*27;
+		text-align:center;
+		box-shadow: 0 0 $rem*15 #ded6b0;
+		font-size:$rem*15;
+		background:#ff7a1b;
+		margin:0 auto;
+		border-radius:$rem*10;
+	}
+	.tooltip.active{
+		width:$rem*113;
+		height:$rem*43;
+		line-height:$rem*43;
+		font-size:$rem*17;
+		background:#ed1c24;
+	}
+}
+.tooltip-style1{
+	position:absolute;
+	left:50%;
+	bottom:0;
+	transform:translate(-50%,100%);
+	.tooltip{
+		position:relative;
+		&:before{
+		   content:"";
+		    position:absolute;
+		   top:0;
+		   left:$rem*20;
+		   transform:translateY(-100%);
+		    width: 0;
+		    height: 0;
+		    border-bottom: $rem*10 solid #ff7a1b;
+		    border-right: $rem*10 solid transparent;
+		}
+	}
+	.tooltip.active{
+		&:before{
+		   content:"";
+		    left:$rem*30;
+		    border-bottom: $rem*18 solid #ed1c24;
+		    border-right: $rem*18 solid transparent;
+		}
+	}
+}
+.tooltip-style2{
+	position:absolute;
+	left:50%;
+	bottom:0;
+	transform:translate(-50%,100%);
+	.tooltip{
+		position:relative;
+		&:before{
+		   content:"";
+		    position:absolute;
+		   top:0;
+		   right:$rem*20;
+		   transform:translateY(-100%);
+		    width: 0;
+		    height: 0;
+		    border-bottom: $rem*10 solid #ff7a1b;
+		    border-left: $rem*10 solid transparent;
+		}
+	}
+	.tooltip.active{
+		&:before{
+		   content:"";
+		    right:$rem*30;
+		    border-bottom: $rem*18 solid #ed1c24;
+		    border-left: $rem*18 solid transparent;
+		}
+	}
+}
+.tooltip-style3{
+	position:absolute;
+	left:50%;
+	top:0;
+	transform:translate(-50%,-100%);
+	padding-bottom:$rem*15;
+	padding-top:0;
+	.tooltip{
+		position:relative;
+		&:before{
+		   content:"";
+		    position:absolute;
+		   bottom:0;
+		   left:$rem*20;
+		   transform:translateY(100%);
+		    width: 0;
+		    height: 0;
+		    border-top: $rem*10 solid #ff7a1b;
+		    border-left: $rem*10 solid transparent;
+		}
+	}
+	.tooltip.active{
+		&:before{
+		   content:"";
+		    left:$rem*30;
+		    border-top: $rem*18 solid #ed1c24;
+		    border-left: $rem*18 solid transparent;
+		}
+	}
+}
+.tooltip-style4{
+	position:absolute;
+	left:50%;
+	top:0;
+	transform:translate(-50%,-100%);
+	padding-bottom:$rem*15;
+	padding-top:0;
+	.tooltip{
+		position:relative;
+		&:before{
+		   content:"";
+		    position:absolute;
+		   bottom:0;
+		   right:$rem*20;
+		   transform:translateY(100%);
+		    width: 0;
+		    height: 0;
+		    border-top: $rem*10 solid #ff7a1b;
+		    border-right: $rem*10 solid transparent;
+		}
+	}
+	.tooltip.active{
+		&:before{
+		   content:"";
+		    right:$rem*30;
+		    border-top: $rem*18 solid #ed1c24;
+		    border-right: $rem*18 solid transparent;
+		}
+	}
+}
 
 //弹层效果
 .fade-in{
@@ -263,12 +432,11 @@ $rem:1rem/32;
 .person-body{
 	position:absolute;
 	background-image:url(../img/person.png);
-	background-size:$rem*404 $rem*431;
-	height:$rem*431;
-	width:$rem*225;
-	top:$rem*300;
-	left:50%;
-	transform:translate(-50%,0) scale(1.5);
+	background-size:$rem*693 $rem*760;
+	height:$rem*760;
+	width:$rem*382;
+	top:$rem*80;
+	left:$rem*167;
 	//180
 	
 	
@@ -276,46 +444,72 @@ $rem:1rem/32;
 .organ{
 	position:absolute;
 	&.mouth{
-		top:$rem*260;
-		left:$rem*250;
+		top:$rem*188;
+		left:$rem*280;
 	}
 	&.belly{
-		top:$rem*560;
-		left: $rem*270;
+		top:$rem*510;
+		left: $rem*295;
 	}
 	&.intestine{
-		top:$rem*500;
-		left:$rem*200;
+		top:$rem*435;
+		left:$rem*220;
 	}
 	&.arm{
-		top: $rem*480;
-		left: $rem*420;
+		top: $rem*464;
+		left: $rem*440;
 	}
 }
 
-
+.gl-subject{
+	background-image:url(../img/index_select_cover2.jpg);
+	&:before{
+		content:'';
+		position:absolute;
+		// z-index:1;
+		top:$rem*160;
+		left:0;
+		width:100%;
+		height:$rem*630;
+		background-image:url(../img/female_bg.png);
+		background-repeat:no-repeat;
+		background-size:100% auto;
+	}
+}
 .male{
 	.person-body{
-		width:$rem*180;
-		background-position:$rem*-225 0;
+		width:$rem*330;
+		background-position:$rem*-362 0;
+		left:50%;
+		transform:translate(-50%,0);
+	}
+	.gl-subject{
+		&:before{
+			content:'';
+			position:absolute;
+			// z-index:1;
+			top:$rem*233;
+			height:$rem*560;
+			background-image:url(../img/man_bg.png);
+		}
 	}
 	.organ{
 		position:absolute;
 		&.mouth{
-			top:$rem*280;
-			left:$rem*230;
+			top:$rem*218;
+			left:$rem*250;
 		}
 		&.belly{
-			top:$rem*640;
-			left: $rem*200;
+			top:$rem*552;
+			left: $rem*208;
 		}
 		&.intestine{
-			top:$rem*540;
-			left:$rem*280;
+			top:$rem*470;
+			left:$rem*310;
 		}
 		&.arm{
-			top: $rem*600;
-			left: $rem*380;
+			top: $rem*524;
+			left: $rem*430;
 		}
 	}
 }
@@ -342,7 +536,7 @@ $rem:1rem/32;
 	line-height:$rem*26;
 	color:#fff;
 	width:$rem*520;
-	margin:0 auto $rem*20;
+	margin:-$rem*10 auto $rem*20;
 	min-height:$rem*130;
 }
 .result-img-item{
@@ -360,10 +554,11 @@ $rem:1rem/32;
 }
 .result-btn01{
 	display:inline-block;
-	padding-right:$rem*31;
+	padding-right:$rem*21;
 	height:$rem*85;
 	box-sizing:border-box;
-	padding-bottom:$rem*20;
+	// padding-bottom:$rem*20;
+	line-height:$rem*70;
 	font-size:$rem*25;
 	color:#fff;
 	width:$rem*250;
@@ -448,7 +643,7 @@ $rem:1rem/32;
   width:$rem*88;
   height: $rem*88;
     .spot{
-    	background: #fff;
+    	background: $spotColor;
     	display: inline-block;
     	width:$rem*20;
     	height: $rem*20;
@@ -479,7 +674,7 @@ $rem:1rem/32;
 	  width: $rem*80;
 	  height: $rem*80;
 	  border-radius: 100%;
-	  border: $rem*4 solid #fff;
+	  border: $rem*4 solid $spotColor;
 	  -webkit-animation: ball-scale-ripple-multiple 1.25s 0s infinite cubic-bezier(.21, .53, .56, .8);
 	          animation: ball-scale-ripple-multiple 1.25s 0s infinite cubic-bezier(.21, .53, .56, .8); 
 	}

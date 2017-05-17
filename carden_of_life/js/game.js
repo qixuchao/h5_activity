@@ -101,15 +101,18 @@
 			},
 			dateUrl:{
 				weibo01:["https://taoquan.taobao.com/coupon/unify_apply.htm?sellerId=3161393975&activityId=fcf581eac6e84bfdbde58e1c1f1107e3","https://taoquan.taobao.com/coupon/unify_apply.htm?sellerId=3161393975&activityId=cd66aa28728946508a6bbd36616d6ac9"],
-				weibo02:"",
-				weibo03:"//h5.m.taobao.com/awp/core/detail.htm?id=545126126708",
+				weibo02:"http://static.fancysmp.com/activity/gardenLeft/QA.html",
+				weibo03:"http://h5.m.taobao.com/awp/core/detail.htm?id=545126126708",
 				weixin01:"https://shop.m.jd.com?shopId=631019",
-				weixin02:"",
-				weixin03:"//h5.m.taobao.com/awp/core/detail.htm?id=545126126708",
+				weixin02:"http://static.fancysmp.com/activity/gardenLeft/QA.html",
+				weixin03:"http://c.b0yp.com/h.6LaQH2?cv=6mb5Zuk8J68&sm=607ad6",
 			},
 			remarkImgUrl:"",
 			remarkTitle:"",
-			resultBg:""
+			resultBg:"",
+			cheap:"",
+			healthTest:"",
+			cipher:""
 		},
 		methods:{
 			openDialog:function(index){
@@ -128,6 +131,7 @@
 			},
 			submit:function(){
 				this.organ[this.QAIndex] = this.selectScore;
+				console.log(this.organ)
 				this.closeDialog();
 				var length = 0,
 					total = 0;
@@ -145,12 +149,13 @@
 				var total = this.total;
 				var length = 0;
 				var type = "";
+				console.log(total)
 				if(total>4&&total<9){
-					length = 1;
+					length = 3;
 				}else if(total>8&&total<13){
 					length = 2;
 				}else if(total>12&&total<17){
-					length = 3;
+					length = 1;
 				}
 				if(this.sex == 0){
 					type = "female_0"
@@ -159,6 +164,20 @@
 				}
 				this.resultBg = type+length;
 				this.remarkTitle = this.remark[type+length];
+				(new Image()).src = jskit.utils.addParam('http://openapi.fancysmp.com/api/create?project=carden_of_life_count',{
+					id:+ new Date()
+				});
+				var channel = jskit.utils.getUrlObj('channel').channel;
+				var channerType = "";
+				console.log(channel);
+				if(channel == 1){
+					channerType = "weixin";
+				}else if(channel == 2){
+					channerType = "weibo";
+				};
+				this.cheap = this.dateUrl[channerType+"01"];
+				this.healthTest =  this.dateUrl[channerType+"02"];
+				this.cipher =  this.dateUrl[channerType+"03"];
 			}
 		},
 		computed:{
