@@ -67,22 +67,23 @@
 						 				<li>性别
 						 				<span class="gl-physical-gender">
 						 					<label 
-				 								class="gl-radio-box">
+				 								class="gl-radio-box" for="answer_sex1">
 				 								<input type="radio" 
 				 								name="answer_sex" @change="bmiUpdate('true')"
 				 								value="1"
-				 								v-model="sex">
+				 								v-model="sex" id="answer_sex1">
 				 								<span class="gl-radio"></span>
 				 								男
 				 							</label>
 				 						</span>
 						 				<span class="gl-physical-gender" @click="bmiUpdate('true')">
 						 					<label 
-				 								class="gl-radio-box">
+				 								class="gl-radio-box" for="answer_sex2">
 				 								<input type="radio" 
 				 								name="answer_sex"
 				 								value="2"
-				 								v-model="sex">
+				 								v-model="sex"
+				 								 id="answer_sex2">
 				 								<span class="gl-radio"></span>
 				 								女
 				 							</label>
