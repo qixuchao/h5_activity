@@ -204,8 +204,8 @@
 			}else{ // if(channel == 2) || !channel  是否微博 或者其他
 				channerType = "weibo";
 				this.$http.get('http://openapi.fancysmp.com/api/count?project=carden_of_life_count').then(function(response){
-						var userId = response.data.data;
-						if(userId%10 == 0){
+						var count = response.data.data;
+						if(count%10 == 0 && count < 2000){
 							this.aUrl[1] = this.dateUrl[channerType+"01"][1];
 						}else{
 							this.aUrl[1] = this.dateUrl[channerType+"01"][0];
@@ -215,13 +215,6 @@
 			}
 			this.healthTest += channel;
 			this.aUrl[3] =  this.dateUrl[channerType+"03"]; //暗号地址
-
-			jskit.openShare && jskit.openShare({
-				title:"《测测你与男神的距离》",
-				desc:"你一直好奇却又不敢确定，快来测测你与男神的距离有多远",
-				imgUrl:"http://static.fancysmp.com/activity/gardenLeft/img/game_share_200x200.png",
-				link:location.href
-			});
 		},
 		computed:{
 			// total:function(){
