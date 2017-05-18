@@ -352,8 +352,10 @@ $spotColor:#f7d542;
 				vertical-align: $rem*-8;
 			}
 		}
-		ul > li{
-			margin-bottom: $rem*35;
+		ul > li>label{
+			display:block;
+			width:100%;
+			padding-bottom: $rem*35;
 		}
 		.gl-submit{
 			margin:0 auto;
@@ -668,6 +670,7 @@ $spotColor:#f7d542;
 	width:$rem*520;
 	margin:-$rem*20 auto $rem*20;
 	min-height:$rem*130;
+	
 }
 .result-img-item{
 	display:block;

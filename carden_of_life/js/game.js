@@ -175,6 +175,8 @@
 				(new Image()).src = jskit.utils.addParam('http://openapi.fancysmp.com/api/create?project=carden_of_life_count',{
 					id:+ new Date()
 				});
+
+			
 			},
 			jumpUrl:function(type){ 
 				var url;
@@ -235,23 +237,3 @@
 	});
 
 })();
-
-// 手臂：你一周运动多久？
-// A 不怎么运动 
-// B 1-3小时 
-// C 3-5小时  
-// D 6小时以上 
-// 嘴巴：你平时爱吃什么？
-// A 无辣不欢
-// B 蔬果爱好者
-// C 快餐党
-// D 肉食动物
-// 肠：你的肠道通畅么？
-// A 畅通无阻
-// B 偶尔通畅
-// C 经常便秘
-// 肚子：你喜欢吃甜食么？
-// A 超级喜欢
-// B 一般般吧，看心情
-// C 严格控制甜食
-
