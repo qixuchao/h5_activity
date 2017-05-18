@@ -195,6 +195,14 @@
 				
 			}
 		},
+		mounted: function() {
+			jskit.openShare && jskit.openShare({
+				title:"测测你与男神的距离",
+				desc:"你一直好奇却又不敢确定，快来测测你与男神的距离有多远",
+				imgUrl:"http://static.fancysmp.com/activity/gardenLeft/img/game_share_200x200.png",
+				link:location.href
+			});
+		},
 		computed:{
 			// total:function(){
 			// 	console.log(22)
