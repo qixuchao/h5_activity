@@ -1,5 +1,79 @@
 $green:#53ac28;
 $rem:1rem/32;
+
+.container{
+  margin:0 auto;
+  position:relative;
+  min-height:100%;
+  overflow:hidden;
+}
+
+.qrcode,
+.wechat-top-bar{
+  display:none;
+}
+//pc 适配
+.pc{
+  font-size: 16px!important;
+  .container{
+        background-image: url(../img/pc_bg.jpg);
+    background-color: transparent;
+      overflow: hidden;
+    background-size: cover;
+    background-position: 50% 50%;
+      .content{
+          width: 320px;
+          height: 524px;
+          overflow-y:auto;
+          position: relative;
+          top: 144px;
+        left: 25px;
+      }
+  }
+  .wechat-top-bar{
+    background: #000;
+    text-align: center;
+    color:#fff;
+    display: block;
+    width: 320px;
+    height:40px;
+    line-height:40px;
+    position:absolute;
+    top:106px;
+    left: 25px;
+  }
+  .phone-wrapper{
+    width:372px;
+    height: 764px;
+    background:url(../img/phone.png) no-repeat;
+    background-size:100% 100%;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+  }
+  .qrcode{
+    display: block;
+    background:#fff;
+    padding:10px;
+    position: absolute;
+  right: -180px;
+  font-size:12px;
+  color:#666;
+  text-align: center;
+  border:1px solid #eaeefb;
+  border-radius:4px;
+  box-shadow:0 0 1px  #eaeefb;
+    &:before{
+      content:"";
+      width:150px;
+      height: 150px;
+      display: block;
+      background:url(../img/QA_channle_1.png);
+      background-size: cover;
+    }
+  }
+}
 /*btn*/
 .btn{
   width:140*$rem;

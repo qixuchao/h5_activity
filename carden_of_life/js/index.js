@@ -179,23 +179,16 @@ var app = new Vue({
 				this.showResult = true;
 			}.bind(this));
 
-			var id = (new Date()).getTime()
-			this.$http.get('http://openapi.fancysmp.com/api/create?project=carden_of_life_total',{
-				params:{
-					stature:this.stature,
-					weight:this.weight,
-					sex:this.sex,
-					total:this.total,
-					record:JSON.stringify(this.answerList),
-					id:id
-				}
-			}).then(function(response){
-				console.log(response)
-			   // get body data
+			var id = (new Date()).getTime();
 
-			 },function(err){
-
-			 });
+			(new Image()).src = jskit.utils.addParam('http://openapi.fancysmp.com/api/create?project=carden_of_life_total',{
+				height:this.stature,
+				weight:this.weight,
+				sex:this.sex,
+				total:this.total,
+				record:JSON.stringify(this.answerList),
+				bid:id
+			});
 		},
 		reset:function(){
 			this.showResult = false;
