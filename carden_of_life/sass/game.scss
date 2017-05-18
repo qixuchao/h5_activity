@@ -158,6 +158,12 @@ $spotColor:#f7d542;
 	left:$rem*80;
 	text-align:center;
 	width:$rem*280;
+	.person-part{
+		&:active{
+			transform: scale(1.1);
+    		
+		}
+	}
 }
 .person-scene-right{
 	top:$rem*200;
@@ -168,7 +174,7 @@ $spotColor:#f7d542;
 .person-part{
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-
+	transition: 0.5s;
 }
 .person-left{
 	background-image:url(../img/index_select_female.png);
