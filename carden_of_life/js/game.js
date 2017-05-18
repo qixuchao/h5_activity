@@ -131,12 +131,13 @@
 			},
 			submit:function(){
 				this.organ[this.QAIndex] = this.selectScore;
-				// this.selectScore = ;
+				this.selectScore = ;
 				console.log(this.organ)
 				this.closeDialog();
 				var length = 0,
 					total = 0;
 				for(var i in this.organ){
+					if(this.organ[i]>0){}
 					total += this.organ[i];
 					length ++;
 				}
