@@ -1,5 +1,4 @@
 (function(){
-
 	var app = new Vue({
 		el: '.container',
 		data: {
@@ -111,7 +110,7 @@
 			remarkTitle:"",
 			resultBg:"",
 			cheap:"",
-			healthTest:"http://static.fancysmp.com/activity/gardenLeft/QA.html?source=",
+			healthTest:"http://static.fancysmp.com/activity/gardenLeft/QA.html?channle=",
 			cipher:""
 		},
 		methods:{
@@ -169,16 +168,15 @@
 				(new Image()).src = jskit.utils.addParam('http://openapi.fancysmp.com/api/create?project=carden_of_life_count',{
 					id:+ new Date()
 				});
-				var channel = jskit.utils.getUrlObj('channel').channel;
+				var channel = jskit.utils.getUrlObj().channel;
 				var channerType = "";
-				console.log(channel);
+
 				if(channel == 1){
 					channerType = "weixin";
 					this.cheap = this.dateUrl[channerType+"01"];
 				}else if(channel == 2){
 					channerType = "weibo";
 					this.$http.get('http://openapi.fancysmp.com/api/count?project=carden_of_life_count').then(function(response){
-						console.log(response.data.data);
 						var index = response.data.data;
 						if(index%10 == 0){
 							this.cheap = this.dateUrl[channerType+"01"][1];
@@ -186,9 +184,10 @@
 							this.cheap = this.dateUrl[channerType+"01"][0];
 						}
 					 },function(err){
+
 					 });
 				};
-				this.healthTest +=channel;
+				this.healthTest += channel;
 				this.cipher =  this.dateUrl[channerType+"03"];
 				
 			}
