@@ -127,10 +127,11 @@
 			setOption:function(index,score){
 				this.subject[this.QAIndex].answer[index].checked = true;
 				this.selectScore = score;
-				console.log(this.selectScore)
+				console.log(this.selectScore,score)
 			},
 			submit:function(){
 				this.organ[this.QAIndex] = this.selectScore;
+				// this.selectScore = ;
 				console.log(this.organ)
 				this.closeDialog();
 				var length = 0,
