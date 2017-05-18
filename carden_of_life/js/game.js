@@ -109,9 +109,10 @@
 			remarkImgUrl:"",
 			remarkTitle:"",
 			resultBg:"",
-			cheap:"",
-			healthTest:"http://static.fancysmp.com/activity/gardenLeft/QA.html?channle=",
-			cipher:""
+			aUrl:{
+				2:"http://static.fancysmp.com/activity/gardenLeft/QA.html?channle=",
+			},
+			submitDisabled:false,
 		},
 		methods:{
 			openDialog:function(index){
@@ -122,16 +123,16 @@
 			},
 			closeDialog:function(){
 				this.showDialog = false;
+				this.submitDisabled = false;
 			},
 			setOption:function(index,score){
 				this.subject[this.QAIndex].answer[index].checked = true;
 				this.selectScore = score;
-				console.log(this.selectScore,score)
+				this.submitDisabled = true;
 			},
 			submit:function(){
 				this.organ[this.QAIndex] = this.selectScore;
 				this.selectScore = 0;
-				console.log(this.organ)
 				this.closeDialog();
 				var length = 0,
 					total = 0;
@@ -153,7 +154,6 @@
 				var total = this.total;
 				var length = 0;
 				var type = "";
-				console.log(total)
 				if(total>4&&total<9){
 					length = 3;
 				}else if(total>8&&total<13){
@@ -168,36 +168,42 @@
 				}
 				this.resultBg = type+length;
 				this.remarkTitle = this.remark[type+length];
-				(new Image()).src = jskit.utils.addParam('http://openapi.fancysmp.com/api/create?project=carden_of_life_count',{
+			},
+			jumpUrl:function(type){ 
+				var url;
+				url = "http://openapi.fancysmp.com/api/create?project=carden_of_life_btn&channel=1&type=1"+type;
+				(new Image()).src = jskit.utils.addParam(url,{
 					id:+ new Date()
 				});
-				var channel = jskit.utils.getUrlObj().channel;
-				var channerType = "";
-
-				if(channel == 1){
-					channerType = "weixin";
-					this.cheap = this.dateUrl[channerType+"01"];
-				}else if(channel == 2){
-					channerType = "weibo";
-					this.$http.get('http://openapi.fancysmp.com/api/count?project=carden_of_life_count').then(function(response){
-						var index = response.data.data;
-						if(index%10 == 0){
-							this.cheap = this.dateUrl[channerType+"01"][1];
-						}else{
-							this.cheap = this.dateUrl[channerType+"01"][0];
-						}
-					 },function(err){
-
-					 });
-				};
-				this.healthTest += channel;
-				this.cipher =  this.dateUrl[channerType+"03"];
-				
+				 window.location.href = this.aUrl[type];
 			}
 		},
 		mounted: function() {
+			(new Image()).src = jskit.utils.addParam('http://openapi.fancysmp.com/api/create?project=carden_of_life_count',{
+				id:+ new Date()
+			});
+			var channel = jskit.utils.getUrlObj().channel;
+			var channerType = "";
+			if(channel == 1){//是否是微信 
+				channerType = "weixin";
+				this.aUrl[1] = this.dateUrl[channerType+"01"]; //优惠地址
+			}else{ // if(channel == 2) || !channel  是否微博 或者其他
+				channerType = "weibo";
+				this.$http.get('http://openapi.fancysmp.com/api/count?project=carden_of_life_count').then(function(response){
+						var userId = response.data.data;
+						if(userId%10 == 0){
+							this.aUrl[1] = this.dateUrl[channerType+"01"][1];
+						}else{
+							this.aUrl[1] = this.dateUrl[channerType+"01"][0];
+						}
+				 },function(err){
+				 });
+			}
+			this.healthTest += channel;
+			this.aUrl[3] =  this.dateUrl[channerType+"03"]; //暗号地址
+			console.log(this.aUrl)
 			jskit.openShare && jskit.openShare({
-				title:"测测你与男神的距离",
+				title:"《测测你与男神的距离》",
 				desc:"你一直好奇却又不敢确定，快来测测你与男神的距离有多远",
 				imgUrl:"http://static.fancysmp.com/activity/gardenLeft/img/game_share_200x200.png",
 				link:location.href

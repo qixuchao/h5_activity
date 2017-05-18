@@ -152,9 +152,7 @@
 			        		<div class="headimg"></div>
 			        	</div>
 						<p>明星距离 {{total}}</p>
-			        </div>
-			       
-			        		
+			        </div>		
 			        <transition name="fade-in">
 			         <div class="modal-mask"  style="display: none" 
 			        	v-show="showDialog"
@@ -179,9 +177,10 @@
 				        					</label>
 				        				</li>
 				        			</ul>
-				        			<button class="gl-submit" @click="submit()"></button>
+				        			<button class="gl-submit" @click="submit()" :disabled="!submitDisabled"></button>
 				        		</div>
 				        		<div class="dialogLine">
+				        			<div></div>
 				        			<div></div>
 				        			<div></div>
 				        			<div></div>
@@ -204,11 +203,11 @@
 						<img src="img/discuss_01.png" alt="" class="result-img-item">
 						<img src="img/title_02.png" alt="" class="result-img-item">
 						<div class="result-btn-box">
-							<a class="result-btn01" :href="cheap">领取优惠券</a>
-							<a class="result-btn01" :href="healthTest">进入专业健康自测</a>
+							<button class="result-btn01" @click="jumpUrl(1)" >领取优惠券</button>
+							<button class="result-btn01" @click="jumpUrl(2)" >进入专业健康自测</button>
 						</div>
 						<img src="img/result-item02.png" alt="" class="result-img-item">
-						<a class="result-btn02" :href="cipher">去报暗号</a>
+						<button class="result-btn02" @click="jumpUrl(3)" >去报暗号</button>
 						<img src="img/result-foot.png" alt="" class="result-img-item">
 					</div>
 				</div>
