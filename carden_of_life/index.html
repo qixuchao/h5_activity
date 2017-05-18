@@ -203,16 +203,17 @@
 						<img src="img/discuss_01.png" alt="" class="result-img-item">
 						<img src="img/title_02.png" alt="" class="result-img-item">
 						<div class="result-btn-box">
-							<button class="result-btn01" @click="jumpUrl(1)" >领取优惠券</button>
-							<button class="result-btn01" @click="jumpUrl(2)" >进入专业健康自测</button>
+							<a class="result-btn01" @click="jumpUrl(1)" >领取优惠券</a>
+							<a class="result-btn01" @click="jumpUrl(2)" >进入专业健康自测</a>
 						</div>
+						<a class="result-btn02 result-btn-share"  @click="openShare" >分享</a>
 						<img src="img/result-item02.png" alt="" class="result-img-item">
-						<button class="result-btn02" @click="jumpUrl(3)" >去报暗号</button>
+						<a class="result-btn02" @click="jumpUrl(3)" >去报暗号</a>
 						<img src="img/result-foot.png" alt="" class="result-img-item">
 					</div>
 				</div>
 			</div>
-
+	    	<div class="gl-share" style="display: none" v-show="showShare" @click="closeShare"></div>
 			<div class="qrcode">
 				<br/>
 				扫码手机分享好友

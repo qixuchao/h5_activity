@@ -666,7 +666,7 @@ $spotColor:#f7d542;
 	line-height:$rem*26;
 	color:#fff;
 	width:$rem*520;
-	margin:-$rem*10 auto $rem*20;
+	margin:-$rem*20 auto $rem*20;
 	min-height:$rem*130;
 }
 .result-img-item{
@@ -678,8 +678,7 @@ $spotColor:#f7d542;
 .result-btn-box{
  	width:$rem*546;
  	padding-left:$rem*15;
- 	margin:$rem*20 auto $rem*70;
-
+ 	margin:$rem*20 auto $rem*35;
 	white-space: nowrap;
 }
 .result-btn01{
@@ -918,4 +917,17 @@ $spotColor:#f7d542;
 		}
 	}
 }
-  
+ 
+ .gl-share{
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  z-index:90;
+  background:rgba(0,0,0,0.7) url(../img/share.png) no-repeat;
+  background-size:100% auto;
+}
+.result-btn-share{
+	margin: 0 auto;
+}

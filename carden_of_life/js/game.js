@@ -113,7 +113,8 @@
 				2:"http://static.fancysmp.com/activity/gardenLeft/QA.html?channle=",
 			},
 			submitDisabled:false,
-			optionMap: ["A", "B", "C", "D", "E", "F", "G"]
+			optionMap: ["A", "B", "C", "D", "E", "F", "G"],
+			showShare:''
 		},
 		methods:{
 			openDialog:function(index){
@@ -182,7 +183,13 @@
 					id:+ new Date()
 				});
 				 window.location.href = this.aUrl[type];
-			}
+			},
+			openShare:function(){
+				this.showShare = true;
+			},
+			closeShare:function(){
+				this.showShare = false;
+			},
 		},
 		mounted: function() {
 			var channel = jskit.utils.getUrlObj().channel || 1;
