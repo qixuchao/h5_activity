@@ -100,17 +100,17 @@
 			},
 			dateUrl:{
 				weibo01:["https://taoquan.taobao.com/coupon/unify_apply.htm?sellerId=3161393975&activityId=fcf581eac6e84bfdbde58e1c1f1107e3","https://taoquan.taobao.com/coupon/unify_apply.htm?sellerId=3161393975&activityId=cd66aa28728946508a6bbd36616d6ac9"],
-				weibo02:"http://static.fancysmp.com/activity/gardenLeft/QA.html",
+				// weibo02:,
 				weibo03:"http://h5.m.taobao.com/awp/core/detail.htm?id=545126126708",
 				weixin01:"https://shop.m.jd.com?shopId=631019",
-				weixin02:"http://static.fancysmp.com/activity/gardenLeft/QA.html",
+				// weixin02:"http://static.fancysmp.com/activity/gardenLeft/QA.html",
 				weixin03:"http://c.b0yp.com/h.6LaQH2?cv=6mb5Zuk8J68&sm=607ad6",
 			},
 			remarkImgUrl:"",
 			remarkTitle:"",
 			resultBg:"",
 			cheap:"",
-			healthTest:"",
+			healthTest:"http://static.fancysmp.com/activity/gardenLeft/QA.html?source=",
 			cipher:""
 		},
 		methods:{
@@ -171,12 +171,23 @@
 				console.log(channel);
 				if(channel == 1){
 					channerType = "weixin";
+					this.cheap = this.dateUrl[channerType+"01"];
 				}else if(channel == 2){
 					channerType = "weibo";
+					this.$http.get('http://openapi.fancysmp.com/api/count?project=carden_of_life_count').then(function(response){
+						console.log(response.data.data);
+						var index = response.data.data;
+						if(index%10 == 0){
+							this.cheap = this.dateUrl[channerType+"01"][1];
+						}else{
+							this.cheap = this.dateUrl[channerType+"01"][0];
+						}
+					 },function(err){
+					 });
 				};
-				this.cheap = this.dateUrl[channerType+"01"];
-				this.healthTest =  this.dateUrl[channerType+"02"];
+				this.healthTest +=channel;
 				this.cipher =  this.dateUrl[channerType+"03"];
+				
 			}
 		},
 		computed:{
