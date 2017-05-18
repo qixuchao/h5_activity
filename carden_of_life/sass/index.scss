@@ -68,11 +68,19 @@ $rem:1rem/32;
       width:150px;
       height: 150px;
       display: block;
-      background:url(../img/QA_channle_1.png);
+      background:url(../img/game_channle_1.png);
       background-size: cover;
     }
   }
 }
+.pc-qrcode-channel2{
+  .qrcode{
+    &:before{
+      background-image:url(../img/game_channle_2.png);
+    }
+  }
+}
+
 /*btn*/
 .btn{
   width:140*$rem;

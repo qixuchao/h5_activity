@@ -168,6 +168,11 @@
 				}
 				this.resultBg = type+length;
 				this.remarkTitle = this.remark[type+length];
+
+
+				(new Image()).src = jskit.utils.addParam('http://openapi.fancysmp.com/api/create?project=carden_of_life_count',{
+					id:+ new Date()
+				});
 			},
 			jumpUrl:function(type){ 
 				var url;
@@ -179,10 +184,9 @@
 			}
 		},
 		mounted: function() {
-			(new Image()).src = jskit.utils.addParam('http://openapi.fancysmp.com/api/create?project=carden_of_life_count',{
-				id:+ new Date()
-			});
-			var channel = jskit.utils.getUrlObj().channel;
+			var channel = jskit.utils.getUrlObj().channel || 1;
+			document.documentElement.className += (" pc-qrcode-channel"+channel);
+
 			var channerType = "";
 			if(channel == 1){//是否是微信 
 				channerType = "weixin";
@@ -201,7 +205,7 @@
 			}
 			this.healthTest += channel;
 			this.aUrl[3] =  this.dateUrl[channerType+"03"]; //暗号地址
-			console.log(this.aUrl)
+
 			jskit.openShare && jskit.openShare({
 				title:"《测测你与男神的距离》",
 				desc:"你一直好奇却又不敢确定，快来测测你与男神的距离有多远",

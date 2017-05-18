@@ -72,7 +72,16 @@ $spotColor:#f7d542;
   		background:url(../img/game_channle_1.png);
   		background-size: cover;
   	}
+
   }
+}
+
+.pc-qrcode-channel2{
+	.qrcode{
+		&:before{
+			background-image:url(../img/game_channle_2.png);
+		}
+	}
 }
 
 .gl-cover{
