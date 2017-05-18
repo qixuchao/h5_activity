@@ -130,15 +130,18 @@
 			},
 			submit:function(){
 				this.organ[this.QAIndex] = this.selectScore;
-				this.selectScore = ;
+				this.selectScore = 0;
 				console.log(this.organ)
 				this.closeDialog();
 				var length = 0,
 					total = 0;
 				for(var i in this.organ){
-					if(this.organ[i]>0){}
-					total += this.organ[i];
-					length ++;
+					if(this.organ[i]>0){
+						total += this.organ[i];
+						length ++;
+					}else{
+						return false;
+					}
 				}
 				this.total = total;
 				if(length == 4){
