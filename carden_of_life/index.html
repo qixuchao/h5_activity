@@ -19,6 +19,15 @@
     	}
     </script>
     <link rel="stylesheet" type="text/css" href="./css/game.css?v=2">
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?45b472947281cad914aa315e6e59750f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
 </head>
 <body>
 	<section class="container">
@@ -199,7 +208,7 @@
 						<div class="result-descption"><span>{{remarkTitle}}</span></div>
 						<img src="img/title_01.png" alt="" class="result-img-item">
 						<img src="img/discuss_01.png" alt="" class="result-img-item">
-						<img src="img/title_02.png" alt="" class="result-img-item">
+						<img :src="'img/title_02'+(channel==2?'_02':'')+'.png'" alt="" class="result-img-item">
 						<div class="result-btn-box">
 							<a class="result-btn01" @click="jumpUrl(1)" >领取优惠券</a>
 							<a class="result-btn01" @click="jumpUrl(2)" >进入专业健康自测</a>
