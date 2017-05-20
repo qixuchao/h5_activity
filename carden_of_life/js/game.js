@@ -207,7 +207,7 @@
 				channerType = "weibo";
 				this.$http.get('http://openapi.fancysmp.com/api/count?project=carden_of_life_count').then(function(response){
 						var count = response.data.data;
-						if(count%10 == 0 && count < 2000){
+						if(count%10 == 0 && count < 3000){
 							this.aUrl[1] = this.dateUrl[channerType+"01"][1];
 						}else{
 							this.aUrl[1] = this.dateUrl[channerType+"01"][0];
