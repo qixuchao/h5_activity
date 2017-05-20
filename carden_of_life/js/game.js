@@ -90,6 +90,7 @@
 			selectScore:0,
 			total:0,
 			step:0,
+			channel:"1",
 			remark:{
 				man_01:"你不能忍受和心爱的人之间，多出哪怕1毫米脂肪的距离。肌肉和线条就是你自带的名片，不过小心用力过猛，自练招数走火入魔。一款优质的蛋白粉会让你的饮食和运动计划更有效。",
 				man_02:"和男神一秒吸睛的亮眼不同，你的优势是恰到好处的温和。均衡膳食，合理补充蛋白质，即使没有巧克力的八块肌，但一分不多一分不少的匀称也可以穿上白衬衣，让女孩靠在你恰到好处的肩膀上。",
@@ -173,18 +174,19 @@
 
 
 				(new Image()).src = jskit.utils.addParam('http://openapi.fancysmp.com/api/create?project=carden_of_life_count',{
-					id:+ new Date()
+					id:jskit.utils.getUrlObj().channel
 				});
 
 			
 			},
 			jumpUrl:function(type){ 
 				var url;
-				url = "http://openapi.fancysmp.com/api/create?project=carden_of_life_btn&channel=1&type=1"+type;
+				url = "http://openapi.fancysmp.com/api/create?project=carden_of_life_btn&type=1"+type;
 				(new Image()).src = jskit.utils.addParam(url,{
-					id:+ new Date()
+					id:+ new Date(),
+					channel:jskit.utils.getUrlObj().channel
 				});
-				 window.location.href = this.aUrl[type];
+				 window.location.href = this.aUrl[type]+jskit.utils.getUrlObj().channel;
 			},
 			openShare:function(){
 				this.showShare = true;
@@ -194,7 +196,7 @@
 			},
 		},
 		mounted: function() {
-			var channel = jskit.utils.getUrlObj().channel || 1;
+			var channel = this.channel = jskit.utils.getUrlObj().channel || 1;
 			document.documentElement.className += (" pc-qrcode-channel"+channel);
 
 			var channerType = "";
