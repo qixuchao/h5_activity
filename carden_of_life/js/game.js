@@ -111,7 +111,9 @@
 			remarkTitle:"",
 			resultBg:"",
 			aUrl:{
-				2:"http://static.fancysmp.com/activity/gardenLeft/QA.html?channle=",
+				1:"",
+				2:"http://static.fancysmp.com/activity/gardenLeft/QA.html?channle="+jskit.utils.getUrlObj().channel,
+				3:""
 			},
 			submitDisabled:false,
 			optionMap: ["A", "B", "C", "D", "E", "F", "G"],
@@ -181,12 +183,13 @@
 			},
 			jumpUrl:function(type){ 
 				var url;
-				url = "http://openapi.fancysmp.com/api/create?project=carden_of_life_btn&type=1"+type;
+				url = "http://openapi.fancysmp.com/api/create?project=carden_of_life_btn&type="+type;
 				(new Image()).src = jskit.utils.addParam(url,{
 					id:+ new Date(),
 					channel:jskit.utils.getUrlObj().channel
 				});
-				 window.location.href = this.aUrl[type]+jskit.utils.getUrlObj().channel;
+				
+				 window.location.href = this.aUrl[type];
 			},
 			openShare:function(){
 				this.showShare = true;

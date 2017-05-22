@@ -30,7 +30,13 @@ gulp.task('sassToCss', function () {
         .pipe($.sourcemaps.write())
         .pipe(gulp.dest('./css'))
 });
-
+/**
+ *@搭建服务器
+ * 页面自动刷新
+ */
+gulp.tadk('',function(){
+	
+})
 /**
  * @buildCompile    编译成生产环境的文件
  * 插件说明：
