@@ -3,7 +3,7 @@ if ('addEventListener' in document) { //解决 input选中延迟问题
 		FastClick.attach(document.body);
 	}, false);
 }
-Vue.directive('swiper', { //注册全局指令
+Vue.directive('swiper', { //注册或全局指令
 	isFn: true,
 	deep: true,
 	bind: function(el, binding) {
