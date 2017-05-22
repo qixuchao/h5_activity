@@ -179,19 +179,10 @@
 				(new Image()).src = jskit.utils.addParam('http://openapi.fancysmp.com/api/create?project=carden_of_life_count',{
 					id:jskit.utils.getUrlObj().channel
 				});
-				this.$http.get('http://openapi.fancysmp.com/api/create?project=carden_of_life_game_QA',{
-					params:{
-						channel:jskit.utils.getUrlObj().channel,
-						record:JSON.stringify(this.record),
-					}
-				}).then(function(response){
-					console.log(response)
-				   // get body data
-
-				 },function(err){
-
-				 });
-			
+				(new Image()).src = jskit.utils.addParam('http://openapi.fancysmp.com/api/create?project=carden_of_life_game_QA',{
+					channel:jskit.utils.getUrlObj().channel,
+					record:JSON.stringify(this.record),
+				});
 			},
 			jumpUrl:function(type){ 
 				var url;
