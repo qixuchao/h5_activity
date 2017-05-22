@@ -117,7 +117,8 @@
 			},
 			submitDisabled:false,
 			optionMap: ["A", "B", "C", "D", "E", "F", "G"],
-			showShare:''
+			showShare:'',
+			record:[]
 		},
 		methods:{
 			openDialog:function(index){
@@ -134,6 +135,7 @@
 				this.subject[this.QAIndex].answer[index].checked = true;
 				this.selectScore = score;
 				this.submitDisabled = true;
+				this.record[this.QAIndex] = index;
 			},
 			submit:function(){
 				this.organ[this.QAIndex] = this.selectScore;
@@ -174,11 +176,21 @@
 				this.resultBg = type+length;
 				this.remarkTitle = this.remark[type+length];
 
-
 				(new Image()).src = jskit.utils.addParam('http://openapi.fancysmp.com/api/create?project=carden_of_life_count',{
 					id:jskit.utils.getUrlObj().channel
 				});
+				this.$http.get('http://openapi.fancysmp.com/api/create?project=carden_of_life_game_QA',{
+					params:{
+						channel:jskit.utils.getUrlObj().channel,
+						record:JSON.stringify(this.record),
+					}
+				}).then(function(response){
+					console.log(response)
+				   // get body data
 
+				 },function(err){
+
+				 });
 			
 			},
 			jumpUrl:function(type){ 
