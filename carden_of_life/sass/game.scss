@@ -156,6 +156,7 @@ $spotColor:#f7d542;
 	animation-iteration-count: infinite;
 	animation-name: shake;
 	animation-timing-function: ease-in-out;
+	cursor:pointer;
 }
 
 .person-select-wrapper{
@@ -170,8 +171,10 @@ $spotColor:#f7d542;
 	.person-part{
 		&:active{
 			transform: scale(1.1);
-    		
 		}
+	}
+	label{
+	cursor:pointer;
 	}
 }
 .person-scene-right{
@@ -227,6 +230,7 @@ $spotColor:#f7d542;
 	top: $rem*765;
 	left: 50%;
 	transform:translate(-50%,0);
+	cursor:pointer;
 }
 .gl-centerTop-logo{
 	position:absolute;
@@ -347,6 +351,7 @@ $spotColor:#f7d542;
 	}
 	&-bd{
 		padding:$rem*30 $rem*60;
+  		cursor:pointer;
 		.gl-checkbox{
 			span{
 				vertical-align: $rem*-8;
@@ -362,6 +367,7 @@ $spotColor:#f7d542;
 			display: block;
 			width:$rem*220;
 			height: $rem*60;
+  		    cursor:pointer;
 			background-image:url(../img/index_button.png);
 			background-repeat:no-repeat;
 			background-size:100% 100%;
@@ -698,6 +704,7 @@ $spotColor:#f7d542;
 	color:#fff;
 	background-size:100% 100%;
 	box-sizing:border-box;
+  	cursor:pointer;
 	&:nth-of-type(1){
 		margin-right:$rem*50;
 	}
@@ -713,6 +720,7 @@ $spotColor:#f7d542;
 	margin:$rem*5 auto $rem*35;
 	background:url(../img/btn_03.png) no-repeat;
 	background-size:100% 100%;
+  	cursor:pointer;
 }
 
 @keyframes shake{
@@ -875,6 +883,7 @@ $spotColor:#f7d542;
   position: relative;
   width:$rem*88;
   height: $rem*88;
+  cursor:pointer;
     .spot{
     	background: $spotColor;
     	display: inline-block;
