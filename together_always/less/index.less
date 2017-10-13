@@ -1,0 +1,62 @@
+@import "_reset.less";
+
+@rem: 1rem/32;
+
+.container {}
+
+.pages {}
+
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.page1 {
+  background-image: url(../images/page1/bg.png);
+  .title1,
+  .title2,
+  .title3 {
+    margin: 0 auto;
+  }
+  img{
+  	max-width: 100%;
+  }
+  .fence{
+  	position: absolute;
+  	z-index: 6;
+  	bottom: 420px;
+  }
+  .tree{
+  	position: absolute;
+  	z-index:5;
+  	bottom: 420px;
+  }
+  .play{
+  	position: absolute;
+  	z-index:10;
+  	left:50%;
+  	margin-top: 30px;
+  	transform:translate(-50%,0);
+  }
+  .role{
+  	position: absolute;
+  	z-index:9;
+  	bottom: 20px;
+  	right: 50px;
+  }
+  .river{
+  	position: absolute;
+  	bottom: 0;
+  }
+}
+
+.layer {
+  transition: all 0.5s;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
