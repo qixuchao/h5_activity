@@ -28,12 +28,11 @@
 					data-direction>
 				<img src="./images/page1/always.png" 
 					alt="always" 
-					class="title2 layer"
-					data-direction="-1">
-				<img src="./images/page1/subtitle.png" alt="" class="title3">
+					class="title2 layer">
+				<img src="./images/page1/subtitle.png" alt="" class="title3 layer">
 				<img src="./images/page1/fence.png" alt="" class="fence">
 				<img src="./images/page1/tree.png" alt="" class="tree layer">
-				<img src="./images/page1/play.png" alt="" class="play">
+				<img src="./images/page1/play.png" alt="" class="play layer">
 				<img src="./images/page1/role.png" alt="" class="role">
 				<img src="./images/page1/river.png" alt="" class="river">
 			</div>
@@ -44,42 +43,50 @@
 	<script src="./scripts/libs/zepto.min.js"></script>
 	<script>
 
-
 		window.addEventListener('deviceorientation', function(e){
 		   console.log('absolute: ' + e.absolute)
 		   console.log('alpha: ' + e.alpha)
 		   console.log('beta: ' + e.beta)
 		   console.log('gamma: ' + e.gamma)
 
-		   //Y
-		   var directionY = 1;
-		   if(e.gamma > 0){
-		   	//$('.title1').css("transform","translate3d(8px,0,0)")
-		   }else{
-		   	//$('.title1').css("transform","translate3d(-8px,0,0)")
-		   	directionY = -1
+
+		   if(e.gamma != null && e.beta != null){
+
+		   		//Y
+		   		var directionY = 1;
+		   		console.log(e);
+
+		   		if(e.gamma > 0){
+
+		   		}else{
+		   			directionY = -1
+		   		}
+
+		   		//z
+		   		 var directionX = 1;
+		   		if(e.beta > 0){
+		   			//> top
+		   		}else{
+		   			 directionX = -1;
+
+		   		}
+
+		   		var x = Math.min(e.gamma*3,90);
+		   		var y = Math.min(e.beta*3,90);
+
+		   		$('.layer').each(function(){
+		   				var $this = $(this);
+		   				var direction = Number($this.attr('data-direction') || 1)
+
+		   				$this.css("transform","translate3d("+x+"px,"+y+"px,0)")
+		   				console.log(directionY,direction)
+		   		});
 		   }
-
-		   //z
-		    var directionX = 1;
-		   if(e.beta > 0){
-		   	//> top
-		   	 directionX = -1;
-		   }else{
-
-		   }
-
-
-		   $('.layer').each(function(){
-		   		var $this = $(this);
-		   		var direction = Number($this.attr('data-direction') || 1)
-
-		   		$this.css("transform","translate3d("+(direction*directionY*8)+"px,"+(direction*directionX*4)+"px,0)")
-		   		console.log(directionY,direction)
-		   });
-		   
-		   
 		});
+	</script>
+	<script src="./scripts/libs/stats.min.js"></script>
+	<script>
+		var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});
 	</script>
 </body>
 </html>

@@ -31,6 +31,7 @@ gulp.task('less',function(){
 	return gulp.src([baseDir+'/{,*}/less/*.less','!'+baseDir+'/{,*}/less/_*.less'],{
             base:baseDir+'/less'
         })
+        .pipe($.plumber({errorHandler: $.notify.onError('Error: <%= error.message %>')}))
         .pipe($.less())
         .pipe(gulp.dest(baseDir+'/styles/'))
         .pipe(reload({stream: true}))

@@ -80,14 +80,35 @@ a {
   left: 0;
   background-size: contain;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 .page1 {
   background-image: url(../images/page1/bg.png);
+  background-repeat: repeat;
 }
 .page1 .title1,
 .page1 .title2,
 .page1 .title3 {
   margin: 0 auto;
+}
+.page1 .title1 {
+  width: 18.25rem;
+  height: 5.8125rem;
+  margin-top: 2.8125rem;
+}
+.page1 .title2 {
+  width: 18.25rem;
+  height: 5.8125rem;
+  margin-top: -0.6875rem;
+}
+.page1 .title3 {
+  width: 13.375rem;
+  height: 0.875rem;
+  margin-top: -0.625rem;
+}
+.page1 .play {
+  width: 13.1875rem;
+  height: 3.65625rem;
 }
 .page1 img {
   max-width: 100%;
@@ -95,32 +116,38 @@ a {
 .page1 .fence {
   position: absolute;
   z-index: 6;
-  bottom: 420px;
+  bottom: 4.6875rem;
+  width: 23.4375rem;
 }
 .page1 .tree {
   position: absolute;
-  z-index: 5;
-  bottom: 420px;
+  z-index: 7;
+  bottom: 3.75rem;
+  height: 13.1875rem;
+  width: 23.4375rem;
 }
 .page1 .play {
   position: absolute;
   z-index: 10;
   left: 50%;
-  margin-top: 30px;
-  transform: translate(-50%, 0);
+  margin-top: 0.9375rem;
+  margin-left: -6.59375rem;
 }
 .page1 .role {
   position: absolute;
   z-index: 9;
-  bottom: 20px;
-  right: 50px;
+  bottom: 0.625rem;
+  height: 7.71875rem;
+  width: 13.90625rem;
+  left: 6.25rem;
 }
 .page1 .river {
   position: absolute;
   bottom: 0;
+  bottom: -5.78125rem;
 }
 .layer {
-  transition: all 0.5s;
+  transition: all 0.1s;
   transform-style: preserve-3d;
   backface-visibility: hidden;
 }
