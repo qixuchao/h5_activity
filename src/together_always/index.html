@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>together always</title>
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script data-js-path="redraw.js">
+        !(function(f,o){var a=navigator.userAgent,b=/iphone|ipad|ipod/i.test(a),i=/android/ig.test(a),j=/Mobile/i.test(a)||b||i;var n=document.querySelector("[name=viewport]"),k=b?window.devicePixelRatio?Math.min(window.devicePixelRatio,3):1:1,c=document.documentElement,l=k*(c.dataset.mw||750),d=1/k,e;f=f||320;o=o||16;if(n){var h=n.content||"",g=h.match(/initial\-scale=([\d\.]+)/);if(g){h=h.replace(/initial\-scale=([\d\.]+)/,"initial-scale="+d)}else{h+=",initial-scale="+d}n.content=h.replace(/minimum\-scale=([\d\.]+)/,"").replace(/maximum\-scale=([\d\.]+)/,"")}else{n=doc.createElement("meta");n.name="viewport";n.content="maximum-scale="+d+",minimum-scale="+d+",user-scalable=0,width=device-width;initial-scale="+d;c.firstElementChild.appendChild(n)}var m=function(){var q=window.innerWidth;var p=Math.min(q,l)/f*o;c.style.fontSize=p+"px"};if(j){window.addEventListener("resize",function(){clearTimeout(e);e=setTimeout(m,300)},false);m()}else{c.style.fontSize="16px"}})(375,16);
+    </script>
+	<link rel="stylesheet" type="text/css" href="./styles/index.css">
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?45b472947281cad914aa315e6e59750f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="pages" >
+			<div class="page page1 current">
+				<img src="./images/page1/fogether.png" 
+					alt="together" 
+					class="title1 layer"
+					data-direction>
+				<img src="./images/page1/always.png" 
+					alt="always" 
+					class="title2 layer"
+					data-friction="0.6">
+				<img src="./images/page1/subtitle.png" 
+					alt="" class="title3 layer"
+					data-friction="0.45">
+				<img src="./images/page1/fence.png" alt="" 
+					class="fence layer"
+					data-friction="0.3">
+				<img src="./images/page1/tree.png" 
+					alt="" class="tree layer1"
+					data-friction="0.8">
+				<img src="./images/page1/play.png" alt="" 
+					class="play layer" data-friction="0.8"
+					id="play">
+				<img src="./images/page1/role.png" alt="" class="role">
+				<img src="./images/page1/river.jpg" alt="" class="river">
+			</div><div class="page page2">
+				<p class="talk">
+					From time to time, there were cherries and plums in the orchard.<br/>
+					From time to time, there were apples and pears.<br/><br/>
+	
+					But no matter what hung from the trees.<br/>
+					Pig and Goat were always together. <br/>
+					Side by side.<br/>
+					<button type="button" class="play-button"></button>
+				</p>	
+				<img src="./images/page2/role.png" alt="" class="role">
+				<img src="./images/page2/left.png" alt=""  class="left-tree">
+				<img src="./images/page2/right.png" alt="" class="right-tree">
+			</div><div class="page page3">
+				<img src="./images/page3/role1.png" alt="" class="role1">
+				<p class="talk">
+					When Pig got lost, Goat found the way.<br/>
+					When Goat felt giddy, Pig told a story.<br/>
+					When Pig felt small, Goat told tall tales.<br/>
+					When Goat couldn’t sleep, Pig would hum.<br/>
+					<button type="button" class="play-button"></button>
+				</p>	
+				<img src="./images/page3/role2.png" alt=""  class="role2">
+			</div>
+			<div class="page page4">
+				<p>
+					One night,when the moon was round, Goat felt BIG!<br/>
+					<button type="button" class="play-button play-white-btn"></button>
+				</p>
+				<img src="./images/page4/moon.png" alt="" class="moon">
+				<img src="./images/page4/left_tree.png" alt="" class="left-tree">
+				<img src="./images/page4/right_tree.png" alt="" class="right-tree">
+				<img src="./images/page4/lawn.png" alt="">
+				<img src="./images/page4/rail.png" alt="" class="rail">
+				<img src="./images/page4/role.png" alt="">
+			</div>
+		</div>
+		<div class="page-tools">
+			<button type="button" class="pre-page"></button>
+			<button type="button" class="next-page"></button>
+		</div>
+	</div>
+	<script src="./scripts/libs/zepto.min.js"></script>
+	<script>
+
+		$(function(){
+
+				$('.pages').width(window.innerWidth * $('.pages .page').length)
+
+				$('.pages .page').width(window.innerWidth)
+
+				$(document).on('touchmove',function(e){
+					e.preventDefault()
+					return false;
+				})
+
+				$(window).on('deviceorientation', function(e){
+				   console.log('absolute: ' + e.absolute)
+				   console.log('alpha: ' + e.alpha)
+				   console.log('beta: ' + e.beta)
+				   console.log('gamma: ' + e.gamma)
+
+
+				   if(e.gamma != null && e.beta != null){
+
+				   		var minusG = Math.abs(e.gamma) / e.gamma
+				   		var minusB = Math.abs(e.beta) / e.beta
+				   		var x = Math.min(Math.abs(e.gamma),90);
+				   		var y = Math.min(Math.abs(e.beta),90);
+
+				   		x = minusG * x 
+				   		y = minusG * y 
+
+				   		$('.layer').each(function(){
+			   				var $this = $(this);
+			   				var direction = Number($this.attr('data-direction') || 1)
+			   				var friction = Number($this.attr('data-friction') || 1)//摩擦
+
+			   				$this.css("transform","translate3d("+(x*friction)+"px,"+(y*friction)+"px,0)")
+				   		});
+				   }
+				});
+
+				function Pages(){
+					this.current = 0;
+					this.$container = $('.pages')
+					this.$pages = this.$container.find('.page');
+				}	
+
+				Pages.prototype = {
+					move(dir){
+						dir = dir || 1;
+						var leavelCls = dir > 0 ? 'leavel' : ''
+						this.$pages.eq(this.current).addClass(leavelCls)
+
+						var current = this.current - dir;
+
+						var x = current * window.innerWidth * -1 ;
+
+						this.$container.css({
+							transform:'translateX('+x+'px)'
+						})
+
+						this.current = current
+
+					},
+					next:function(next){
+						this.move(-1)	
+					},
+					pre:function(pre){
+						this.move(1)
+					}
+				}
+
+				pages = new Pages();
+				$('#play').on('click',function(){
+					pages.next()
+				});
+
+				$('.next-page').on('click',function(){
+					pages.next()
+				})
+
+				$('.pre-page').on('click',function(){
+					pages.pre()
+				})
+
+		})
+	</script>
+</body>
+</html>
