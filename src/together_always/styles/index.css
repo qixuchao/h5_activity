@@ -240,7 +240,7 @@ a {
 }
 .page4 .right-tree {
   position: absolute;
-  top: 8.125rem;
+  top: 8.75rem;
   right: 0rem;
   width: 11.09375rem;
   height: 5.03125rem;
@@ -248,9 +248,148 @@ a {
 .page4 .left-tree {
   position: absolute;
   left: 0;
-  top: 8.125rem;
+  top: 8.75rem;
   width: 8.6875rem;
   height: 5rem;
+}
+.page4 .lawn {
+  width: 23.4375rem;
+  height: 8.625rem;
+  position: absolute;
+  top: 17rem;
+  right: 0rem;
+}
+.page4 .role {
+  position: absolute;
+  top: 20.5rem;
+  right: 0rem;
+  width: 23.4375rem;
+  height: 12.875rem;
+}
+.page5 {
+  background: url(../images/page5/bg.jpg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  color: #f2f2e4;
+  text-shadow: 1px 1px 12px #000000;
+  padding: 2.03125rem 1.5rem;
+}
+.page5 .talk {
+  position: relative;
+  z-index: 10;
+}
+.page5 .bg-tree {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  width: 19.03125rem;
+  height: 24.59375rem;
+}
+.page5 .left-tree {
+  position: absolute;
+  left: 0.625rem;
+  top: -0.625rem;
+  width: 6.375rem;
+  height: 29.375rem;
+  z-index: 9;
+}
+.page5 .right-tree {
+  position: absolute;
+  top: -0.625rem;
+  right: 3.125rem;
+  width: 5.71875rem;
+  height: 28.15625rem;
+}
+.page5 .center-tree {
+  position: absolute;
+  top: 0rem;
+  right: 9.46875rem;
+  width: 4.125rem;
+  height: 25.3125rem;
+}
+.page5 .grass1 {
+  width: 1.53125rem;
+  height: 5.4375rem;
+  position: absolute;
+  left: 0.46875rem;
+  top: 21.25rem;
+  z-index: 8;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-animation: shake 1.8s 2.8s infinite alternate ease-in-out;
+          animation: shake 1.8s 2.8s infinite alternate ease-in-out;
+}
+.page5 .grass2 {
+  width: 4.625rem;
+  height: 6.5625rem;
+  position: absolute;
+  left: 4.8125rem;
+  top: 20.3125rem;
+  z-index: 8;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-animation: shake 2.6s 3s infinite alternate ease-in-out;
+          animation: shake 2.6s 3s infinite alternate ease-in-out;
+}
+.page5 .grass3 {
+  width: 1.875rem;
+  height: 5.1875rem;
+  position: absolute;
+  left: 13.375rem;
+  top: 21.96875rem;
+  z-index: 8;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-animation: shake 2s 3.3s infinite alternate ease-in-out;
+          animation: shake 2s 3.3s infinite alternate ease-in-out;
+}
+.page5 .role {
+  width: 19.6875rem;
+  height: 10.34375rem;
+  position: absolute;
+  top: 25.9375rem;
+  right: 1.875rem;
+}
+.page6 .stone {
+  position: absolute;
+  top: 3.75rem;
+  right: 0rem;
+  width: 19.09375rem;
+  height: 29.15625rem;
+}
+.page6 .tree2 {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  width: 5.5rem;
+  height: 7.25rem;
+}
+.page6 .tree1 {
+  position: absolute;
+  top: 0rem;
+  right: 7.5rem;
+  width: 5.96875rem;
+  height: 20.21875rem;
+}
+.page6 .small-stone {
+  position: absolute;
+  top: 19.625rem;
+  left: 1.65625rem;
+  width: 5.59375rem;
+  height: 4.78125rem;
+  z-index: 9;
+}
+.page6 .grass {
+  position: absolute;
+  top: 16.875rem;
+  right: 13.40625rem;
+  width: 3.53125rem;
+  height: 6.9375rem;
+  z-index: 8;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-animation: shake 2.8s 1.8s infinite alternate ease-in-out;
+          animation: shake 2.8s 1.8s infinite alternate ease-in-out;
 }
 .page-tools {
   background: rgba(0, 95, 148, 0.8);
@@ -296,4 +435,40 @@ a {
           transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+}
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  33% {
+    -webkit-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+  }
+  66% {
+    -webkit-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  33% {
+    -webkit-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+  }
+  66% {
+    -webkit-transform: rotate(5deg);
+    transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
 }

@@ -20,7 +20,7 @@
 </head>
 <body>
 	<div class="container">
-		<div class="pages" >
+		<div class="pages" style="width: 3000px; transform: translateX(-3750px);">
 			<div class="page page1 current">
 				<img src="./images/page1/fogether.png" 
 					alt="together" 
@@ -67,8 +67,7 @@
 					<button type="button" class="play-button"></button>
 				</p>	
 				<img src="./images/page3/role2.png" alt=""  class="role2">
-			</div>
-			<div class="page page4">
+			</div><div class="page page4">
 				<p>
 					One night,when the moon was round, Goat felt BIG!<br/>
 					<button type="button" class="play-button play-white-btn"></button>
@@ -76,11 +75,47 @@
 				<img src="./images/page4/moon.png" alt="" class="moon">
 				<img src="./images/page4/left_tree.png" alt="" class="left-tree">
 				<img src="./images/page4/right_tree.png" alt="" class="right-tree">
-				<img src="./images/page4/lawn.png" alt="">
+				<img src="./images/page4/lawn.png" alt="" class="lawn">
 				<img src="./images/page4/rail.png" alt="" class="rail">
-				<img src="./images/page4/role.png" alt="">
+				<img src="./images/page4/role.png" alt="" class="role">
+			</div><div class="page page5">
+				<p class="talk">
+					So Pig and Goat stuck together.<br/>
+					Together through the gate.<br/>
+					Together through the mist.<br/>
+					<br/>
+					Together over roots.<br/>
+					Together over rocks.<br/>
+					Climbing higher and higher.<br/>
+					But Pig longed. for the orchard.<br/>
+					<button type="button" class="play-button play-white-btn"></button>
+				</p>
+				<img src="./images/page5/bg_tree.png" alt="" class="bg-tree">		
+				<img src="./images/page5/left_tree.png" alt="" class="left-tree">		
+				<img src="./images/page5/right_tree.png" alt="" class="right-tree">		
+				<img src="./images/page5/center_tree.png" alt="" class="center-tree">		
+				<img src="./images/page5/grass1.png" alt="" class="grass1">		
+				<img src="./images/page5/grass2.png" alt="" class="grass2">		
+				<img src="./images/page5/grass3.png" alt="" class="grass3">		
+				<img src="./images/page5/grass4.png" alt="" class="grass4">		
+				<img src="./images/page5/role.png" alt="" class="role">		
+			</div><div class="page page6">
+				<img src="./images/page6/tree1.png" alt="" class="tree1">
+				<img src="./images/page6/tree2.png" alt="" class="tree2">
+				<img src="./images/page6/stone.png" alt="" class="stone">
+				<img src="./images/page6/small_stone.png" alt="" class="small-stone">
+				<img src="./images/page6/grass.png" alt="" class="grass">
+			</div><div class="page page7">
+				
+			</div><div class="page page8">
+				
+			</div><div class="page page9">
+				
+			</div><div class="page page10">
+				
 			</div>
 		</div>
+
 		<div class="page-tools">
 			<button type="button" class="pre-page"></button>
 			<button type="button" class="next-page"></button>
@@ -128,7 +163,7 @@
 				});
 
 				function Pages(){
-					this.current = 0;
+					this.current = 4;
 					this.$container = $('.pages')
 					this.$pages = this.$container.find('.page');
 				}	
@@ -169,7 +204,7 @@
 
 				$('.pre-page').on('click',function(){
 					pages.pre()
-				})
+				});
 
 		})
 	</script>

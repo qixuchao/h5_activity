@@ -174,14 +174,112 @@
     .size(750,133);
   }
   .right-tree{
-    .position(260,0);
+    .position(280,0);
     .size(355,161);
   }
   .left-tree{
     position: absolute;
     left:0;
-    top:@rem*260;
+    top:@rem*280;
     .size(278,160);
+  }
+  .lawn{
+    .size(750,276);
+    .position(544,0)
+  }
+  .role{
+    .position(656,0);
+    .size(750,412);
+  }
+}
+.page5{
+  background: url(../images/page5/bg.jpg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  color:#f2f2e4;
+  text-shadow:1px 1px 12px #000000;
+  padding: @rem*65 @rem*48;
+  .talk{
+    position: relative;
+    z-index: 10;
+  }
+  .bg-tree{
+    .position(0,0);
+    .size(609,787);
+  }
+  .left-tree{
+    position: absolute;
+    left:@rem*20;
+    top:@rem*-20;
+    .size(204,940);
+    z-index: 9;
+  }
+  .right-tree{
+    .position(-20,100);
+    .size(183,901);
+  }
+  .center-tree{
+    .position(0,303);
+    .size(132,810);
+  }
+  .grass1{
+    .size(49,174);
+    position: absolute;
+    left:@rem*15;
+    top:@rem*680;
+    z-index: 8;
+    transform-origin: bottom;
+    animation:shake 1.8s 2.8s infinite alternate ease-in-out;
+  }
+  .grass2{
+    .size(148,210);
+    position: absolute;
+    left:@rem*154;
+    top:@rem*650;
+    z-index: 8;
+    transform-origin: bottom;
+    animation:shake 2.6s 3s infinite alternate ease-in-out;
+  }
+  .grass3{
+    .size(60,166);
+    position: absolute;
+    left:@rem*428;
+    top:@rem*703;
+    z-index: 8;
+    transform-origin: bottom;
+    animation:shake 2s 3.3s infinite alternate ease-in-out;
+  }
+  .role{
+    .size(630,331);
+    .position(830,60);
+  }
+}
+.page6{
+  .stone{
+    .position(120,0);
+    .size(611,933);
+  }
+  .tree2{
+    .position(0,0);
+    .size(176,232);
+  }
+  .tree1{
+    .position(0,240);
+    .size(191,647);
+  }
+  .small-stone{
+    position: absolute;
+    top:@rem*628;
+    left:@rem*53;
+    .size(179,153);
+    z-index: 9;
+  }
+  .grass{
+    .position(540,429);
+    .size(113,222);
+    z-index: 8;
+    transform-origin: bottom;
+    animation:shake 2.8s 1.8s infinite alternate ease-in-out;
   }
 }
 
@@ -226,4 +324,25 @@
   transition: all 0.1s;
   transform-style: preserve-3d;
   backface-visibility: hidden;
+}
+
+
+@keyframes shake
+{
+0% { 
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+} 
+33% {  
+  -webkit-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+}
+66% {  
+  -webkit-transform: rotate(5deg);
+  transform: rotate(5deg);
+}
+100% {  
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
 }
