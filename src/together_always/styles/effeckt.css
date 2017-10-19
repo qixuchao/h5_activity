@@ -1,0 +1,74 @@
+.slide-in-left {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+.slide-in-right {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.slide-in-top {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+.slide-in-bottom {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+.slide-in-top-fade {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  opacity: 0;
+}
+.slide-in-bottom-fade {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  opacity: 0;
+}
+.fade-in {
+  opacity: 0;
+}
+.current .slide-in-left,
+.current .slide-in-right {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: -webkit-transform 0.8s ease;
+  transition: -webkit-transform 0.8s ease;
+  transition: transform 0.8s ease;
+  transition: transform 0.8s ease, -webkit-transform 0.8s ease;
+}
+.current .fade-in {
+  opacity: 1;
+  -webkit-transition: opacity 0.8s ease;
+  transition: opacity 0.8s ease;
+}
+.current .slide-in-top,
+.current .slide-in-bottom {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: -webkit-transform 0.8s ease;
+  transition: -webkit-transform 0.8s ease;
+  transition: transform 0.8s ease;
+  transition: transform 0.8s ease, -webkit-transform 0.8s ease;
+}
+.current .slide-in-top-fade,
+.current .slide-in-bottom-fade {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: opacity 0.8s ease,-webkit-transform 0.8s ease;
+  transition: opacity 0.8s ease,-webkit-transform 0.8s ease;
+  transition: transform 0.8s ease,opacity 0.8s ease;
+  transition: transform 0.8s ease,opacity 0.8s ease,-webkit-transform 0.8s ease;
+}
+.delay-1 {
+  -webkit-transition-delay: 0.8s!important;
+          transition-delay: 0.8s!important;
+}
+.delay-2 {
+  -webkit-transition-delay: 1.2s!important;
+          transition-delay: 1.2s!important;
+}
+.delay-3 {
+  -webkit-transition-delay: 1.6s!important;
+          transition-delay: 1.6s!important;
+}

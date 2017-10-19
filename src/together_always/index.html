@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>together always</title>
-	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>TOGETHER ALWAYS</title>
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=off">
 	<script data-js-path="redraw.js">
         !(function(f,o){var a=navigator.userAgent,b=/iphone|ipad|ipod/i.test(a),i=/android/ig.test(a),j=/Mobile/i.test(a)||b||i;var n=document.querySelector("[name=viewport]"),k=b?window.devicePixelRatio?Math.min(window.devicePixelRatio,3):1:1,c=document.documentElement,l=k*(c.dataset.mw||750),d=1/k,e;f=f||320;o=o||16;if(n){var h=n.content||"",g=h.match(/initial\-scale=([\d\.]+)/);if(g){h=h.replace(/initial\-scale=([\d\.]+)/,"initial-scale="+d)}else{h+=",initial-scale="+d}n.content=h.replace(/minimum\-scale=([\d\.]+)/,"").replace(/maximum\-scale=([\d\.]+)/,"")}else{n=doc.createElement("meta");n.name="viewport";n.content="maximum-scale="+d+",minimum-scale="+d+",user-scalable=0,width=device-width;initial-scale="+d;c.firstElementChild.appendChild(n)}var m=function(){var q=window.innerWidth;var p=Math.min(q,l)/f*o;c.style.fontSize=p+"px"};if(j){window.addEventListener("resize",function(){clearTimeout(e);e=setTimeout(m,300)},false);m()}else{c.style.fontSize="16px"}})(375,16);
     </script>
@@ -20,7 +20,21 @@
 </head>
 <body>
 	<div class="container">
-		<div class="pages" style="width: 3000px; transform: translateX(-3750px);">
+		<div class="loading-page">
+			<div class="loading-page-box">
+				<div class="sprite role"></div>
+				<div class="earth-box">
+					<div class="sprite earth"></div>
+					<div class="sprite mask"></div>
+					<div class="number-box">
+						<span class="sprite number number-0"></span>
+						<span class="sprite number number-1"></span>
+						<span class="sprite number number-sign"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="pages" style="">
 			<div class="page page1 current">
 				<img src="./images/page1/fogether.png" 
 					alt="together" 
@@ -45,7 +59,7 @@
 				<img src="./images/page1/role.png" alt="" class="role">
 				<img src="./images/page1/river.jpg" alt="" class="river">
 			</div><div class="page page2">
-				<p class="talk">
+				<p class="talk fade-in">
 					From time to time, there were cherries and plums in the orchard.<br/>
 					From time to time, there were apples and pears.<br/><br/>
 	
@@ -54,30 +68,30 @@
 					Side by side.<br/>
 					<button type="button" class="play-button"></button>
 				</p>	
-				<img src="./images/page2/role.png" alt="" class="role">
-				<img src="./images/page2/left.png" alt=""  class="left-tree">
-				<img src="./images/page2/right.png" alt="" class="right-tree">
+				<img src="./images/page2/role.png" alt="" class="role fade-in">
+				<img src="./images/page2/left.png" alt=""  class="left-tree slide-in-left">
+				<img src="./images/page2/right.png" alt="" class="right-tree slide-in-right">
 			</div><div class="page page3">
-				<img src="./images/page3/role1.png" alt="" class="role1">
-				<p class="talk">
+				<img src="./images/page3/role1.png" alt="" class="role1 slide-in-top-fade">
+				<p class="talk fade-in">
 					When Pig got lost, Goat found the way.<br/>
 					When Goat felt giddy, Pig told a story.<br/>
 					When Pig felt small, Goat told tall tales.<br/>
 					When Goat couldn’t sleep, Pig would hum.<br/>
 					<button type="button" class="play-button"></button>
 				</p>	
-				<img src="./images/page3/role2.png" alt=""  class="role2">
+				<img src="./images/page3/role2.png" alt=""  class="role2 slide-in-bottom-fade">
 			</div><div class="page page4">
-				<p>
+				<p class="fade-in">
 					One night,when the moon was round, Goat felt BIG!<br/>
 					<button type="button" class="play-button play-white-btn"></button>
 				</p>
-				<img src="./images/page4/moon.png" alt="" class="moon">
-				<img src="./images/page4/left_tree.png" alt="" class="left-tree">
-				<img src="./images/page4/right_tree.png" alt="" class="right-tree">
+				<img src="./images/page4/moon.png" alt="" class="moon moon-shake slide-in-bottom">
+				<img src="./images/page4/left_tree.png" alt="" class="left-tree slide-in-left">
+				<img src="./images/page4/right_tree.png" alt="" class="right-tree slide-in-right">
 				<img src="./images/page4/lawn.png" alt="" class="lawn">
 				<img src="./images/page4/rail.png" alt="" class="rail">
-				<img src="./images/page4/role.png" alt="" class="role">
+				<img src="./images/page4/role.png" alt="" class="role fade-in">
 			</div><div class="page page5">
 				<p class="talk">
 					So Pig and Goat stuck together.<br/>
@@ -90,14 +104,14 @@
 					But Pig longed. for the orchard.<br/>
 					<button type="button" class="play-button play-white-btn"></button>
 				</p>
-				<img src="./images/page5/bg_tree.png" alt="" class="bg-tree">		
-				<img src="./images/page5/left_tree.png" alt="" class="left-tree">		
-				<img src="./images/page5/right_tree.png" alt="" class="right-tree">		
-				<img src="./images/page5/center_tree.png" alt="" class="center-tree">		
-				<img src="./images/page5/grass1.png" alt="" class="grass1">		
-				<img src="./images/page5/grass2.png" alt="" class="grass2">		
-				<img src="./images/page5/grass3.png" alt="" class="grass3">		
-				<img src="./images/page5/grass4.png" alt="" class="grass4">		
+				<img src="./images/page5/bg_tree.png" alt="" class="bg-tree fade-in ">		
+				<img src="./images/page5/left_tree.png" alt="" class="left-tree fade-in delay-1">		
+				<img src="./images/page5/right_tree.png" alt="" class="right-tree fade-in delay-2">		
+				<img src="./images/page5/center_tree.png" alt="" class="center-tree fade-in delay-3">		
+				<img src="./images/page5/grass1.png" alt="" class="grass1 fade-in delay-3">		
+				<img src="./images/page5/grass2.png" alt="" class="grass2 fade-in delay-3">		
+				<img src="./images/page5/grass3.png" alt="" class="grass3 fade-in delay-3">		
+				<img src="./images/page5/grass4.png" alt="" class="grass4 fade-in delay-3">		
 				<img src="./images/page5/role.png" alt="" class="role">		
 			</div><div class="page page6">
 				<img src="./images/page6/tree1.png" alt="" class="tree1">
@@ -105,6 +119,9 @@
 				<img src="./images/page6/stone.png" alt="" class="stone">
 				<img src="./images/page6/small_stone.png" alt="" class="small-stone">
 				<img src="./images/page6/grass.png" alt="" class="grass">
+				<img src="./images/page6/grass2.png" alt="" class="grass2">
+				<img src="./images/page6/pig.png" alt="" class="pig">
+				<img src="./images/page6/sheep.png" alt="" class="sheep">
 			</div><div class="page page7">
 				
 			</div><div class="page page8">
@@ -122,6 +139,41 @@
 		</div>
 	</div>
 	<script src="./scripts/libs/zepto.min.js"></script>
+	<script src="./scripts/libs/createjs/preloadjs-0.6.2.min.js"></script>
+	<script>
+		var queue = new createjs.LoadQueue();
+		queue.on("complete", handleComplete, this);
+		queue.on("progress", function(e){
+			var loaded = parseInt(e.loaded * 100,10)+'';
+
+			var loadeds = loaded.split(''),
+				html = '';
+			console.log(loaded);
+			for(var i=0,len=loadeds.length;i<len;i++){
+				html += '<span class="sprite number number-'+loadeds[i]+'"></span>'
+			}
+
+			html += '<span class="sprite number number-sign"></span>'
+
+			$('.number-box').html(html)
+		}, this);
+		queue.loadManifest([
+			"./images/page1/fogether.png",
+			"./images/page1/always.png",
+			"./images/page1/subtitle.png",
+			"./images/page1/fence.png",
+			"./images/page1/tree.png",
+			"./images/page1/play.png",
+			"./images/page1/role.png",
+			"./images/page1/river.jpg",
+			"./images/page2/role.png",
+			"./images/page2/left.png",
+			"./images/page2/right.png",
+		]);
+		 function handleComplete() {
+		 	$('.loading-page').hide()
+		 }
+	</script>
 	<script>
 
 		$(function(){
@@ -163,16 +215,32 @@
 				});
 
 				function Pages(){
-					this.current = 4;
+					this.current = 0;
 					this.$container = $('.pages')
 					this.$pages = this.$container.find('.page');
+
+					this.onBind();
 				}	
 
 				Pages.prototype = {
-					move(dir){
+					onBind:function(){
+						var that = this
+						this.$container.on('transformEnd webkitTransitionEnd',function(){
+							that.$pages.eq(that.current).addClass('current')
+							that.$pages.eq(that.last).removeClass('current')
+							if(that.current != 0){
+								$('.page-tools').show()
+							}else{
+								$('.page-tools').hide()
+							}
+						})
+					},
+					move:function(dir){
 						dir = dir || 1;
-						var leavelCls = dir > 0 ? 'leavel' : ''
-						this.$pages.eq(this.current).addClass(leavelCls)
+						var leavelCls = dir > 0 ? 'leavel' : '';
+						//this.$pages.eq(this.current).addClass(leavelCls)
+
+						this.last = this.current;
 
 						var current = this.current - dir;
 
@@ -182,8 +250,7 @@
 							transform:'translateX('+x+'px)'
 						})
 
-						this.current = current
-
+						this.current = current;
 					},
 					next:function(next){
 						this.move(-1)	
