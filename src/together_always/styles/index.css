@@ -100,6 +100,10 @@ a {
 .fade-in {
   opacity: 0;
 }
+.ef-swing {
+  -webkit-animation: swing 2.2s 1.8s infinite alternate ease-in-out;
+          animation: swing 2.2s 1.8s infinite alternate ease-in-out;
+}
 .current .slide-in-left,
 .current .slide-in-right {
   -webkit-transform: translateX(0);
@@ -144,6 +148,26 @@ a {
 .delay-3 {
   -webkit-transition-delay: 1.6s!important;
           transition-delay: 1.6s!important;
+}
+@-webkit-keyframes swing {
+  0% {
+    -webkit-transform: translateX(-5%);
+            transform: translateX(-5%);
+  }
+  100% {
+    -webkit-transform: translateX(5%);
+            transform: translateX(5%);
+  }
+}
+@keyframes swing {
+  0% {
+    -webkit-transform: translateX(-5%);
+            transform: translateX(-5%);
+  }
+  100% {
+    -webkit-transform: translateX(5%);
+            transform: translateX(5%);
+  }
 }
 @media screen and (max-width: 1200px) {
   .container {
@@ -315,6 +339,9 @@ body {
   background-image: url(../images/page1/bg.jpg);
   background-repeat: repeat;
 }
+.page1 .header {
+  position: absolute;
+}
 .page1 .title1,
 .page1 .title2,
 .page1 .title3 {
@@ -323,7 +350,7 @@ body {
 .page1 .title1 {
   width: 18.25rem;
   height: 5.8125rem;
-  margin-top: 2.1875rem;
+  margin-top: 2.8125rem;
 }
 .page1 .title2 {
   width: 18.25rem;
@@ -331,7 +358,7 @@ body {
   margin-top: -0.6875rem;
 }
 .page1 .title3 {
-  margin-top: -0.625rem;
+  margin-top: -0.3125rem;
   width: 13.375rem;
   height: 0.875rem;
 }
@@ -379,6 +406,15 @@ body {
 .page2 {
   padding: 2.375rem 1.5625rem;
 }
+.page2 .header {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.page2 .talk {
+  position: relative;
+  z-index: 3;
+}
 .page2 .right-tree,
 .page2 .left-tree {
   position: absolute;
@@ -393,8 +429,6 @@ body {
   width: 13.625rem;
   height: 15.28125rem;
   left: 0;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
 }
 .page2 .role {
   width: 15.15625rem;
@@ -403,26 +437,16 @@ body {
   bottom: 12.0625rem;
   right: 1.46875rem;
 }
-.page2.current .left-tree,
-.page2.current .right-tree {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
-  -webkit-transition: -webkit-transform 0.8s ease;
-  transition: -webkit-transform 0.8s ease;
-  transition: transform 0.8s ease;
-  transition: transform 0.8s ease, -webkit-transform 0.8s ease;
-}
-.page2.current .talk,
-.page2.current .role {
-  opacity: 1;
-  -webkit-transition: opacity 0.8s ease;
-  transition: opacity 0.8s ease;
-}
 .page3 {
   background-image: url(../images/page3/bg.jpg);
   background-repeat: repeat;
   background-size: 1.3125rem;
   padding-top: 1.34375rem;
+}
+.page3 .header {
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .page3 .talk {
   padding: 1.5625rem 1.375rem;
@@ -434,6 +458,27 @@ body {
 .page3 .role2 {
   width: 23.4375rem;
   height: 11.90625rem;
+}
+.page3 .talk-dialog-hold1 {
+  position: absolute;
+  top: 0rem;
+  right: 3.125rem;
+  display: block;
+}
+.page3 .talk-dialog-hold2 {
+  position: absolute;
+  top: 2.5rem;
+  left: 1.5625rem;
+}
+.page3 .talk-dialog-talk1 {
+  position: absolute;
+  top: -7.8125rem;
+  right: 1.875rem;
+}
+.page3 .talk-dialog-talk2 {
+  position: absolute;
+  top: -3.75rem;
+  left: 0rem;
 }
 .page4 {
   background-image: url(../images/page4/bg.jpg);
@@ -447,8 +492,8 @@ body {
   width: 2.34375rem;
   height: 2.3125rem;
   position: absolute;
-  top: 5.625rem;
-  right: 2.5rem;
+  top: 3.6875rem;
+  right: 3.71875rem;
 }
 .page4 .rail {
   position: absolute;
@@ -485,6 +530,37 @@ body {
   width: 23.4375rem;
   height: 12.875rem;
 }
+.page4 .talk-dialog-hold1 {
+  position: absolute;
+  top: 20rem;
+  right: 15.625rem;
+  display: block;
+}
+.page4 .talk-dialog-hold2 {
+  position: absolute;
+  top: 20rem;
+  left: 15.625rem;
+}
+.page4 .talk-dialog-talk1 {
+  position: absolute;
+  top: 12.5rem;
+  right: 6.875rem;
+  text-shadow: none;
+  color: #307BD3;
+}
+.page4 .talk-dialog-talk2 {
+  position: absolute;
+  top: 16.25rem;
+  left: 10rem;
+  text-shadow: none;
+  color: #307BD3;
+}
+.page4 .talk-dialog-line3 {
+  line-height: 1.5;
+  padding-top: 40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 .page5 {
   background: url(../images/page5/bg.jpg);
   background-position: bottom;
@@ -503,6 +579,7 @@ body {
   right: 0rem;
   width: 19.03125rem;
   height: 24.59375rem;
+  z-index: 2;
 }
 .page5 .left-tree {
   position: absolute;
@@ -518,6 +595,7 @@ body {
   right: 3.125rem;
   width: 5.71875rem;
   height: 28.15625rem;
+  z-index: 2;
 }
 .page5 .center-tree {
   position: absolute;
@@ -525,6 +603,7 @@ body {
   right: 9.46875rem;
   width: 4.125rem;
   height: 25.3125rem;
+  z-index: 2;
 }
 .page5 .grass1 {
   width: 1.53125rem;
@@ -535,8 +614,16 @@ body {
   z-index: 8;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
-  -webkit-animation: shake 1.8s 2.8s infinite alternate ease-in-out;
-          animation: shake 1.8s 2.8s infinite alternate ease-in-out;
+  -webkit-animation: shake 1.8s 4.8s infinite alternate ease-in-out;
+          animation: shake 1.8s 4.8s infinite alternate ease-in-out;
+}
+.page5 .lawn {
+  width: 23.4375rem;
+  height: 13.28125rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 }
 .page5 .grass2 {
   width: 4.625rem;
@@ -547,8 +634,8 @@ body {
   z-index: 8;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
-  -webkit-animation: shake 2.6s 3s infinite alternate ease-in-out;
-          animation: shake 2.6s 3s infinite alternate ease-in-out;
+  -webkit-animation: shake 2.6s 5s infinite alternate ease-in-out;
+          animation: shake 2.6s 5s infinite alternate ease-in-out;
 }
 .page5 .grass3 {
   width: 1.875rem;
@@ -559,8 +646,8 @@ body {
   z-index: 8;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
-  -webkit-animation: shake 2s 3.3s infinite alternate ease-in-out;
-          animation: shake 2s 3.3s infinite alternate ease-in-out;
+  -webkit-animation: shake 2s 4.3s infinite alternate ease-in-out;
+          animation: shake 2s 4.3s infinite alternate ease-in-out;
 }
 .page5 .role {
   width: 19.6875rem;
@@ -568,6 +655,7 @@ body {
   position: absolute;
   top: 25.9375rem;
   right: 1.875rem;
+  z-index: 3;
 }
 .page6 {
   background: url(../images/page6/bg.jpg);
@@ -586,15 +674,15 @@ body {
   position: absolute;
   top: 0rem;
   right: 0rem;
-  width: 5.5rem;
-  height: 7.25rem;
+  width: 6.90625rem;
+  height: 13.78125rem;
 }
 .page6 .tree1 {
   position: absolute;
   top: 0rem;
   right: 7.5rem;
-  width: 5.96875rem;
-  height: 20.21875rem;
+  width: 9.40625rem;
+  height: 25.34375rem;
 }
 .page6 .small-stone {
   position: absolute;
@@ -629,18 +717,252 @@ body {
           animation: shake 2.2s 1.8s infinite alternate ease-in-out;
 }
 .page6 .sheep {
-  width: 12.4375rem;
-  height: 9.21875rem;
+  width: 12.90625rem;
+  height: 8.90625rem;
   position: absolute;
   top: 15rem;
   right: 0rem;
 }
 .page6 .pig {
-  width: 7.03125rem;
-  height: 5.34375rem;
+  width: 9.3125rem;
+  height: 5.46875rem;
   position: absolute;
   top: 25.125rem;
   right: 16.875rem;
+}
+.page6 .talk-dialog-hold1 {
+  position: absolute;
+  top: 13rem;
+  right: 3.75rem;
+}
+.page6 .talk-dialog-hold2 {
+  position: absolute;
+  top: 23rem;
+  left: 0rem;
+  display: block;
+}
+.page6 .talk-dialog-talk1 {
+  position: absolute;
+  top: 6.25rem;
+  right: 0rem;
+  text-shadow: none;
+  color: #307BD3;
+}
+.page6 .talk-dialog-talk2 {
+  position: absolute;
+  top: 17.25rem;
+  left: 0rem;
+  text-shadow: none;
+  color: #307BD3;
+}
+.page7 .red-sky {
+  width: 23.4375rem;
+  height: 12.90625rem;
+}
+.page7 .star {
+  width: 23.4375rem;
+  height: 13.90625rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.page7 .talk {
+  font-size: 1rem;
+  padding: 0 1.3125rem;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  text-shadow: 1px 1px 12px #fff;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 4;
+}
+.page7 .cloud {
+  position: absolute;
+  top: 2.6875rem;
+  right: 0rem;
+  width: 16.34375rem;
+  height: 15.3125rem;
+}
+.page7 .cloud-sheep {
+  width: 8.4375rem;
+  height: 4.625rem;
+  position: absolute;
+  top: 2.3125rem;
+  right: 5rem;
+}
+.page7 .pig {
+  width: 11.375rem;
+  height: 7.84375rem;
+  position: absolute;
+  top: 6.75rem;
+  left: 1.25rem;
+}
+.page7 .sheep {
+  width: 11.875rem;
+  height: 13.15625rem;
+  position: absolute;
+  top: 22.84375rem;
+  right: -3.125rem;
+}
+.page7 .starping {
+  width: 13.8125rem;
+  height: 10.25rem;
+  position: absolute;
+  top: 26.96875rem;
+  right: 8.75rem;
+  z-index: 2;
+}
+.page8 {
+  padding-top: 1.25rem;
+}
+.page8 .talk {
+  padding: 0.625rem 1.125rem;
+}
+.page8 .pig {
+  width: 13.40625rem;
+  height: 13.90625rem;
+  display: block;
+  margin: 0 auto;
+}
+.page8 .sheep {
+  width: 15.125rem;
+  height: 10.21875rem;
+  display: block;
+  margin: 0 auto;
+}
+.page9 {
+  background: #f4f4df;
+}
+.page9 .talk {
+  padding: 2.6875rem 1.03125rem;
+}
+.page9 .mask {
+  width: 23.4375rem;
+  height: 3.75rem;
+  position: absolute;
+  top: -0.0625rem;
+  right: 0rem;
+  z-index: 4;
+}
+.page9 .orchard {
+  position: relative;
+}
+.page9 .tree {
+  width: 23.4375rem;
+  height: 11.34375rem;
+}
+.page9 .role {
+  width: 23.25rem;
+  height: 12.125rem;
+  display: block;
+  margin: 0 auto;
+}
+.page9 .apple {
+  width: 0.96875rem;
+  height: 1.28125rem;
+  background: url(../images/page9/apple.png);
+  background-size: contain;
+  display: block;
+  background-position: top;
+}
+.page9 .pear {
+  width: 1.03125rem;
+  height: 1.59375rem;
+  background: url(../images/page9/pear.png);
+  background-size: contain;
+  display: block;
+  background-position: top;
+}
+.page9 .fruits .apple:nth-child(2) {
+  position: absolute;
+  top: 7.03125rem;
+  left: 0rem;
+}
+.page9 .fruits .apple:nth-child(3) {
+  position: absolute;
+  top: 4.0625rem;
+  left: 3.59375rem;
+}
+.page9 .fruits .apple:nth-child(4) {
+  position: absolute;
+  top: 5.3125rem;
+  left: 6.25rem;
+}
+.page9 .fruits .apple:nth-child(5) {
+  position: absolute;
+  top: 1.75rem;
+  left: 5rem;
+}
+.page9 .fruits .apple:nth-child(6) {
+  position: absolute;
+  top: 3.125rem;
+  left: 1.6875rem;
+}
+.page9 .fruits .pear:nth-child(6) {
+  position: absolute;
+  top: 2.5rem;
+  left: 17.1875rem;
+}
+.page9 .fruits .pear:nth-child(7) {
+  position: absolute;
+  top: 4.9375rem;
+  left: 19.5625rem;
+}
+.page9 .fruits .pear:nth-child(8) {
+  position: absolute;
+  top: 4.625rem;
+  left: 21.25rem;
+}
+.page9 .fruits .pear:nth-child(9) {
+  position: absolute;
+  top: 5.53125rem;
+  left: 22.09375rem;
+}
+.page9 .fruits .pear:nth-child(10) {
+  position: absolute;
+  top: 0.9375rem;
+  left: 20.3125rem;
+}
+.page9 .fruits .pear:nth-child(11) {
+  position: absolute;
+  top: 2.5rem;
+  left: 17.6875rem;
+}
+.page10 {
+  background-image: url(../images/page10/bg.png);
+}
+.page10 .moon {
+  width: 3.34375rem;
+  height: 2.96875rem;
+  position: absolute;
+  left: 50%;
+  top: 2.0625rem;
+}
+.page10 .mountain {
+  width: 10.59375rem;
+  height: 17.5625rem;
+  position: absolute;
+  top: 13.6875rem;
+  right: 0rem;
+}
+.page10 .sheep {
+  position: absolute;
+  top: 17.3125rem;
+  right: 0rem;
+  width: 6.75rem;
+  height: 8.125rem;
+}
+.page10 .pig {
+  width: 6.90625rem;
+  height: 4.40625rem;
+  position: absolute;
+  top: 30.53125rem;
+  left: 1.25rem;
+}
+.page10 .talk {
+  color: #fff;
+  padding: 5.9375rem 1.4375rem;
 }
 .page-tools {
   background: rgba(0, 95, 148, 0.8);
@@ -688,9 +1010,55 @@ body {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
+.talk-dialog,
+.talk-dialog2 {
+  background: url(../images/dialog1.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  display: inline-block;
+  z-index: 10;
+  display: none;
+}
+.talk-dialog2 {
+  background-image: url(../images/dialog2.png);
+}
+.talk-normal {
+  width: 15.625rem;
+  height: 9.3125rem;
+  line-height: 9.3rem;
+  text-align: center;
+}
 .moon-shake {
   -webkit-animation: shake 2.2s 1.8s infinite alternate ease-in-out;
           animation: shake 2.2s 1.8s infinite alternate ease-in-out;
+}
+.ellipsis {
+  width: 3.75rem;
+  height: 2.5rem;
+  display: inline-block;
+  text-align: center;
+  line-height: 2.5rem;
+  white-space: nowrap;
+}
+.ellipsis span {
+  display: inline-block;
+  border-radius: 50%;
+  background: #4488D7;
+  width: 0.5rem;
+  height: 0.5rem;
+}
+.ellipsis span:nth-child(1) {
+  -webkit-animation: twinkle 1s ease infinite;
+          animation: twinkle 1s ease infinite;
+}
+.ellipsis span:nth-child(2) {
+  -webkit-animation: twinkle 1s ease 1s infinite;
+          animation: twinkle 1s ease 1s infinite;
+}
+.ellipsis span:nth-child(3) {
+  -webkit-animation: twinkle 1s ease 2s infinite;
+          animation: twinkle 1s ease 2s infinite;
 }
 @-webkit-keyframes shake {
   0% {
@@ -768,5 +1136,21 @@ body {
   }
   100% {
     background-position: 0rem 0rem;
+  }
+}
+@-webkit-keyframes twinkle {
+  to {
+    opacity: 0;
+  }
+  from {
+    opacity: 1;
+  }
+}
+@keyframes twinkle {
+  to {
+    opacity: 0;
+  }
+  from {
+    opacity: 1;
   }
 }

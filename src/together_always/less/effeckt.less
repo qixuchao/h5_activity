@@ -27,6 +27,10 @@
   opacity: 0;
 }
 
+.ef-swing{
+  animation: swing 2.2s 1.8s infinite alternate ease-in-out;
+}
+
 .current {
   .slide-in-left,
   .slide-in-right {
@@ -58,4 +62,13 @@
 }
 .delay-3{
 	transition-delay:1.6s!important;
+}
+
+@keyframes swing {
+  0%{
+    transform: translateX(-5%);
+  }
+  100%{
+    transform: translateX(5%);
+  }
 }

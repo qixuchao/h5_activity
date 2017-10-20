@@ -27,6 +27,10 @@
 .fade-in {
   opacity: 0;
 }
+.ef-swing {
+  -webkit-animation: swing 2.2s 1.8s infinite alternate ease-in-out;
+          animation: swing 2.2s 1.8s infinite alternate ease-in-out;
+}
 .current .slide-in-left,
 .current .slide-in-right {
   -webkit-transform: translateX(0);
@@ -71,4 +75,24 @@
 .delay-3 {
   -webkit-transition-delay: 1.6s!important;
           transition-delay: 1.6s!important;
+}
+@-webkit-keyframes swing {
+  0% {
+    -webkit-transform: translateX(-5%);
+            transform: translateX(-5%);
+  }
+  100% {
+    -webkit-transform: translateX(5%);
+            transform: translateX(5%);
+  }
+}
+@keyframes swing {
+  0% {
+    -webkit-transform: translateX(-5%);
+            transform: translateX(-5%);
+  }
+  100% {
+    -webkit-transform: translateX(5%);
+            transform: translateX(5%);
+  }
 }
