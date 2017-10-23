@@ -1,33 +1,41 @@
 .slide-in-left {
   transform: translateX(-100%);
+  backface-visibility:hidden;
 }
 
 .slide-in-right {
   transform: translateX(100%);
+  backface-visibility:hidden;
 }
 .slide-in-top {
   transform: translateY(-100%);
+  backface-visibility:hidden;
 }
 
 .slide-in-bottom {
   transform: translateY(100%);
+  backface-visibility:hidden;
 }
 
 .slide-in-top-fade {
+  backface-visibility:hidden;
   transform: translateY(-100%);
   opacity: 0;
 }
 
 .slide-in-bottom-fade {
+  backface-visibility:hidden;
   transform: translateY(100%);
   opacity: 0;
 }
 
 .fade-in {
+  backface-visibility:hidden;
   opacity: 0;
 }
 
 .ef-swing{
+  backface-visibility:hidden;
   animation: swing 2.2s 1.8s infinite alternate ease-in-out;
 }
 

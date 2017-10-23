@@ -1,33 +1,49 @@
 .slide-in-left {
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 .slide-in-right {
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 .slide-in-top {
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 .slide-in-bottom {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 .slide-in-top-fade {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
   opacity: 0;
 }
 .slide-in-bottom-fade {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
   opacity: 0;
 }
 .fade-in {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
   opacity: 0;
 }
 .ef-swing {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
   -webkit-animation: swing 2.2s 1.8s infinite alternate ease-in-out;
           animation: swing 2.2s 1.8s infinite alternate ease-in-out;
 }
