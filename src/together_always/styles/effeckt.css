@@ -47,6 +47,12 @@
   -webkit-animation: swing 2.2s 1.8s infinite alternate ease-in-out;
           animation: swing 2.2s 1.8s infinite alternate ease-in-out;
 }
+.shake-bottom {
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-animation: shake 1.8s infinite alternate ease-in-out;
+          animation: shake 1.8s infinite alternate ease-in-out;
+}
 .current .slide-in-left,
 .current .slide-in-right {
   -webkit-transform: translateX(0);
@@ -110,5 +116,41 @@
   100% {
     -webkit-transform: translateX(5%);
             transform: translateX(5%);
+  }
+}
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  33% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  66% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  33% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  66% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
 }

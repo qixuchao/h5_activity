@@ -1,4 +1,3 @@
-
 var queue = new createjs.LoadQueue();
 queue.on("complete", handleComplete, this);
 queue.on("progress", function(e) {
@@ -61,7 +60,7 @@ function handleComplete() {
         { id: "sound11", startTime: 115030, duration: 2973 },
         { id: "sound12", startTime: 118004, duration: 21021 }, //page4
         { id: "sound13", startTime: 139026, duration: 2489 }, //page5
-        { id: "sound14", startTime: 142017, duration: 2004 },
+        { id: "sound14", startTime: 142017, duration: 2604 },
         { id: "sound32", startTime: 145228, duration: 2800 },
         { id: "sound15", startTime: 149028, duration: 2899 },
         { id: "sound15.1", startTime: 153201, duration: 2320 },
@@ -71,6 +70,7 @@ function handleComplete() {
         { id: "sound19", startTime: 233824, duration: 9979 }, //page7
         { id: "sound20", startTime: 258002, duration: 9425 },
         { id: "sound21", startTime: 267828, duration: 3989 }, //page8
+        { id: "sound21.1", startTime: 274003, duration: 3420 }, //page8
         { id: "sound33", startTime: 274000, duration: 3820 },
         { id: "sound22", startTime: 272819, duration: 1983 },
         { id: "sound23", startTime: 279003, duration: 1321 },
@@ -209,25 +209,33 @@ $(function() {
     $parent.find('[data-talk="' + index + '"]').hide();
     index++;
 
-    if (index > $parent.attr('data-talk-cout')) {
-      return
-    }
+    $(this).hide();
 
-    if (index != $parent.attr('data-talk-cout')) {
-      if ($(this).hasClass('talk-dialog-talk1') || $(this).hasClass('talk-dialog-hold1')) {
+
+    if (index > $parent.attr('data-talk-cout')) {
+      index = 0;
+      if ($parent.find('[daga-talk="1"]').hasClass('talk-dialog-talk1')) {
         $parent.find('.talk-dialog-hold2').show()
       } else {
         $parent.find('.talk-dialog-hold1').show()
       }
-    }
-    var $next = $parent.find('[data-talk="' + index + '"]');
-    $next.show();
+    } else {
+      if (index != $parent.attr('data-talk-cout')) {
+        if ($(this).hasClass('talk-dialog-talk1') || $(this).hasClass('talk-dialog-hold1')) {
+          $parent.find('.talk-dialog-hold2').show()
+        } else {
+          $parent.find('.talk-dialog-hold1').show()
+        }
+      }
 
-    if ($next.attr('data-sound')) {
-      play($next.attr('data-sound'))
-    }
 
-    $(this).hide();
+      var $next = $parent.find('[data-talk="' + index + '"]');
+      $next.show();
+
+      if ($next.attr('data-sound')) {
+        play($next.attr('data-sound'))
+      }
+    }
 
     $parent.data('index', index);
   });
@@ -235,13 +243,19 @@ $(function() {
   function play(number) {
     console.log('play', number)
     createjs.Sound.stop();
-    createjs.Sound.play("sound" + number).addEventListener('complete', function() {
+    var play = createjs.Sound.play("sound" + number)
+    console.log(play)
+    play.addEventListener('complete', function() {
       if (number == 2) {
         createjs.Sound.play("sound2.2")
       } else if (number == 7) {
         createjs.Sound.play("sound7.1")
       } else if (number == 15) {
         createjs.Sound.play("sound15.1")
+      } else if (number == 19) {
+        createjs.Sound.play("sound20")
+      } else if (number == 21) {
+        createjs.Sound.play("sound21.1")
       }
     });
   }

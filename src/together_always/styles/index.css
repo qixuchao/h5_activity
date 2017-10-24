@@ -120,6 +120,12 @@ a {
   -webkit-animation: swing 2.2s 1.8s infinite alternate ease-in-out;
           animation: swing 2.2s 1.8s infinite alternate ease-in-out;
 }
+.shake-bottom {
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-animation: shake 1.8s infinite alternate ease-in-out;
+          animation: shake 1.8s infinite alternate ease-in-out;
+}
 .current .slide-in-left,
 .current .slide-in-right {
   -webkit-transform: translateX(0);
@@ -183,6 +189,42 @@ a {
   100% {
     -webkit-transform: translateX(5%);
             transform: translateX(5%);
+  }
+}
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  33% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  66% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  33% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  66% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
 }
 @media screen and (max-width: 1200px) {
@@ -411,7 +453,7 @@ body {
 }
 .page1 .tree {
   position: absolute;
-  z-index: 7;
+  z-index: 8;
   bottom: 4.6875rem;
   width: 23.4375rem;
   height: 13.1875rem;
@@ -436,6 +478,14 @@ body {
   bottom: 0;
   width: 23.4375rem;
   height: 6.25rem;
+}
+.page1 .flower {
+  width: 1.5rem;
+  height: 2.21875rem;
+  position: absolute;
+  top: 34rem;
+  left: 3.0625rem;
+  z-index: 7;
 }
 .page2 {
   padding: 2.375rem 1.5625rem;
@@ -472,6 +522,41 @@ body {
   position: absolute;
   bottom: 12.0625rem;
   right: 1.46875rem;
+}
+.page2 .fruits {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 18.5rem;
+  height: 12.3125rem;
+}
+.page2 .fruits .pear {
+  width: 1.03125rem;
+  height: 1.59375rem;
+  background: url(../images/page2/pear.png);
+  background-size: contain;
+  display: block;
+  background-position: top;
+}
+.page2 .fruits .pear:nth-child(2) {
+  position: absolute;
+  top: 4.5625rem;
+  right: 0rem;
+}
+.page2 .fruits .pear:nth-child(3) {
+  position: absolute;
+  top: 5.625rem;
+  right: 2.875rem;
+}
+.page2 .fruits .pear:nth-child(4) {
+  position: absolute;
+  top: 7.3125rem;
+  right: 0.625rem;
+}
+.page2 .fruits .pear:nth-child(5) {
+  position: absolute;
+  top: 7.9375rem;
+  right: 8.75rem;
 }
 .page3 {
   background-image: url(../images/page3/bg.jpg);
@@ -518,6 +603,16 @@ body {
   top: -3.75rem;
   left: 0rem;
 }
+.page3 .talk-dialog-talk1.talk-dialog-small {
+  position: absolute;
+  top: -2.65625rem;
+  right: 1.875rem;
+}
+.page3 .talk-dialog-talk2.talk-dialog-small {
+  position: absolute;
+  top: 1.875rem;
+  right: 3.125rem;
+}
 .page4 {
   background-image: url(../images/page4/bg.jpg);
   background-repeat: no-repeat;
@@ -527,8 +622,8 @@ body {
   color: #fff;
 }
 .page4 .moon {
-  width: 2.34375rem;
-  height: 2.3125rem;
+  width: 4.6875rem;
+  height: 4.625rem;
   position: absolute;
   top: 3.6875rem;
   right: 3.71875rem;
@@ -576,7 +671,7 @@ body {
 }
 .page4 .talk-dialog-hold2 {
   position: absolute;
-  top: 20rem;
+  top: 21.25rem;
   left: 15.625rem;
 }
 .page4 .talk-dialog-talk1 {
@@ -596,6 +691,16 @@ body {
   padding-top: 2.5rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+.page4 .talk-dialog-talk2.talk-dialog-small {
+  position: absolute;
+  top: 21.25rem;
+  left: 15.625rem;
+}
+.page4 .talk-dialog-talk1.talk-dialog-small {
+  position: absolute;
+  top: 20rem;
+  right: 15.625rem;
 }
 .page5 {
   background: url(../images/page5/bg.jpg);
@@ -793,14 +898,12 @@ body {
   top: 6.25rem;
   right: 0rem;
   text-shadow: none;
-  color: #307BD3;
 }
 .page6 .talk-dialog-talk2 {
   position: absolute;
   top: 17.25rem;
   left: 0rem;
   text-shadow: none;
-  color: #307BD3;
 }
 .page6 .talk-dialog-line2 {
   line-height: 1.5;
@@ -841,25 +944,25 @@ body {
   width: 8.4375rem;
   height: 4.625rem;
   position: absolute;
-  top: 2.3125rem;
+  top: 1.0625rem;
   right: 5rem;
 }
 .page7 .pig {
   width: 11.375rem;
   height: 7.84375rem;
   position: absolute;
-  top: 6.75rem;
+  top: 5.5rem;
   left: 1.25rem;
 }
 .page7 .sheep {
-  width: 11.875rem;
+  width: 10.625rem;
   height: 13.15625rem;
   position: absolute;
   top: 22.84375rem;
   right: -3.125rem;
 }
 .page7 .starping {
-  width: 13.8125rem;
+  width: 12.5625rem;
   height: 10.25rem;
   position: absolute;
   top: 26.96875rem;
@@ -914,6 +1017,7 @@ body {
 }
 .page9 .talk {
   padding: 2.6875rem 1.03125rem;
+  padding-bottom: 0.625rem;
 }
 .page9 .mask {
   width: 23.4375rem;
@@ -1229,41 +1333,10 @@ body {
 .talk-dialog-talk2 {
   color: #d24e0e;
 }
-@-webkit-keyframes shake {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  33% {
-    -webkit-transform: rotate(-5deg);
-    transform: rotate(-5deg);
-  }
-  66% {
-    -webkit-transform: rotate(5deg);
-    transform: rotate(5deg);
-  }
-  100% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}
-@keyframes shake {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  33% {
-    -webkit-transform: rotate(-5deg);
-    transform: rotate(-5deg);
-  }
-  66% {
-    -webkit-transform: rotate(5deg);
-    transform: rotate(5deg);
-  }
-  100% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
+.talk-dialog-small {
+  width: 7.8125rem;
+  height: 4.0625rem;
+  line-height: 4.0625rem;
 }
 @-webkit-keyframes rotate {
   0% {
