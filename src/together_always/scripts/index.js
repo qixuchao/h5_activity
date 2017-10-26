@@ -1,3 +1,4 @@
+var isLoading = true;
 var queue = new createjs.LoadQueue();
 queue.on("complete", handleComplete, this);
 queue.on("progress", function(e) {
@@ -28,6 +29,7 @@ queue.loadManifest([
   "./images/page2/right.png",
   "./images/page6/small_stone.png",
   "./images/page4/bg.jpg",
+  "./images/page1/bg.jpg",
   "./images/page5/bg.jpg",
   "./images/page6/bg.jpg",
   "./images/page5/bg_tree.png",
@@ -53,14 +55,14 @@ function handleComplete() {
         { id: "sound5", startTime: 72014, duration: 2006 },
         { id: "sound6", startTime: 89021, duration: 5999 }, //page3
         { id: "sound7", startTime: 95021, duration: 1880 },
-        { id: "sound7.1", startTime: 98027, duration: 6987 },
-        { id: "sound8", startTime: 105015, duration: 2993 },
+        { id: "sound7.1", startTime: 98527, duration: 6987 },
+        { id: "sound8", startTime: 105315, duration: 2993 },
         { id: "sound9", startTime: 110010, duration: 2713 },
         { id: "sound10", startTime: 114002, duration: 1027 },
         { id: "sound11", startTime: 115030, duration: 2973 },
         { id: "sound12", startTime: 118004, duration: 21021 }, //page4
         { id: "sound13", startTime: 139026, duration: 2489 }, //page5
-        { id: "sound14", startTime: 142017, duration: 2604 },
+        { id: "sound14", startTime: 142517, duration: 2184 },
         { id: "sound32", startTime: 145228, duration: 2800 },
         { id: "sound15", startTime: 149028, duration: 2899 },
         { id: "sound15.1", startTime: 153201, duration: 2320 },
@@ -91,13 +93,19 @@ function handleComplete() {
 
   $('.loading-page').hide();
 
-  $('[original-src]').each(function() {
+  $('.page1,.page2').find('[original-src]').each(function() {
     $(this).attr('src', $(this).attr('original-src'))
   });
 
   $('.pages').show();
 
+  setTimeout(function() {
+   $('.pages .page1').addClass('current')
+  }, 300)
+
   FastClick.attach(document.body);
+
+  isLoading = false
 };
 
 $(function() {
@@ -110,14 +118,35 @@ $(function() {
     return false;
   })
 
-  $(window).on('deviceorientation', function(e) {
+  var o = new Orienter();
+  // $(window).on('deviceorientation', function(e) {
 
-    if (e.gamma != null && e.beta != null) {
+  //   if (e.gamma != null && e.beta != null) {
 
-      var minusG = Math.abs(e.gamma) / e.gamma
-      var minusB = Math.abs(e.beta) / e.beta
-      var x = Math.min(Math.abs(e.gamma), 90);
-      var y = Math.min(Math.abs(e.beta), 90);
+  //     var minusG = Math.abs(e.gamma) / e.gamma
+  //     var minusB = Math.abs(e.beta) / e.beta
+  //     var x = Math.min(Math.abs(e.gamma), 90);
+  //     var y = Math.min(Math.abs(e.beta), 90);
+
+  //     x = minusG * x
+  //     y = minusG * y
+
+  //     $('.layer').each(function() {
+  //       var $this = $(this);
+  //       var direction = Number($this.attr('data-direction') || 1)
+  //       var friction = Number($this.attr('data-friction') || 1) //摩擦
+
+  //       $this.css("transform", "translate3d(" + (x * friction) + "px," + (y * friction) + "px,0)")
+  //     });
+  //   }
+  // });
+  o.onOrient = function(e) {
+    if (e.g != null && e.b != null) {
+
+      var minusG = Math.abs(e.g) / e.g
+      var minusB = Math.abs(e.b) / e.b
+      var x = Math.min(Math.abs(e.g), 90);
+      var y = Math.min(Math.abs(e.b), 90);
 
       x = minusG * x
       y = minusG * y
@@ -130,7 +159,8 @@ $(function() {
         $this.css("transform", "translate3d(" + (x * friction) + "px," + (y * friction) + "px,0)")
       });
     }
-  });
+  }
+  //o.init();
 
   function Pages() {
     this.current = 0;
@@ -143,10 +173,13 @@ $(function() {
   Pages.prototype = {
     onBind: function() {
       var that = this
-      this.$container.on('transformEnd webkitTransitionEnd', function() {
+      this.$container.on('transformEnd webkitTransitionEnd', function(e) {
+        if(isLoading){
+            return
+        }
         that.$pages.eq(that.current).addClass('current')
         that.$pages.eq(that.last).removeClass('current')
-        if (that.current != 0) {
+        if (that.current !== 0 && that.current !== that.$pages.length - 1) {
           $('.page-tools').show()
         } else {
           $('.page-tools').hide()
@@ -157,6 +190,10 @@ $(function() {
       dir = dir || 1;
       var leavelCls = dir > 0 ? 'leavel' : '';
       //this.$pages.eq(this.current).addClass(leavelCls)
+      //
+      $('.page' + (this.current + 2)).find('[original-src]').each(function() {
+        $(this).attr('src', $(this).attr('original-src'))
+      });
 
       this.last = this.current;
 
@@ -175,10 +212,11 @@ $(function() {
         return false;
       }
       this.move(-1)
+      createjs.Sound.stop();
     },
     pre: function(pre) {
-
       this.move(1)
+      createjs.Sound.stop();
     }
   }
 
@@ -214,10 +252,10 @@ $(function() {
 
     if (index > $parent.attr('data-talk-cout')) {
       index = 0;
-      if ($parent.find('[daga-talk="1"]').hasClass('talk-dialog-talk1')) {
-        $parent.find('.talk-dialog-hold2').show()
-      } else {
+      if ($parent.find('[data-talk="1"]').hasClass('talk-dialog-talk1')) {
         $parent.find('.talk-dialog-hold1').show()
+      } else {
+        $parent.find('.talk-dialog-hold2').show()
       }
     } else {
       if (index != $parent.attr('data-talk-cout')) {
@@ -227,7 +265,6 @@ $(function() {
           $parent.find('.talk-dialog-hold1').show()
         }
       }
-
 
       var $next = $parent.find('[data-talk="' + index + '"]');
       $next.show();
@@ -259,5 +296,12 @@ $(function() {
       }
     });
   }
+  //alert("onorientationchange" in window ? "orientationchange" : "resize")
 
+  if (Math.abs(screen.orientation.angle) === 90) {
+    $('.cross-screen').show()
+  } else {
+    $('.cross-screen').hide()
+  }
 })
+

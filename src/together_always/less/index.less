@@ -53,7 +53,7 @@ body {
     transform: translate(-50%, -50%);
   }
   .sprite {
-    background: url(../images/loading-page/sprite.png);
+    //background: url(../images/loading-page/sprite.png);
     background-size: @rem*750 @rem*2020;
   }
   .earth {
@@ -109,8 +109,8 @@ body {
       .size(58, 81);
     }
     &.number-4 {
-      .bgPosition(-568, -1742);
-      .size(34, 82);
+      .bgPosition(-432, -1577);
+      .size(65, 76);
     }
     &.number-5 {
       .bgPosition(-614, -1657);
@@ -136,9 +136,10 @@ body {
   .role {
     .size(750, 495);
     position: absolute;
-    margin-top: @rem*-285;
+    margin-top: @rem*-275;
     z-index: 4;
     left: 50%;
+    margin-left: @rem*-10;
     transform: translate(-50%, 0) scale(.5);
     .bgPosition(0, -999);
     animation: run 400ms steps(3) infinite;
@@ -167,7 +168,7 @@ body {
   height: 100%;
   display: inline-block;
   box-sizing: border-box;
-  ; // top: 0;
+  // top: 0;
   // left: 0;
   background-size: contain;
   background-repeat: no-repeat;
@@ -221,6 +222,10 @@ body {
   img {
     max-width: 100%;
   }
+  .facula{
+    .position2(50,45);
+    .size(791,575)
+  }
   .fence {
     position: absolute;
     z-index: 6;
@@ -254,7 +259,9 @@ body {
   }
   .flower{
     .size(48,71);
-    .position2(1088,98);
+    position: absolute;
+    left:@rem*98;
+    bottom: @rem*175;
     z-index: 7;
   }
 }
@@ -296,13 +303,13 @@ body {
     right: 0;
     .size(592, 394);
     .pear {
-      .size(33, 51);
+      .size(49.5, 76.5);
       background: url(../images/page2/pear.png);
       background-size: contain;
       display: block;
       background-position: top;
       &:nth-child(2) {
-        .position(146, 0);
+        .position(116, 0);
       }
       &:nth-child(3) {
         .position(180, 92);
@@ -311,7 +318,10 @@ body {
         .position(234, 20);
       }
       &:nth-child(5) {
-        .position(254, 280);
+        .position(224, 280);
+      }
+      &:nth-child(6) {
+        .position(80, 20);
       }
     }
   }
@@ -411,6 +421,11 @@ body {
     padding-top: @rem*80;
     box-sizing: border-box;
   }
+  .talk-dialog-line2{
+    line-height: 1.5;
+    padding-top: @rem*120;
+    box-sizing: border-box;
+  }
   .talk-dialog-talk2.talk-dialog-small{
     .position2(680, 500);
   }
@@ -488,18 +503,32 @@ body {
     animation: shake 2s 4.3s infinite alternate ease-in-out;
     backface-visibility: hidden;
   }
+  .grass4{
+   .size(83,94);
+   .position(530,55); 
+   z-index: 1;
+   transform-origin: bottom;
+   animation: shake 2s 4.3s infinite alternate ease-in-out;
+    backface-visibility: hidden;
+  }
   .role {
     .size(630, 331);
-    .position(830, 60);
+    .position(780, 60);
     z-index: 3;
   }
 }
 
 .page6 {
-  background: url(../images/page6/bg.jpg);
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
+  // background: url(../images/page6/bg.jpg);
+  // background-position: bottom;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  .bg{
+    width: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+  }
   .stone {
     .position(120, 0);
     .size(611, 933);
@@ -510,7 +539,7 @@ body {
   }
   .tree1 {
     .position(0, 240);
-    .size(223, 755);
+    .size(191,647);
   }
   .small-stone {
     position: absolute;
@@ -552,7 +581,7 @@ body {
     display: block;
   }
   .talk-dialog-talk1 {
-    .position(200, 0);
+    .position(210, 0);
     text-shadow: none;
   }
   .talk-dialog-talk2 {
@@ -560,8 +589,13 @@ body {
     text-shadow: none;
   }
   .talk-dialog-line2 {
+    line-height: 1.4;
+    padding-top: @rem*80;
+    box-sizing: border-box;
+  }
+  .talk-dialog-line3 {
     line-height: 1.5;
-    padding-top: @rem*110;
+    padding-top: @rem*80;
     box-sizing: border-box;
   }
 }
@@ -573,7 +607,7 @@ body {
   .star {
     .size(750, 445); //.position(,0);
     position: absolute;
-    bottom: 0;
+    bottom: @rem*120;
     left: 0;
   }
   .talk {
@@ -582,12 +616,12 @@ body {
     position: absolute;
     left: 0;
     top: 50%;
-    text-shadow: 1px 1px 12px #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 40px #fff, 0 0 70px #fff;;
     transform: translateY(-50%);
     z-index: 4;
   }
   .cloud {
-    .position(86);
+    .position(70);
     .size(523, 490);
   }
   .cloud-sheep {
@@ -600,11 +634,11 @@ body {
   }
   .sheep {
     .size(340, 421);
-    .position(731, -100);
+    .position(721, -130);
   }
   .starping {
-    .size(402, 328);
-    .position(863, 280);
+    .size(432, 328);
+    .position(723, 280);
     z-index: 2;
   }
 }
@@ -622,24 +656,29 @@ body {
   .sheep {
     .size(484, 327);
     display: block;
-    margin: 0 auto
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-30%);
   }
   .talk-dialog-hold1 {
-    .position(920, 240);
+    .position(708, 240);
   }
   .talk-dialog-hold2 {
-    .position2(270, 350);
+    .position2(226, 350);
     display: block;
   }
   .talk-dialog-talk1 {
-    .position(728, 50);
+    .position(556, 50);
     text-shadow: none;
-    color: #307BD3;
   }
   .talk-dialog-talk2 {
-    .position2(68, 192);
+    .position2(48, 192);
     text-shadow: none;
-    color: #307BD3;
+  }
+  .talk-dialog-line2 {
+    line-height: 1.4;
+    padding-top: @rem*80;
+    box-sizing: border-box;
   }
 }
 
@@ -647,7 +686,7 @@ body {
   background: #f4f4df;
   .talk {
     .padding(86, 33);
-    padding-bottom: @rem*20;
+    padding-bottom: 0;
   }
   .mask {
     .size(750, 120);
@@ -719,34 +758,41 @@ body {
     }
   }
   .talk-dialog-hold1 {
-    .position(768, 440);
+    .position(658, 470);
   }
   .talk-dialog-hold2 {
-    .position2(864, 544);
+    .position2(754, 544);
     display: block;
   }
   .talk-dialog-talk1 {
-    .position(584, 192);
+    .position(504, 192);
     text-shadow: none;
   }
   .talk-dialog-talk2 {
-    .position2(616, 288);
+    .position2(556, 308);
     text-shadow: none;
   }
   .talk-dialog-line2 {
     line-height: 1.5;
-    padding-top: @rem*110;
+    padding-top: @rem*70;
     box-sizing: border-box;
   }
 }
 
 .page10 {
-  background-image: url(../images/page10/bg.png);
-  background-size: 100%;
+  //background-image: url(../images/page10/bg.png);
+  //background-size: 100%;
+  .bg{
+    width: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+  }
   .moon {
     .size(107, 95);
     position: absolute;
     left: 50%;
+    margin-left: @rem*-107/2;
     top: @rem*66;
   }
   .mountain {
@@ -759,26 +805,32 @@ body {
   }
   .pig {
     .size(221, 141);
-    .position2(977, 40);
+    .position2(877, 40);
   }
   .talk {
     color: #fff;
     .padding(190, 46);
+    position: absolute;
   }
   .talk-dialog-hold1 {
     .position(480, 56);
   }
   .talk-dialog-hold2 {
-    .position2(864, 100);
+    .position2(764, 100);
     display: block;
   }
   .talk-dialog-talk1 {
-    .position(232, 0);
+    .position(332, 0);
     text-shadow: none;
   }
   .talk-dialog-talk2 {
-    .position2(680, 0);
+    .position2(580, 0);
     text-shadow: none;
+  }
+  .talk-dialog-line2 {
+    line-height: 1.4;
+    padding-top: @rem*80;
+    box-sizing: border-box;
   }
 }
 
@@ -824,6 +876,9 @@ body {
   margin-top: @rem*22;
   &.play-white-btn {
     background-image: url(../images/play_white_btn.png);
+  }
+  &:active{
+    opacity: .6;
   }
 }
 
@@ -913,11 +968,45 @@ body {
 
 .talk-dialog-talk2 {
   color: #d24e0e;
+  padding-left: @rem*20;
+  box-sizing: border-box;
 }
 
 .talk-dialog-small {
   .size(250, 130);
   line-height: @rem*130;
+}
+
+.talk-dialog-middle{
+  .size(380, 230);
+  line-height: @rem*230;
+}
+
+.cross-screen{
+  display: none;
+  .position(0,0);
+  bottom: 0;
+  left: 0;
+  background: #52a32b;
+  z-index: 1000;
+  color:#fff;
+  text-align: center;
+  font-size: 30px;
+  img{
+    .size(245/2,234/2);
+    width: 245px;
+    height: 234px;
+    margin-bottom: 30px;
+    animation: tilt 2.8s ease infinite;
+  }
+  .wrap{
+    width: 245px;
+    height: 234px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 
@@ -950,3 +1039,18 @@ body {
     opacity: 1;
   }
 }
+
+@keyframes tilt {
+  0% {
+        transform: rotate(0);
+  }
+  33.333% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+
+
