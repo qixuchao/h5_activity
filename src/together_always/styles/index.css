@@ -298,7 +298,7 @@ body {
   width: 12.40625rem;
   height: 2.96875rem;
   position: absolute;
-  bottom: -0.125rem;
+  bottom: -0.1875rem;
   padding: 0 0.0625rem;
   left: -0.0625rem;
 }
@@ -461,6 +461,9 @@ body {
 .page1 .play {
   width: 13.1875rem;
   height: 3.65625rem;
+}
+.page1 .play:active {
+  opacity: .6;
 }
 .page1 img {
   max-width: 100%;
@@ -1218,6 +1221,7 @@ body {
   left: 50%;
   margin-left: -1.671875rem;
   top: 2.0625rem;
+  z-index: 3;
 }
 .page10 .mountain {
   width: 10.59375rem;
@@ -1303,10 +1307,16 @@ body {
 .page-tools .pre-page {
   margin-top: 0.125rem;
 }
+.page-tools .pre-page:active {
+  opacity: .6;
+}
 .page-tools .next-page {
   width: 2.28125rem;
   background-image: url(../images/right.png);
   float: right;
+}
+.page-tools .next-page:active {
+  opacity: .6;
 }
 .play-button {
   background-image: url(../images/play_btn.png);

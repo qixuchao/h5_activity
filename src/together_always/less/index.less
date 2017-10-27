@@ -74,7 +74,7 @@ body {
     .bgPosition(0, -1926);
     .size(397, 95);
     position: absolute;
-    bottom: @rem*-4;
+    bottom: @rem*-6;
     padding: 0 @rem*2;
     left: @rem*-2;
   }
@@ -217,7 +217,10 @@ body {
     .size(428, 28)
   }
   .play {
-    .size(422, 117)
+    .size(422, 117);
+    &:active{
+      opacity: .6;
+    }
   }
   img {
     max-width: 100%;
@@ -794,6 +797,7 @@ body {
     left: 50%;
     margin-left: @rem*-107/2;
     top: @rem*66;
+    z-index: 3;
   }
   .mountain {
     .size(339, 562);
@@ -861,11 +865,17 @@ body {
   }
   .pre-page {
     margin-top: @rem*4;
+    &:active{
+      opacity: .6;
+    }
   }
   .next-page {
     width: @rem*73;
     background-image: url(../images/right.png);
     float: right;
+    &:active{
+      opacity: .6;
+    }
   }
 }
 
