@@ -6,12 +6,12 @@ var $ = gulpLoadPlugins();
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
-var currentPath = 'together_always/'
+var currentPath = 'shuke_activity/'
 
 /**
  * argv
  *  -p --path 改变serve的根目录 默认 .
- *  
+ *
  */
 var baseDir = argv.path || argv.P || currentPath;
 
@@ -76,5 +76,5 @@ function buildScript(dir) {
 }
 
 function copyAssets(){
-    
+
 }

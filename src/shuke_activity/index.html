@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>舒克牙膏</title>
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <link rel="stylesheet" type="text/css" href="./styles/index.css">
+  <script data-js-path="redraw.js">
+    !(function(f,o){var a=navigator.userAgent,b=/iphone|ipad|ipod/i.test(a),i=/android/ig.test(a),j=/Mobile/i.test(a)||b||i;var n=document.querySelector("[name=viewport]"),k=b?window.devicePixelRatio?Math.min(window.devicePixelRatio,3):1:1,c=document.documentElement,l=k*(c.dataset.mw||750),d=1/k,e;f=f||320;o=o||16;if(n){var h=n.content||"",g=h.match(/initial\-scale=([\d\.]+)/);if(g){h=h.replace(/initial\-scale=([\d\.]+)/,"initial-scale="+d)}else{h+=",initial-scale="+d}n.content=h.replace(/minimum\-scale=([\d\.]+)/,"").replace(/maximum\-scale=([\d\.]+)/,"")}else{n=doc.createElement("meta");n.name="viewport";n.content="maximum-scale="+d+",minimum-scale="+d+",user-scalable=0,width=device-width;initial-scale="+d;c.firstElementChild.appendChild(n)}var m=function(){var q=window.innerWidth;var p=Math.min(q,l)/f*o;c.style.fontSize=p+"px"};if(j){window.addEventListener("resize",function(){clearTimeout(e);e=setTimeout(m,300)},false);m()}else{c.style.fontSize="16px"}})(375,16);
+  </script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?45b472947281cad914aa315e6e59750f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+<body>
+  <div class="content">
+    <img src="./image/1215_01.png" alt="" width="100%" class="header-img">
+    <div class="video-content">
+      <img id="playButton" class="play-button" src="image/btn.png" alt="play">
+      <img id="mp4Bg" class="mp4-bg" src="image/mp4-bg.jpg" alt="mp4">
+      <video id="video" src="http://static.xiawan8.com/activity/shuke.mp4" x5-playsinline="" preload="load" playsinline="" webkit-playsinline="" poster="" preload="auto">
+        您的浏览器不支持 video 标签。
+      </video>
+    </div>
+    <img class="bottom" src="./image/1215_03.png" />
+  </div>
+</body>
+<script>
+  var btn = document.getElementById('playButton')
+  var myVideo = document.getElementById('video')
+  var mp4Bg = document.getElementById('mp4Bg')
+
+  // 点击播放
+  btn.addEventListener("click", function() {
+    btn.style.display = 'none'
+    mp4Bg.style.display = 'none'
+    myVideo.play()
+  })
+
+  // 视频添加监听，播放完毕 显示按钮
+  myVideo.addEventListener("ended", function() {
+    btn.style.display = 'block'
+  },false);
+
+  // 视频暂停事件
+  myVideo.addEventListener("pause", function() {
+    btn.style.display = 'block'
+  });
+
+  // 视频播放事件
+  myVideo.addEventListener("play", function() {
+    btn.style.display = 'none'
+    mp4Bg.style.display = 'none'
+  });
+
+  // 点击视频  如果暂停状态就播放 如果播放状态就暂停
+  myVideo.addEventListener("click", function() {
+    if(myVideo.paused) {
+      myVideo.play()
+    } else {
+      myVideo.pause()
+    }
+  })
+</script>
+</html>

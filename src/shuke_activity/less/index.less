@@ -1,0 +1,58 @@
+@rem:1rem/32;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+}
+.content{
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+}
+body{
+  background: #73ebe8;
+}
+.header-img{
+  display: block;
+  width: 100%;
+}
+
+.video-content{
+  height: @rem*424;
+  width: 100%;
+  background: url("../image/1215_02.png") no-repeat center center;
+  background-size: 100% 100%;
+  overflow: hidden;
+  position: relative;
+  padding:@rem*20 @rem*32;
+}
+#video{
+  width: @rem*688;
+  height: @rem*386;
+}
+
+.play-button {
+  position: absolute;
+  left:50%;
+  top:50%;
+  width:@rem*100;
+  height:@rem*100;
+  transform: translate(-50%,-50%);
+  z-index: 99;
+  user-select: none;
+}
+.mp4-bg{
+  position: absolute;
+  left: @rem*32;
+  top: @rem*20;
+  width: @rem*688;
+  height: @rem*386;
+  z-index: 9;
+}
+
+.bottom{
+  width: 100%;
+  display: block;
+}
+
