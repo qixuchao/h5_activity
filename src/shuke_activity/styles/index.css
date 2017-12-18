@@ -43,14 +43,6 @@ body {
       -ms-user-select: none;
           user-select: none;
 }
-.mp4-bg {
-  position: absolute;
-  left: 1rem;
-  top: 0.625rem;
-  width: 21.5rem;
-  height: 12.0625rem;
-  z-index: 9;
-}
 .bottom {
   width: 100%;
   display: block;
