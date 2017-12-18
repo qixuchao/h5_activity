@@ -464,6 +464,12 @@ body {
 }
 .page1 .play:active {
   opacity: .6;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
 }
 .page1 img {
   max-width: 100%;
@@ -1309,6 +1315,12 @@ body {
 }
 .page-tools .pre-page:active {
   opacity: .6;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
 }
 .page-tools .next-page {
   width: 2.28125rem;
@@ -1317,6 +1329,12 @@ body {
 }
 .page-tools .next-page:active {
   opacity: .6;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
 }
 .play-button {
   background-image: url(../images/play_btn.png);
@@ -1330,6 +1348,12 @@ body {
 }
 .play-button:active {
   opacity: .6;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
 }
 .layer {
   -webkit-transition: all 0.1s;
