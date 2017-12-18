@@ -23,11 +23,11 @@ body {
   background-size: 100% 100%;
   overflow: hidden;
   position: relative;
-  padding: 0.625rem 1rem;
+  padding: 0.5625rem 0.9375rem;
 }
 #video {
-  width: 21.5rem;
-  height: 12.0625rem;
+  width: 21.625rem;
+  height: 12.1875rem;
 }
 .play-button {
   position: absolute;
