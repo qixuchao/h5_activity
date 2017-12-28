@@ -42,12 +42,12 @@
     </div>
   </div>
   <div class="dialog" id="dialog">
-    <div class="dialog-bg"></div>
-    <div class="copy-success">
-      <p>您已复制淘口令</p>
-      <p>请打开淘宝APP</p>
-      <div class="close" id="close">
-        <img src="image/close.png" />
+    <div class="dialog-content">
+      <div class="dialog-hd"></div>
+      <div class="dialog-bd">
+        <p><strong>已成功复制淘口令</strong></p>
+        <p>请打开淘宝APP购买</p>
+        <div class="close" id="close"></div>
       </div>
     </div>
   </div>
@@ -93,21 +93,21 @@
   copy.addEventListener('click', function() {
     var clipboard = new Clipboard('#copy');
     clipboard.on('success', function(e) {
-      console.info('Action:', e.action);
-      console.info('Text:', e.text);
-      console.info('Trigger:', e.trigger);
       e.clearSelection();
       dialog.style.display = 'block'
+      setTimeout(function(){
+        dialog.classList.add('show')
+      },0)
     });
     clipboard.on('error', function(e) {
-      console.error('Action:', e.action);
-      console.error('Trigger:', e.trigger);
+     alert('复制失败')
     });
   });
 
   // 复制成功 弹窗点击关闭按钮 关闭弹窗
   close.addEventListener('click', function() {
     dialog.style.display = 'none'
+    dialog.classList.remove('show')
   })
 
 </script>

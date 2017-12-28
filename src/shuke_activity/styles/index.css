@@ -1,31 +1,3 @@
-@keyframes clickAnimation {
-  from {
-    height: 2.5rem;
-    width: 2.5rem;
-    top: 68%;
-    left: 62%;
-  }
-  to {
-    height: 3.75rem;
-    width: 3.75rem;
-    top: 63%;
-    left: 58%;
-  }
-}
-@-webkit-keyframes clickAnimation {
-  from {
-    height: 2.5rem;
-    width: 2.5rem;
-    top: 68%;
-    left: 62%;
-  }
-  to {
-    height: 3.75rem;
-    width: 3.75rem;
-    top: 63%;
-    left: 58%;
-  }
-}
 * {
   margin: 0;
   padding: 0;
@@ -39,10 +11,14 @@
 }
 body {
   background: #73ebe8;
+  font-family: PingFangSC-Regular, Microsoft YaHei;
 }
 .header-img {
   display: block;
   width: 100%;
+}
+strong {
+  font-weight: normal;
 }
 .video-content {
   height: 13.25rem;
@@ -105,51 +81,84 @@ body {
   z-index: 99;
   height: 100%;
   width: 100%;
+  background: rgba(0, 0, 0, 0.65);
 }
-.dialog .dialog-bg {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #000;
-  opacity: .5;
-  z-index: 99;
+.dialog.show {
+  display: block;
 }
-.dialog .copy-success {
-  height: 7.5rem;
-  width: 13.125rem;
-  background: #34bdef;
-  border-radius: 0.25rem;
+.dialog .dialog-content {
+  width: 12.78125rem;
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   z-index: 999;
-  font-size: 1rem;
-  color: #fff;
+}
+.dialog .dialog-hd {
+  height: 0.78125rem;
+  background: #34bdef;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+.dialog .dialog-bd {
+  height: 4.75rem;
+  width: 100%;
+  font-size: 0.875rem;
+  background: #fff ;
+  color: #34bdef;
   text-align: center;
-}
-.dialog .copy-success p {
-  line-height: 0.9375rem;
-  margin-top: 0.9375rem;
+  line-height: 1.5;
   letter-spacing: 10px;
+  padding-top: 1.09375rem;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
 }
-.dialog .copy-success p:first-child {
-  margin-top: 2.1875rem;
+.dialog .dialog-bd strong {
+  font-size: 1.0625rem;
 }
-.dialog .copy-success .close {
+.dialog .dialog-bd .close {
   height: 1.5625rem;
   width: 1.5625rem;
-  position: absolute;
-  z-index: 999;
-  top: 110%;
-  left: 44%;
+  margin: 4.4375rem auto 0;
+  -webkit-transform: translateY(1000px);
+          transform: translateY(1000px);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  background: url(../image/close.png) no-repeat;
+  background-size: contain;
 }
-.dialog .copy-success .close image {
-  display: block;
-  height: 100%;
-  width: 100%;
-  border: none;
+.dialog.show .close {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+@keyframes clickAnimation {
+  from {
+    height: 2.5rem;
+    width: 2.5rem;
+    top: 68%;
+    left: 62%;
+  }
+  to {
+    height: 3.75rem;
+    width: 3.75rem;
+    top: 63%;
+    left: 58%;
+  }
+}
+@-webkit-keyframes clickAnimation {
+  from {
+    height: 2.5rem;
+    width: 2.5rem;
+    top: 68%;
+    left: 62%;
+  }
+  to {
+    height: 3.75rem;
+    width: 3.75rem;
+    top: 63%;
+    left: 58%;
+  }
 }
