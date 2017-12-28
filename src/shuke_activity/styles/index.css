@@ -1,3 +1,31 @@
+@keyframes clickAnimation {
+  from {
+    height: 2.5rem;
+    width: 2.5rem;
+    top: 68%;
+    left: 62%;
+  }
+  to {
+    height: 3.75rem;
+    width: 3.75rem;
+    top: 63%;
+    left: 58%;
+  }
+}
+@-webkit-keyframes clickAnimation {
+  from {
+    height: 2.5rem;
+    width: 2.5rem;
+    top: 68%;
+    left: 62%;
+  }
+  to {
+    height: 3.75rem;
+    width: 3.75rem;
+    top: 63%;
+    left: 58%;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -28,8 +56,6 @@ body {
 #video {
   width: 21.625rem;
   height: 12.1875rem;
-  display: block;
-  margin: 0 auto;
 }
 .play-button {
   position: absolute;
@@ -47,5 +73,83 @@ body {
 }
 .bottom {
   width: 100%;
+  position: relative;
+}
+.bottom .bottom-bg {
+  width: 100%;
   display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.bottom .handle {
+  position: absolute;
+  height: 3.4375rem;
+  width: 3.4375rem;
+  top: 65%;
+  left: 58%;
+  z-index: 99;
+  -webkit-animation: clickAnimation 1s ease infinite alternate;
+  animation: clickAnimation 1s ease infinite alternate;
+}
+.bottom .handle img {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.dialog {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  height: 100%;
+  width: 100%;
+}
+.dialog .dialog-bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: .5;
+  z-index: 99;
+}
+.dialog .copy-success {
+  height: 7.5rem;
+  width: 13.125rem;
+  background: #34bdef;
+  border-radius: 0.25rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 999;
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+}
+.dialog .copy-success p {
+  line-height: 0.9375rem;
+  margin-top: 0.9375rem;
+  letter-spacing: 10px;
+}
+.dialog .copy-success p:first-child {
+  margin-top: 2.1875rem;
+}
+.dialog .copy-success .close {
+  height: 1.5625rem;
+  width: 1.5625rem;
+  position: absolute;
+  z-index: 999;
+  top: 110%;
+  left: 44%;
+}
+.dialog .copy-success .close image {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border: none;
 }

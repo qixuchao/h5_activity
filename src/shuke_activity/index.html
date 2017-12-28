@@ -18,23 +18,46 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
-
+  <script src="lib/clipboard.min.js"></script>
 </head>
 <body>
   <div class="content">
-    <img src="./image/1215_01.png" alt="" width="100%" class="header-img">
+    <div>
+      <img src="./image/1215_01.png" alt="" width="100%" class="header-img">
+    </div>
     <div class="video-content">
       <img id="playButton" class="play-button" src="./image/btn.png" alt="play">
       <video id="video" src="http://static.xiawan8.com/activity/shuke.mp4" x5-playsinline="" preload="load" playsinline="" webkit-playsinline="" poster="./image/mp4-bg.jpg" preload="auto">
         您的浏览器不支持 video 标签。
       </video>
     </div>
-    <img class="bottom" src="./image/1215_03.png" />
+    <div class="bottom" id="copy"
+         data-clipboard-action="copy"
+         data-clipboard-text="【凛冬将至X开始囤货】http://m.tb.cn/h.BFhjet点击链接，再选择浏览器打开；或复制这条信息￥8ybP0jIfSeY￥后打开手淘"
+    >
+      <div class="handle">
+        <img src="./image/hand.png" />
+      </div>
+      <img class="bottom-bg" src="./image/1215_03.png" />
+    </div>
+  </div>
+  <div class="dialog" id="dialog">
+    <div class="dialog-bg"></div>
+    <div class="copy-success">
+      <p>您已复制淘口令</p>
+      <p>请打开淘宝APP</p>
+      <div class="close" id="close">
+        <img src="image/close.png" />
+      </div>
+    </div>
   </div>
 </body>
 <script>
   var btn = document.getElementById('playButton')
   var myVideo = document.getElementById('video')
+  var copy = document.getElementById('copy')
+  var dialog = document.getElementById('dialog')
+  var close = document.getElementById('close')
 
   // 点击播放
   btn.addEventListener("click", function() {
@@ -64,7 +87,29 @@
     } else {
       myVideo.pause()
     }
+  });
+
+  // 复制淘口令事件
+  copy.addEventListener('click', function() {
+    var clipboard = new Clipboard('#copy');
+    clipboard.on('success', function(e) {
+      console.info('Action:', e.action);
+      console.info('Text:', e.text);
+      console.info('Trigger:', e.trigger);
+      e.clearSelection();
+      dialog.style.display = 'block'
+    });
+    clipboard.on('error', function(e) {
+      console.error('Action:', e.action);
+      console.error('Trigger:', e.trigger);
+    });
+  });
+
+  // 复制成功 弹窗点击关闭按钮 关闭弹窗
+  close.addEventListener('click', function() {
+    dialog.style.display = 'none'
   })
+
 </script>
 
 <script type="text/javascript" src="http://static.xiawan8.com/xiawan/SDK/jsweixin.js"></script>
@@ -77,5 +122,4 @@
     link: location.href
   });
 </script>
-
 </html>

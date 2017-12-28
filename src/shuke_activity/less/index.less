@@ -1,5 +1,28 @@
 @rem:1rem/32;
 
+@keyframes clickAnimation {
+  from {height: @rem*80; width: @rem*80; top: 68%; left: 62%;}
+  to {height: @rem*120; width: @rem*120; top: 63%; left: 58%;}
+}
+@-webkit-keyframes clickAnimation {
+  from {height: @rem*80; width: @rem*80; top: 68%; left: 62%;}
+  to {height: @rem*120; width: @rem*120; top: 63%; left: 58%;}
+}
+@-moz-keyframes clickAnimation {
+  from {height: @rem*80; width: @rem*80; top: 68%; left: 62%;}
+  to {height: @rem*120; width: @rem*120; top: 63%; left: 58%;}
+}
+@-ms-keyframes clickAnimation {
+  from {height: @rem*80; width: @rem*80; top: 68%; left: 62%;}
+  to {height: @rem*120; width: @rem*120; top: 63%; left: 58%;}
+}
+@-o-keyframes clickAnimation {
+  from {height: @rem*80; width: @rem*80; top: 68%; left: 62%;}
+  to {height: @rem*120; width: @rem*120; top: 63%; left: 58%;}
+}
+
+
+
 *{
   margin: 0;
   padding: 0;
@@ -45,6 +68,85 @@ body{
 
 .bottom{
   width: 100%;
-  display: block;
+  position: relative;
+  .bottom-bg{
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  .handle{
+    position: absolute;
+    height: @rem*110;
+    width: @rem*110;
+    top: 65%;
+    left: 58%;
+    z-index: 99;
+    -webkit-animation: clickAnimation 1s ease infinite alternate;
+    -o-animation: clickAnimation 1s ease infinite alternate;
+    animation: clickAnimation 1s ease infinite alternate;
+    img{
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.dialog{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  height: 100%;
+  width: 100%;
+  .dialog-bg{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: .5;
+    z-index: 99;
+  }
+  .copy-success{
+    height: @rem*240;
+    width: @rem*420;
+    background: rgb(52, 189, 239);
+    border-radius: @rem*8;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 999;
+    font-size: @rem*32;
+    color: #fff;
+    text-align: center;
+    p{
+      line-height: @rem*30;
+      margin-top: @rem*30;
+      letter-spacing: 10px;
+    }
+    p:first-child{
+      margin-top: @rem*70;
+    }
+    .close{
+      height: @rem*50;
+      width: @rem*50;
+      position: absolute;
+      z-index: 999;
+      top: 110%;
+      left: 44%;
+      image{
+        display: block;
+        height: 100%;
+        width: 100%;
+        border: none;
+      }
+    }
+  }
 }
 
