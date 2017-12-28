@@ -28,6 +28,8 @@ body {
 #video {
   width: 21.625rem;
   height: 12.1875rem;
+  display: block;
+  margin: 0 auto;
 }
 .play-button {
   position: absolute;
