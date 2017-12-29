@@ -87,7 +87,7 @@ strong {
   display: block;
 }
 .dialog .dialog-content {
-  width: 12.78125rem;
+  width: 14.0625rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -97,6 +97,7 @@ strong {
 }
 .dialog .dialog-hd {
   height: 0.78125rem;
+  width: 100%;
   background: #34bdef;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
@@ -109,7 +110,7 @@ strong {
   color: #34bdef;
   text-align: center;
   line-height: 1.5;
-  letter-spacing: 10px;
+  letter-spacing: 0.3125rem;
   padding-top: 1.09375rem;
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
