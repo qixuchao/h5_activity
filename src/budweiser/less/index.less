@@ -14,12 +14,26 @@ body, html{
   overflow: auto;
 }
 
-swiper-slide1111{
-  overflow: auto;
-}
-
 .music-audio{
   display: none;
+}
+
+.audio-btn{
+  height: @rem*60;
+  width: @rem*60;
+  border-radius: @rem*60;
+  background: rgba(0, 0, 0, 0.6);
+  background-size:100% 100%;
+  position: fixed;
+  top: @rem*30;
+  right: @rem*30;
+  z-index: 999;
+  img{
+    width: 70%;
+    height: 70%;
+    margin-top: 15%;
+    margin-left: 10%;
+  }
 }
 
 .page_01{
@@ -161,5 +175,20 @@ swiper-slide1111{
   .dia_log_txt{
     width: @rem*750;
     height: @rem*135;
+  }
+}
+
+.music-animation{
+  -webkit-animation: musicBtn 5s infinite linear;
+  -o-animation: musicBtn 5s infinite linear;
+  animation: musicBtn 5s infinite linear;
+}
+
+@keyframes musicBtn {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
