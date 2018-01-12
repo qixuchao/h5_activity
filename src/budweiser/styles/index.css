@@ -121,11 +121,16 @@ swiper-slide1111 {
   height: 4.21875rem;
   position: absolute;
   left: 0;
-  bottom: 6.25rem;
+  bottom: 8.4375rem;
   z-index: 99;
+  text-align: center;
+  font-weight: bold;
+  color: #E5BE77;
+  font-size: 0.8125rem;
 }
-.page_03 .txt img {
-  width: 100%;
+.page_03 .txt p {
+  line-height: 1.09375rem;
+  letter-spacing: 0.0625rem;
 }
 .page_03 .button {
   opacity: 0;
