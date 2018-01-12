@@ -35,8 +35,9 @@
       <div class="handle_slide"><img src="./image/page02/shouzhi.png"></div>
     </div>
 </body>
+<script type="text/javascript" src="./lib/jskit.js"></script>
 <script>
-
+  var query = jskit.utils.getUrlObj();
   var data = [
     {
       id: 1,
@@ -306,7 +307,7 @@
   initQuestion(data);
 
   function onOk() {
-    var url = 'http://openapi.fancysmp.com/api/create?project=baiwei_answer&answer='
+    var url = 'http://openapi.fancysmp.com/api/create?project=baiwei_answer'
     var answer = [];
     var ele = document.getElementsByClassName('item-radio')
     for (var i = 0; i<ele.length; i++) {
@@ -317,7 +318,14 @@
     if (answer.length < 11) {
       alert('请耐心选完题目噢^_^')
     } else {
-      answer = JSON.stringify(answer)
+      //answer = JSON.stringify(answer)
+      jskit.utils.addParam(url,{
+        answer:JSON.stringify(answer),
+        openid:query.opein,
+        nickname:query.nickname,
+        avatar:query.avatar
+      });
+
       var ajax = new XMLHttpRequest();
       ajax.onreadystatechange = function() {
         if(ajax.readyState == 4 && ajax.status == 200){

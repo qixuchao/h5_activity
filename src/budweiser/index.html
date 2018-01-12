@@ -74,8 +74,12 @@
 </script>
 
 <script type="text/javascript" src="http://static.xiawan8.com/xiawan/SDK/jsweixin.js"></script>
-<script type="text/javascript" src="http://static.xiawan8.com/xiawan/SDK/jskit.js"></script>
+<script type="text/javascript" src="./lib/jskit.js"></script>
 <script type="text/javascript">
+  var query = jskit.utils.getUrlObj();
+  if(!query.openid){
+    jskit.toLogin();
+  }
   jskit.openShare && jskit.openShare({
     title: "百威问情",
     desc: "别让话憋在心里,别让酒留在杯中,碰杯要两次,感谢更真挚,用这个哦。",
