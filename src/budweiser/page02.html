@@ -10,7 +10,7 @@
     <script data-js-path="redraw.js">
       !(function(f,o){var a=navigator.userAgent,b=/iphone|ipad|ipod/i.test(a),i=/android/ig.test(a),j=/Mobile/i.test(a)||b||i;var n=document.querySelector("[name=viewport]"),k=b?window.devicePixelRatio?Math.min(window.devicePixelRatio,3):1:1,c=document.documentElement,l=k*(c.dataset.mw||750),d=1/k,e;f=f||320;o=o||16;if(n){var h=n.content||"",g=h.match(/initial\-scale=([\d\.]+)/);if(g){h=h.replace(/initial\-scale=([\d\.]+)/,"initial-scale="+d)}else{h+=",initial-scale="+d}n.content=h.replace(/minimum\-scale=([\d\.]+)/,"").replace(/maximum\-scale=([\d\.]+)/,"")}else{n=doc.createElement("meta");n.name="viewport";n.content="maximum-scale="+d+",minimum-scale="+d+",user-scalable=0,width=device-width;initial-scale="+d;c.firstElementChild.appendChild(n)}var m=function(){var q=window.innerWidth;var p=Math.min(q,l)/f*o;c.style.fontSize=p+"px"};if(j){window.addEventListener("resize",function(){clearTimeout(e);e=setTimeout(m,300)},false);m()}else{c.style.fontSize="16px"}})(375,16);
     </script>
-
+    <script src="lib/zepto/zepto.min.js"></script>
     <script>
       var _hmt = _hmt || [];
       (function() {
@@ -31,6 +31,7 @@
         <div class="btn" onclick="onOk()"><img src="./image/page02/page02_btn.png" alt=""></div>
         <img src="./image/page02/page02_bottom.png" alt="">
       </div>
+      <div class="handle_slide"><img src="./image/page02/shouzhi.png"></div>
     </div>
 </body>
 <script>
@@ -250,19 +251,23 @@
         },
         {
           id: 2,
-          txt: '哈外围区域（通河、阿城、肇东、呼兰等周边城市）'
+          txt: '哈外围区域',
+          children: '(通河、阿城、肇东、呼兰等周边城市)'
         },
         {
           id: 3,
-          txt: '黑南区域（牡丹江、延寿、鸡西等周边城市）'
+          txt: '黑南区域',
+          children: '(牡丹江、延寿、鸡西等周边城市)'
         },
         {
           id: 4,
-          txt: '黑东区域（佳木斯、双鸭山、建三江、富锦等周边城市）'
+          txt: '黑东区域',
+          children: '(佳木斯、双鸭山、建三江、富锦等周边城市)'
         },
         {
           id: 5,
-          txt: '黑西区域（大庆、齐齐哈尔、肇州、肇源等周边城市）'
+          txt: '黑西区域',
+          children: '(大庆、齐齐哈尔、肇州、肇源等周边城市)'
         },
         {
           id: 6,
@@ -283,8 +288,11 @@
         var item = data[i].answer[j];
         sHtml += '<div class="radio">';
         sHtml += '<label>';
-        sHtml += '<input class="item-radio" value="'+ item.id +'" type="radio" name="'+ data[i].key +'">';
+        sHtml += '<input class="item-radio J-radio" value="'+ item.id +'" type="radio" name="'+ data[i].key +'">';
         sHtml += '<span class="item-radioInput"></span><span class="item-txt">' + item.txt + '</span>';
+        if (item.children) {
+          sHtml += '<span class="item-children">' + item.children + '</span>';
+        }
         sHtml += '</label>';
         sHtml += '</div>';
       }
@@ -328,6 +336,22 @@
       ajax.send();
     }
   }
+
+  $('.J-radio').on('click', function() {
+    if (this.checked) {
+      $('.item-children').hide()
+      $(this).siblings('.item-children').css('display', 'block')
+    }
+  })
+
+  $('body, .handle_slide').on('touchmove', function() {
+    $('.handle_slide').hide()
+  })
+
+  $('body, .handle_slide').on('click', function() {
+    $('.handle_slide').hide()
+  })
+
 </script>
 
 <script type="text/javascript" src="http://static.xiawan8.com/xiawan/SDK/jsweixin.js"></script>
@@ -337,7 +361,7 @@
     title: "百威啤酒",
     desc: "别让话憋在心里,别让酒留在杯中,碰杯要两次,感谢更真挚,用这个哦。",
     imgUrl: "http://static.xiawan8.com/budweiser/image/baiwei_title.png",
-    link: window.location.origin,
+    link: "http://static.xiawan8.com/activity/budweiser/index.html",
   });
 </script>
 </html>

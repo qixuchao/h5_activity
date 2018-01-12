@@ -38,7 +38,8 @@ li {
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 2.1875rem 1.25rem;
+  padding: 0 1.25rem;
+  padding-bottom: 2.1875rem;
 }
 .page_02 .content ul li {
   overflow: hidden;
@@ -46,7 +47,7 @@ li {
   border-bottom: 0.03125rem solid #FBD3B7;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding-top: 1.625rem;
+  padding-top: 1.25rem;
   color: #640008;
 }
 .page_02 .content ul li .title {
@@ -73,6 +74,11 @@ li {
 }
 .page_02 .content ul li .radio .item-txt {
   padding-left: 0.15625rem;
+}
+.page_02 .content ul li .radio .item-children {
+  display: none;
+  font-size: 0.9375rem;
+  padding-left: 1.875rem;
 }
 .page_02 .content ul li .radio .item-radio {
   height: 0.9375rem;
@@ -139,4 +145,18 @@ li {
 .page_02 .bottom img {
   display: block;
   width: 100%;
+}
+.handle_slide {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.5);
+}
+.handle_slide img {
+  height: 100%;
+  width: 100%;
+  display: block;
 }

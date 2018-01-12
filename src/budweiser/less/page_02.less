@@ -34,13 +34,14 @@ li{
       overflow: hidden;
       width: 100%;
       box-sizing: border-box;
-      padding: @rem*70 @rem*40;
+      padding: 0 @rem*40;
+      padding-bottom: @rem*70;
       li{
         overflow: hidden;
         width: 100%;
         border-bottom: @rem*1 solid #FBD3B7;
         box-sizing: border-box;
-        padding-top: @rem*52;
+        padding-top: @rem*40;
         color: #640008;
         .title{
           font-size: @rem*40;
@@ -65,6 +66,11 @@ li{
           overflow: hidden;
           .item-txt{
             padding-left: @rem*5;
+          }
+          .item-children{
+            display: none;
+            font-size: @rem*30;
+            padding-left: @rem*60;
           }
           .item-radio{
             height: @rem*30;
@@ -106,7 +112,6 @@ li{
           .item-radio:checked + .item-radioInput:before{
             opacity: 0;
           }
-
         }
       }
       li:last-child{
@@ -136,5 +141,19 @@ li{
       display: block;
       width: 100%;
     }
+  }
+}
+.handle_slide{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.5);
+  img{
+    height: 100%;
+    width: 100%;
+    display: block;
   }
 }
