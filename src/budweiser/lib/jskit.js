@@ -1,4 +1,3 @@
-import wx from './libs/jweixin';
 
 'use strict';
 
@@ -591,4 +590,3 @@ if (jskit.isWechat) {
 }
 
 
-export default jskit;

@@ -320,11 +320,11 @@
       alert('请耐心选完题目噢^_^')
     } else {
       //answer = JSON.stringify(answer)
-      jskit.utils.addParam(url,{
+      url = jskit.utils.addParam(url,{
         answer:JSON.stringify(answer),
-        openid:query.opein,
-        nickname:query.nickname,
-        avatar:query.avatar
+        openid:query.OpenID,
+        nickname:query.NickName,
+        avatar:query.HeadImgUrl
       });
 
       var ajax = new XMLHttpRequest();
@@ -342,7 +342,7 @@
           }
         }
       }
-      ajax.open('get', url + answer);
+      ajax.open('get', url);
       ajax.send();
     }
   }
