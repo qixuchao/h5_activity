@@ -116,7 +116,7 @@ swiper-slide1111 {
 .page_03 .desc img {
   width: 100%;
 }
-.page_03 .txt {
+.page_03 .page_03_txt {
   width: 23.4375rem;
   height: 4.21875rem;
   position: absolute;
@@ -128,7 +128,7 @@ swiper-slide1111 {
   color: #E5BE77;
   font-size: 0.8125rem;
 }
-.page_03 .txt p {
+.page_03 .page_03_txt p {
   line-height: 1.09375rem;
   letter-spacing: 0.0625rem;
 }
