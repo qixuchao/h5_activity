@@ -17,6 +17,9 @@ html {
 swiper-slide1111 {
   overflow: auto;
 }
+.music-audio {
+  display: none;
+}
 .page_01 {
   width: 23.4375rem;
   height: 100%;
