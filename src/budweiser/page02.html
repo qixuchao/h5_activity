@@ -23,7 +23,8 @@
 </head>
 <body>
     <div class="page_02">
-      <audio class="music-audio" autoplay="autoplay" loop="loop" preload="auto" src="./music/2.mp3"></audio>
+      <div class="audio-btn music-animation" id="audioBtn"><img src="./image/music.png" /></div>
+      <audio class="music-audio" id="media" autoplay="autoplay" loop="loop" preload="auto" src="./music/2.mp3"></audio>
       <div class="header"><img src="./image/page02/page02_header.png" alt=""></div>
       <div class="content">
         <ul class="ul" id="content"></ul>
@@ -359,6 +360,22 @@
 
   $('body, .handle_slide').on('click', function() {
     $('.handle_slide').hide()
+  })
+
+  document.addEventListener("WeixinJSBridgeReady", function () {
+    document.getElementById('media').play();
+  }, false);
+  var isPlay = true;
+  $('#audioBtn').on('click', function() {
+    if (isPlay) {
+      isPlay = false
+      document.getElementById('media').pause();
+      $(this).removeClass('music-animation')
+    } else {
+      isPlay = true
+      document.getElementById('media').play();
+      $(this).addClass('music-animation')
+    }
   })
 
 </script>
