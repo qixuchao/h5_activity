@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百威啤酒</title>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="stylesheet" type="text/css" href="./lib/swiper/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="./lib/swiper/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="./styles/index.css">
+    <script data-js-path="redraw.js">
+      !(function(f,o){var a=navigator.userAgent,b=/iphone|ipad|ipod/i.test(a),i=/android/ig.test(a),j=/Mobile/i.test(a)||b||i;var n=document.querySelector("[name=viewport]"),k=b?window.devicePixelRatio?Math.min(window.devicePixelRatio,3):1:1,c=document.documentElement,l=k*(c.dataset.mw||750),d=1/k,e;f=f||320;o=o||16;if(n){var h=n.content||"",g=h.match(/initial\-scale=([\d\.]+)/);if(g){h=h.replace(/initial\-scale=([\d\.]+)/,"initial-scale="+d)}else{h+=",initial-scale="+d}n.content=h.replace(/minimum\-scale=([\d\.]+)/,"").replace(/maximum\-scale=([\d\.]+)/,"")}else{n=doc.createElement("meta");n.name="viewport";n.content="maximum-scale="+d+",minimum-scale="+d+",user-scalable=0,width=device-width;initial-scale="+d;c.firstElementChild.appendChild(n)}var m=function(){var q=window.innerWidth;var p=Math.min(q,l)/f*o;c.style.fontSize=p+"px"};if(j){window.addEventListener("resize",function(){clearTimeout(e);e=setTimeout(m,300)},false);m()}else{c.style.fontSize="16px"}})(375,16);
+    </script>
+
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?45b472947281cad914aa315e6e59750f";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+</head>
+<body>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" id="pageOne">
+      <div class="page_01">
+        <div class="txt ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="0.3s" ><img src="./image/page01/title.png" /></div>
+        <div class="button ani" onclick="goPageTwo()" swiper-animate-effect="flipInY" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s"><img src="./image/page01/btn.png" alt="" /></div>
+        <div class="red_cloud ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s" ><img src="./image/page01/red.png" alt="" /></div>
+        <div class="white_cloud ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1s" ><img src="./image/page01/white.png" alt="" /></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript" src="./lib/swiper/swiper.min.js"></script>
+<script type="text/javascript" src="./lib/swiper/swiper.animate1.0.2.min.js"></script>
+
+<script>
+    function initAni(ele) {
+      var mySwiper = new Swiper (ele, {
+        on: {
+          init: function(){
+            swiperAnimateCache(this); //隐藏动画元素
+            swiperAnimate(this); //初始化完成开始动画
+          },
+          slideChangeTransitionEnd: function(){
+            swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+          }
+        },
+        direction: 'vertical',
+        loop: false,
+
+        // 如果需要分页器
+        pagination: {
+          el: '.swiper-pagination',
+        },
+
+        // 如果需要滚动条
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+      })
+    }
+
+    initAni('.swiper-container')
+
+    function goPageTwo() {
+      window.location.href = 'page02.html'
+    }
+</script>
+</html>

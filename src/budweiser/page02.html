@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百威啤酒</title>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="stylesheet" type="text/css" href="./lib/swiper/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="./lib/swiper/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="./styles/page_02.css">
+    <script data-js-path="redraw.js">
+      !(function(f,o){var a=navigator.userAgent,b=/iphone|ipad|ipod/i.test(a),i=/android/ig.test(a),j=/Mobile/i.test(a)||b||i;var n=document.querySelector("[name=viewport]"),k=b?window.devicePixelRatio?Math.min(window.devicePixelRatio,3):1:1,c=document.documentElement,l=k*(c.dataset.mw||750),d=1/k,e;f=f||320;o=o||16;if(n){var h=n.content||"",g=h.match(/initial\-scale=([\d\.]+)/);if(g){h=h.replace(/initial\-scale=([\d\.]+)/,"initial-scale="+d)}else{h+=",initial-scale="+d}n.content=h.replace(/minimum\-scale=([\d\.]+)/,"").replace(/maximum\-scale=([\d\.]+)/,"")}else{n=doc.createElement("meta");n.name="viewport";n.content="maximum-scale="+d+",minimum-scale="+d+",user-scalable=0,width=device-width;initial-scale="+d;c.firstElementChild.appendChild(n)}var m=function(){var q=window.innerWidth;var p=Math.min(q,l)/f*o;c.style.fontSize=p+"px"};if(j){window.addEventListener("resize",function(){clearTimeout(e);e=setTimeout(m,300)},false);m()}else{c.style.fontSize="16px"}})(375,16);
+    </script>
+
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?45b472947281cad914aa315e6e59750f";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+</head>
+<body>
+    <div class="page_02">
+      <div class="header"><img src="./image/page02/header.png" alt=""></div>
+      <div class="content">
+        <ul class="ul" id="content"></ul>
+      </div>
+      <div class="bottom">
+        <div class="btn" onclick="onOk()"><img src="./image/page02/btn.png" alt=""></div>
+        <img src="./image/page02/bottom.png" alt="">
+      </div>
+    </div>
+</body>
+<script>
+
+  var data = [
+    {
+      id: 1,
+      question: '您的性别',
+      key: 'sex',
+      answer: [
+        {
+          id: 11,
+          txt: '男'
+        },
+        {
+          id: 12,
+          txt: '女'
+        },
+      ]
+    },
+    {
+      id: 2,
+      question: '你是几零后',
+      key: 'age',
+      answer: [
+        {
+          id: 21,
+          txt: 'TFBOYS'
+        },
+        {
+          id: 22,
+          txt: '周渝民'
+        },
+        {
+          id: 23,
+          txt: '金城武'
+        },
+        {
+          id: 24,
+          txt: '赵雅芝'
+        },
+        {
+          id: 25,
+          txt: '刘胡兰'
+        },
+      ]
+    },
+    {
+      id: 3,
+      question: '你是否清晰地记得自己父母的生日(年月日)',
+      key: 'rememberParentsBirthday',
+      answer: [
+        {
+          id: 31,
+          txt: '父母双方都清晰记得',
+        },
+        {
+          id: 32,
+          txt: '只记得父亲的生日',
+        },
+        {
+          id: 33,
+          txt: '只记得母亲的生日',
+        },
+        {
+          id: 34,
+          txt: '父母双方的生日都不记得',
+        }
+      ]
+    },
+    {
+      id: 4,
+      question: '您有对父母发过脾气吗',
+      key: 'angry',
+      answer: [
+        {
+          id: 41,
+          txt: '和和气气',
+        },
+        {
+          id: 42,
+          txt: '偶尔傲娇',
+        },
+        {
+          id: 43,
+          txt: '经常冷战',
+        },
+      ]
+    },
+    {
+      id: 5,
+      question: '你是否曾主动去拥抱父母或者对他们说出我爱你三个字',
+      key: 'areYouSayLove',
+      answer: [
+        {
+          id: 51,
+          txt: '不敢!'
+        },
+        {
+          id: 52,
+          txt: '偶尔会有'
+        },
+        {
+          id: 53,
+          txt: '出远门会'
+        },
+        {
+          id: 54,
+          txt: '没事抱一抱'
+        },
+      ]
+    },
+    {
+      id: 6,
+      question: '你跟父母喝过酒吗',
+      key: 'drink',
+      answer: [
+        {
+          id: 61,
+          txt: '没有'
+        },
+        {
+          id: 62,
+          txt: ' 喝两杯'
+        },
+        {
+          id: 63,
+          txt: ' 没事就喝'
+        },
+      ],
+    },
+    {
+      id: 7,
+      question: '你觉得父母了解你吗',
+      key: 'knowYou',
+      answer: [
+        {
+          id: 71,
+          txt: '不在乎'
+        },
+        {
+          id: 72,
+          txt: '不懂我'
+        },
+        {
+          id: 73,
+          txt: '简直是知己'
+        }
+      ]
+    },
+    {
+      id: 8,
+      question: '如果和父亲对饮，你们喝什么酒',
+      key: 'drinkWhat',
+      answer: [
+        {
+          id: 81,
+          txt: '踩一箱啤酒'
+        },
+        {
+          id: 82,
+          txt: '红酒慢慢品'
+        },
+        {
+          id: 83,
+          txt: '二两烧刀子'
+        },
+
+      ]
+    },
+    {
+      id: 9,
+      question: '今年回家想和爸妈碰杯喝一顿吗',
+      key: 'drinkWithParents',
+      answer: [
+        {
+          id: 91,
+          txt: '算了吧'
+        },
+        {
+          id: 92,
+          txt: '都可以'
+        },
+        {
+          id: 93,
+          txt: '不醉不归'
+        }
+      ]
+    },
+    {
+      id: 10,
+      question: '那么你想选哪一款啤酒呢',
+      key: 'choice',
+      answer: [
+        {
+          id: 101,
+          txt: '百威啤酒'
+        },
+        {
+          id: 102,
+          txt: '科罗纳啤酒'
+        },
+        {
+          id: 103,
+          txt: '哈尔滨啤酒'
+        },
+      ]
+    },
+    {
+      id: 11,
+      question: '今年过节回哪里',
+      key: 'address',
+      answer: [
+        {
+          id: 111,
+          txt: '哈尔滨市'
+        },
+        {
+          id: 112,
+          txt: '哈外围区域（通河、阿城、肇东、呼兰等周边城市）'
+        },
+        {
+          id: 113,
+          txt: '黑南区域（牡丹江、延寿、鸡西等周边城市）'
+        },
+        {
+          id: 114,
+          txt: '黑东区域（佳木斯、双鸭山、建三江、富锦等周边城市）'
+        },
+        {
+          id: 115,
+          txt: '黑西区域（大庆、齐齐哈尔、肇州、肇源等周边城市）'
+        },
+        {
+          id: 116,
+          txt: '其他区域'
+        }
+      ]
+    }
+  ]
+
+  function initQuestion(data) {
+    var content = document.getElementById('content')
+    for ( var i = 0; i<data.length; i++) {
+      var sHtml = '',
+          li = document.createElement('li');
+      sHtml += '<li>';
+      sHtml += '<div class="title"><img src="image/page02/'+ parseInt( i + 1) +'.png"><span>'+ data[i].question +'</span></div>';
+      for (var j = 0 ; j<data[i].answer.length; j++) {
+        var item = data[i].answer[j];
+        sHtml += '<div class="radio">';
+        sHtml += '<label>';
+        sHtml += '<input class="item-radio" value="'+ item.id +'" type="radio" name="'+ data[i].key +'">';
+        sHtml += '<span class="item-radioInput"></span><span class="item-txt">' + item.txt + '</span>';
+        sHtml += '</label>';
+        sHtml += '</div>';
+      }
+      sHtml += '</li>';
+      li.innerHTML = sHtml
+      content.appendChild(li)
+    }
+  }
+
+  initQuestion(data);
+
+  function onOk() {
+    var url = 'http://openapi.fancysmp.com/api/create?project=baiwei_answer&answer='
+    var answer = [];
+    var ele = document.getElementsByClassName('item-radio')
+    for (var i = 0; i<ele.length; i++) {
+       if (ele[i].checked) {
+         answer.push(ele[i].value)
+       }
+    }
+    if (answer.length < 11) {
+      alert('请您耐心选完题目哦')
+    } else {
+      answer = JSON.stringify(answer)
+      var ajax = new XMLHttpRequest();
+      ajax.onreadystatechange = function() {
+        if(ajax.readyState == 4 && ajax.status == 200){
+          var msg = ajax.responseText;
+          console.log('msg', msg);
+          if (msg.code == 0) {
+            window.location.href = 'page03.html'
+          }
+        }
+      }
+      ajax.open('get', url + answer);
+      ajax.send();
+    }
+  }
+
+</script>
+</html>

@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+  background: #EF2214;
+}
+li {
+  list-style: none;
+}
+.page_02 {
+  width: 23.4375rem;
+  margin: 0 auto;
+  overflow: hidden;
+  background: url("../image/page02/02_bg.png") repeat-y center center;
+  background-size: 23.4375rem 35.4375rem;
+}
+.page_02 .header {
+  width: 23.4375rem;
+  height: 13.125rem;
+  margin: 0 auto;
+}
+.page_02 .header img {
+  display: block;
+  width: 100%;
+}
+.page_02 .content {
+  margin: 0 auto;
+  width: 18.4375rem;
+  margin-top: -3.125rem;
+  background: #FCF1D3;
+}
+.page_02 .content ul {
+  overflow: hidden;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 2.1875rem 1.25rem;
+}
+.page_02 .content ul li {
+  overflow: hidden;
+  width: 100%;
+  border-bottom: 0.03125rem solid #FBD3B7;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 1.625rem;
+  color: #640008;
+}
+.page_02 .content ul li .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  overflow: hidden;
+  position: relative;
+}
+.page_02 .content ul li .title img {
+  display: block;
+  float: left;
+  width: 1.46875rem;
+  height: 1.4375rem;
+  margin-top: 0.09375rem;
+}
+.page_02 .content ul li .title span {
+  display: block;
+  padding-left: 1.78125rem;
+}
+.page_02 .content ul li .radio {
+  margin: 1.5rem 0;
+  font-size: 1.25rem;
+  overflow: hidden;
+}
+.page_02 .content ul li .radio .item-txt {
+  padding-left: 0.15625rem;
+}
+.page_02 .content ul li .radio .item-radio {
+  height: 0.9375rem;
+  width: 0.9375rem;
+  margin-left: 0.78125rem;
+  opacity: 0;
+}
+.page_02 .content ul li .radio .item-radioInput {
+  width: 2.0625rem;
+  position: relative;
+}
+.page_02 .content ul li .radio .item-radioInput:after {
+  content: '';
+  height: 0.65625rem;
+  width: 0.65625rem;
+  border-radius: 0.65625rem;
+  background: red;
+  display: block;
+  position: absolute;
+  top: 0.53125rem;
+  left: -1.25rem;
+  opacity: 0;
+}
+.page_02 .content ul li .radio .item-radioInput:before {
+  content: '';
+  height: 0.59375rem;
+  width: 0.59375rem;
+  border-radius: 0.59375rem;
+  border: 0.03125rem solid red;
+  display: block;
+  position: absolute;
+  top: 0.53125rem;
+  left: -1.25rem;
+  opacity: 1;
+}
+.page_02 .content ul li .radio .item-radio:checked + .item-radioInput:after {
+  opacity: 1;
+}
+.page_02 .content ul li .radio .item-radio:checked + .item-radioInput:before {
+  opacity: 0;
+}
+.page_02 .content ul li:last-child {
+  border-bottom: none;
+}
+.page_02 .bottom {
+  height: 8.96875rem;
+  width: 23.4375rem;
+  margin: 0 auto;
+  margin-top: -4rem;
+  position: relative;
+}
+.page_02 .bottom .btn {
+  height: 2.375rem;
+  width: 9.96875rem;
+  position: absolute;
+  left: 50%;
+  margin-left: -4.984375rem;
+  bottom: 1.53125rem;
+}
+.page_02 .bottom .btn img {
+  display: block;
+  width: 100%;
+}
+.page_02 .bottom img {
+  display: block;
+  width: 100%;
+}

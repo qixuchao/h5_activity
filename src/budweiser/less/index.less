@@ -1,0 +1,156 @@
+@rem:1rem/32;
+*{
+  margin: 0;
+  padding: 0;
+}
+body, html{
+  width: 100%;height: 100%;
+}
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  overflow: auto;
+}
+
+swiper-slide1111{
+  overflow: auto;
+}
+
+.page_01{
+  width: @rem*750;
+  height: 100%;
+  margin: 0 auto;
+  background: url("../image/page01/bg.png") no-repeat center center;
+  background-size: 100% 100%;
+  overflow: hidden;
+  position: relative;
+  .txt{
+    width: 100%;
+    height: @rem*300;
+    text-align: center;
+    position: absolute;
+    top: @rem*95;
+    left: 0;
+    img{width: 100%}
+  }
+  .button{
+    width: @rem*319;
+    height: @rem*76;
+    position: absolute;
+    bottom: @rem*257;
+    left: 50%;
+    margin-left: -@rem*319/2;
+    img{
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .red_cloud{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+    height: @rem*194;
+    width: @rem*750;
+    img{width: 100%}
+  }
+  .white_cloud{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    height: @rem*130;
+    width: @rem*750;
+    img{width: 100%}
+  }
+}
+
+.page_03{
+  width: @rem*750;
+  height: 100%;
+  background: url("../image/page03/03_bg.jpg") no-repeat center center;
+  background-size: 100% 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  .light{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    height: 100%;
+    width: 100%;
+    img{
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .new_year{
+    position: absolute;
+    left: 0;
+    top: @rem*160;
+    height: @rem*213;
+    width: @rem*750;
+    z-index: 99;
+    img{
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .desc{
+    width: @rem*750;
+    height: @rem*761;
+    position: absolute;
+    top: @rem*200;
+    left: 0;
+    z-index: 98;
+    img{
+      width: 100%;
+    }
+  }
+  .txt{
+    width: @rem*750;
+    height: @rem*135;
+    position: absolute;
+    left: 0;
+    bottom: @rem*200;
+    z-index: 99;
+    img{
+      width: 100%;
+    }
+  }
+  .button{
+    opacity: 0;
+    width: @rem*400;
+    height: @rem*150;
+    position: absolute;
+    bottom: @rem*60;
+    left: @rem*175;
+    z-index: 99;
+  }
+}
+
+.dia-log{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  img{
+    width: 100%;
+  }
+  .jt{
+    width: @rem*750;
+    height: @rem*235;
+  }
+  .dia_log_txt{
+    width: @rem*750;
+    height: @rem*135;
+  }
+}
