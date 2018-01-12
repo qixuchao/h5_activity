@@ -26,10 +26,10 @@
   <div class="swiper-wrapper">
     <div class="swiper-slide">
       <div class="page_03">
-        <div class="light ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" ><img src="./image/page03/light.png" alt=""></div>
-        <div class="new_year ani" swiper-animate-effect="fadeIn" swiper-animate-duration="3s" swiper-animate-delay="1.5s" ><img src="./image/page03/new_year.png" alt=""></div>
-        <div class="desc ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" ><img src="./image/page03/desc.png" alt=""></div>
-        <div class="txt ani" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="3s" ><img src="./image/page03/txt.png" alt=""></div>
+        <div class="light ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" ><img src="./image/page03/page03_light.png" alt=""></div>
+        <div class="new_year ani" swiper-animate-effect="fadeIn" swiper-animate-duration="3s" swiper-animate-delay="1.5s" ><img src="./image/page03/page03_new_year.png" alt=""></div>
+        <div class="desc ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="0.5s" ><img src="./image/page03/page03_desc.png" alt=""></div>
+        <div class="txt ani" swiper-animate-effect="fadeIn" swiper-animate-duration="2s" swiper-animate-delay="3s" ><img src="./image/page03/page03_txt.png" alt=""></div>
         <div class="button" id="button"></div>
         <div class="dia-log" id="diaLog">
           <div class="jt ani" swiper-animate-effect="zoomInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1s" ><img src="./image/page03/jt.png" alt=""></div>
@@ -85,4 +85,14 @@
 
 </script>
 
+<script type="text/javascript" src="http://static.xiawan8.com/xiawan/SDK/jsweixin.js"></script>
+<script type="text/javascript" src="http://static.xiawan8.com/xiawan/SDK/jskit.js"></script>
+<script type="text/javascript">
+  jskit.openShare && jskit.openShare({
+    title: "百威啤酒",
+    desc: "别让话憋在心里,别让酒留在杯中,碰杯要两次,感谢更真挚,用这个哦。",
+    imgUrl: "http://static.xiawan8.com/budweiser/image/baiwei_title.png",
+    link: window.location.origin,
+  });
+</script>
 </html>

@@ -26,10 +26,10 @@
   <div class="swiper-wrapper">
     <div class="swiper-slide" id="pageOne">
       <div class="page_01">
-        <div class="txt ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="0.3s" ><img src="./image/page01/title.png" /></div>
-        <div class="button ani" onclick="goPageTwo()" swiper-animate-effect="flipInY" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s"><img src="./image/page01/btn.png" alt="" /></div>
-        <div class="red_cloud ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.8s" ><img src="./image/page01/red.png" alt="" /></div>
-        <div class="white_cloud ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1s" ><img src="./image/page01/white.png" alt="" /></div>
+        <div class="txt ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="0.3s" ><img src="./image/page01/page01_title.png" /></div>
+        <div class="button ani" onclick="goPageTwo()" swiper-animate-effect="flipInY" swiper-animate-duration="1s" swiper-animate-delay="2s"><img src="./image/page01/page01_btn.png" alt="" /></div>
+        <div class="red_cloud ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1s" ><img src="./image/page01/page01_red.png" alt="" /></div>
+        <div class="white_cloud ani" swiper-animate-effect="slideInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1.5s" ><img src="./image/page01/page01_white.png" alt="" /></div>
       </div>
     </div>
   </div>
@@ -71,4 +71,16 @@
       window.location.href = 'page02.html'
     }
 </script>
+
+<script type="text/javascript" src="http://static.xiawan8.com/xiawan/SDK/jsweixin.js"></script>
+<script type="text/javascript" src="http://static.xiawan8.com/xiawan/SDK/jskit.js"></script>
+<script type="text/javascript">
+  jskit.openShare && jskit.openShare({
+    title: "百威啤酒",
+    desc: "别让话憋在心里,别让酒留在杯中,碰杯要两次,感谢更真挚,用这个哦。",
+    imgUrl: "http://static.xiawan8.com/budweiser/image/baiwei_title.png",
+    link: window.location.origin,
+  });
+</script>
+
 </html>
