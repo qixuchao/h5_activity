@@ -40,7 +40,20 @@
 </body>
 <script type="text/javascript" src="./lib/swiper/swiper.min.js"></script>
 <script type="text/javascript" src="./lib/swiper/swiper.animate1.0.2.min.js"></script>
-
+<script type="text/javascript" src="http://static.xiawan8.com/xiawan/SDK/jsweixin.js"></script>
+<script type="text/javascript" src="./lib/jskit.js?v=2"></script>
+<script type="text/javascript">
+  var query = jskit.utils.getUrlObj();
+  if(!query.OpenID){
+    jskit.toLogin();
+  }
+  jskit.openShare && jskit.openShare({
+    title: "百威问情",
+    desc: "别让话憋在心里,别让酒留在杯中,碰杯要两次,感谢更真挚,用这个哦。",
+    imgUrl: "http://static.xiawan8.com/activity/budweiser/image/baiwei_title.jpg",
+    link: "http://static.xiawan8.com/activity/budweiser/index.html",
+  });
+</script>
 <script>
     function initAni(ele) {
       var mySwiper = new Swiper (ele, {
@@ -71,7 +84,7 @@
     initAni('.swiper-container')
 
     function goPageTwo() {
-      window.location.href = 'page02.html'
+      window.location.href = jskit.utils.addParam('page02.html',query)
     }
 
     document.addEventListener("WeixinJSBridgeReady", function () {
@@ -92,15 +105,6 @@
 
 </script>
 
-<script type="text/javascript" src="http://static.xiawan8.com/xiawan/SDK/jsweixin.js"></script>
-<script type="text/javascript" src="http://static.xiawan8.com/xiawan/SDK/jskit.js"></script>
-<script type="text/javascript">
-  jskit.openShare && jskit.openShare({
-    title: "百威问情",
-    desc: "别让话憋在心里,别让酒留在杯中,碰杯要两次,感谢更真挚,用这个哦。",
-    imgUrl: "http://static.xiawan8.com/activity/budweiser/image/baiwei_title.jpg",
-    link: "http://static.xiawan8.com/activity/budweiser/index.html",
-  });
-</script>
+
 
 </html>

@@ -359,10 +359,9 @@
                 }
             },
             toLogin: function(url) {
-                if (!url) {
-                    url = location.href;
-                }
-                location.href = apiHost+'/oauth?ret=' + encodeURIComponent(url);
+                url = url || location.href
+                var _url = 'http://budweiserwechat.cagoe.com/Oauth.aspx?OauthType=snsapi_userinfo&Url='+decodeURIComponent(url)
+                location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxe3765c474f61d44f&redirect_uri='+encodeURIComponent(_url) +'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
             },
             open: function() {},
             //显示分享遮罩引导用户下载
