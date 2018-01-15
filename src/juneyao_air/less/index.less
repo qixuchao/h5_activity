@@ -1,0 +1,302 @@
+@rem:1rem/32;
+*{
+  margin: 0;
+  padding: 0;
+}
+html, body{
+  width: 100%;
+  height: 100%;
+}
+img{
+  display: block;
+  border: none;
+}
+.swiper-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.common-logo{
+  height: @rem*70;
+  width: @rem*280;
+  display: block;
+  border: none;
+  margin-top: @rem*30;
+  margin-left: @rem*23;
+}
+.common-content-log{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+.common-page{
+  height: 100%;
+  width: @rem*750;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  .common-title{
+    width: @rem*750;
+    overflow: hidden;
+    margin-top: @rem*80;
+    p{
+      padding: 0 @rem*37;
+      font-size: @rem*50;
+      line-height: @rem*67;
+      font-weight: bold;
+      color: #AF0566;
+      letter-spacing: @rem*3;
+    }
+    img{width: 100%;}
+  }
+  .common-line{
+    height: @rem*63;
+    width: @rem*750;
+    margin: @rem*15 auto;
+    img{width: 100%;}
+  }
+  .common-desc{
+    width: @rem*750;
+    overflow: hidden;
+    p{
+      padding: 0 @rem*37;
+      font-size: @rem*32;
+      line-height: @rem*48;
+      color: #96673D;
+      letter-spacing: @rem*3;
+    }
+    img{width: 100%;}
+  }
+}
+
+
+.page_01{
+  background: url("../image/page_01/bg.png") no-repeat center center;
+  background-size: @rem*750 100%;
+  .small_plane{
+    height: @rem*48;
+    width: @rem*253;
+    position: absolute;
+    right: @rem*120;
+    top: @rem*170;
+    img{
+      width: 100%;
+    }
+  }
+  .txt{
+    height: @rem*600;
+    width: @rem*750;
+    margin: 0 auto;
+    margin-top: -@rem*30;
+    img{width: 100%;}
+  }
+  .big_plane{
+    height: @rem*600;
+    width: @rem*750;
+    margin: 0 auto;
+    margin-top: -@rem*370;
+    overflow: hidden;
+    img{
+      height: 100%;
+    }
+  }
+  .button{
+    display: block;
+    height: @rem*99;
+    width: @rem*400;
+    position: absolute;
+    left: 50%;
+    bottom: @rem*130;
+    margin-left: -@rem*200;
+    img{
+      display: block;
+      height: 100%;
+      width: 100%;
+      border: none;
+    }
+  }
+}
+
+.page_02{
+  background: url("../image/page_02/one_bg.png") no-repeat center center;
+  background-size: @rem*750 100%;
+}
+
+.page_03{
+  background: url("../image/page_03/03_bg.png") no-repeat center center;
+  background-size: @rem*750 100%;
+  .page_03_title{
+    margin-top: @rem*641;
+    text-align: right;
+  }
+  .page_03_desc{
+    text-align: right;
+  }
+}
+
+.page_04{
+  background: url("../image/page_04/04_bg.png") no-repeat center center;
+  background-size: @rem*750 100%;
+  .page_04_title{
+    margin-top: @rem*700;
+  }
+}
+
+.page_05{
+  background: url("../image/page_05/05_bg.png") no-repeat center center;
+  background-size: @rem*750 100%;
+  .page_05_title{
+    margin-top: @rem*120;
+  }
+}
+
+.page_06{
+  background: url("../image/page_06/06_bg.png") no-repeat center center;
+  background-size: @rem*750 100%;
+  .page_06_title{
+    margin-top: @rem*150;
+  }
+}
+
+.page_07{
+  background: url("../image/page_07/07_bg.png") no-repeat center center;
+  background-size: @rem*750 100%;
+  .page_07_title{
+    margin-top: @rem*150;
+    text-align: right;
+  }
+  .page_07_desc{
+    text-align: right;
+  }
+}
+
+.page_08{
+  background: url("../image/page_08/08_bg.png") no-repeat center center;
+  background-size: @rem*750 100%;
+  .page_08_title{
+    margin-top: @rem*150;
+  }
+}
+
+.page_09{
+  background: url("../image/page_09/09_bg.png") no-repeat center center;
+  background-size: @rem*750 100%;
+  .page_09_title{
+    text-align: right;
+  }
+  .page_09_desc{
+    text-align: right;
+  }
+}
+
+.page_10{
+  background: url("../image/page_10/10_bg.png") no-repeat center center;
+  background-size: @rem*750 100%;
+}
+
+.page_11{
+  background: url("../image/page_11/11_bg.png") no-repeat center center;
+  background-size: @rem*750 100%;
+  .page_11_title{
+    text-align: right;
+    margin-top: @rem*600;
+  }
+  .page_11_desc{
+    text-align: right;
+  }
+}
+
+.page_12{
+  background: url("../image/page_12/12_bg.png") no-repeat center center;
+  background-size: @rem*750 100%;
+  .page_12_title{
+    text-align: right;
+  }
+  .page_12_desc{
+    text-align: right;
+  }
+}
+
+.page_13{
+  overflow: hidden;
+  width: @rem*750;
+  background: url("../image/page_13/bottom_bg.png") repeat-y center center;
+  background-size: 100% 100%;
+  .top{
+    width: @rem*750;
+    height: @rem*341;
+    background: url("../image/page_13/top.png") no-repeat center center;
+    background-size: 100% 100%;
+    overflow: hidden;
+    .page_13_title{
+      width: @rem*750;
+      height: @rem*186;
+      margin-top: @rem*20;
+      img{width: 100%}
+    }
+  }
+  .content{
+    width: @rem*750;
+    height: @rem*365;
+    background: url("../image/page_13/content.png") no-repeat center center;
+    background-size: 100% 100%;
+    overflow: hidden;
+    position: relative;
+    .play-button{
+      width: @rem*84;
+      height: @rem*84;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      z-index: 99;
+      user-select: none;
+    }
+    .video{
+      height: @rem*365;
+      width: @rem*673;
+      margin-left: @rem*40;
+    }
+  }
+  .bottom{
+    width: @rem*750;
+    height: @rem*500;
+    background: url("../image/page_13/bottom.png") no-repeat center center;
+    background-size: 100% 100%;
+    overflow: hidden;
+  }
+}
+
+.page_14{
+  background: url("../image/page_14/14_bg.png") no-repeat center center;
+  background-size: @rem*750 100%;
+  position: relative;
+  .page_14_title{
+    width: @rem*750;
+    height: @rem*202;
+    margin-top: @rem*200;
+    img{width: 100%}
+  }
+  .button{
+    width: @rem*340;
+    height: @rem*98;
+    position: absolute;
+    left: 50%;
+    top: @rem*580;
+    margin-left: -@rem*340/2;
+    img{width:100%}
+  }
+  .small_plane{
+    height: @rem*48;
+    width: @rem*253;
+    position: absolute;
+    top: @rem*240;
+    right: @rem*80;
+    img{width: 100%}
+  }
+}

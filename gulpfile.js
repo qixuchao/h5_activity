@@ -6,7 +6,7 @@ var $ = gulpLoadPlugins();
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
-var currentPath = 'budweiser/'
+var currentPath = 'juneyao_air/'
 
 /**
  * argv
