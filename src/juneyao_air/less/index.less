@@ -15,6 +15,7 @@ img{
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: #eacea9;
 }
 .common-logo{
   height: @rem*70;
@@ -76,7 +77,7 @@ img{
 
 
 .page_01{
-  background: url("../image/page_01/bg.png") no-repeat center center;
+  background: url("../image/page_01/01_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
   .small_plane{
     height: @rem*48;
@@ -96,11 +97,15 @@ img{
     img{width: 100%;}
   }
   .big_plane{
-    height: @rem*600;
-    width: @rem*750;
-    margin: 0 auto;
-    margin-top: -@rem*370;
+    position: absolute;
+    height: @rem*1;
+    width: @rem*1;
+    top: @rem*900;
+    left: @rem*700;
     overflow: hidden;
+    opacity: 0;
+    animation: bigPlaneAnimation 2s 1 2s;
+    animation-fill-mode: forwards;
     img{
       height: 100%;
     }
@@ -123,12 +128,12 @@ img{
 }
 
 .page_02{
-  background: url("../image/page_02/one_bg.png") no-repeat center center;
+  background: url("../image/page_02/02_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
 }
 
 .page_03{
-  background: url("../image/page_03/03_bg.png") no-repeat center center;
+  background: url("../image/page_03/03_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
   .page_03_title{
     margin-top: @rem*641;
@@ -140,7 +145,7 @@ img{
 }
 
 .page_04{
-  background: url("../image/page_04/04_bg.png") no-repeat center center;
+  background: url("../image/page_04/04_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
   .page_04_title{
     margin-top: @rem*700;
@@ -148,7 +153,7 @@ img{
 }
 
 .page_05{
-  background: url("../image/page_05/05_bg.png") no-repeat center center;
+  background: url("../image/page_05/05_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
   .page_05_title{
     margin-top: @rem*120;
@@ -156,7 +161,7 @@ img{
 }
 
 .page_06{
-  background: url("../image/page_06/06_bg.png") no-repeat center center;
+  background: url("../image/page_06/06_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
   .page_06_title{
     margin-top: @rem*150;
@@ -164,7 +169,7 @@ img{
 }
 
 .page_07{
-  background: url("../image/page_07/07_bg.png") no-repeat center center;
+  background: url("../image/page_07/07_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
   .page_07_title{
     margin-top: @rem*150;
@@ -176,7 +181,7 @@ img{
 }
 
 .page_08{
-  background: url("../image/page_08/08_bg.png") no-repeat center center;
+  background: url("../image/page_08/08_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
   .page_08_title{
     margin-top: @rem*150;
@@ -184,7 +189,7 @@ img{
 }
 
 .page_09{
-  background: url("../image/page_09/09_bg.png") no-repeat center center;
+  background: url("../image/page_09/09_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
   .page_09_title{
     text-align: right;
@@ -195,12 +200,12 @@ img{
 }
 
 .page_10{
-  background: url("../image/page_10/10_bg.png") no-repeat center center;
+  background: url("../image/page_10/10_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
 }
 
 .page_11{
-  background: url("../image/page_11/11_bg.png") no-repeat center center;
+  background: url("../image/page_11/11_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
   .page_11_title{
     text-align: right;
@@ -212,7 +217,7 @@ img{
 }
 
 .page_12{
-  background: url("../image/page_12/12_bg.png") no-repeat center center;
+  background: url("../image/page_12/12_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
   .page_12_title{
     text-align: right;
@@ -273,7 +278,7 @@ img{
 }
 
 .page_14{
-  background: url("../image/page_14/14_bg.png") no-repeat center center;
+  background: url("../image/page_14/14_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
   position: relative;
   .page_14_title{
@@ -298,5 +303,22 @@ img{
     top: @rem*240;
     right: @rem*80;
     img{width: 100%}
+  }
+}
+
+@keyframes bigPlaneAnimation {
+  0% {
+    height: 0;
+    width: 0;
+    top: @rem*900;
+    left: @rem*700;
+  }
+  100% {
+    height: @rem*600;
+    width: @rem*750;
+    top: @rem*300;
+    left: 0;
+    display: block;
+    opacity: 1;
   }
 }
