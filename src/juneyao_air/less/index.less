@@ -164,7 +164,7 @@ img{
   background: url("../image/page_06/06_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
   .page_06_title{
-    margin-top: @rem*150;
+    margin-top: @rem*100;
   }
 }
 
@@ -172,7 +172,7 @@ img{
   background: url("../image/page_07/07_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
   .page_07_title{
-    margin-top: @rem*150;
+    margin-top: @rem*100;
     text-align: right;
   }
   .page_07_desc{
@@ -184,7 +184,7 @@ img{
   background: url("../image/page_08/08_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
   .page_08_title{
-    margin-top: @rem*150;
+    margin-top: @rem*100;
   }
 }
 
@@ -235,7 +235,7 @@ img{
   .top{
     width: @rem*750;
     height: @rem*341;
-    background: url("../image/page_13/top.png") no-repeat center center;
+    background: url("../image/page_13/top.gif") no-repeat center center;
     background-size: 100% 100%;
     overflow: hidden;
     .page_13_title{
@@ -247,11 +247,26 @@ img{
   }
   .content{
     width: @rem*750;
-    height: @rem*365;
-    background: url("../image/page_13/content.png") no-repeat center center;
+    height: @rem*415;  // 365
+    background: url("../image/page_13/content.gif") no-repeat center center;
     background-size: 100% 100%;
     overflow: hidden;
     position: relative;
+    .video-content{
+      height: @rem*360;
+      width: @rem*638;
+      position: absolute;
+      top: @rem*28;
+      left: @rem*56;
+      overflow: hidden;
+      z-index: 99;
+      background: #fff;
+      .video{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
     .play-button{
       width: @rem*84;
       height: @rem*84;
@@ -262,16 +277,11 @@ img{
       z-index: 99;
       user-select: none;
     }
-    .video{
-      height: @rem*365;
-      width: @rem*673;
-      margin-left: @rem*40;
-    }
   }
   .bottom{
     width: @rem*750;
     height: @rem*500;
-    background: url("../image/page_13/bottom.png") no-repeat center center;
+    background: url("../image/page_13/bottom.jpg") no-repeat center center;
     background-size: 100% 100%;
     overflow: hidden;
   }
@@ -303,6 +313,25 @@ img{
     top: @rem*240;
     right: @rem*80;
     img{width: 100%}
+  }
+}
+
+.dia-log{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  img{
+    width: 100%;
+  }
+  .jt{
+    width: @rem*750;
+    height: @rem*235;
+    margin-top: @rem*20;
   }
 }
 

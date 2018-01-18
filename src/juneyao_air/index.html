@@ -208,10 +208,12 @@
             <div class="page_13_title"><img src="./image/page_13/13_title.png" alt="" /></div>
           </div>
           <div class="content">
-            <img id="playButton" class="play-button" src="./image/page_13/video_btn.png" alt="play">
-            <video class="video" id="video" src="http://static.xiawan8.com/activity/juneyao_air/juneyao_air.mp4" x5-playsinline="" preload="load" playsinline="" webkit-playsinline="" preload="auto">
+            <div class="video-content">
+              <video class="video" id="video" src="./video/juneyao_air.mp4" poster="image/poster.jpg" x5-playsinline="" preload="load" playsinline="" webkit-playsinline="" preload="auto">
               您的浏览器不支持 video 标签。
-            </video>
+              </video>
+              <img id="playButton" class="play-button" src="./image/page_13/video_btn.png" alt="play">
+            </div>
           </div>
           <div class="bottom"></div>
         </div>
@@ -222,7 +224,10 @@
           <img class="common-logo" src="image/common/logo.png" />
           <div class="small_plane ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.8s" swiper-animate-delay="0.5s"><img src="./image/page_14/small_plane.png" alt=""></div>
           <div class="common-title page_14_title ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.8s" swiper-animate-delay="1s"><img src="./image/page_14/title.png" alt=""></div>
-          <div class="button ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.8s" swiper-animate-delay="1.5s"><img src="./image/page_14/btn.png" alt=""></div>
+          <div id="page14Btn" class="button ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.8s" swiper-animate-delay="1.5s"><img src="./image/page_14/btn.png" alt=""></div>
+        </div>
+        <div class="dia-log" id="diaLog">
+          <div class="jt ani" swiper-animate-effect="zoomInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s" ><img src="./image/page_14/jt.png" alt=""></div>
         </div>
       </div>
 
@@ -265,6 +270,8 @@
 <script>
   var btn = document.getElementById('playButton')
   var myVideo = document.getElementById('video')
+  var page14Btn = document.getElementById('page14Btn')
+  var diaLog = document.getElementById('diaLog')
 
   // 点击播放
   btn.addEventListener("click", function() {
@@ -295,12 +302,23 @@
       myVideo.pause()
     }
   });
+
+  // 点击分享
+  page14Btn.addEventListener('click', function() {
+    console.log(111111)
+    diaLog.style.display = 'block'
+  })
+
+  diaLog.addEventListener('click', function() {
+    diaLog.style.display = 'none'
+  })
+
 </script>
 <script type="text/javascript">
   jskit.openShare && jskit.openShare({
     title: "年度账单来袭，快来领取！",
     desc: "这就带你上天，快来查看你的年度账单",
-    imgUrl: './image/we_chat_title.png',
+    imgUrl: './image/we_chat_title.jpg',
     link: location.href
   });
 </script>

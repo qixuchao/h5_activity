@@ -168,14 +168,14 @@ img {
   background-size: 23.4375rem 100%;
 }
 .page_06 .page_06_title {
-  margin-top: 4.6875rem;
+  margin-top: 3.125rem;
 }
 .page_07 {
   background: url("../image/page_07/07_bg.jpg") no-repeat center center;
   background-size: 23.4375rem 100%;
 }
 .page_07 .page_07_title {
-  margin-top: 4.6875rem;
+  margin-top: 3.125rem;
   text-align: right;
 }
 .page_07 .page_07_desc {
@@ -186,7 +186,7 @@ img {
   background-size: 23.4375rem 100%;
 }
 .page_08 .page_08_title {
-  margin-top: 4.6875rem;
+  margin-top: 3.125rem;
 }
 .page_09 {
   background: url("../image/page_09/09_bg.jpg") no-repeat center center;
@@ -232,7 +232,7 @@ img {
 .page_13 .top {
   width: 23.4375rem;
   height: 10.65625rem;
-  background: url("../image/page_13/top.png") no-repeat center center;
+  background: url("../image/page_13/top.gif") no-repeat center center;
   background-size: 100% 100%;
   overflow: hidden;
 }
@@ -246,11 +246,27 @@ img {
 }
 .page_13 .content {
   width: 23.4375rem;
-  height: 11.40625rem;
-  background: url("../image/page_13/content.png") no-repeat center center;
+  height: 12.96875rem;
+  background: url("../image/page_13/content.gif") no-repeat center center;
   background-size: 100% 100%;
   overflow: hidden;
   position: relative;
+}
+.page_13 .content .video-content {
+  height: 11.25rem;
+  width: 19.9375rem;
+  position: absolute;
+  top: 0.875rem;
+  left: 1.75rem;
+  overflow: hidden;
+  z-index: 99;
+  background: #fff;
+}
+.page_13 .content .video-content .video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .page_13 .content .play-button {
   width: 2.625rem;
@@ -266,15 +282,10 @@ img {
       -ms-user-select: none;
           user-select: none;
 }
-.page_13 .content .video {
-  height: 11.40625rem;
-  width: 21.03125rem;
-  margin-left: 1.25rem;
-}
 .page_13 .bottom {
   width: 23.4375rem;
   height: 15.625rem;
-  background: url("../image/page_13/bottom.png") no-repeat center center;
+  background: url("../image/page_13/bottom.jpg") no-repeat center center;
   background-size: 100% 100%;
   overflow: hidden;
 }
@@ -311,6 +322,24 @@ img {
 }
 .page_14 .small_plane img {
   width: 100%;
+}
+.dia-log {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+}
+.dia-log img {
+  width: 100%;
+}
+.dia-log .jt {
+  width: 23.4375rem;
+  height: 7.34375rem;
+  margin-top: 0.625rem;
 }
 @-webkit-keyframes bigPlaneAnimation {
   0% {
