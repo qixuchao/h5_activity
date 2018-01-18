@@ -60,6 +60,14 @@ img{
     width: @rem*750;
     margin: @rem*15 auto;
     img{width: 100%;}
+    position: relative;
+    .common-btn{
+      height: @rem*63;
+      width: @rem*75;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
   }
   .common-desc{
     width: @rem*750;
@@ -74,11 +82,32 @@ img{
     img{width: 100%;}
   }
 }
-
+.common-bling{
+  position: absolute;
+  width: @rem*375;
+  height: @rem*57;
+  z-index: 99;
+  img{
+    width: 100%;
+  }
+}
 
 .page_01{
   background: url("../image/page_01/01_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
+  position: relative;
+  .page_01_bling1{
+    top: 9.5rem;
+    left: 0;
+  }
+  .page_01_bling2{
+    top: 4.3rem;
+    left: 7rem;
+  }
+  .page_01_bling3{
+    top: 13rem;
+    right: -5rem;
+  }
   .small_plane{
     height: @rem*48;
     width: @rem*253;
@@ -93,19 +122,19 @@ img{
     height: @rem*600;
     width: @rem*750;
     margin: 0 auto;
-    margin-top: -@rem*30;
+    margin-top: -@rem*58;
     img{width: 100%;}
   }
   .big_plane{
     position: absolute;
-    height: @rem*1;
-    width: @rem*1;
-    top: @rem*900;
-    left: @rem*700;
-    overflow: hidden;
-    opacity: 0;
-    animation: bigPlaneAnimation 2s 1 2s;
-    animation-fill-mode: forwards;
+    height: @rem*600;
+    width: @rem*750;
+    top: @rem*300;
+    left: 0;
+    display: block;
+    opacity: 1;
+    //animation: bigPlaneAnimation 2s 1 2s;
+    //animation-fill-mode: forwards;
     img{
       height: 100%;
     }
@@ -130,17 +159,37 @@ img{
 .page_02{
   background: url("../image/page_02/02_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
+  .page_02_bling1{
+    top: 7rem;
+    left: 16.6rem;
+  }
 }
 
 .page_03{
   background: url("../image/page_03/03_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
+  .page_03_bling1{
+    top: 24.5rem;
+    left: 18rem;
+  }
   .page_03_title{
     margin-top: @rem*641;
     text-align: right;
   }
   .page_03_desc{
     text-align: right;
+  }
+  .page_03_line{
+    height: @rem*63;
+    width: @rem*530;
+    text-align: left;
+    margin-left: @rem*200;
+    overflow: hidden;
+    img{
+      margin-left: -@rem*200;
+      width: @rem*750;
+      height: @rem*63;
+    }
   }
 }
 
@@ -150,6 +199,10 @@ img{
   .page_04_title{
     margin-top: @rem*700;
   }
+  .page_04_bling1{
+    top: 26.5rem;
+    left: 13rem;
+  }
 }
 
 .page_05{
@@ -157,6 +210,11 @@ img{
   background-size: @rem*750 100%;
   .page_05_title{
     margin-top: @rem*120;
+    text-align: right;
+  }
+  .page_05_bling1{
+    top: 8.4rem;
+    left: 17.5rem;
   }
 }
 
@@ -165,6 +223,10 @@ img{
   background-size: @rem*750 100%;
   .page_06_title{
     margin-top: @rem*100;
+  }
+  .page_06_bling1{
+    top: 7.7rem;
+    left: 13.8rem;
   }
 }
 
@@ -178,6 +240,10 @@ img{
   .page_07_desc{
     text-align: right;
   }
+  .page_07_bling1{
+    top: 7.7rem;
+    left: 17.8rem;
+  }
 }
 
 .page_08{
@@ -185,6 +251,13 @@ img{
   background-size: @rem*750 100%;
   .page_08_title{
     margin-top: @rem*100;
+    p{
+      font-size: @rem*45;
+    }
+  }
+  .page_08_bling1{
+    top: 7.7rem;
+    left: 16.2rem;
   }
 }
 
@@ -197,11 +270,19 @@ img{
   .page_09_desc{
     text-align: right;
   }
+  .page_09_bling1{
+    top: 7.2rem;
+    left: 17.5rem;
+  }
 }
 
 .page_10{
   background: url("../image/page_10/10_bg.jpg") no-repeat center center;
   background-size: @rem*750 100%;
+  .page_10_bling1{
+    top: 7.2rem;
+    left: 8.5rem;
+  }
 }
 
 .page_11{
@@ -214,6 +295,10 @@ img{
   .page_11_desc{
     text-align: right;
   }
+  .page_11_bling1{
+    top: 23.5rem;
+    left: 18rem;
+  }
 }
 
 .page_12{
@@ -224,6 +309,10 @@ img{
   }
   .page_12_desc{
     text-align: right;
+  }
+  .page_12_bling1{
+    top: 7rem;
+    left: 17.5rem;
   }
 }
 
@@ -241,23 +330,23 @@ img{
     .page_13_title{
       width: @rem*750;
       height: @rem*186;
-      margin-top: @rem*20;
+      margin-top: @rem*36;
       img{width: 100%}
     }
   }
   .content{
     width: @rem*750;
-    height: @rem*415;  // 365
+    height: @rem*405;  // 365
     background: url("../image/page_13/content.gif") no-repeat center center;
     background-size: 100% 100%;
     overflow: hidden;
     position: relative;
     .video-content{
-      height: @rem*360;
-      width: @rem*638;
+      height: @rem*371;
+      width: @rem*660;
       position: absolute;
-      top: @rem*28;
-      left: @rem*56;
+      top: @rem*18;
+      left: @rem*46;
       overflow: hidden;
       z-index: 99;
       background: #fff;
@@ -314,6 +403,14 @@ img{
     right: @rem*80;
     img{width: 100%}
   }
+  .page_14_bling1{
+    top: 9rem;
+    left: 0rem;
+  }
+  .page_14_bling2{
+    top: 14.8rem;
+    left: 14.8rem;
+  }
 }
 
 .dia-log{
@@ -323,14 +420,14 @@ img{
   top: 0;
   left: 0;
   z-index: 9999;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
   display: none;
   img{
     width: 100%;
   }
   .jt{
     width: @rem*750;
-    height: @rem*235;
+    height: @rem*104;
     margin-top: @rem*20;
   }
 }
