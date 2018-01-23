@@ -168,6 +168,38 @@ img {
   top: 7rem;
   left: 16.6rem;
 }
+.page_02 .page_02_dc {
+  width: 23.4375rem;
+  height: 13.5rem;
+  position: absolute;
+  top: 18.125rem;
+  left: 0;
+  z-index: 999;
+}
+.page_02 .page_02_dc img {
+  width: 100%;
+}
+.page_02 .page_02_plane {
+  height: 7rem;
+  width: 23.4375rem;
+  position: absolute;
+  top: 23.75rem;
+  left: 0;
+  z-index: 998;
+}
+.page_02 .page_02_plane img {
+  width: 100%;
+}
+.page_02 .page_02_txt {
+  height: 3.34375rem;
+  width: 23.4375rem;
+  position: absolute;
+  top: 32.1875rem;
+  left: 0;
+}
+.page_02 .page_02_txt img {
+  width: 100%;
+}
 .page_03 {
   background: url("../image/page_03/03_bg.jpg") no-repeat center center;
   background-size: 23.4375rem 100%;
@@ -195,6 +227,17 @@ img {
   width: 23.4375rem;
   height: 1.96875rem;
 }
+.page_03 .page_03_plane {
+  height: 32.84375rem;
+  width: 23.4375rem;
+  position: absolute;
+  top: 5.625rem;
+  left: 0;
+  pointer-events: none;
+}
+.page_03 .page_03_plane img {
+  width: 100%;
+}
 .page_04 {
   background: url("../image/page_04/04_bg.jpg") no-repeat center center;
   background-size: 23.4375rem 100%;
@@ -218,6 +261,30 @@ img {
   top: 8.4rem;
   left: 17.5rem;
 }
+.page_05 .page_05_pd {
+  width: 23.4375rem;
+  height: 41.6875rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+  pointer-events: none;
+}
+.page_05 .page_05_pd img {
+  width: 100%;
+}
+.page_05 .page_05_plane {
+  width: 23.4375rem;
+  height: 21.34375rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+  pointer-events: none;
+}
+.page_05 .page_05_plane img {
+  width: 100%;
+}
 .page_06 {
   background: url("../image/page_06/06_bg.jpg") no-repeat center center;
   background-size: 23.4375rem 100%;
@@ -228,6 +295,76 @@ img {
 .page_06 .page_06_bling1 {
   top: 7.7rem;
   left: 13.8rem;
+}
+.page_06 .page_06_plane_02 {
+  width: 23.4375rem;
+  height: 9.28125rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.page_06 .page_06_plane_02 img {
+  width: 100%;
+}
+.page_06 .page_06_plane {
+  width: 23.4375rem;
+  height: 5.4375rem;
+  position: absolute;
+  left: 0;
+  top: 18.75rem;
+}
+.page_06 .page_06_plane img {
+  width: 100%;
+}
+.page_06 .page_06_cam {
+  width: 0.84375rem;
+  height: 1.5625rem;
+  position: absolute;
+  top: 19.48rem;
+  left: 8rem;
+}
+.page_06 .page_06_cam img {
+  width: 100%;
+}
+.page_06 .page_06_lt {
+  width: 3.03125rem;
+  height: 4.59375rem;
+  position: absolute;
+  top: 19.48rem;
+  left: 8rem;
+}
+.page_06 .page_06_lt img {
+  width: 100%;
+}
+.page_06 .page_06_p1 {
+  width: 6.25rem;
+  height: 6.4375rem;
+  position: absolute;
+  top: 20.48rem;
+  left: 8rem;
+}
+.page_06 .page_06_p1 img {
+  width: 100%;
+}
+.page_06 .page_06_p2 {
+  width: 10.15625rem;
+  height: 10.6875rem;
+  position: absolute;
+  top: 22.48rem;
+  left: 12rem;
+}
+.page_06 .page_06_p2 img {
+  width: 100%;
+}
+.page_06 .page_06_p3 {
+  width: 11.125rem;
+  height: 11.125rem;
+  position: absolute;
+  top: 25.48rem;
+  right: 0;
+}
+.page_06 .page_06_p3 img {
+  width: 100%;
 }
 .page_07 {
   background: url("../image/page_07/07_bg.jpg") no-repeat center center;
@@ -243,6 +380,30 @@ img {
 .page_07 .page_07_bling1 {
   top: 7.7rem;
   left: 17.8rem;
+}
+.page_07 .page_07_plane {
+  height: 17.03125rem;
+  width: 23.4375rem;
+  position: absolute;
+  pointer-events: none;
+  top: 18.125rem;
+  left: 0;
+  z-index: 99;
+}
+.page_07 .page_07_plane img {
+  width: 100%;
+}
+.page_07 .page_07_clock {
+  height: 17.03125rem;
+  width: 23.4375rem;
+  position: absolute;
+  pointer-events: none;
+  top: 18.125rem;
+  left: 0;
+  z-index: 999;
+}
+.page_07 .page_07_clock img {
+  width: 100%;
 }
 .page_08 {
   background: url("../image/page_08/08_bg.jpg") no-repeat center center;
@@ -271,6 +432,30 @@ img {
 .page_09 .page_09_bling1 {
   top: 7.2rem;
   left: 17.5rem;
+}
+.page_09 .page_09_plane {
+  height: 17.03125rem;
+  width: 23.4375rem;
+  position: absolute;
+  pointer-events: none;
+  top: 18.125rem;
+  left: 0;
+  z-index: 999;
+}
+.page_09 .page_09_plane img {
+  width: 100%;
+}
+.page_09 .page_09_card {
+  height: 17.5rem;
+  width: 23.4375rem;
+  position: absolute;
+  pointer-events: none;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+}
+.page_09 .page_09_card img {
+  width: 100%;
 }
 .page_10 {
   background: url("../image/page_10/10_bg.jpg") no-repeat center center;
@@ -374,6 +559,23 @@ img {
   background: url("../image/page_13/bottom.jpg") no-repeat center center;
   background-size: 100% 100%;
   overflow: hidden;
+}
+.page_13 .page_13_line {
+  height: 1.96875rem;
+  width: 23.4375rem;
+  position: absolute;
+  top: 24.3rem;
+  left: 0;
+}
+.page_13 .page_13_line img {
+  width: 100%;
+}
+.page_13 .page_13_line .page_13_line_btn {
+  height: 1.96875rem;
+  width: 2.34375rem;
+  position: absolute;
+  right: 1rem;
+  top: 0;
 }
 .page_14 {
   background: url("../image/page_14/14_bg.jpg") no-repeat center center;
