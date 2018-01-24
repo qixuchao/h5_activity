@@ -26,6 +26,11 @@
 <body>
   <div class="common-content-log"></div>
 
+  <div class="audio-btn music-animation" id="audioBtn"><img src="./image/music.png" /></div>
+  <audio class="music-audio" id="audioBg" autoplay="autoplay" loop="loop" preload="auto" src="./video/bg.mp3">
+    您的浏览器不支持 audio 标签。
+  </audio>
+
   <div class="swiper-container">
     <div class="swiper-wrapper">
 
@@ -140,7 +145,7 @@
           <img class="common-logo" src="image/common/logo.png" />
           <div class="common-title page_06_title ani" swiper-animate-effect="rotateInDownLeft" swiper-animate-duration="1s" swiper-animate-delay="3.3s">
             <p>2017年吉祥航空</p>
-            <p>共运输超过1400万人次</p>
+            <p>共运输近1400万人次</p>
           </div>
           <div class="common-line ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="4s">
             <img src="image/common/line_right.png" />
@@ -269,7 +274,7 @@
           <img class="common-logo" src="image/common/logo.png" />
           <div class="common-title page_11_title ani" swiper-animate-effect="lightSpeedIn" swiper-animate-duration="1s" swiper-animate-delay="0.3s">
             <p>2017年吉祥航空</p>
-            <p>运输总周转量预计21亿吨公里</p>
+            <p>运输总周转量近21亿吨公里</p>
           </div>
           <div class="common-line ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="1s">
             <img src="image/common/line_right.png" />
@@ -378,11 +383,14 @@
   var myVideo = document.getElementById('video')
   var page14Btn = document.getElementById('page14Btn')
   var diaLog = document.getElementById('diaLog')
+  var videoPlay = false;
 
   // 点击播放
   btn.addEventListener("click", function() {
     btn.style.display = 'none'
     myVideo.play()
+    document.getElementById('audioBg').pause();
+    $('#audioBg').removeClass('music-animation')
   })
 
   // 视频添加监听，播放完毕 显示按钮
@@ -398,6 +406,15 @@
   // 视频播放事件
   myVideo.addEventListener("play", function() {
     btn.style.display = 'none'
+    document.getElementById('audioBg').pause();
+    $('#audioBg').removeClass('music-animation')
+  });
+
+  // 视频结束事件
+  myVideo.addEventListener("ended", function() {
+    btn.style.display = 'block'
+    document.getElementById('audioBg').play();
+    $('#audioBg').addClass('music-animation')
   });
 
   // 点击视频  如果暂停状态就播放 如果播放状态就暂停
@@ -417,6 +434,24 @@
   diaLog.addEventListener('click', function() {
     diaLog.style.display = 'none'
   })
+
+
+  document.addEventListener("WeixinJSBridgeReady", function () {
+    document.getElementById('audioBg').play();
+  }, false);
+  var isPlay = true;
+  $('#audioBtn').on('click', function() {
+    if (isPlay) {
+      isPlay = false
+      document.getElementById('audioBg').pause();
+      $(this).removeClass('music-animation')
+    } else {
+      isPlay = true
+      document.getElementById('audioBg').play();
+      $(this).addClass('music-animation')
+    }
+  })
+
 
 </script>
 <script type="text/javascript">
