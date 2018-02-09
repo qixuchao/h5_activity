@@ -122,6 +122,7 @@ html, body{
     border-radius: @rem*8;
     box-shadow: 0 0 @rem*20 @rem*1 #222;
     overflow: hidden;
+    display: none;
     .card-content{
       background: #9A2E8A;
       width: @rem*567;
@@ -219,6 +220,13 @@ html, body{
   background: rgba(0,0,0,0.5);
   text-align: center;
   padding-top: 50%;
+  .loader-p{
+    text-align: center;
+    color: #fff;
+    line-height: @rem*50;
+    font-size: @rem*36;
+    display: none;
+  }
   display: none;
   .ball-pulse > div:nth-child(0) {
     -webkit-animation: scale 0.75s 0s infinite cubic-bezier(.2, .68, .18, 1.08);

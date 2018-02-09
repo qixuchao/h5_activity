@@ -133,6 +133,7 @@ body {
   -webkit-box-shadow: 0 0 0.625rem 0.03125rem #222;
           box-shadow: 0 0 0.625rem 0.03125rem #222;
   overflow: hidden;
+  display: none;
 }
 .page2 .page2-card .card-content {
   background: #9A2E8A;
@@ -240,6 +241,13 @@ body {
   background: rgba(0, 0, 0, 0.5);
   text-align: center;
   padding-top: 50%;
+  display: none;
+}
+.loader-content .loader-p {
+  text-align: center;
+  color: #fff;
+  line-height: 1.5625rem;
+  font-size: 1.125rem;
   display: none;
 }
 .loader-content .ball-pulse > div:nth-child(0) {

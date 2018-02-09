@@ -6,7 +6,7 @@ var $ = gulpLoadPlugins();
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
-var currentPath = 'juneyao_new_year/'
+var currentPath = 'new_year_start'  //'juneyao_new_year/' //
 
 /**
  * argv
