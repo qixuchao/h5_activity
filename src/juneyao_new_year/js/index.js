@@ -3,13 +3,15 @@ $(function() {
   if(!query.headimgurl){
     jskit.toLogin();
   }
-  var HeadImgUrl = query.headimgurl;
-  var NickName = query.real_name;
+  var headImgUrl = query.headimgurl;
+  var nickName = query.real_name;
   var writeTxt = true;
 
-  $('.J-Header').find('img').attr('src', HeadImgUrl)
-  $('.J-user-name').html(NickName)
-  $('#page03Img').attr('src', HeadImgUrl)
+  headImgUrl = 'http://nana.xiawan8.com/transform/image?url=' + headImgUrl
+
+  $('.J-Header').find('img').attr('src', headImgUrl)
+  $('.J-user-name').html(nickName)
+  $('#page03Img').attr('src', headImgUrl)
 
   var mySwiper = new Swiper ('.swiper-container', {
     on: {
@@ -128,20 +130,19 @@ $(function() {
     $('.J-c').css({height: h + 'px'})
   }, 2300)
 
-  // var canvas = document.getElementById('page03Canvas'); // 获取canvas
-  // var ctx = canvas.getContext("2d"); // 对应的CanvasRenderingContext2D对象(画笔)
-  // var img = new Image();  // 创建新的图片对象
-  // var base64 = '' ; // base64
-  // canvas.setAttribute('height', '130');
-  // canvas.setAttribute('width', '130');
-  // img.setAttribute("crossOrigin",'Anonymous') // HeadImgUrl
-  // img.src = HeadImgUrl // 'http://wx.qlogo.cn/mmopen/vi_32/NfSUuFVlu2eAtj032vsxlEHoCOAr1picyCFBic1FcukUmDrvVmFCopYBmCsC2pcXseYEXazYSOtHJRW2mJfhmjpw/132';
-  // img.onload = function() {//图片加载完，再draw 和 toDataURL
-  //   ctx.drawImage(img,0,0);
-  //   base64 = canvas.toDataURL("image/png");
-  //   $('#page03Img').attr('src', base64)
-  // };
-
+  var canvas = document.getElementById('page03Canvas'); // 获取canvas
+  var ctx = canvas.getContext("2d"); // 对应的CanvasRenderingContext2D对象(画笔)
+  var img = new Image();  // 创建新的图片对象
+  var base64 = '' ; // base64
+  canvas.setAttribute('height', '130');
+  canvas.setAttribute('width', '130');
+  img.setAttribute("crossOrigin",'Anonymous') // headImgUrl
+  img.src = headImgUrl // 'http://wx.qlogo.cn/mmopen/vi_32/NfSUuFVlu2eAtj032vsxlEHoCOAr1picyCFBic1FcukUmDrvVmFCopYBmCsC2pcXseYEXazYSOtHJRW2mJfhmjpw/132';
+  img.onload = function() {//图片加载完，再draw 和 toDataURL
+    ctx.drawImage(img,0,0);
+    base64 = canvas.toDataURL("image/png");
+    $('#page03Img').attr('src', base64)
+  };
 
 
 
