@@ -1,0 +1,789 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: url("http://static.xiawan8.com/activity/juneyao_new_year/image/body_bg.jpg");
+  background-size: 100%;
+}
+img {
+  display: block;
+  border: none;
+}
+.swiper-container {
+  width: 23.4375rem;
+  height: 100%;
+  overflow: hidden;
+  background: url("http://static.xiawan8.com/activity/juneyao_new_year/image/body_bg.jpg");
+  background-size: 100%;
+  margin: 0 auto;
+}
+.common-page {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+.hide {
+  display: none;
+}
+.page-01 {
+  background: url("http://static.xiawan8.com/activity/juneyao_new_year/image/01_bg.jpg") no-repeat center center;
+  background-size: 100% 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.page-01 .logo {
+  width: 8.15625rem;
+  height: 2.03125rem;
+  position: absolute;
+  top: 0.59375rem;
+  left: 50%;
+  margin-left: -4.0625rem;
+  z-index: 9999;
+}
+.page-01 .logo img {
+  width: 100%;
+}
+.page-01 .chinese-knot {
+  width: 23.4375rem;
+  height: 9.09375rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+.page-01 .chinese-knot img {
+  width: 100%;
+}
+.page-01 .head-content {
+  height: 5.5625rem;
+  width: 5.5625rem;
+  border-radius: 5.5625rem;
+  position: absolute;
+  top: 12.5rem;
+  left: 50%;
+  margin-left: -2.78125rem;
+  z-index: 2;
+}
+.page-01 .head-content img {
+  display: block;
+  border: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+.page-01 .small-content {
+  width: 13.03125rem;
+  height: 32rem;
+  position: absolute;
+  top: -1.5625rem;
+  left: 50%;
+  margin-left: -6.4375rem;
+  background: url("http://static.xiawan8.com/activity/juneyao_new_year/image/smallContent.png") no-repeat center center;
+  background-size: 100% 100%;
+  z-index: 1;
+}
+.page-01 .small-content img {
+  width: 100%;
+}
+.page-01 .txt-content {
+  width: 18rem;
+  height: 5.28125rem;
+  background: url("http://static.xiawan8.com/activity/juneyao_new_year/image/txt_bg.png") no-repeat center center;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 19.0625rem;
+  left: 2.71875rem;
+  z-index: 4;
+  overflow: hidden;
+}
+.page-01 .txt-content .my-txt {
+  font-size: 1.25rem;
+  letter-spacing: 0.09375rem;
+  line-height: 5.28125rem;
+  text-align: center;
+}
+.page-01 .txt-content .inp {
+  width: 14.65625rem;
+  height: 2.6875rem;
+  position: absolute;
+  left: 1.71875rem;
+  top: 1.40625rem;
+  border: none;
+  background: none;
+  font-size: 1.25rem;
+  display: none;
+}
+.page-01 .drop-up {
+  width: 18rem;
+  height: 4.90625rem;
+  position: absolute;
+  z-index: 3;
+  top: 26.9rem;
+  left: 2.7rem;
+  display: none;
+}
+.page-01 .drop-up img {
+  width: 100%;
+}
+.page-01 .drop-down {
+  width: 18rem;
+  overflow: hidden;
+  position: absolute;
+  top: 26.9rem;
+  left: 2.7rem;
+  z-index: 3;
+  display: none;
+}
+.page-01 .drop-down .t {
+  width: 100%;
+  height: 4.03125rem;
+}
+.page-01 .drop-down .t img {
+  width: 100%;
+}
+.page-01 .drop-down .c {
+  width: 100%;
+  height: 7.625rem;
+  background: url("http://static.xiawan8.com/activity/juneyao_new_year/image/c_bg.png") repeat-y center center;
+  background-size: 100% 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0.46875rem 0.71875rem;
+  padding-bottom: 1.25rem;
+}
+.page-01 .drop-down .c .c-ul {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+.page-01 .drop-down .c .c-ul .c-p {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 16.46875rem;
+  height: 2.1875rem;
+  font-size: 0.8125rem;
+  line-height: 2.1875rem;
+  text-align: center;
+}
+.page-01 .drop-down .c .c-ul .activity {
+  background: url("http://static.xiawan8.com/activity/juneyao_new_year/image/c-p-bg.png") no-repeat center center;
+  background-size: 100% 100%;
+}
+.page-01 .txt-content-2 {
+  width: 18rem;
+  height: 5.28125rem;
+  background: url("http://static.xiawan8.com/activity/juneyao_new_year/image/txt_bg.png") no-repeat center center;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 24.6875rem;
+  left: 2.71875rem;
+  z-index: 4;
+  overflow: hidden;
+  display: none;
+}
+.page-01 .txt-content-2 .click-hide {
+  height: 0.96875rem;
+  width: 1.3125rem;
+  background: url("http://static.xiawan8.com/activity/juneyao_new_year/image/more.png") no-repeat center center;
+  background-size: 100%;
+  position: absolute;
+  right: 2.5rem;
+  top: 50%;
+  margin-top: -0.40625rem;
+  z-index: 1;
+  display: none;
+}
+.page-01 .txt-content-2 .click-show {
+  display: none;
+  height: 0.96875rem;
+  width: 1.3125rem;
+  background: url("http://static.xiawan8.com/activity/juneyao_new_year/image/more.png") no-repeat center center;
+  background-size: 100%;
+  position: absolute;
+  right: 2.5rem;
+  top: 50%;
+  margin-top: -0.28125rem;
+  z-index: 1;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.page-01 .txt-content-2 .p {
+  width: 14.65625rem;
+  height: 2.6875rem;
+  position: absolute;
+  left: 1.71875rem;
+  top: 1.40625rem;
+  font-size: 1.25rem;
+  line-height: 2.6875rem;
+  text-align: center;
+  letter-spacing: 0.09375rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-right: 2.5rem;
+}
+.page-01 .txt-content-a {
+  width: 2.8125rem;
+  height: 5.28125rem;
+  position: absolute;
+  left: 50%;
+  top: 19.0625rem;
+  margin-left: -1.40625rem;
+  z-index: 4;
+}
+.page-01 .txt-content-a img {
+  width: 100%;
+}
+.page-01 .txt-content-b {
+  width: 2.8125rem;
+  height: 5.3125rem;
+  position: absolute;
+  left: 50%;
+  top: 24.6875rem;
+  margin-left: -1.40625rem;
+  z-index: 4;
+}
+.page-01 .txt-content-b img {
+  width: 100%;
+}
+.page-01 .happ-new-year {
+  width: 23.4375rem;
+  height: 9.125rem;
+  position: absolute;
+  left: 0;
+  top: 2.78125rem;
+  z-index: 3;
+}
+.page-01 .happ-new-year img {
+  width: 100%;
+}
+.page-01 .bling {
+  display: none;
+  width: 23.4375rem;
+  height: 13.8125rem;
+  position: absolute;
+  top: 0.46875rem;
+  left: 0;
+  z-index: 4;
+}
+.page-01 .bling img {
+  width: 100%;
+}
+.page-01 .dog {
+  width: 23.4375rem;
+  height: 7.78125rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.page-01 .dog img {
+  width: 100%;
+}
+.page-01 .yun {
+  height: 5.71875rem;
+  width: 23.4375rem;
+  position: absolute;
+  left: 0;
+  top: 11.5625rem;
+  z-index: 2;
+}
+.page-01 .yun img {
+  width: 100%;
+}
+.page-01 .page-01-btn {
+  width: 7.8125rem;
+  height: 2.875rem;
+  position: absolute;
+  left: 50%;
+  bottom: 2.71875rem;
+  margin-left: -3.90625rem;
+  z-index: 2;
+}
+.page-01 .page-01-btn img {
+  width: 100%;
+}
+.page-02 {
+  background: url("http://static.xiawan8.com/activity/juneyao_new_year/image/page_02/02-bg.jpg") no-repeat center center;
+  background-size: 100% 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.page-02 .content {
+  height: 30.3125rem;
+  width: 19.375rem;
+  position: absolute;
+  left: 50%;
+  top: 1.40625rem;
+  margin-left: -9.6875rem;
+  z-index: 1;
+  background: url("http://static.xiawan8.com/activity/juneyao_new_year/image/page_02/02-center.png") no-repeat;
+  background-size: 100%;
+}
+.page-02 .content .page02-logo {
+  width: 8.15625rem;
+  height: 2.03125rem;
+  position: absolute;
+  top: 0.9375rem;
+  left: 50%;
+  margin-left: -4.0625rem;
+}
+.page-02 .content .page02-logo img {
+  width: 100%;
+}
+.page-02 .content .header {
+  height: 5.5625rem;
+  width: 5.5625rem;
+  border-radius: 5.5625rem;
+  position: absolute;
+  top: 4.21875rem;
+  left: 50%;
+  margin-left: -2.78125rem;
+  z-index: 2;
+}
+.page-02 .content .header img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 5.5625rem;
+}
+.page-02 .content .dog {
+  position: absolute;
+  bottom: -1rem;
+  left: 0.25rem;
+  width: 100%;
+  height: 7.78125rem;
+}
+.page-02 .content .dog img {
+  width: 100%;
+}
+.page-02 .content .txt {
+  width: 15.625rem;
+  height: 11.5625rem;
+  position: absolute;
+  left: 1.875rem;
+  top: 10rem;
+  overflow: hidden;
+  z-index: 9999;
+}
+.page-02 .content .txt p {
+  text-align: center;
+  color: #fff;
+  font-size: 1.25rem;
+}
+.page-02 .content .txt .txt-p {
+  margin-top: 0.625rem;
+  line-height: 1.78125rem;
+}
+.page-02 .chinese-knot-left {
+  width: 4.5rem;
+  height: 8.625rem;
+  position: absolute;
+  top: 0;
+  left: 0.3125rem;
+  z-index: 3;
+}
+.page-02 .chinese-knot-left img {
+  width: 100%;
+}
+.page-02 .chinese-knot-right {
+  width: 4.5rem;
+  height: 8.625rem;
+  position: absolute;
+  top: 0;
+  right: 0.3125rem;
+  z-index: 3;
+}
+.page-02 .chinese-knot-right img {
+  width: 100%;
+}
+.page-02 .yun {
+  height: 9.03125rem;
+  width: 23.4375rem;
+  position: absolute;
+  left: 0;
+  top: 10.9375rem;
+  z-index: 2;
+}
+.page-02 .yun img {
+  width: 100%;
+}
+.page-02 .btn-content {
+  width: 23.4375rem;
+  height: 2.75rem;
+  position: absolute;
+  left: 0;
+  bottom: 1.875rem;
+  z-index: 9;
+}
+.page-02 .btn-content .btn-left {
+  position: absolute;
+  left: 2.28125rem;
+  top: 0;
+  height: 100%;
+  width: 8rem;
+}
+.page-02 .btn-content .btn-left img {
+  width: 100%;
+}
+.page-02 .btn-content .btn-right {
+  position: absolute;
+  right: 2.28125rem;
+  top: 0;
+  height: 100%;
+  width: 7.96875rem;
+}
+.page-02 .btn-content .btn-right img {
+  width: 100%;
+}
+.page-03 {
+  background: url("../image/page_02/02-bg.jpg") no-repeat center center;
+  background-size: 100% 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 200%;
+  left: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+.page-03 .chinese-knot-left {
+  width: 4.5rem;
+  height: 8.625rem;
+  position: absolute;
+  top: 0;
+  left: 0.3125rem;
+  z-index: 3;
+}
+.page-03 .chinese-knot-left img {
+  width: 100%;
+}
+.page-03 .chinese-knot-right {
+  width: 4.5rem;
+  height: 8.625rem;
+  position: absolute;
+  top: 0;
+  right: 0.3125rem;
+  z-index: 3;
+}
+.page-03 .chinese-knot-right img {
+  width: 100%;
+}
+.page-03 .page03-logo {
+  width: 8.15625rem;
+  height: 2.03125rem;
+  position: absolute;
+  top: 2.03125rem;
+  left: 50%;
+  margin-left: -4.0625rem;
+}
+.page-03 .page03-logo img {
+  width: 100%;
+}
+.page-03 .new-year {
+  width: 23.4375rem;
+  height: 5.3125rem;
+  position: absolute;
+  z-index: 9;
+  left: 0;
+  top: 5.84375rem;
+}
+.page-03 .new-year img {
+  width: 100%;
+}
+.page-03 .yun {
+  height: 16.71875rem;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 9.5rem;
+  z-index: 1;
+}
+.page-03 .yun img {
+  width: 100%;
+}
+.page-03 .huawen {
+  width: 23.4375rem;
+  height: 3.75rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+}
+.page-03 .huawen img {
+  width: 100%;
+}
+.page-03 .animals {
+  height: 7.78125rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 8;
+}
+.page-03 .animals img {
+  width: 100%;
+}
+.page-03 .header {
+  height: 5.5625rem;
+  width: 5.5625rem;
+  border-radius: 5.5625rem;
+  position: absolute;
+  top: 10.9375rem;
+  left: 50%;
+  margin-left: -2.78125rem;
+  z-index: 9999;
+}
+.page-03 .header .canvas {
+  display: none;
+  opacity: 0;
+}
+.page-03 .header img {
+  display: block;
+  height: 5.5625rem;
+  width: 5.5625rem;
+  border-radius: 5.5625rem;
+  z-index: 99;
+}
+.page-03 .txt {
+  width: 13.625rem;
+  height: 12.5625rem;
+  overflow: hidden;
+  position: absolute;
+  left: 4.90625rem;
+  top: 16.8rem;
+  z-index: 9999;
+}
+.page-03 .txt p {
+  text-align: center;
+  color: #fff;
+  font-size: 1.25rem;
+}
+.page-03 .txt .txt-p {
+  margin-bottom: 0.625rem;
+}
+.page-03 .txt .txt-p-1 {
+  line-height: 1.8125rem;
+}
+.page-03 .txt .zhunin {
+  text-align: left;
+  line-height: 2rem;
+}
+.page-03 .qr {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 5.8125rem;
+  height: 8.4375rem;
+  position: absolute;
+  bottom: -1rem;
+  right: 0;
+  z-index: 999;
+  overflow: hidden;
+}
+.page-03 .qr img {
+  display: block;
+  width: 4.375rem;
+  height: 4.375rem;
+  margin-bottom: 0.3125rem;
+  margin-left: 0.75rem;
+}
+.page-03 .qr p {
+  font-size: 0.875rem;
+  line-height: 1.40625rem;
+  color: #EDC06A;
+  text-align: center;
+}
+.page-03 .qr-canvas {
+  display: none;
+  opacity: 0;
+}
+.page-03 .btn {
+  height: 1.25rem;
+  width: 3.75rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.image-page {
+  height: 80%;
+  width: 80%;
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  -webkit-box-shadow: 0 0 0.625rem 0.03125rem #222;
+          box-shadow: 0 0 0.625rem 0.03125rem #222;
+  overflow: hidden;
+}
+.image-page img {
+  width: 100%;
+  height: 100%;
+}
+.share-txt {
+  font-size: 1.0625rem;
+  text-align: center;
+  padding-top: 0.6rem;
+  color: #fff;
+}
+.share-txt p {
+  line-height: 2rem;
+}
+.loader-content {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding-top: 50%;
+  display: none;
+}
+.loader-content .ball-pulse > div:nth-child(0) {
+  -webkit-animation: scale 0.75s 0s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  animation: scale 0.75s 0s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+}
+.loader-content .ball-pulse > div:nth-child(1) {
+  -webkit-animation: scale 0.75s 0.12s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  animation: scale 0.75s 0.12s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+}
+.loader-content .ball-pulse > div:nth-child(2) {
+  -webkit-animation: scale 0.75s 0.24s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  animation: scale 0.75s 0.24s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+}
+.loader-content .ball-pulse > div:nth-child(3) {
+  -webkit-animation: scale 0.75s 0.36s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+  animation: scale 0.75s 0.36s infinite cubic-bezier(0.2, 0.68, 0.18, 1.08);
+}
+.loader-content .ball-pulse > div {
+  background-color: #fff;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  margin: 2px;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  display: inline-block;
+}
+.txt-hide-animation {
+  -webkit-animation: txtRetractHide 0.3s;
+          animation: txtRetractHide 0.3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.txt-show-animation {
+  -webkit-animation: txtRetractShow 0.3s;
+          animation: txtRetractShow 0.3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.bling-bling-bling {
+  -webkit-animation: blingBling 1s ease-in-out infinite alternate;
+          animation: blingBling 1s ease-in-out infinite alternate;
+}
+@-webkit-keyframes scale {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  45% {
+    -webkit-transform: scale(0.1);
+    transform: scale(0.1);
+    opacity: 0.7;
+  }
+  80% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  45% {
+    -webkit-transform: scale(0.1);
+    transform: scale(0.1);
+    opacity: 0.7;
+  }
+  80% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes txtRetractHide {
+  0% {
+    width: 18rem;
+    height: 5.28125rem;
+    left: 2.71875rem;
+  }
+  100% {
+    width: 2.8125rem;
+    height: 5.28125rem;
+    left: 10.3125rem;
+  }
+}
+@keyframes txtRetractHide {
+  0% {
+    width: 18rem;
+    height: 5.28125rem;
+    left: 2.71875rem;
+  }
+  100% {
+    width: 2.8125rem;
+    height: 5.28125rem;
+    left: 10.3125rem;
+  }
+}
+@-webkit-keyframes txtRetractShow {
+  0% {
+    width: 2.8125rem;
+    height: 5.28125rem;
+    left: 10.3125rem;
+  }
+  100% {
+    width: 18rem;
+    height: 5.28125rem;
+    left: 2.71875rem;
+  }
+}
+@keyframes txtRetractShow {
+  0% {
+    width: 2.8125rem;
+    height: 5.28125rem;
+    left: 10.3125rem;
+  }
+  100% {
+    width: 18rem;
+    height: 5.28125rem;
+    left: 2.71875rem;
+  }
+}
+@-webkit-keyframes blingBling {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes blingBling {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
