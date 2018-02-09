@@ -11,7 +11,7 @@ $(function() {
 
   $('.J-Header').find('img').attr('src', headImgUrl)
   $('.J-user-name').html(nickName)
-  $('#page03Img').attr('src', headImgUrl)
+  $('.J-page3-img').attr('src', headImgUrl)
 
   var mySwiper = new Swiper ('.swiper-container', {
     on: {
@@ -141,7 +141,7 @@ $(function() {
   img.onload = function() {//图片加载完，再draw 和 toDataURL
     ctx.drawImage(img,0,0);
     base64 = canvas.toDataURL("image/png");
-    $('#page03Img').attr('src', base64)
+    $('.J-page3-img').attr('src', base64)
   };
 
 
