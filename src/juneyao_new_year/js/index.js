@@ -166,7 +166,7 @@ $(function() {
     title: "吉祥航空",
     desc: "快来发送祝福给朋友吧",
     imgUrl: "http://static.xiawan8.com/activity/juneyao_new_year/image/wx_title.jpg",
-    link: location.href
+    link: "http://static.xiawan8.com/activity/juneyao_new_year/index.html"
   });
 
 })
