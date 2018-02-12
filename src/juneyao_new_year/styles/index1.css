@@ -300,10 +300,9 @@ img {
 .page-01 .page-01-btn {
   width: 7.8125rem;
   height: 2.875rem;
-  position: absolute;
-  left: 50%;
-  bottom: 2.71875rem;
-  margin-left: -3.90625rem;
+  margin-top: 32rem;
+  margin-left: 8rem;
+  position: relative;
   z-index: 2;
 }
 .page-01 .page-01-btn img {

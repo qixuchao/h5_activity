@@ -5,7 +5,8 @@ $(function() {
   }
   var headImgUrl = query.headimgurl;
   var nickName = query.real_name;
-  var writeTxt = true;
+  var writeTxt = true;  // 是手写还是选择
+  var myTxt = '新年快乐'
 
   headImgUrl = 'http://nana.xiawan8.com/transform/image?url=' + headImgUrl
 
@@ -105,8 +106,7 @@ $(function() {
     }, 200)
   })
 
-  $('.J-go-next').on('click', function() {
-    var myTxt = '新年快乐'
+  $('.J-go-page2').on('click', function() {
     if (writeTxt) {
       // 手写祝福语
       myTxt = $('.J-inp-content-inp').val()
@@ -115,6 +115,20 @@ $(function() {
       myTxt = $('.J-choice-txt').html()
     }
     $('.J-page2-txt').html(myTxt)
+
+    // 判断是否是手写  如果是选择就做逗号分隔  第三页展示
+    if (!writeTxt && myTxt && myTxt.length > 9) {
+      var txtArr = []
+      txtArr = myTxt.split('，')
+      for (var i = 0; i<txtArr.length; i++) {
+        var shtml = '<p>'+ txtArr[i] +'</p>';
+        $('.J-txt-content').append(shtml)
+      }
+    } else {
+      var shtml = '<p class="txt-p">'+ myTxt +'</p>'
+      $('.J-txt-content').append(shtml)
+    }
+
   })
 
 
@@ -147,8 +161,6 @@ $(function() {
 
 
   $('.J-create-image').on('click', function(){
-    var page2Txt = $('.J-page2-txt').html()
-    $('.J-page3-txt').html(page2Txt)
     $('.J-loader').show()
     //  html2canvas
     html2canvas(document.getElementById('pageThree')).then(function(canvas) {
