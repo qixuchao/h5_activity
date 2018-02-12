@@ -4,11 +4,13 @@ $(function() {
     jskit.toLogin();
   }
   var headImgUrl = query.headimgurl;
-  var nickName = query.real_name;
+  var nickName = query.real_name || '珺_戲言';
   var writeTxt = true;  // 是手写还是选择
   var myTxt = '新年快乐'
 
   headImgUrl = 'http://nana.xiawan8.com/transform/image?url=' + headImgUrl
+  var str = '<p>吉祥航空携</p><p><span class="J-user-name">'+ nickName +'</span></p><p class="zhunin">祝您:</p>';
+  $('.J-txt-content').html(str)
 
   $('.J-Header').find('img').attr('src', headImgUrl)
   $('.J-user-name').html(nickName)
@@ -107,6 +109,8 @@ $(function() {
   })
 
   $('.J-go-page2').on('click', function() {
+    var str = '<p>吉祥航空携</p><p><span class="J-user-name">'+ nickName +'</span></p><p class="zhunin">祝您:</p>';
+    $('.J-txt-content').html(str)
     if (writeTxt) {
       // 手写祝福语
       myTxt = $('.J-inp-content-inp').val()
@@ -142,7 +146,7 @@ $(function() {
     $('.J-inp-content, .J-txt-b').fadeIn(800)
     var h = $(window).height() - $('.J-txt-b').offset().top - $('.J-txt-b').height()
     $('.J-c').css({height: h + 'px'})
-  }, 2300)
+  }, 1300)
 
   var canvas = document.getElementById('page03Canvas'); // 获取canvas
   var ctx = canvas.getContext("2d"); // 对应的CanvasRenderingContext2D对象(画笔)
