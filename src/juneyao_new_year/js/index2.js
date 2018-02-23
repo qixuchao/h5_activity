@@ -221,7 +221,7 @@ $(function() {
 
     loadImage('./image/bg.png?va=1', function() {
       ctx.drawImage(this, 0, 0, this.width, this.height);
-      loadImage('http://nana.xiawan8.com/transform/image?url=http://thirdwx.qlogo.cn/mmopen/vi_32/iaPp7ClZOGcpery9cvpnQHicU5IVl9lHictOoQ9XulVazns0wJbGDm9ib93kYjf4gCS0IcPuYDc71qvdiaVDOlSWgdg/132', function() {
+      loadImage(headImgUrl, function() {
         ctx.drawImage(this, 298, 406, 178, 178);
 
 

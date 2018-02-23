@@ -28,7 +28,7 @@
         VERSION: '0.1.0',
         isDebug: false
     };
-    var apiHost = 'http://sso.xiawan8.com'
+    var apiHost = 'http://sso.xiawan8.com/api/wchart/'
 
     var toString = function(obj) {
         return ({}).toString.call(obj);
@@ -362,7 +362,7 @@
                 if (!url) {
                     url = location.href;
                 }
-                location.href = apiHost+'/oauth?ret=' + encodeURIComponent(url);
+                location.href = apiHost+'oauth?client_id=100001&signature=2a849ff5e3cbd4bc97c8aae0099cbd414d1702d9&redirect_uri=' + encodeURIComponent(url);
             },
             open: function() {},
             //显示分享遮罩引导用户下载
@@ -516,7 +516,7 @@
                 config = jskit.extends(wxCfg, config);
 
                 //获得签名并初始化微信
-                jskit.jsonp(apiHost+'/api/wchart/getsign', {
+                jskit.jsonp(apiHost+'getsign', {
                     data: {
                         url: location.href.split('#')[0],
                         client_id:'100001',

@@ -609,6 +609,7 @@ img {
 .image-page {
   height: 80%;
   width: 80%;
+  height: auto;
   position: absolute;
   top: 12%;
   left: 10%;
