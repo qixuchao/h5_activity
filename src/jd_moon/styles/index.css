@@ -108,3 +108,14 @@ img {
     opacity: 1;
   }
 }
+/*==========*/
+.play-stage {
+  position: relative;
+}
+.material {
+  position: absolute;
+  -webkit-transition: -webkit-transform 4.3s linear;
+  transition: -webkit-transform 4.3s linear;
+  transition: transform 4.3s linear;
+  transition: transform 4.3s linear, -webkit-transform 4.3s linear;
+}

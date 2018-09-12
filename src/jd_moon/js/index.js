@@ -95,7 +95,7 @@ function startGame() {
       // 当分数为8分 或者倒计时结束  做月饼
       clearInterval(createTimer)
       clearInterval(timer)
-      alert('做月饼')
+      //alert('做月饼')
     } else {
       switch (cakeMaterialType%100) {
         // 注：这个理面只能选取质数，否则有可能创建两个相同的实例
@@ -128,7 +128,7 @@ function startGame() {
     }
   }, 1000)
 }
-startGame()
+//startGame()
 
 // 向左移动兔子
 leftBtn.onclick = function() {
