@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: PingFang SC, "微软雅黑", arial, "宋体", helvetica, verdana, sans-serif;
+}
+img {
+  display: block;
+  border: none;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #BF0000;
+  position: relative;
+}
+.common-page {
+  height: 100%;
+  width: 23.4375rem;
+  background: url('../image/bg.jpg') no-repeat center center;
+  background-size: 100% 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+.logo {
+  height: 2.5rem;
+  width: 23.4375rem;
+  position: absolute;
+  padding-top: 0.71875rem;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.logo .left {
+  height: 100%;
+  width: 3.125rem;
+  float: left;
+}
+.logo .left img {
+  width: 100%;
+}
+.logo .right {
+  height: 100%;
+  width: 4.84375rem;
+  float: right;
+}
+.logo .right img {
+  width: 100%;
+}
+.page_home .title {
+  width: 23.4375rem;
+  height: 19.0625rem;
+  position: absolute;
+  top: 3.4375rem;
+  left: 0;
+}
+.page_home .title img {
+  width: 100%;
+}
+.page_home .lantern {
+  width: 23.4375rem;
+  height: 24.125rem;
+  position: absolute;
+  top: 6.5625rem;
+  left: 0;
+}
+.page_home .lantern img {
+  width: 100%;
+}
+.page_home .bottom {
+  width: 23.4375rem;
+  height: 21.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.page_home .bottom img {
+  width: 100%;
+}
+.page_home .btn {
+  width: 13.1875rem;
+  height: 3.59375rem;
+  position: absolute;
+  bottom: 2.125rem;
+  left: 5.125rem;
+}
+.page_home .btn img {
+  width: 100%;
+}
+.page_home .text {
+  width: 23.4375rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.875rem;
+  position: absolute;
+  left: 0;
+  top: 24.375rem;
+}
+.page_home .text .activity-span {
+  line-height: 1.5625rem;
+  color: #fff387;
+  border-bottom: 0.0625rem solid #fff387;
+  padding-bottom: 0.15625rem;
+}
+.page_01 {
+  display: none;
+}
+.page_01 .button-content {
+  position: absolute;
+  z-index: 99;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 7.8125rem;
+}
+.page_01 .button-content .left {
+  height: 7.8125rem;
+  width: 7.8125rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.page_01 .button-content .right {
+  height: 7.8125rem;
+  width: 7.8125rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.page_01 .tuzi {
+  position: absolute;
+  z-index: 9;
+  bottom: 0;
+  left: 8.4375rem;
+  height: 7.8125rem;
+  width: 6.5625rem;
+}
+.page_01 .tuzi img {
+  height: 100%;
+}
+.page_01 .timer-div {
+  height: 6.25rem;
+  width: 6.25rem;
+  position: absolute;
+  top: 10.9375rem;
+  left: 8.59375rem;
+  z-index: 8;
+  text-align: center;
+  color: #fff;
+}
+.page_01 .timer-div .timer-number {
+  font-size: 3.4375rem;
+}
+.page_01 .timer-div .timer-desc {
+  font-size: 1.125rem;
+}
+@-webkit-keyframes bigPlaneAnimation {
+  0% {
+    height: 0;
+    width: 0;
+    top: 28.125rem;
+    left: 21.875rem;
+  }
+  100% {
+    height: 18.75rem;
+    width: 23.4375rem;
+    top: 9.375rem;
+    left: 0;
+    display: block;
+    opacity: 1;
+  }
+}
+@keyframes bigPlaneAnimation {
+  0% {
+    height: 0;
+    width: 0;
+    top: 28.125rem;
+    left: 21.875rem;
+  }
+  100% {
+    height: 18.75rem;
+    width: 23.4375rem;
+    top: 9.375rem;
+    left: 0;
+    display: block;
+    opacity: 1;
+  }
+}
