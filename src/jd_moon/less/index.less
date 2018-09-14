@@ -11,6 +11,7 @@ html, body{
 img{
   display: block;
   border: none;
+  user-select: none;
 }
 .container {
   width: 100%;
@@ -19,17 +20,69 @@ img{
   background: #BF0000;
   position: relative;
 }
+.hide{
+  display: none !important;
+}
 .common-page{
   height: 100%;
   width: @rem*750;
-  background: url('../image/bg.jpg') no-repeat center center;
+  background: url("../image/public/bg.jpg") no-repeat center center;
   background-size: 100% 100%;
   margin: 0 auto;
   overflow: hidden;
-  position: absolute;
+  position: relative;
+  z-index: 99;
+  .common-page-bg{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    img{width: 100%; height: 100%}
+  }
+}
+.dialog{
+  width: 100%;
+  height: 100%;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 99;
+  background: url("../image/public/bg.jpg") no-repeat center center;
+  background-size: 100% 100%;
+  z-index: 99999;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: @rem*100;
+  .loading-txt{
+    width: 100%;
+    height: @rem*100;
+    position: absolute;
+    top: @rem*600;
+    left: 0;
+    text-align: center;
+    font-size: @rem*52;
+    color: #fff;
+  }
+  .moon-content{
+    width: @rem*502;
+    height: @rem*459;
+    background: url("../image/public/moon.png") no-repeat center center;
+    background-size: 100% 100%;
+    position: absolute;
+    top: @rem*150;
+    left: @rem*(750-502)/2;
+    z-index: 999;
+    .rabbit{
+      height: @rem*217;
+      width: @rem*177;
+      position: absolute;
+      left: 5rem;
+      top: 3.5rem;
+      img{width: 100%;
+        height: 100%;}
+    }
+  }
 }
 .logo{
   height: @rem*80;
@@ -52,29 +105,115 @@ img{
     img{ width: 100% }
   }
 }
+.rule-modal{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  .rule-content{
+    width: @rem*730;
+    height: @rem*930;
+    position: absolute;
+    top: @rem*20;
+    left: @rem*10;
+    img{
+      width: @rem*730;
+      height: @rem*930;}
+  }
+  .rule-text{
+    height: @rem*722;
+    width: @rem*490;
+    position: absolute;
+    padding: 0 @rem*30;
+    top: @rem*300;
+    left: @rem*100;
+    font-size: @rem*26;
+    line-height: @rem*45;
+    color: #830a08;
+  }
+  .close-btn{
+    height: @rem*70;
+    width: @rem*70;
+    position: absolute;
+    bottom: @rem*105;
+    left: 50%;
+    margin-left: -@rem*35;
+    img{width:100%}
+  }
+}
+.tutorial-modal{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  .desc{
+    width: @rem*750;
+    height: @rem*572;
+    position: absolute;
+    left: 0;
+    bottom: @rem*165;
+    img{width: 100%}
+  }
+  .left-hand{
+    width: @rem*136;
+    height: @rem*140;
+    position: absolute;
+    left: 0;
+    bottom: @rem*57;
+    img{width: 100%}
+  }
+  .right-hand{
+    width: @rem*136;
+    height: @rem*140;
+    position: absolute;
+    right: 0;
+    bottom: @rem*57;
+    img{width: 100%}
+  }
+  .ok{
+    height: @rem*122;
+    width: @rem*250;
+    position: absolute;
+    left: @rem*262;
+    bottom: @rem*382;
+  }
+}
+
 .page_home{
+  display: block;
   .title{
     width: @rem*750;
     height: @rem*610;
     position: absolute;
-    top: @rem*110;
+    top: @rem*70;
     left: 0;
+    z-index: 99;
     img{width: 100%}
   }
   .lantern{
     width: @rem*750;
     height: @rem*772;
     position: absolute;
-    top: @rem*210;
+    top: @rem*160;
     left: 0;
+    z-index: 99;
     img{width: 100%}
   }
   .bottom{
     width: @rem*750;
-    height: @rem*688;
+    height: @rem*696;
     position: absolute;
     bottom: 0;
     left: 0;
+    z-index: 99;
     img{width: 100%}
   }
   .btn{
@@ -83,6 +222,7 @@ img{
     position: absolute;
     bottom: @rem*68;
     left: @rem*(750-422)/2;
+    z-index: 999;
     img{width: 100%}
   }
   .text{
@@ -92,48 +232,29 @@ img{
     font-size: @rem*28;
     position: absolute;
     left: 0;
-    top: @rem*780;
+    top: @rem*720;
+    z-index: 99;
     .activity-span{
       line-height: @rem*50;
       color: #fff387;
       border-bottom: @rem*2 solid #fff387;
-      padding-bottom: @rem*5;
+      padding-bottom: @rem*3;
     }
   }
 }
-.page_01{
+.page_game{
   display: none;
-  .button-content{
-    position: absolute;
-    z-index: 99;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: @rem*250;
-    .left{
-      height: @rem*250;
-      width: @rem*250;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    .right{
-      height: @rem*250;
-      width: @rem*250;
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-  }
   .tuzi{
     position: absolute;
     z-index: 9;
-    bottom: 0;
-    left: @rem*(750-210)/2;
-    height: @rem*250;
-    width: @rem*210;
+    bottom: @rem*30;
+    left: @rem*(750-180)/2;
+    height: @rem*250; //300
+    width: @rem*180;  // 335
     img{
-      height: 100%;
+      height: @rem*250; //300
+      width: @rem*280;  // 335
+      margin-left: -@rem*50;
     }
   }
   .timer-div{
@@ -152,21 +273,241 @@ img{
       font-size: @rem*36;
     }
   }
+  .moon-timer{
+    height: @rem*459;
+    width: @rem*502;
+    position: absolute;
+    top: @rem*264;
+    left: @rem*(750-502)/2;
+    z-index: 99;
+    .moon-bg{
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 9;
+      img{width:100%; height: 100%;}
+    }
+    .moon-timer-txt{
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 99;
+      text-align: center;
+      line-height: @rem*459;
+      font-size: @rem*228;
+      color: #fff;
+    }
+  }
+  .bottom-cloud{
+    width: @rem*750;
+    height: @rem*215;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 8;
+    img{width: 100%;}
+  }
+}
+.page_cake{
+   display: none;
+  .fireworks{
+    height: @rem*105;
+    width: @rem*105;
+    position: absolute;
+    z-index: 999;
+    img{width: 100%;
+      height: 100%;}
+  }
+  .fireworks-1{
+    height: @rem*90;
+    width: @rem*90;
+    top: @rem*50;
+    left: @rem*50;
+    opacity: 0.9;
+  }
+  .fireworks-2{
+    top: @rem*95;
+    left: @rem*160;
+  }
+  .fireworks-3{
+    height: @rem*35;
+    width: @rem*35;
+    top: @rem*105;
+    left: @rem*380;
+  }
+  .fireworks-4{
+    height: @rem*75;
+    width: @rem*75;
+    top: @rem*100;
+    left: @rem*590;
+  }
+  .fireworks-5{
+    height: @rem*103;
+    width: @rem*103;
+    top: @rem*460;
+    left: @rem*118;
+    opacity: 0.7;
+  }
+  .fireworks-6{
+    height: @rem*103;
+    width: @rem*103;
+    top: @rem*460;
+    left: @rem*600;
+    opacity: 0.3;
+  }
+  .curtain{
+    width: @rem*700;  // 750
+    height: @rem*650; // 696
+    position: absolute;
+    left: @rem*25;
+    top: @rem*30;
+    img{
+      width: 100%;}
+  }
+  .cloud{
+    width: @rem*750;
+    height: @rem*264;
+    position: absolute;
+    left: 0;
+    top: @rem*520;
+    img{
+      width: 100%;}
+  }
+  .lantern-group{
+    height: @rem*500;
+    width: @rem*750;
+    position: absolute;
+    top: @rem*100;
+    left: 0;
+    z-index: 999;
+    img{
+      width: 100%;}
+  }
+  .congratulations{
+    height: @rem*103;
+    width: @rem*700;
+    position: absolute;
+    left: @rem*25;
+    top: @rem*180;
+    z-index: 999;
+    img{width: 100%}
+  }
+  .text{
+    height: @rem*110;
+    width: @rem*750;
+    position: absolute;
+    left: 0;
+    top: @rem*300;
+    z-index: 999;
+    color: #fff;
+    text-align: center;
+    font-size: @rem*44;
+  }
+  .cake{
+    height: @rem*494;
+    width: @rem*650;
+    position: absolute;
+    left: @rem*50;
+    top: @rem*420;
+    z-index: 9999;
+    text-align: center;
+    .cake-bg{
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 9;
+      img{height:100%; width: 100%}
+    }
+    .cake-image{
+      position: absolute;
+      height: @rem*101;
+      width: @rem*228;
+      top: @rem*185;
+      left: 50%;
+      margin-left: -@rem*228/2;
+      z-index: 999;
+      img{height:100%; width: 100%}
+    }
+  }
+  .btn-content{
+    height: @rem*317;
+    width: @rem*750;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    //background: url("../image/cake-btn.png") no-repeat center center;
+    //background-size: 100% 100%;
+    z-index: 999;
+    .btn-content-bg{
+      height: @rem*317;
+      width: @rem*750;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 999;
+      img{width: 100%; height: 100%}
+    }
+    .btn-content-text{
+      text-align: center;
+      font-size: @rem*30;
+      color: #fff989;
+      margin-top: @rem*10;
+    }
+    .btn-content-div{
+      position: absolute;
+      height: @rem*100;
+      width: @rem*460;
+      top: @rem*100;
+      left: @rem*130;
+      z-index: 999;
+    }
+    img{
+      width: 100%;}
+  }
 }
 
 
-@keyframes bigPlaneAnimation {
+/*==========*/
+.play-stage{
+  position: relative;
+}
+.material{
+  position: absolute;
+  transition: transform 4.3s linear;
+}
+
+.rabbitAnimation1{
+  animation: rabbitAnimation1 1s linear infinite
+}
+
+.rabbitAnimation2{
+  animation: rabbitAnimation2 1s linear infinite
+}
+
+
+@keyframes rabbitAnimation1 {
   0% {
-    height: 0;
-    width: 0;
-    top: @rem*900;
-    left: @rem*700;
+    display: block;
+    opacity: 1;
   }
   100% {
-    height: @rem*600;
-    width: @rem*750;
-    top: @rem*300;
-    left: 0;
+    display: none;
+    opacity: 0;
+  }
+}
+
+@keyframes rabbitAnimation2 {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
     display: block;
     opacity: 1;
   }

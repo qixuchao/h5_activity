@@ -11,6 +11,10 @@ body {
 img {
   display: block;
   border: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .container {
   width: 100%;
@@ -19,17 +23,75 @@ img {
   background: #BF0000;
   position: relative;
 }
+.hide {
+  display: none !important;
+}
 .common-page {
   height: 100%;
   width: 23.4375rem;
-  background: url('../image/bg.jpg') no-repeat center center;
+  background: url("../image/public/bg.jpg") no-repeat center center;
   background-size: 100% 100%;
   margin: 0 auto;
   overflow: hidden;
+  position: relative;
+  z-index: 99;
+}
+.common-page .common-page-bg {
+  height: 100%;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 99;
+  z-index: 1;
+}
+.common-page .common-page-bg img {
+  width: 100%;
+  height: 100%;
+}
+.dialog {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: url("../image/public/bg.jpg") no-repeat center center;
+  background-size: 100% 100%;
+  z-index: 99999;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 3.125rem;
+}
+.dialog .loading-txt {
+  width: 100%;
+  height: 3.125rem;
+  position: absolute;
+  top: 18.75rem;
+  left: 0;
+  text-align: center;
+  font-size: 1.625rem;
+  color: #fff;
+}
+.dialog .moon-content {
+  width: 15.6875rem;
+  height: 14.34375rem;
+  background: url("../image/public/moon.png") no-repeat center center;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 4.6875rem;
+  left: 3.875rem;
+  z-index: 999;
+}
+.dialog .moon-content .rabbit {
+  height: 6.78125rem;
+  width: 5.53125rem;
+  position: absolute;
+  left: 5rem;
+  top: 3.5rem;
+}
+.dialog .moon-content .rabbit img {
+  width: 100%;
+  height: 100%;
 }
 .logo {
   height: 2.5rem;
@@ -56,12 +118,106 @@ img {
 .logo .right img {
   width: 100%;
 }
+.rule-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.rule-modal .rule-content {
+  width: 22.8125rem;
+  height: 29.0625rem;
+  position: absolute;
+  top: 0.625rem;
+  left: 0.3125rem;
+}
+.rule-modal .rule-content img {
+  width: 22.8125rem;
+  height: 29.0625rem;
+}
+.rule-modal .rule-text {
+  height: 22.5625rem;
+  width: 15.3125rem;
+  position: absolute;
+  padding: 0 0.9375rem;
+  top: 9.375rem;
+  left: 3.125rem;
+  font-size: 0.8125rem;
+  line-height: 1.40625rem;
+  color: #830a08;
+}
+.rule-modal .close-btn {
+  height: 2.1875rem;
+  width: 2.1875rem;
+  position: absolute;
+  bottom: 3.28125rem;
+  left: 50%;
+  margin-left: -1.09375rem;
+}
+.rule-modal .close-btn img {
+  width: 100%;
+}
+.tutorial-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.tutorial-modal .desc {
+  width: 23.4375rem;
+  height: 17.875rem;
+  position: absolute;
+  left: 0;
+  bottom: 5.15625rem;
+}
+.tutorial-modal .desc img {
+  width: 100%;
+}
+.tutorial-modal .left-hand {
+  width: 4.25rem;
+  height: 4.375rem;
+  position: absolute;
+  left: 0;
+  bottom: 1.78125rem;
+}
+.tutorial-modal .left-hand img {
+  width: 100%;
+}
+.tutorial-modal .right-hand {
+  width: 4.25rem;
+  height: 4.375rem;
+  position: absolute;
+  right: 0;
+  bottom: 1.78125rem;
+}
+.tutorial-modal .right-hand img {
+  width: 100%;
+}
+.tutorial-modal .ok {
+  height: 3.8125rem;
+  width: 7.8125rem;
+  position: absolute;
+  left: 8.1875rem;
+  bottom: 11.9375rem;
+}
+.page_home {
+  display: block;
+}
 .page_home .title {
   width: 23.4375rem;
   height: 19.0625rem;
   position: absolute;
-  top: 3.4375rem;
+  top: 2.1875rem;
   left: 0;
+  z-index: 99;
 }
 .page_home .title img {
   width: 100%;
@@ -70,18 +226,20 @@ img {
   width: 23.4375rem;
   height: 24.125rem;
   position: absolute;
-  top: 6.5625rem;
+  top: 5rem;
   left: 0;
+  z-index: 99;
 }
 .page_home .lantern img {
   width: 100%;
 }
 .page_home .bottom {
   width: 23.4375rem;
-  height: 21.5rem;
+  height: 21.75rem;
   position: absolute;
   bottom: 0;
   left: 0;
+  z-index: 99;
 }
 .page_home .bottom img {
   width: 100%;
@@ -92,6 +250,7 @@ img {
   position: absolute;
   bottom: 2.125rem;
   left: 5.125rem;
+  z-index: 999;
 }
 .page_home .btn img {
   width: 100%;
@@ -103,51 +262,32 @@ img {
   font-size: 0.875rem;
   position: absolute;
   left: 0;
-  top: 24.375rem;
+  top: 22.5rem;
+  z-index: 99;
 }
 .page_home .text .activity-span {
   line-height: 1.5625rem;
   color: #fff387;
   border-bottom: 0.0625rem solid #fff387;
-  padding-bottom: 0.15625rem;
+  padding-bottom: 0.09375rem;
 }
-.page_01 {
+.page_game {
   display: none;
 }
-.page_01 .button-content {
-  position: absolute;
-  z-index: 99;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 7.8125rem;
-}
-.page_01 .button-content .left {
-  height: 7.8125rem;
-  width: 7.8125rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.page_01 .button-content .right {
-  height: 7.8125rem;
-  width: 7.8125rem;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.page_01 .tuzi {
+.page_game .tuzi {
   position: absolute;
   z-index: 9;
-  bottom: 0;
-  left: 8.4375rem;
+  bottom: 0.9375rem;
+  left: 8.90625rem;
   height: 7.8125rem;
-  width: 6.5625rem;
+  width: 5.625rem;
 }
-.page_01 .tuzi img {
-  height: 100%;
+.page_game .tuzi img {
+  height: 7.8125rem;
+  width: 8.75rem;
+  margin-left: -1.5625rem;
 }
-.page_01 .timer-div {
+.page_game .timer-div {
   height: 6.25rem;
   width: 6.25rem;
   position: absolute;
@@ -157,40 +297,284 @@ img {
   text-align: center;
   color: #fff;
 }
-.page_01 .timer-div .timer-number {
+.page_game .timer-div .timer-number {
   font-size: 3.4375rem;
 }
-.page_01 .timer-div .timer-desc {
+.page_game .timer-div .timer-desc {
   font-size: 1.125rem;
 }
-@-webkit-keyframes bigPlaneAnimation {
+.page_game .moon-timer {
+  height: 14.34375rem;
+  width: 15.6875rem;
+  position: absolute;
+  top: 8.25rem;
+  left: 3.875rem;
+  z-index: 99;
+}
+.page_game .moon-timer .moon-bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+.page_game .moon-timer .moon-bg img {
+  width: 100%;
+  height: 100%;
+}
+.page_game .moon-timer .moon-timer-txt {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  text-align: center;
+  line-height: 14.34375rem;
+  font-size: 7.125rem;
+  color: #fff;
+}
+.page_game .bottom-cloud {
+  width: 23.4375rem;
+  height: 6.71875rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 8;
+}
+.page_game .bottom-cloud img {
+  width: 100%;
+}
+.page_cake {
+  display: none;
+}
+.page_cake .fireworks {
+  height: 3.28125rem;
+  width: 3.28125rem;
+  position: absolute;
+  z-index: 999;
+}
+.page_cake .fireworks img {
+  width: 100%;
+  height: 100%;
+}
+.page_cake .fireworks-1 {
+  height: 2.8125rem;
+  width: 2.8125rem;
+  top: 1.5625rem;
+  left: 1.5625rem;
+  opacity: 0.9;
+}
+.page_cake .fireworks-2 {
+  top: 2.96875rem;
+  left: 5rem;
+}
+.page_cake .fireworks-3 {
+  height: 1.09375rem;
+  width: 1.09375rem;
+  top: 3.28125rem;
+  left: 11.875rem;
+}
+.page_cake .fireworks-4 {
+  height: 2.34375rem;
+  width: 2.34375rem;
+  top: 3.125rem;
+  left: 18.4375rem;
+}
+.page_cake .fireworks-5 {
+  height: 3.21875rem;
+  width: 3.21875rem;
+  top: 14.375rem;
+  left: 3.6875rem;
+  opacity: 0.7;
+}
+.page_cake .fireworks-6 {
+  height: 3.21875rem;
+  width: 3.21875rem;
+  top: 14.375rem;
+  left: 18.75rem;
+  opacity: 0.3;
+}
+.page_cake .curtain {
+  width: 21.875rem;
+  height: 20.3125rem;
+  position: absolute;
+  left: 0.78125rem;
+  top: 0.9375rem;
+}
+.page_cake .curtain img {
+  width: 100%;
+}
+.page_cake .cloud {
+  width: 23.4375rem;
+  height: 8.25rem;
+  position: absolute;
+  left: 0;
+  top: 16.25rem;
+}
+.page_cake .cloud img {
+  width: 100%;
+}
+.page_cake .lantern-group {
+  height: 15.625rem;
+  width: 23.4375rem;
+  position: absolute;
+  top: 3.125rem;
+  left: 0;
+  z-index: 999;
+}
+.page_cake .lantern-group img {
+  width: 100%;
+}
+.page_cake .congratulations {
+  height: 3.21875rem;
+  width: 21.875rem;
+  position: absolute;
+  left: 0.78125rem;
+  top: 5.625rem;
+  z-index: 999;
+}
+.page_cake .congratulations img {
+  width: 100%;
+}
+.page_cake .text {
+  height: 3.4375rem;
+  width: 23.4375rem;
+  position: absolute;
+  left: 0;
+  top: 9.375rem;
+  z-index: 999;
+  color: #fff;
+  text-align: center;
+  font-size: 1.375rem;
+}
+.page_cake .cake {
+  height: 15.4375rem;
+  width: 20.3125rem;
+  position: absolute;
+  left: 1.5625rem;
+  top: 13.125rem;
+  z-index: 9999;
+  text-align: center;
+}
+.page_cake .cake .cake-bg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+}
+.page_cake .cake .cake-bg img {
+  height: 100%;
+  width: 100%;
+}
+.page_cake .cake .cake-image {
+  position: absolute;
+  height: 3.15625rem;
+  width: 7.125rem;
+  top: 5.78125rem;
+  left: 50%;
+  margin-left: -3.5625rem;
+  z-index: 999;
+}
+.page_cake .cake .cake-image img {
+  height: 100%;
+  width: 100%;
+}
+.page_cake .btn-content {
+  height: 9.90625rem;
+  width: 23.4375rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+}
+.page_cake .btn-content .btn-content-bg {
+  height: 9.90625rem;
+  width: 23.4375rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+}
+.page_cake .btn-content .btn-content-bg img {
+  width: 100%;
+  height: 100%;
+}
+.page_cake .btn-content .btn-content-text {
+  text-align: center;
+  font-size: 0.9375rem;
+  color: #fff989;
+  margin-top: 0.3125rem;
+}
+.page_cake .btn-content .btn-content-div {
+  position: absolute;
+  height: 3.125rem;
+  width: 14.375rem;
+  top: 3.125rem;
+  left: 4.0625rem;
+  z-index: 999;
+}
+.page_cake .btn-content img {
+  width: 100%;
+}
+/*==========*/
+.play-stage {
+  position: relative;
+}
+.material {
+  position: absolute;
+  -webkit-transition: -webkit-transform 4.3s linear;
+  transition: -webkit-transform 4.3s linear;
+  transition: transform 4.3s linear;
+  transition: transform 4.3s linear, -webkit-transform 4.3s linear;
+}
+.rabbitAnimation1 {
+  -webkit-animation: rabbitAnimation1 1s linear infinite;
+          animation: rabbitAnimation1 1s linear infinite;
+}
+.rabbitAnimation2 {
+  -webkit-animation: rabbitAnimation2 1s linear infinite;
+          animation: rabbitAnimation2 1s linear infinite;
+}
+@-webkit-keyframes rabbitAnimation1 {
   0% {
-    height: 0;
-    width: 0;
-    top: 28.125rem;
-    left: 21.875rem;
+    display: block;
+    opacity: 1;
   }
   100% {
-    height: 18.75rem;
-    width: 23.4375rem;
-    top: 9.375rem;
-    left: 0;
+    display: none;
+    opacity: 0;
+  }
+}
+@keyframes rabbitAnimation1 {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+  100% {
+    display: none;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes rabbitAnimation2 {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
     display: block;
     opacity: 1;
   }
 }
-@keyframes bigPlaneAnimation {
+@keyframes rabbitAnimation2 {
   0% {
-    height: 0;
-    width: 0;
-    top: 28.125rem;
-    left: 21.875rem;
+    display: none;
+    opacity: 0;
   }
   100% {
-    height: 18.75rem;
-    width: 23.4375rem;
-    top: 9.375rem;
-    left: 0;
     display: block;
     opacity: 1;
   }
