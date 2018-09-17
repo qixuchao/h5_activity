@@ -1,4 +1,5 @@
 !(function(){
+  FastClick.attach(document.body)  // 引用fastClick  解决iPhone6,7,8plus点击延迟问题
   var deviceWidth = window.innerWidth
   var dpi = deviceWidth/750*32
   var cakeConfig = {
@@ -15,6 +16,7 @@
       ele: ''
     }
   }
+  // 预加载图片
   var imgConfig = [
     {class: 'J-home-bottom', src: 'image/home/bottom.png', id: 'bottom'},
     {class: 'J-start-create-cake', src: 'image/home/btn1.png', id: 'btn1'},
@@ -35,6 +37,8 @@
     {class: 'J-lantern-group', src: 'image/cake/lantern-group.png', id: 'lanternGroup'},
     {class: 'J-cake-bg', src: 'image/cake/cake.png', id: 'cake'},
     {class: 'J-btn-content-bg', src: 'image/cake/cake-btn.png', id: 'cakeBtn'},
+    {class: 'J-left-btn', src: 'image/game/leftBtn.png', id: 'gameLeftBtn'},
+    {class: 'J-right-btn', src: 'image/game/rightBtn.png', id: 'gameRightBtn'},
     {class: false, src: 'image/cake/dh.png', id: 'dh'},
     {class: false, src: 'image/cake/xr.png', id: 'xr'},
     {class: false, src: 'image/cake/wr.png', id: 'wr'},
@@ -76,6 +80,7 @@
       cakeConfig[1].ele = preload.getResult("dh")
       cakeConfig[2].ele = preload.getResult("xr")
       $('.J-dialog').fadeOut(200).remove()
+      $('.J-home-title').addClass('home-title-animation')
     },
     loadError: function() {
       //alert("加载出错，请检查网络！");
@@ -118,7 +123,9 @@
     run: function() {
       setTimeout(function(){
         this.$element.css({
-          transform: 'translateY('+window.innerHeight/32*3+'rem)' // *parseInt(getRandom(1,2))
+          transform: window.innerHeight > 1500 ?
+            'translateY('+window.innerHeight/32*1+'rem)' :
+            'translateY('+window.innerHeight/32*3+'rem)'
         })
       }.bind(this))
     }
@@ -201,9 +208,11 @@
       }, 100)
     },
     bindEvent: function() {
-      $('body').on('click', function(e) {
-        var deviceWidth = document.body.offsetWidth;
-        this.move(e.clientX < deviceWidth/2?-1:1)
+      $(document).on('click', '.J-left-btn', function() {
+        this.move(-1)
+      }.bind(this))
+      $(document).on('click', '.J-right-btn', function() {
+        this.move(1)
       }.bind(this))
     }
   }
@@ -304,25 +313,30 @@
     }, 1000)
   }
 
+
   // 游戏引导 我知道了
   $('.J-ok').on('click', function() {
     $('.J-tutorial-modal').hide()
     readyGo()
   })
+
   // 查看游戏规则
   $('.J-activity-rule').on('click', function() {
     $('.J-rule-modal').fadeIn(300)
   })
+
   // 关闭 游戏规则
   $('.J-close-modal-btn').on('click', function() {
     $('.J-rule-modal').fadeOut(300)
   })
+
   // 开始做月饼
   $('.J-start-create-cake').on('click', function() {
     $('.J-home').hide()
     $('.J-tutorial-modal').show()
     $('.J-game').show()
   })
+
   // 点击领取红包
   $('.J-local-href').on('click', function() {
     window.location.href = 'https://m.jr.jd.com/spe/downloadApp/index.html?id=973&activityid=923'

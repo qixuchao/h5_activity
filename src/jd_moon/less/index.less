@@ -14,11 +14,12 @@ img{
   user-select: none;
 }
 .container {
-  width: 100%;
+  width: @rem*750;
   height: 100%;
   overflow: hidden;
   background: #BF0000;
   position: relative;
+  margin: 0 auto;
 }
 .hide{
   display: none !important;
@@ -45,7 +46,7 @@ img{
 .dialog{
   width: 100%;
   height: 100%;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   background: url("../image/public/bg.jpg") no-repeat center center;
@@ -107,7 +108,7 @@ img{
 }
 .rule-modal{
   display: none;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 9999;
@@ -147,7 +148,7 @@ img{
 }
 .tutorial-modal{
   display: none;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 9999;
@@ -168,6 +169,7 @@ img{
     position: absolute;
     left: 0;
     bottom: @rem*57;
+    animation: handAnimation 1s ease infinite alternate;
     img{width: 100%}
   }
   .right-hand{
@@ -176,6 +178,7 @@ img{
     position: absolute;
     right: 0;
     bottom: @rem*57;
+    animation: handAnimation 1s ease infinite alternate;
     img{width: 100%}
   }
   .ok{
@@ -198,6 +201,9 @@ img{
     z-index: 99;
     img{width: 100%}
   }
+  .home-title-animation{
+    animation: homeTitleAnimation 1s ease 1;
+  }
   .lantern{
     width: @rem*750;
     height: @rem*772;
@@ -205,6 +211,7 @@ img{
     top: @rem*160;
     left: 0;
     z-index: 99;
+    animation: lanternAnimation 1s ease infinite alternate;
     img{width: 100%}
   }
   .bottom{
@@ -255,6 +262,32 @@ img{
       height: @rem*250; //300
       width: @rem*280;  // 335
       margin-left: -@rem*50;
+    }
+  }
+  .game-btn-content{
+    width: @rem*750;
+    height: @rem*127;
+    left: 0;
+    bottom: @rem*179;
+    position: absolute;
+    z-index: 9999;
+    .left-btn{
+      height: @rem*127;
+      width: @rem*156;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 99;
+      img{width: 100%}
+    }
+    .right-btn{
+      height: @rem*127;
+      width: @rem*156;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: 99;
+      img{width: 100%}
     }
   }
   .timer-div{
@@ -328,22 +361,26 @@ img{
     top: @rem*50;
     left: @rem*50;
     opacity: 0.9;
+    animation: fireworksAnimation 1s ease 0.5s infinite;
   }
   .fireworks-2{
     top: @rem*95;
     left: @rem*160;
+    animation: fireworksAnimation 1s ease 0.8s infinite;
   }
   .fireworks-3{
     height: @rem*35;
     width: @rem*35;
     top: @rem*105;
     left: @rem*380;
+    animation: fireworksAnimation 1s ease 0.3s infinite;
   }
   .fireworks-4{
     height: @rem*75;
     width: @rem*75;
     top: @rem*100;
     left: @rem*590;
+    animation: fireworksAnimation 1s ease 0.4s infinite;
   }
   .fireworks-5{
     height: @rem*103;
@@ -351,6 +388,7 @@ img{
     top: @rem*460;
     left: @rem*118;
     opacity: 0.7;
+    animation: fireworksAnimation 1s ease 0.9s infinite;
   }
   .fireworks-6{
     height: @rem*103;
@@ -358,6 +396,7 @@ img{
     top: @rem*460;
     left: @rem*600;
     opacity: 0.3;
+    animation: fireworksAnimation 1s ease 1s infinite;
   }
   .curtain{
     width: @rem*700;  // 750
@@ -441,8 +480,6 @@ img{
     position: absolute;
     left: 0;
     bottom: 0;
-    //background: url("../image/cake-btn.png") no-repeat center center;
-    //background-size: 100% 100%;
     z-index: 999;
     .btn-content-bg{
       height: @rem*317;
@@ -510,5 +547,44 @@ img{
   100% {
     display: block;
     opacity: 1;
+  }
+}
+
+@keyframes homeTitleAnimation {
+  0% {
+    transform: scale(0.1, 0.1);
+  }
+  50% {
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes handAnimation {
+  0% {
+    transform: scale(0.8, 0.8);
+  }
+  100% {
+    transform: scale(1.5, 1.5);
+  }
+}
+
+@keyframes lanternAnimation {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fireworksAnimation {
+  0% {
+    transform: scale(0.1, 0.1);
+  }
+  100% {
+    transform: scale(1, 1);
   }
 }

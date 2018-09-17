@@ -2,15 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+  <meta HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
+  <meta HTTP-EQUIV="expires" CONTENT="0">
   <title>做月饼</title>
   <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-  <link rel="stylesheet" type="text/css" href="./styles/animate.min.css">
   <link rel="stylesheet" type="text/css" href="./styles/index.css">
   <script data-js-path="redraw.js">
     !(function(f,o){var a=navigator.userAgent,b=/iphone|ipad|ipod/i.test(a),i=/android/ig.test(a),j=/Mobile/i.test(a)||b||i;var n=document.querySelector("[name=viewport]"),k=b?window.devicePixelRatio?Math.min(window.devicePixelRatio,3):1:1,c=document.documentElement,l=k*(c.dataset.mw||750),d=1/k,e;f=f||320;o=o||16;if(n){var h=n.content||"",g=h.match(/initial\-scale=([\d\.]+)/);if(g){h=h.replace(/initial\-scale=([\d\.]+)/,"initial-scale="+d)}else{h+=",initial-scale="+d}n.content=h.replace(/minimum\-scale=([\d\.]+)/,"").replace(/maximum\-scale=([\d\.]+)/,"")}else{n=doc.createElement("meta");n.name="viewport";n.content="maximum-scale="+d+",minimum-scale="+d+",user-scalable=0,width=device-width;initial-scale="+d;c.firstElementChild.appendChild(n)}var m=function(){var q=window.innerWidth;var p=Math.min(q,l)/f*o;c.style.fontSize=p+"px"};if(j){window.addEventListener("resize",function(){clearTimeout(e);e=setTimeout(m,300)},false);m()}else{c.style.fontSize="16px"}})(375,16);
   </script>
   <script src="./lib/jquery.js"></script>
   <script src="./lib/preloadjs.min.js"></script>
+  <script src="./lib/fastclick.js"></script>
   <script>
     var _hmt = _hmt || [];
     _hmt.push(['_trackEvent', "jd", "jump"]);
@@ -20,6 +23,10 @@
       hm.src = "https://hm.baidu.com/hm.js?45b472947281cad914aa315e6e59750f";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
+
+      var ele = document.createElement('script')
+      ele.src = 'js/index.js?v=' + Math.random()*1000
+      s.parentNode.insertBefore(ele, s);
     })();
   </script>
 </head>
@@ -57,8 +64,8 @@
     <!--游戏指引-->
     <div class="tutorial-modal J-tutorial-modal">
       <div class="desc J-tutorial-modal-desc"></div>
-      <div class="left-hand J-tutorial-modal-left-hand animated infinite pulse"></div>
-      <div class="right-hand J-tutorial-modal-right-hand animated infinite pulse"></div>
+      <div class="left-hand J-tutorial-modal-left-hand"></div>
+      <div class="right-hand J-tutorial-modal-right-hand"></div>
       <div class="ok J-ok"></div>
     </div>
 
@@ -97,6 +104,10 @@
       </div>
       <!--兔子-->
       <div id="tuzi" class="tuzi J-tuzi"></div>
+      <div class="game-btn-content">
+        <div class="left-btn J-left-btn"></div>
+        <div class="right-btn J-right-btn"></div>
+      </div>
     </div>
 
     <!--做月饼-->
@@ -132,5 +143,4 @@
     </div>
   </div>
 </body>
-<script type="text/javascript" src="js/index.js"></script>
 </html>
