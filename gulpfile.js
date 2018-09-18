@@ -6,7 +6,7 @@ var $ = gulpLoadPlugins();
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
-var currentPath = 'jd_moon/' //
+var currentPath = 'jd_finance/' //
 
 /**
  * argv

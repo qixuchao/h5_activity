@@ -264,8 +264,9 @@
         if(item && this.check(rabbitRect, item.getBoundingClientRect())){
           this.count++
           item.destroy()
+          this.gameSchedule()
           item = null
-          if (this.count > 7) {
+          if (this.count >= 7) {
             this.gameOver()
           }
         }
@@ -283,6 +284,11 @@
       $('.J-cake-image').html(cakeConfig[type].ele)
       $('.page_game').fadeOut(300)
       $('.page_cake').fadeIn(300)
+    },
+    gameSchedule: function() {
+      $('.J-game-schedule').animate({
+        width: this.count*14.2857 + '%'
+      }, 200)
     }
   }
 
@@ -339,6 +345,6 @@
 
   // 点击领取红包
   $('.J-local-href').on('click', function() {
-    window.location.href = 'https://m.jr.jd.com/spe/downloadApp/index.html?id=973&activityid=923'
+    window.location.href = 'https://m.jr.jd.com/zc/drawSystem/sohu/index.html?contentParam=100000971'
   })
 })();

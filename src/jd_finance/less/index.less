@@ -89,20 +89,15 @@ img{
   height: @rem*80;
   width: @rem*750;
   position: absolute;
-  padding-top: @rem*23;
   top: 0;
   left: 0;
   z-index: 999;
-  .left{
-    height: 100%;
-    width: @rem*100;
-    float: left;
-    img{ width: 100% }
-  }
   .right{
-    height: 100%;
-    width: @rem*155;
-    float: right;
+    position: absolute;
+    top: @rem*25;
+    right: @rem*30;
+    height: @rem*38;
+    width: @rem*172;
     img{ width: 100% }
   }
 }
@@ -344,6 +339,15 @@ img{
     z-index: 8;
     img{width: 100%;}
   }
+  .game-schedule{
+    height: @rem*5;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff78d;
+    z-index: 9999;
+  }
 }
 .page_cake{
    display: none;
@@ -520,33 +524,29 @@ img{
 }
 
 .rabbitAnimation1{
-  animation: rabbitAnimation1 1s linear infinite
+  animation: rabbitAnimation1 300ms linear infinite
 }
 
 .rabbitAnimation2{
-  animation: rabbitAnimation2 1s linear infinite
+  animation: rabbitAnimation2 300ms linear infinite
 }
 
 
 @keyframes rabbitAnimation1 {
-  0% {
-    display: block;
-    opacity: 1;
+  0%{
+    opacity: 0;
   }
   100% {
-    display: none;
-    opacity: 0;
+    opacity: 1;
   }
 }
 
 @keyframes rabbitAnimation2 {
-  0% {
-    display: none;
-    opacity: 0;
+  0%{
+    opacity: 1;
   }
   100% {
-    display: block;
-    opacity: 1;
+    opacity: 0;
   }
 }
 

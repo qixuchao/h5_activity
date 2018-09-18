@@ -98,23 +98,16 @@ img {
   height: 2.5rem;
   width: 23.4375rem;
   position: absolute;
-  padding-top: 0.71875rem;
   top: 0;
   left: 0;
   z-index: 999;
 }
-.logo .left {
-  height: 100%;
-  width: 3.125rem;
-  float: left;
-}
-.logo .left img {
-  width: 100%;
-}
 .logo .right {
-  height: 100%;
-  width: 4.84375rem;
-  float: right;
+  position: absolute;
+  top: 0.78125rem;
+  right: 0.9375rem;
+  height: 1.1875rem;
+  width: 5.375rem;
 }
 .logo .right img {
   width: 100%;
@@ -387,6 +380,15 @@ img {
 .page_game .bottom-cloud img {
   width: 100%;
 }
+.page_game .game-schedule {
+  height: 0.15625rem;
+  width: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff78d;
+  z-index: 9999;
+}
 .page_cake {
   display: none;
 }
@@ -585,51 +587,43 @@ img {
   transition: transform 4.3s linear, -webkit-transform 4.3s linear;
 }
 .rabbitAnimation1 {
-  -webkit-animation: rabbitAnimation1 1s linear infinite;
-          animation: rabbitAnimation1 1s linear infinite;
+  -webkit-animation: rabbitAnimation1 300ms linear infinite;
+          animation: rabbitAnimation1 300ms linear infinite;
 }
 .rabbitAnimation2 {
-  -webkit-animation: rabbitAnimation2 1s linear infinite;
-          animation: rabbitAnimation2 1s linear infinite;
+  -webkit-animation: rabbitAnimation2 300ms linear infinite;
+          animation: rabbitAnimation2 300ms linear infinite;
 }
 @-webkit-keyframes rabbitAnimation1 {
   0% {
-    display: block;
-    opacity: 1;
+    opacity: 0;
   }
   100% {
-    display: none;
-    opacity: 0;
+    opacity: 1;
   }
 }
 @keyframes rabbitAnimation1 {
   0% {
-    display: block;
-    opacity: 1;
+    opacity: 0;
   }
   100% {
-    display: none;
-    opacity: 0;
+    opacity: 1;
   }
 }
 @-webkit-keyframes rabbitAnimation2 {
   0% {
-    display: none;
-    opacity: 0;
+    opacity: 1;
   }
   100% {
-    display: block;
-    opacity: 1;
+    opacity: 0;
   }
 }
 @keyframes rabbitAnimation2 {
   0% {
-    display: none;
-    opacity: 0;
+    opacity: 1;
   }
   100% {
-    display: block;
-    opacity: 1;
+    opacity: 0;
   }
 }
 @-webkit-keyframes homeTitleAnimation {
