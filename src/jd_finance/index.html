@@ -2,147 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
-  <meta HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
-  <meta HTTP-EQUIV="expires" CONTENT="0">
-  <title>京东金融中秋现金红包</title>
+  <title>活动名称</title>
   <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <link rel="stylesheet" type="text/css" href="./styles/index.css">
   <script data-js-path="redraw.js">
     !(function(f,o){var a=navigator.userAgent,b=/iphone|ipad|ipod/i.test(a),i=/android/ig.test(a),j=/Mobile/i.test(a)||b||i;var n=document.querySelector("[name=viewport]"),k=b?window.devicePixelRatio?Math.min(window.devicePixelRatio,3):1:1,c=document.documentElement,l=k*(c.dataset.mw||750),d=1/k,e;f=f||320;o=o||16;if(n){var h=n.content||"",g=h.match(/initial\-scale=([\d\.]+)/);if(g){h=h.replace(/initial\-scale=([\d\.]+)/,"initial-scale="+d)}else{h+=",initial-scale="+d}n.content=h.replace(/minimum\-scale=([\d\.]+)/,"").replace(/maximum\-scale=([\d\.]+)/,"")}else{n=doc.createElement("meta");n.name="viewport";n.content="maximum-scale="+d+",minimum-scale="+d+",user-scalable=0,width=device-width;initial-scale="+d;c.firstElementChild.appendChild(n)}var m=function(){var q=window.innerWidth;var p=Math.min(q,l)/f*o;c.style.fontSize=p+"px"};if(j){window.addEventListener("resize",function(){clearTimeout(e);e=setTimeout(m,300)},false);m()}else{c.style.fontSize="16px"}})(375,16);
   </script>
-  <script src="./lib/jquery.js"></script>
-  <script src="./lib/preloadjs.min.js"></script>
-  <script src="./lib/fastclick.js"></script>
   <script>
     var _hmt = _hmt || [];
-    _hmt.push(['_trackEvent', "jd", "jump"]);
-    _hmt.push(['_trackEvent', "jd", "start"]);
     (function() {
       var hm = document.createElement("script");
       hm.src = "https://hm.baidu.com/hm.js?45b472947281cad914aa315e6e59750f";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
-
-      var ele = document.createElement('script')
-      ele.src = 'js/index.js?v=' + Math.random()*1000
-      s.parentNode.insertBefore(ele, s);
     })();
   </script>
 </head>
 <body>
-  <div class="container">
-    <div class="dialog J-dialog">
-      <div class="moon-content">
-        <div class="rabbit rabbitAnimation1">
-          <img class="rabbit-1" src="image/public/rabbit1.png" alt="">
-        </div>
-        <div class="rabbit rabbitAnimation2">
-          <img class="rabbit-2" src="image/public/rabbit2.png" alt="">
-        </div>
-      </div>
-      <div class="loading-txt J-loading-txt"></div>
-    </div>
-    <div class="logo">
-      <div class="right J-logo"></div>
-    </div>
-
-    <!--活动规则-->
-    <div class="rule-modal J-rule-modal">
-      <div class="rule-content J-rule-content"></div>
-      <div class="rule-text">
-        <p>1、本次活动仅限趣头条老用户及京东金融APP新用户参加。</p>
-        <p>2、活动期间使用任何作弊（如使用外挂等）相关行为的用户一经发现，即刻取消活动资格。</p>
-        <p>3、活动中的“现金红包”仅指京东金融APP中的现金红包。</p>
-        <p>4、用户需提供真实手机号获取京东金融现金红包，如未下载京东金融APP选择分享领取红包，则权益自动转换为趣头条APP站内金币。</p>
-        <p>5、以上规则未尽事宜，最终解释权归趣头条所有。</p>
-        <p style="text-align: right">趣头条</p>
-      </div>
-      <div class="close-btn J-close-modal-btn"></div>
-    </div>
-
-    <!--游戏指引-->
-    <div class="tutorial-modal J-tutorial-modal">
-      <div class="desc J-tutorial-modal-desc"></div>
-      <div class="left-hand J-tutorial-modal-left-hand"></div>
-      <div class="right-hand J-tutorial-modal-right-hand"></div>
-      <div class="ok J-ok"></div>
-    </div>
-
-    <!--首页-->
-    <div class="common-page page_home J-home">
-      <div class="common-page-bg J-common-page-bg"></div>
-      <div class="title J-home-title"></div>
-      <div class="lantern J-home-lantern"></div>
-      <div class="bottom J-home-bottom"></div>
-      <div class="btn J-start-create-cake"></div>
-      <div class="text">
-        <span class="activity-span J-activity-rule">活动规则</span>
-      </div>
-    </div>
-
-    <!--游戏页面-->
-    <div class="common-page page_game play-stage J-game" id="playDiv">
-      <div class="hide">
-        <img src="./image/material/1.png" alt="">
-        <img src="./image/material/2.png" alt="">
-        <img src="./image/material/3.png" alt="">
-        <img src="./image/material/4.png" alt="">
-        <img src="./image/material/5.png" alt="">
-        <img src="./image/material/6.png" alt="">
-      </div>
-      <!--进度条-->
-      <div class="game-schedule J-game-schedule"></div>
-      <div class="common-page-bg J-common-page-bg"></div>
-      <!--倒计时 3秒-->
-      <div class="moon-timer J-moon-content">
-        <div class="moon-bg J-moon-bg"></div>
-        <div class="moon-timer-txt J-moon-timer">3</div>
-      </div>
-      <!--倒计时 15秒-->
-      <div class="timer-div">
-        <p class="timer-number" id="timerSpan">15</p>
-        <p class="timer-desc">快到碗里来</p>
-      </div>
-      <!--兔子-->
-      <div id="tuzi" class="tuzi J-tuzi"></div>
-      <div class="game-btn-content">
-        <div class="left-btn J-left-btn"></div>
-        <div class="right-btn J-right-btn"></div>
-      </div>
-    </div>
-
-    <!--做月饼-->
-    <div class="common-page page_cake">
-      <div class="common-page-bg J-common-page-bg"></div>
-      <!--烟花 开始-->
-      <div class="fireworks fireworks-1"><img src="image/cake/fireworks.png" alt=""></div>
-      <div class="fireworks fireworks-2"><img src="image/cake/fireworks.png" alt=""></div>
-      <div class="fireworks fireworks-3"><img src="image/cake/fireworks.png" alt=""></div>
-      <div class="fireworks fireworks-4"><img src="image/cake/fireworks.png" alt=""></div>
-      <div class="fireworks fireworks-5"><img src="image/cake/fireworks.png" alt=""></div>
-      <div class="fireworks fireworks-6"><img src="image/cake/fireworks.png" alt=""></div>
-      <!--烟花结束-->
-      <!--灯笼-->
-      <div class="lantern-group J-lantern-group"></div>
-      <!--恭喜你-->
-      <div class="congratulations J-congratulations"></div>
-      <div class="curtain J-curtain"></div>
-      <div class="text">成功制作<span class="J-cake-text"></span>月饼</div>
-      <!--飘云-->
-      <div class="cloud J-page-cake-cloud"></div>
-      <!--月饼-->
-      <div class="cake">
-        <div class="cake-bg J-cake-bg"></div>
-        <div class="cake-image J-cake-image"></div>
-      </div>
-      <!--底部按钮-->
-      <div class="btn-content">
-        <div class="btn-content-bg J-btn-content-bg"></div>
-        <p class="btn-content-text">快来领取你的现金红包吧！</p>
-        <div class="btn-content-div J-local-href"></div>
-      </div>
-    </div>
-  </div>
+  <div class="container"></div>
 </body>
 </html>
