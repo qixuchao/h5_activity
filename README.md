@@ -26,6 +26,7 @@ activity/活动1
 activity/活动2
 activity/活动3...
 ```
+
 ```js
 // 基于模板分支 检出 新活动分支
 git fetch
@@ -35,6 +36,7 @@ git checkout activity/tempalate
 git checkout -b activity/需要新加的活动名称
 
 // 开发即可...
+// 调试，在gulpfile.js文件内 将 currentPath = 'activityName/' 目录改为需要调试活动目录即可
 ```
 ### 目录结构
 ```bash
