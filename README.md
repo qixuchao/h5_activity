@@ -3,9 +3,9 @@ h5活动
 ### 开发流程
 说明：当前项目汇总了所有活动页（/src目录下），因为活动将会越来越多，为了方便管理，所以特此梳理开发流程。即每个活动单独的分支管理。
 
-![Image text](http://git.innotechx.com/projects/FAC/repos/activity/browse/branch.jpg)
+![分支规范](http://git.innotechx.com/projects/FAC/repos/activity/browse/branch.jpg)
 
-命名规范：
+分支命名规范：
 ```bash
 master  // 汇总分支
 tempalate   // 公用模板
