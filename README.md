@@ -46,7 +46,7 @@ npm run dev
 ### 目录结构
 ```bash
 ├── /dist/           # 项目输出目录
-├── /helper/         # 废弃
+├── /helper/         # 公用js 公用模板目录
 ├── /src/            # 项目源码目录
 ├── package.json     # 项目信息
 ├── .editorconfig    # 编辑配置
