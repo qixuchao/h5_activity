@@ -23,7 +23,7 @@ git checkout activity/tempalate
 git checkout -b activity/需要新加的活动名称
 
 // 开发即可...
-// 调试，在gulpfile.js文件内 将 currentPath = 'activityName/' 目录改为需要调试活动目录即可
+// 调试，在config目录下index.js文件内 将 projectPath = 'activityName/' 目录改为需要调试活动目录即可
 // 公用模块以及公用js公用css文件 存放于src/ 同级目录  helper/目录下
 ```
 ### 快速使用
@@ -45,11 +45,13 @@ npm run dev
 
 ### 目录结构
 ```bash
+├── /config/         # 项目配置目录
 ├── /dist/           # 项目输出目录
 ├── /helper/         # 公用js 公用模板目录
 ├── /src/            # 项目源码目录
 ├── package.json     # 项目信息
 ├── .editorconfig    # 编辑配置
 ├── .gitignore       # git配置
-└── gulpfile.js      # gulp配置
+├── gulpfile.js      # gulp配置
+└── webpack.config.js      # webpack配置
 ```
