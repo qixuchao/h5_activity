@@ -10,7 +10,6 @@ const sass = require('gulp-sass')
 const less = require('gulp-less')
 const postcss = require('gulp-postcss')
 const cleanCSS = require('gulp-clean-css')
-const gulpLoadPlugins = require('gulp-load-plugins')
 const plumber = require('gulp-plumber')
 const notify = require('gulp-notify')
 const cache  = require('gulp-cache')
@@ -36,7 +35,6 @@ const reload = browserSync.reload
 // NODE_ENV
 const env = process.env.NODE_ENV || 'development'
 const condition = env === 'production'
-const $ = gulpLoadPlugins()
 
 function respath(dir) {
   return path.join(__dirname, './', dir)
