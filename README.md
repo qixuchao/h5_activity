@@ -55,3 +55,11 @@ npm run dev
 ├── gulpfile.js      # gulp配置
 └── webpack.config.js      # webpack配置
 ```
+
+### 关于服务请求
+```bash
+进入http://openapi.xiawan8.com 管理后台进行配置
+http://openapi.fancysmp.com/api/get_list?project=${projectName} 获取数据
+http://openapi.fancysmp.com/api/create?project=${projectName} 提交数据
+```
+
