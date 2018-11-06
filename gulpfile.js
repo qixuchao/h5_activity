@@ -3,30 +3,10 @@ const config = require('./config')
 const path = require('path')
 const chalk = require('chalk')
 const gulp = require('gulp')
-const gulpif = require('gulp-if')
-const htmlmin = require('gulp-htmlmin')
-const fileinclude = require('gulp-file-include')
-const sass = require('gulp-sass')
-const less = require('gulp-less')
-const postcss = require('gulp-postcss')
-const cleanCSS = require('gulp-clean-css')
-const plumber = require('gulp-plumber')
-const notify = require('gulp-notify')
-const cache  = require('gulp-cache')
-const imagemin = require('gulp-imagemin')
-const pngquant = require('imagemin-pngquant')
-const uglify = require('gulp-uglify')
-const eslint = require('gulp-eslint')
-const stripDebug = require('gulp-strip-debug')
-const babel = require('gulp-babel')
-const sequence = require('gulp-sequence')
-const zip = require('gulp-zip')
-const del = require('del')
+const $ = require('gulp-load-plugins')();
 
-// webpack
-const webpack = require('webpack')
-const webpackStream = require('webpack-stream')
-const webpackConfig = require('./webpack.config.js')
+const del = require('del')
+const pngquant = require('imagemin-pngquant')
 
 // server
 const browserSync = require('browser-sync').create()
@@ -62,7 +42,7 @@ function cbTask(task) {
       -----------------------------
         Clean tasks are completed
       -----------------------------`))
-      sequence(task, () => {
+      $.sequence(task, () => {
         console.log(chalk.green(`
         -----------------------------
           All tasks are completed
@@ -75,12 +55,12 @@ function cbTask(task) {
 
 gulp.task('html', () => {
   return gulp.src(config.dev.html)
-    .pipe(plumber(onError))
-    .pipe(fileinclude({
+    .pipe($.plumber(onError))
+    .pipe($.fileInclude({
       prefix: '@@',
       basepath: respath('src/include/')
     }))
-    .pipe(gulpif(condition, htmlmin({
+    .pipe($.if(condition, $.htmlmin({
       removeComments: true,
       collapseWhitespace: true,
       minifyJS: true,
@@ -91,17 +71,17 @@ gulp.task('html', () => {
 
 gulp.task('styles', () => {
   return gulp.src(config.dev.styles)
-    .pipe(plumber(onError))
-    .pipe(sass())
-    .pipe(gulpif(condition, cleanCSS({debug: true})))
-    .pipe(postcss('./.postcssrc.js'))
+    .pipe($.plumber(onError))
+    .pipe($.less())
+    .pipe($.if(condition, $.cleanCss({debug: true})))
+    .pipe($.postcss('./.postcssrc.js'))
     .pipe(gulp.dest(config.build.styles))
 })
 
 gulp.task('images', () => {
   return gulp.src(config.dev.images)
-    .pipe(plumber(onError))
-    .pipe(cache(imagemin({
+    .pipe($.plumber(onError))
+    .pipe($.cache($.imagemin({
       progressive: true, // 无损压缩JPG图片
       svgoPlugins: [{removeViewBox: false}], // 不移除svg的viewbox属性
       use: [pngquant()] // 使用pngquant插件进行深度压缩
@@ -111,23 +91,22 @@ gulp.task('images', () => {
 
 gulp.task('eslint', () => {
   return gulp.src(config.dev.script)
-   .pipe(plumber(onError))
-   .pipe(gulpif(condition, stripDebug()))
-   .pipe(eslint({ configFle: './.eslintrc' }))
-   .pipe(eslint.format())
-   .pipe(eslint.failAfterError());
+   .pipe($.plumber(onError))
+   .pipe($.if(condition, $.stripDebug()))
+   .pipe($.eslint({ configFle: './.eslintrc' }))
+   .pipe($.eslint.format())
+   .pipe($.eslint.failAfterError());
 })
 
 
 const useEslint = config.useEslint ? ['eslint'] : [];
 gulp.task('script', useEslint, () => {
   return gulp.src(config.dev.script)
-    .pipe(plumber(onError))
-    .pipe(gulpif(condition, babel({
-      presets: ['env']
-    })))
-    .pipe(gulpif(config.useWebpack, webpackStream(webpackConfig, webpack)))
-    .pipe(gulpif(condition, uglify()))
+    .pipe($.plumber(onError))
+    // .pipe($.if(condition, babel({
+    //   presets: ['env']
+    // })))
+    .pipe($.if(condition, $.uglify()))
     .pipe(gulp.dest(config.build.script))
 })
 
@@ -139,7 +118,7 @@ gulp.task('lib', useEslint, () => {
 
 gulp.task('less', function () {
   return gulp.src(config.dev.less)
-    .pipe(less())
+    .pipe($.less())
     .pipe(gulp.dest(config.build.less))
 });
 
@@ -160,7 +139,7 @@ gulp.task('watch', () => {
 
 gulp.task('zip', () => {
   return gulp.src(config.zip.path)
-  .pipe(plumber(onError))
+  .pipe($.plumber(onError))
   .pipe(zip(config.zip.name))
   .pipe(gulp.dest(config.zip.dest))
 })

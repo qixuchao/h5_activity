@@ -1,5 +1,5 @@
 const path = require('path')
-const projectPath = 'jd_finance/'
+const projectPath = 'activityName/'
 
 function resolveDev(dir) {
   return path.join(__dirname, '../src/' + projectPath, dir)
@@ -35,7 +35,6 @@ const config = {
   },
   projectPath,
   useEslint: false,
-  useWebpack: false,
   productionZip: false,
   server: {
     // 服务器

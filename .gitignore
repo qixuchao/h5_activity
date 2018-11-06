@@ -6,7 +6,7 @@ test/bower_components
 .DS_Store
 .idea
 *.log
-#dist
+dist
 src/ejs/example-js.ejs
 src/js/tab-example-js.js
 src/js/dialog-example-js.js

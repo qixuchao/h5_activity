@@ -19,6 +19,7 @@
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.3",
     "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
     "browser-sync": "^2.18.13",
@@ -41,10 +42,10 @@
     "gulp-htmlmin": "^3.0.0",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^4.0.0",
+    "gulp-load-plugins": "^1.5.0",
     "gulp-notify": "^3.0.0",
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^7.0.0",
-    "gulp-sass": "^3.1.0",
     "gulp-sequence": "^0.4.6",
     "gulp-strip-debug": "^1.1.0",
     "gulp-uglify": "^3.0.0",
@@ -52,19 +53,9 @@
     "imagemin-pngquant": "^5.0.1",
     "postcss-cssnext": "^3.0.2",
     "postcss-import": "^11.0.0",
-    "postcss-loader": "^2.0.9",
-    "proxy-middleware": "^0.15.0",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.19.0",
-    "url": "^0.11.0",
-    "url-loader": "^0.6.2",
-    "webpack": "^3.10.0",
-    "webpack-stream": "^4.0.0"
+    "proxy-middleware": "^0.15.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
-    "gulp-less": "^4.0.1",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-sass": "^3.2.1"
+    "gulp-less": "^4.0.1"
   }
 }
