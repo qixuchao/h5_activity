@@ -54,7 +54,7 @@ QTTB = (function(){
 	var qb = {
 		version:'1.0.0',
 		isCoinVersion:isCoinVersion,
-		geToken:geToken,
+		getToken:geToken,
 		isQTT: /qukan/.test(navigator.userAgent)
 	}
 
