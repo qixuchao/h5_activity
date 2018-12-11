@@ -21,3 +21,9 @@
 ```
 - dsbridge.js     dsbridge 基本类库
 - qttBridge.js    qttBridge 都方式封装
+
+#### jb.wx.qtt
+
+##### openShare 分享
+##### getToken 获得token 
+微信中是ssoToken，趣头条为qttTOken，return 统一为token
