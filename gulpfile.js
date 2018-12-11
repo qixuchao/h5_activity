@@ -7,6 +7,7 @@ const $ = require('gulp-load-plugins')();
 
 const del = require('del')
 const pngquant = require('imagemin-pngquant')
+const env = require('gulp-env');
 
 // server
 const browserSync = require('browser-sync').create()
@@ -101,7 +102,11 @@ gulp.task('eslint', () => {
 
 const useEslint = config.useEslint ? ['eslint'] : [];
 gulp.task('script', useEslint, () => {
+  const envs = env.set({
+    NODE_ENV: process.env&&process.env.NODE_ENV||'production'
+  })
   return gulp.src(config.dev.script)
+    .pipe(envs)
     .pipe($.plumber(onError))
     // .pipe($.if(condition, babel({
     //   presets: ['env']
