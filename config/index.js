@@ -11,21 +11,19 @@ function resolveBuild(dir) {
 
 const config = {
   dev: {
-    html:  [resolveDev('/**/*.html'), '!./src/include/**/*'],
-    styles: resolveDev('/styles/*.{less,scss,sass,css}'),
-    script: resolveDev('/js/**/*.js'),
-    images: resolveDev('/image/**/*.{png,jpg,gif,svg}'),
+    html: [resolveDev('/**/*.html'), '!./src/html/include/**/*', '.tmp/rev-manifest.json'],
+    styles: [resolveDev('/{less,styles}/**/*.{less,css}'), '!' + resolveDev('/{less,styles}/**/_*.{less,css}') , '.tmp/rev-manifest.json'],
+    script: [resolveDev('/js/**/*.js'), resolveDev('../../helper/*.js')],
+    images: resolveDev('/images/**/*.{png,jpg,gif,svg}'),
     lib: resolveDev('/lib/**/*.js'),
-    less: resolveDev('/less/*.{less,sass,scss,css}'),
   },
 
   build: {
     html: resolveBuild(''),
     styles: resolveBuild('/styles'),
     script: resolveBuild('/js'),
-    images: resolveBuild('/image'),
+    images: resolveBuild('/images'),
     lib: resolveBuild('/lib'),
-    less: resolveDev('/styles'),
   },
 
   zip: {
@@ -35,6 +33,7 @@ const config = {
   },
   projectPath,
   useEslint: false,
+  useWebpack: false,
   productionZip: false,
   server: {
     // 服务器
