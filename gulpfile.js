@@ -3,7 +3,6 @@ const config = require('./config')
 const path = require('path')
 const chalk = require('chalk')
 const gulp = require('gulp')
-const runSequence = require('run-sequence');
 const $ = require('gulp-load-plugins')();
 
 const del = require('del')
@@ -97,7 +96,7 @@ gulp.task('styles', () => {
     })))
     .pipe($.if(condition, gulp.dest('.tmp')))
 })
-6
+
 gulp.task('images', () => {
   return gulp.src(config.dev.images)
     .pipe($.plumber(onError))
