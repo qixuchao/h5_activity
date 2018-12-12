@@ -3,6 +3,7 @@ const config = require('./config')
 const path = require('path')
 const chalk = require('chalk')
 const gulp = require('gulp')
+const runSequence = require('run-sequence');
 const $ = require('gulp-load-plugins')();
 
 const del = require('del')
@@ -25,36 +26,44 @@ function onError(error) {
   const msg = error.message
   const errContent = msg.replace(/\n/g, '\\A ')
 
-  notify.onError({
+  $.notify.onError({
     title: title,
     message: errContent,
     sound: true
   })(error)
 
-  this.emit('end')
+  // this.emit('end')
 }
 
 function cbTask(task) {
   return new Promise((resolve, reject) => {
     del(respath('dist'))
-    .then(paths => {
-      console.log(chalk.green(`
+      .then(paths => {
+        console.log(chalk.green(`
       -----------------------------
         Clean tasks are completed
       -----------------------------`))
-      $.sequence(task, () => {
-        console.log(chalk.green(`
+        $.sequence(task, () => {
+          console.log(chalk.green(`
         -----------------------------
           All tasks are completed
         -----------------------------`))
-        resolve('completed')
+          resolve('completed')
+        })
       })
-    })
   })
 }
 
 gulp.task('html', () => {
   return gulp.src(config.dev.html)
+    .pipe($.revCollector({
+      replaceReved: true,
+      dirReplacements:{
+        './':'./',
+        './js':'./js',
+        'images':'images'
+      }
+    }))
     .pipe($.plumber(onError))
     .pipe($.fileInclude({
       prefix: '@@',
@@ -71,13 +80,23 @@ gulp.task('html', () => {
 
 gulp.task('styles', () => {
   return gulp.src(config.dev.styles)
+    .pipe($.revCollector({
+      replaceReved: true
+    }))
     .pipe($.plumber(onError))
     .pipe($.less())
     .pipe($.if(condition, $.cleanCss({debug: true})))
-    .pipe($.postcss('./.postcssrc.js'))
-    .pipe(gulp.dest(config.build.styles))
+    //.pipe($.postcss('./.postcssrc.js'))
+    .pipe(gulp.dest('.tmp'))
+    .pipe($.if(condition, $.rev()))
+    .pipe($.if(condition, gulp.dest(config.build.styles)))
+    .pipe($.if(condition, $.rev.manifest('.tmp/rev-manifest.json',{
+      base: '.tmp',
+      merge: true // Merge with the existing manifest if one exists
+    })))
+    .pipe($.if(condition, gulp.dest('.tmp')))
 })
-
+6
 gulp.task('images', () => {
   return gulp.src(config.dev.images)
     .pipe($.plumber(onError))
@@ -86,16 +105,23 @@ gulp.task('images', () => {
       svgoPlugins: [{removeViewBox: false}], // 不移除svg的viewbox属性
       use: [pngquant()] // 使用pngquant插件进行深度压缩
     })))
-    .pipe(gulp.dest(config.build.images))
+    .pipe(gulp.dest('.tmp/images'))
+    .pipe($.if(condition, $.rev()))
+    .pipe($.if(condition, gulp.dest(config.build.images)))
+    .pipe($.if(condition, $.rev.manifest('.tmp/rev-manifest.json',{
+      base: '.tmp',
+      merge: true
+    })))
+    .pipe($.if(condition, gulp.dest('.tmp')))
 })
 
 gulp.task('eslint', () => {
   return gulp.src(config.dev.script)
-   .pipe($.plumber(onError))
-   .pipe($.if(condition, $.stripDebug()))
-   .pipe($.eslint({ configFle: './.eslintrc' }))
-   .pipe($.eslint.format())
-   .pipe($.eslint.failAfterError());
+    .pipe($.plumber(onError))
+    .pipe($.if(condition, $.stripDebug()))
+    .pipe($.eslint({configFle: './.eslintrc'}))
+    .pipe($.eslint.format())
+    .pipe($.eslint.failAfterError());
 })
 
 
@@ -104,11 +130,16 @@ gulp.task('script', useEslint, () => {
   return gulp.src(config.dev.script)
     .pipe($.replace('__ENV__', env))
     .pipe($.plumber(onError))
-    // .pipe($.if(condition, babel({
-    //   presets: ['env']
-    // })))
+    .pipe($.logger())
     .pipe($.if(condition, $.uglify()))
-    .pipe(gulp.dest(config.build.script))
+    .pipe(gulp.dest('.tmp/js'))
+    .pipe($.if(condition, $.rev()))
+    .pipe($.if(condition, gulp.dest(config.build.script)))
+    .pipe($.if(condition, $.rev.manifest('.tmp/rev-manifest.json',{
+      base: '.tmp',
+      merge: true
+    })))
+    .pipe($.if(condition, gulp.dest('.tmp')))
 })
 
 // 注意： lib文件下不执行压缩
@@ -125,7 +156,7 @@ gulp.task('less', function () {
 
 
 gulp.task('clean', () => {
-  del('./dist').then(paths => {
+  return del(['dist', '.temp']).then(paths => {
     console.log('Deleted files and folders:\n', paths.join('\n'));
   });
 })
@@ -133,20 +164,19 @@ gulp.task('clean', () => {
 gulp.task('watch', () => {
   gulp.watch(config.dev.html, ['html']).on('change', reload)
   gulp.watch(config.dev.styles, ['styles']).on('change', reload)
-  gulp.watch(config.dev.script, ['script']).on('change', reload)
+  //gulp.watch(config.dev.script, ['script']).on('change', reload)
   gulp.watch(config.dev.images, ['images']).on('change', reload)
-  gulp.watch(config.dev.less, ['less']).on('change', reload)
 })
 
 gulp.task('zip', () => {
   return gulp.src(config.zip.path)
-  .pipe($.plumber(onError))
-  .pipe(zip(config.zip.name))
-  .pipe(gulp.dest(config.zip.dest))
+    .pipe($.plumber(onError))
+    .pipe(zip(config.zip.name))
+    .pipe(gulp.dest(config.zip.dest))
 })
 
 gulp.task('server', () => {
-  const task = ['html', 'styles', 'script', 'lib', 'images', 'less']
+  const task = ['html', 'styles', 'script', 'lib', 'images']
   cbTask(task).then(() => {
     config.server.baseDir = config.server.baseDir + config.projectPath
     browserSync.init(config.server)
@@ -155,22 +185,11 @@ gulp.task('server', () => {
   })
 })
 
-gulp.task('build', () => {
-  const task = ['html', 'styles', 'script', 'lib', 'images', 'less']
-  cbTask(task).then(() => {
-    console.log(chalk.cyan('  Build complete.\n'))
-
-    if (config.productionZip) {
-      gulp.start('zip', () => {
-        console.log(chalk.cyan('  Zip complete.\n'))
-      })
-    }
-  })
-})
+gulp.task('build',$.sequence('clean',['styles'], ['script'], 'lib', ['images'],'html'))
 
 gulp.task('default', () => {
   console.log(chalk.green(
-   `
+    `
   Build Setup
     开发环境： npm run dev
     生产环境： npm run build
