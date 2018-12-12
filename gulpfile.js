@@ -59,7 +59,7 @@ gulp.task('html', () => {
     .pipe($.revCollector({
       replaceReved: true,
       dirReplacements:{
-        './':'./',
+        './styles':'./styles',
         './js':'./js',
         'images':'images'
       }
@@ -87,7 +87,8 @@ gulp.task('styles', () => {
     .pipe($.less())
     .pipe($.if(condition, $.cleanCss({debug: true})))
     //.pipe($.postcss('./.postcssrc.js'))
-    .pipe(gulp.dest('.tmp'))
+    .pipe($.rename({dirname:''}))
+    .pipe(gulp.dest('.tmp/styles'))
     .pipe($.if(condition, $.rev()))
     .pipe($.if(condition, gulp.dest(config.build.styles)))
     .pipe($.if(condition, $.rev.manifest('.tmp/rev-manifest.json',{
