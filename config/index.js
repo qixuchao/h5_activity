@@ -37,9 +37,7 @@ const config = {
   productionZip: false,
   server: {
     // 服务器
-    server: {
-      baseDir: './dist/' + projectPath,
-    },
+    server: ['.tmp','src/'+projectPath],
     // 是否开启多端同步
     ghostMode: {
       click: false, // 同步点击

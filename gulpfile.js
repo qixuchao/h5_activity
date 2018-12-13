@@ -14,6 +14,7 @@ const reload = browserSync.reload
 
 // NODE_ENV
 const env = process.env.NODE_ENV || 'development'
+
 const condition = env === 'production'
 
 function respath(dir) {
@@ -55,14 +56,14 @@ function cbTask(task) {
 
 gulp.task('html', () => {
   return gulp.src(config.dev.html)
-    .pipe($.revCollector({
+    .pipe($.if(condition, $.revCollector({
       replaceReved: true,
       dirReplacements:{
         './styles':'./styles',
         './js':'./js',
         'images':'images'
       }
-    }))
+    })))
     .pipe($.plumber(onError))
     .pipe($.fileInclude({
       prefix: '@@',
@@ -176,9 +177,7 @@ gulp.task('zip', () => {
 })
 
 gulp.task('server', () => {
-  const task = ['html', 'styles', 'script', 'lib', 'images']
-  cbTask(task).then(() => {
-    config.server.baseDir = config.server.baseDir + config.projectPath
+  $.sequence('clean',['styles'], ['script'], 'lib', ['images'],'html')(function(){
     browserSync.init(config.server)
     console.log(chalk.cyan('  Server complete.\n'))
     gulp.start('watch')
