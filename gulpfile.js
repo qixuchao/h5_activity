@@ -58,10 +58,10 @@ gulp.task('html', () => {
   return gulp.src(config.dev.html)
     .pipe($.if(condition, $.revCollector({
       replaceReved: true,
-      dirReplacements:{
-        './styles':'./styles',
-        './js':'./js',
-        'images':'images'
+      dirReplacements: {
+        './styles': './styles',
+        './js': './js',
+        'images': 'images'
       }
     })))
     .pipe($.plumber(onError))
@@ -87,11 +87,11 @@ gulp.task('styles', () => {
     .pipe($.less())
     .pipe($.if(condition, $.cleanCss({debug: true})))
     //.pipe($.postcss('./.postcssrc.js'))
-    .pipe($.rename({dirname:''}))
+    .pipe($.rename({dirname: ''}))
     .pipe(gulp.dest('.tmp/styles'))
     .pipe($.if(condition, $.rev()))
     .pipe($.if(condition, gulp.dest(config.build.styles)))
-    .pipe($.if(condition, $.rev.manifest('.tmp/rev-manifest.json',{
+    .pipe($.if(condition, $.rev.manifest('.tmp/rev-manifest.json', {
       base: '.tmp',
       merge: true // Merge with the existing manifest if one exists
     })))
@@ -103,13 +103,13 @@ gulp.task('images', () => {
     .pipe($.plumber(onError))
     .pipe($.cache($.imagemin({
       progressive: true, // 无损压缩JPG图片
-      svgoPlugins: [{removeViewBox: false}], // 不移除svg的viewbox属性
-      use: [pngquant()] // 使用pngquant插件进行深度压缩
+      svgoPlugins: [ {removeViewBox: false} ], // 不移除svg的viewbox属性
+      use: [ pngquant() ] // 使用pngquant插件进行深度压缩
     })))
     .pipe(gulp.dest('.tmp/images'))
     .pipe($.if(condition, $.rev()))
     .pipe($.if(condition, gulp.dest(config.build.images)))
-    .pipe($.if(condition, $.rev.manifest('.tmp/rev-manifest.json',{
+    .pipe($.if(condition, $.rev.manifest('.tmp/rev-manifest.json', {
       base: '.tmp',
       merge: true
     })))
@@ -126,7 +126,7 @@ gulp.task('eslint', () => {
 })
 
 
-const useEslint = config.useEslint ? ['eslint'] : [];
+const useEslint = config.useEslint ? [ 'eslint' ] : [];
 gulp.task('script', useEslint, () => {
   return gulp.src(config.dev.script)
     .pipe($.replace('__ENV__', env))
@@ -136,7 +136,7 @@ gulp.task('script', useEslint, () => {
     .pipe(gulp.dest('.tmp/js'))
     .pipe($.if(condition, $.rev()))
     .pipe($.if(condition, gulp.dest(config.build.script)))
-    .pipe($.if(condition, $.rev.manifest('.tmp/rev-manifest.json',{
+    .pipe($.if(condition, $.rev.manifest('.tmp/rev-manifest.json', {
       base: '.tmp',
       merge: true
     })))
@@ -157,16 +157,16 @@ gulp.task('less', function () {
 
 
 gulp.task('clean', () => {
-  return del(['dist', '.temp']).then(paths => {
+  return del([ 'dist', '.temp' ]).then(paths => {
     console.log('Deleted files and folders:\n', paths.join('\n'));
   });
 })
 
 gulp.task('watch', () => {
-  gulp.watch(config.dev.html, ['html']).on('change', reload)
-  gulp.watch(config.dev.styles, ['styles']).on('change', reload)
+  gulp.watch(config.dev.html, [ 'html' ]).on('change', reload)
+  gulp.watch(config.dev.styles, [ 'styles' ]).on('change', reload)
   //gulp.watch(config.dev.script, ['script']).on('change', reload)
-  gulp.watch(config.dev.images, ['images']).on('change', reload)
+  gulp.watch(config.dev.images, [ 'images' ]).on('change', reload)
 })
 
 gulp.task('zip', () => {
@@ -177,14 +177,14 @@ gulp.task('zip', () => {
 })
 
 gulp.task('server', () => {
-  $.sequence('clean',['styles'], ['script'], 'lib', ['images'],'html')(function(){
+  $.sequence('clean', [ 'images' ], [ 'styles' ], [ 'script' ], 'lib', 'html')(function () {
     browserSync.init(config.server)
     console.log(chalk.cyan('  Server complete.\n'))
     gulp.start('watch')
   })
 })
 
-gulp.task('build',$.sequence('clean',['styles'], ['script'], 'lib', ['images'],'html'))
+gulp.task('build', $.sequence('clean', [ 'images' ], [ 'styles' ], [ 'script' ], 'lib', 'html'))
 
 gulp.task('default', () => {
   console.log(chalk.green(
