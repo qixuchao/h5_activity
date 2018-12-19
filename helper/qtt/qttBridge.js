@@ -63,7 +63,7 @@ QTTB = (function(){
 		version:'1.0.0',
 		isCoinVersion:isCoinVersion,
 		getToken:geToken,
-		isQTT: /qukan/.test(navigator.userAgent),
+		isQTT: /qukan|clicash/.test(navigator.userAgent),
 		toLogin:toLogin,
     shareWX:function(text){
 		  share('wx',text)
