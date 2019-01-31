@@ -367,7 +367,6 @@
             open: function() {},
             //显示分享遮罩引导用户下载
             showShareMask: function() {
-                return;
                 var id = '_jskit_mask';
                 var mask = document.getElementById(id);
                 if (!mask) {
@@ -375,9 +374,11 @@
                     mask.className = 'wechat-mask show';
                     mask.id = id;
                     mask.innerHTML = '<div style="position:fixed;z-index:9999;left:0px;top:0px;width:100%;text-align:' +
-                        'right;background-color: rgba(20, 20, 20, 0.85);height: 100%;padding-right:30px">' +
-                        ' <img width="90%" src="http://biz.isongli.net/wx_mask.png" /></div>';
-
+                      'right;background-color: rgba(20, 20, 20, 0.85);height: 100%;padding-right:30px">' +
+                      '<div style="width: 50%;float: right;margin-right: 50px">' +
+                      '<img width="90%" src="http://static.xiawan8.com/activity/pizzahut/images/share_image.png" />' +
+                      '</div>'+
+                      '</div>';
                     (document.body || document.documentElement).appendChild(mask);
                 }
 
@@ -546,7 +547,7 @@
                             wx.error(function(res) {
                                 console.log('wx error', res)
                             });
-                        }   
+                        }
                     }
                 });
             }
