@@ -131,7 +131,7 @@ gulp.task('script', useEslint, () => {
   return gulp.src(config.dev.script)
     .pipe($.replace('__ENV__', env))
     .pipe($.plumber(onError))
-    .pipe($.logger())
+    // .pipe($.logger())
     .pipe($.if(condition, $.uglify()))
     .pipe(gulp.dest('.tmp/js'))
     .pipe($.if(condition, $.rev()))
@@ -177,14 +177,14 @@ gulp.task('zip', () => {
 })
 
 gulp.task('server', () => {
-  $.sequence('clean', [ 'images' ], [ 'styles' ], [ 'script' ], 'lib', 'html')(function () {
+  $.sequence('clean', [ 'styles' ], [ 'script' ], 'lib', 'html')(function () {
     browserSync.init(config.server)
     console.log(chalk.cyan('  Server complete.\n'))
     gulp.start('watch')
   })
 })
 
-gulp.task('build', $.sequence('clean', [ 'images' ], [ 'styles' ], [ 'script' ], 'lib', 'html'))
+gulp.task('build', $.sequence('clean', [ 'styles' ], [ 'script' ], 'lib', 'html'))
 
 gulp.task('default', () => {
   console.log(chalk.green(

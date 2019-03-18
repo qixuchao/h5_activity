@@ -1,0 +1,299 @@
+@import "./_reset";
+
+@rem: 1rem/32;
+
+body {
+  font-family: PingFangSC-Regular, "微软雅黑", arial, "宋体", helvetica, verdana, sans-serif;
+  background: #000000;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+input::-webkit-input-placeholder {
+  color: #C0A235;
+  font-size: @rem*30;
+}
+
+.pc {
+  width: 375px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.player-modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 999;
+  //display: flex;
+  align-items: center;
+  display: none;
+  .close {
+    position: absolute;
+    top: @rem*50;
+    left: @rem*30;
+    width: @rem*40;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.treaty {
+  background: #ffffff;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: @rem*15;
+  font-size: @rem*22;
+  .treaty-content {
+    margin-top: @rem*1100;
+    word-break: break-all;
+    .content-title {
+      font-size: @rem*28;
+    }
+    h3 {
+      text-align: center;
+    }
+    .content-title-sub {
+      text-indent: 1em;
+    }
+    p {
+      text-indent: 2em;
+      line-height: @rem*33;
+    }
+    .content-children {
+      padding-left: 1em;
+      line-height: @rem*33;
+    }
+  }
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .img-palyer {
+    position: absolute;
+    width: @rem*128;
+    height: @rem*128;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    span {
+      position: absolute;
+      bottom: @rem*10;
+      font-size: @rem*24;
+      color: #ffffff;
+    }
+  }
+}
+
+.container {
+  position: absolute;
+  width: 100%;
+}
+
+.yzl-form {
+  background: url("../images/yzl_form.png") no-repeat;
+  background-size: 100% auto;
+  padding: @rem*112 @rem*40 0;
+  .form-sub-title {
+    font-size: @rem*32;
+    color: #FCCA6F;
+    margin: @rem*78 0 @rem*30;
+  }
+  .yzl-form-wrap {
+    width: 100%;
+    padding: 0 @rem*35;
+    box-sizing: border-box;
+    .form-treaty {
+      width: 100%;
+      text-align: center;
+      color: #C0A235;
+      margin: @rem*45 0;
+      input[type='checkbox'] {
+        height: @rem*30;
+        width: @rem*30;
+        background-color: rgba(0, 0, 0);
+        -webkit-appearance: none;
+        border: 1px solid #C0A235;
+        border-radius: 2px;
+        outline: none;
+        &:checked {
+          background: url('../images/yzl_checked.png') no-repeat;
+          background-size: 100%;
+        }
+      }
+      span {
+        color: #FCCA6F;
+      }
+    }
+  }
+  .form-item {
+    width: 100%;
+    box-sizing: content-box;
+    position: relative;
+    height: @rem*100;
+    line-height: @rem*100;
+    border-bottom: @rem*2 solid #4F4316;
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
+    justify-content: center;
+    color: #C0A235;
+    label {
+      padding-left: @rem*5;
+    }
+    input, select {
+      background: none;
+      border: none;
+      outline: none;
+      height: @rem*45;
+      color: #C0A235;
+      -webkit-appearance: none;
+    }
+    .form-item-img {
+      width: @rem*50;
+      position: absolute;
+      right: 0;
+    }
+  }
+  .form-submit {
+    width: 100%;
+    text-align: center;
+    height: @rem*94;
+    border: none;
+    font-size: @rem*38;
+    background: -webkit-linear-gradient(left, #F6DE74, #92782D);
+    box-shadow: 0 0 @rem*18 0 rgba(0, 0, 0, .3);
+  }
+}
+
+.yzl-part {
+  padding: 0 @rem*40;
+  width: 100%;
+  margin-top: @rem*120;
+  box-sizing: border-box;
+  .yzl-part-title {
+    width: 100%;
+  }
+  .yzl-part-content {
+    margin-top: @rem*27;
+    width: 100%;
+    color: #FCCA6F;
+    .table-head {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: @rem*90;
+      background: #342900;
+      border: 1px solid #FCCA6F;
+      border-bottom: none;
+      padding: 0 @rem*29;
+      select {
+        background: none;
+        border: none;
+        outline: none;
+        height: @rem*45;
+        color: #C0A235;
+        width: 60%;
+        margin-left: @rem*20;
+        -webkit-appearance: none;
+      }
+      .form-item-img {
+        width: @rem*50;
+        position: absolute;
+        right: @rem*29;
+      }
+    }
+  }
+  &.content-bg {
+    padding: 0 @rem*35 @rem*35;
+    box-sizing: border-box;
+    background: url("../images/yzl_video_bg.png") no-repeat;
+    background-size: 96% 100%;
+    background-position: bottom;
+  }
+}
+
+.swiper-bar {
+  color: #C0A235;
+  min-height: @rem*108;
+  width: 100%;
+  display: inline-flex;
+  margin-bottom: @rem*12;
+  background: -webkit-linear-gradient(top, rgba(213, 177, 73, .18), rgba(192, 162, 53, .8));;
+  .swiper-children {
+    width: @rem*120;
+    color: #FCCA6F;
+    padding: @rem*31 @rem*8 0;
+    word-break: break-all;
+    text-align: center;
+    border: @rem*1 solid rgba(255, 255, 255, 0);
+    border-bottom: @rem*4 solid rgba(255, 255, 255, 0);
+    span:nth-child(1) {
+      font-size: @rem*28;
+    }
+    span:nth-child(2) {
+      font-size: @rem*20;
+    }
+    &.activity {
+      border: @rem*1 solid #645324;
+      border-bottom: @rem*4 solid #CBA656;
+    }
+  }
+}
+
+.swiper-desc {
+  font-size: @rem*32;
+  color: #FCCA6F;
+  margin-top: @rem*22;
+  p {
+    margin: 0;
+    line-height: @rem*45;
+  }
+}
+
+.prompt {
+  position: fixed;
+  top: 70%;
+  left: 0;
+  right: 0;
+  display: none;
+  margin: 0 auto;
+  color: #000000;
+  padding: @rem*20;
+  max-width: @rem*400;
+  font-size: @rem*30;
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.checkTable {
+  height: @rem*800;
+  overflow-y: auto;
+  margin-bottom: @rem*50;
+  -webkit-overflow-scrolling: touch
+}
+
+table {
+  width: 100%;
+  text-align: center;
+  border-spacing: 0;
+  border-color: #FCCA6F;
+  margin-bottom: @rem*150;
+  tr {
+    height: @rem*60;
+  }
+}
+
+
+
+
+

@@ -1,5 +1,5 @@
 const path = require('path')
-const projectPath = 'activityName/'
+const projectPath = 'yzl/'
 
 function resolveDev(dir) {
   return path.join(__dirname, '../src/' + projectPath, dir)
