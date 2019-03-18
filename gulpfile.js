@@ -177,14 +177,14 @@ gulp.task('zip', () => {
 })
 
 gulp.task('server', () => {
-  $.sequence('clean', [ 'styles' ], [ 'script' ], 'lib', 'html')(function () {
+  $.sequence('clean', [ 'images' ], [ 'styles' ], [ 'script' ], 'lib', 'html')(function () {
     browserSync.init(config.server)
     console.log(chalk.cyan('  Server complete.\n'))
     gulp.start('watch')
   })
 })
 
-gulp.task('build', $.sequence('clean', [ 'styles' ], [ 'script' ], 'lib', 'html'))
+gulp.task('build', $.sequence('clean', [ 'images' ], [ 'styles' ], [ 'script' ], 'lib', 'html'))
 
 gulp.task('default', () => {
   console.log(chalk.green(
