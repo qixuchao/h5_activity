@@ -177,7 +177,7 @@ gulp.task('zip', () => {
 })
 
 gulp.task('server', () => {
-  $.sequence('clean', [ 'images' ], [ 'styles' ], [ 'script' ], 'lib', 'html')(function () {
+  $.sequence('clean', [ 'styles' ], [ 'script' ], 'lib', 'html')(function () {
     browserSync.init(config.server)
     console.log(chalk.cyan('  Server complete.\n'))
     gulp.start('watch')
