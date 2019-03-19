@@ -118,6 +118,9 @@ Zepto(function($){
       success: function (response) {
         if (response.code === 0) {
           showPrompt('提交成功');
+          setTimeout(function(){
+            location.href = './success.html'
+          }, 500)
           // $.ajax({
           //   url: '',
           //   type: 'post',
