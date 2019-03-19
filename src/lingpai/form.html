@@ -4,7 +4,7 @@
   <meta charset="UTF-8" >
   <title ></title >
   <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-  <link rel="stylesheet" type="text/css" href="./styles/index.css" >
+  <link rel="stylesheet" type="text/css" href="./styles/form.css" >
   <link rel="stylesheet" type="text/css" href="./styles/swiper.min.css" >
   <script data-js-path="redraw.js" >
     !(function (f, o) {
@@ -71,68 +71,55 @@
 </head >
 <body >
 <div class="container" >
-  <div class="container-content" >
-    <div class="main-logo" >
-      <img src="./images/lp_main_logo.png" alt="" >
-    </div >
-    <div class="main-title" >
-      <img src="./images/lp_main_titile.png" alt="" >
-    </div >
-    <div class="activity-rule" >
-      <a >【活动规则】</a >
-    </div >
-    <div class="main-bottom" >
-      <div class="main-button" >
-        <button class="join">
-          <p >参与赢取加油卡</p >
-          <p >0门槛抽200元油卡 再送100金币奖励</p >
-        </button >
-      </div >
-      <div class="main-desc" >
-        <p >各地金融政策可能存在差异，详情请洽广汽本田当地特约店</p >
-        <p >截止到2019年4月30日前限量限时</p >
-      </div >
-      <div class="main-bottom-logo" >
-        <img src="./images/lp_main_bottom_logo.png" alt="" >
-      </div >
-    </div >
-  </div >
-</div >
-<div class="rule-modal" >
-  <div class="modal-wrap" >
-    <div class="modal" >
-      <div class="modal-head" >
-        活动规则
-      </div >
-      <div class="modal-content" >
-        <div class="content-title" >
-          <p >【凌派十万车主冲刺季】</p >
-          <p >0门槛参与试驾抽油卡</p >
+  <div class="container-content">
+    <div class="form-title">
+      <img src="./images/lp_order_title.png" alt="" >
+    </div>
+    <div class="form-desc">
+      <img src="./images/lp_order_desc.png" alt="" >
+    </div>
+    <div class="lp-form" >
+      <div class="lp-form-wrap" >
+        <div class="form-item" >
+          <input class='name' placeholder="请填写您的姓名" type="text" >
         </div >
-        <div class="content" >
-          参与新一代凌派预约试驾，100金币奖励即可到达您的趣头条账户，且有机会抽中200元加油卡哦！记得每天分享文章/视频领金币啦~
+        <div class="form-item" >
+          <input class="phone-num" placeholder="请输入11位手机号" type="number" >
+        </div >
+        <div class="form-item" >
+          <select class="province" id="province" >
+            <option value="" >请选择省份</option >
+          </select >
+          <div class="form-item-img" >
+            <img src="./images/lp_arrows_white.png" alt="" >
+          </div >
+        </div >
+        <div class="form-item" >
+          <select class="city" id="city" >
+            <option value="" >请选择市/区</option >
+          </select >
+          <div class="form-item-img" >
+            <img src="./images/lp_arrows_white.png" alt="" >
+          </div >
+        </div >
+        <div class="form-item" >
+          <select class="dealer" id="dealer" >
+            <option value="" >请选择经销商</option >
+          </select >
+          <div class="form-item-img" >
+            <img src="./images/lp_arrows_white.png" alt="" >
+          </div >
+        </div >
+        <div class="form-treaty" >
+          <span>您的个人资料有可能会提交至广本凌派厂商的授权经销商，客服会与您进一步沟通试驾，购车等事宜。</span >
         </div >
       </div >
+      <button class="form-submit" >立即提交</button >
     </div >
-    <div class='close' >
-      <img src='./images/lp_main_close.png' alt='' >
-    </div >
-  </div >
+  </div>
 </div >
 </body >
 <script src="lib/zepto.min.js" ></script >
-<script type="text/javascript">
-  Zepto(function ($) {
-    var $ruleModal = $('.rule-modal')
-    $('.activity-rule').click(function(){
-      $ruleModal.css({display: 'flex'})
-    })
-    $('.close').click(function(){
-      $ruleModal.css({display: 'none'})
-    })
-    $('.join').click(function(){
-      location.href = '/activity.html'
-    })
-  })
-</script>
+<script src="lib/swiper.min.js" ></script >
+<script src="js/index1.js" ></script >
 </html >

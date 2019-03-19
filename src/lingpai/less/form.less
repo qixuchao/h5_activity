@@ -1,0 +1,108 @@
+@import "./_reset";
+
+@rem: 1rem/32;
+
+
+body {
+  font-family: PingFangSC-Regular, "微软雅黑", arial, "宋体", helvetica, verdana, sans-serif;
+background: #0a0a0b;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+a{
+  text-decoration: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #ffffff;
+  font-size: @rem*30;
+}
+
+.pc {
+  width: 375px;
+  position: relative;
+  margin: 0 auto;
+}
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.container-content{
+  height: 100%;
+  background: url('../images/lp_order_bg.png') no-repeat;
+  background-size: 100% auto;
+  background-position: top;
+  padding: @rem*80 0 0;
+  box-sizing: border-box;
+  .form-title{
+    width: @rem*254;
+    margin: 0 auto;
+  }
+  .form-desc{
+    width: @rem*522;
+    margin: 0 auto;
+    margin-top: @rem*33;
+  }
+}
+
+.lp-form {
+  padding: @rem*49 @rem*40 0;
+  .lp-form-wrap {
+    width: 100%;
+    padding: 0 @rem*35;
+    box-sizing: border-box;
+    .form-treaty {
+      width: 100%;
+      font-size: @rem*24;
+      text-align: center;
+      color: #ffffff;
+      margin: @rem*32 0 0;
+      line-height: @rem*33;
+    }
+  }
+  .form-item {
+    width: 100%;
+    box-sizing: content-box;
+    position: relative;
+    height: @rem*106;
+    line-height: @rem*106;
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
+    justify-content: center;
+    color: #ffffff;
+    font-size: @rem*30;
+    border-bottom: @rem*1 solid #ffffff;
+    input, select {
+      background: none;
+      border: none;
+      outline: none;
+      height: @rem*45;
+      color: #ffffff;
+      -webkit-appearance: none;
+    }
+    .form-item-img {
+      width: @rem*50;
+      position: absolute;
+      right: 0;
+      pointer-events: none;
+    }
+  }
+  .form-submit {
+    width: 100%;
+    text-align: center;
+    height: @rem*94;
+    color: #ffffff;
+    margin-top: @rem*87;
+    font-size: @rem*36;
+    background: -webkit-linear-gradient(bottom, #0559BB, #022D86);
+    border: @rem*1 solid #979797;
+
+  }
+}
