@@ -6,7 +6,6 @@ Zepto(function($){
   var city = []
   var dealer = []
   var provinceCode = null
-
   Date.prototype.Format = function(fmt) {
     var o = {
       "M+" : this.getMonth()+1,                 //月份
@@ -159,27 +158,27 @@ Zepto(function($){
     console.log(qttToken)
     var goldParams = {
       activity_id: 7,
-      amount: '100',
+      amount: 10,
       client_id: 1,
       ip: ip,
       token: '7f02MJatG3ZDibXQ0XqYbegjOPTvkXvvBaqgphT8eMmo5YXPkqtImOS17TR0oxTF0xcQgL7tKUpxv6IU6g',
     }
-    $.ajax({
-      url: goldHost + 'api/h5/sendGold',
-      type: 'get',
-      headers: {
-        token: $.md5('307f073efb4ca727fa55597a7ads1234'+decodeURIComponent(param(goldParams))+'307f073efb4ca727fa55597a7ads1234')
-      },
-      data: Object.assign(goldParams, {valid_content: JSON.stringify([{
-      key: 'tel',
-      value: phone,
-      require: true
-    }])}),
-      contentType: 'application/json',
-      dataType: 'json',
-      success: function (response) {
-      }
-    })
+    // $.ajax({
+    //   url: goldHost + 'api/h5/sendGold',
+    //   type: 'get',
+    //   headers: {
+    //     token: $.md5('307f073efb4ca727fa55597a7ads1234'+decodeURIComponent(param(goldParams))+'307f073efb4ca727fa55597a7ads1234')
+    //   },
+    //   data: Object.assign(goldParams, {valid_content: JSON.stringify([{
+    //   key: 'tel',
+    //   value: phone,
+    //   require: true
+    // }])}),
+    //   contentType: 'application/json',
+    //   dataType: 'json',
+    //   success: function (response) {
+    //   }
+    // })
     $.ajax({
       url: host+'api/sendLeads',
       type: 'post',
@@ -191,45 +190,38 @@ Zepto(function($){
         if (response.code === 0) {
           showPrompt('提交成功');
           $.ajax({
-            url: 'http://openapi.fancysmp.com/api/create?project=lingpai',
-            type: 'post',
-            processData: true,
-            // contentType: 'application/json',
-            data: localParams,
+            url: goldHost + 'api/h5/sendGold',
+            type: 'get',
+            headers: {
+              token: $.md5('307f073efb4ca727fa55597a7ads1234'+decodeURIComponent(param(goldParams))+'307f073efb4ca727fa55597a7ads1234')
+            },
+            data: Object.assign(goldParams, {valid_content: JSON.stringify([{
+              key: 'tel',
+              value: phone,
+              require: true
+            }])}),
+            contentType: 'application/json',
             dataType: 'json',
-            success: function() {
-              // setTimeout(function(){
-              //   location.href = './success.html'
-              // }, 500)
+            success: function (response) {
+              if (response.code === 0) {
+                showPrompt('领取金币成功')
+                $.ajax({
+                  url: 'http://openapi.fancysmp.com/api/create?project=lingpai',
+                  type: 'post',
+                  processData: true,
+                  data: localParams,
+                  dataType: 'json',
+                  success: function () {
+                    setTimeout(function(){
+                      location.href = './success.html'
+                    }, 1000)
+                  }
+                })
+              } else {
+                showPrompt(response.errorMessage)
+              }
             }
-          });
-          // $.ajax({
-          //   url: goldHost + '/api/gold',
-          //   type: 'post',
-          //   processData: false,
-          //   headers: {
-          //     token: $.md5(param(goldParams))
-          //   },
-          //   data: JSON.stringify(goldParams),
-          //   contentType: 'application/json',
-          //   dataType: 'json',
-          //   success: function (response) {
-          //     showPrompt('金币发送成功')
-          //     $.ajax({
-          //       url: 'http://openapi.fancysmp.com/api/create?project=lingpai',
-          //       type: 'post',
-          //       processData: false,
-          //       contentType: 'application/json',
-          //       data: JSON.stringify({datas: params.datas}),
-          //       dataType: 'json',
-          //       success: function() {
-          //         setTimeout(function(){
-          //           location.href = './success.html'
-          //         }, 500)
-          //       }
-          //     });
-          //   }
-          // })
+          })
         }
       },
     });

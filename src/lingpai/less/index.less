@@ -30,7 +30,7 @@ a{
 
 .container-content{
   height: 100%;
-  background: url('../images/lp_main_bg.png') no-repeat;
+  background: url('../images/lp_main_bg.jpg') no-repeat;
   background-size: 100% auto;
   background-position: top;
   position: relative;
@@ -57,11 +57,11 @@ a{
     position: absolute;
     width: 100%;
     bottom: 0;
-
+    height: 30%;
     .main-button {
       width: 100%;
       text-align: center;
-      top: 75%;
+      margin-top: 8%;
       button {
         width: @rem*636;
         height: @rem*144;
@@ -76,6 +76,7 @@ a{
         }
         p:nth-child(2) {
           font-size: @rem*24;
+          margin-left: @rem*50;
         }
       }
     }
@@ -93,6 +94,8 @@ a{
       width: @rem*654;
       padding-left: @rem*22;
       margin-bottom: @rem*19;
+      position: absolute;
+      bottom: 0;
     }
   }
 }
