@@ -1,4 +1,5 @@
 var host = 'http://crider.test.fancydsp.com/'
+var goldHost = 'http://gold_test.qtt.fancydsp.com/'
 
 Zepto(function($){
   var province = []
@@ -23,7 +24,12 @@ Zepto(function($){
         fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
     return fmt;
   }
-
+  var qttToken = null
+  if (QTTB.isQTT) {
+    QTTB.getToken(function(token) {
+      qttToken = token
+    })
+  }
   var showPrompt = function (data) {
     var $prompt = $('.prompt');
     $prompt.css({ display: 'block' });
@@ -33,11 +39,33 @@ Zepto(function($){
       clearTimeout(timer);
     }, 1500);
   };
+  var getData = function(data) {
+    return $.map(Object.keys(data), function(value) {
+      return '<option value='+data[value].code+','+data[value].name+'>'+data[value].name+'</option>'
+    })
+  }
 
-  province = $.map(Object.keys(datas), function(value) {
-    return '<option value='+datas[value].code+','+datas[value].name+'>'+datas[value].name+'</option>'
+  $('#province').append(getData(datas))
+  var ip = null
+  $.ajax({
+    url: 'http://geo.test.amnetapi.com/ade/v1/geoParse/getGeoInfo',
+    jsonp: 'jsonp',
+    dataType: 'jsonp',
+    success: function(response){
+      if (response.error_message === 'success') {
+        var cityList = {}
+        ip = response.data.ip
+        Object.keys(datas).forEach(function(value){
+          if (datas[value].name === response.data.province_str) {
+            $('#province').val(datas[value].code+','+datas[value].name)
+            provinceCode = datas[value].code
+            cityList = datas[value].child
+          }
+        })
+        $('#city').append(getData(cityList))
+      }
+    }
   })
-  $('#province').append(province)
 
   $('#province').change(function(e){
     var $city = $("#city");
@@ -46,22 +74,33 @@ Zepto(function($){
     $city.replaceWith('<select id="city"><option value="">请选择市/区</option></select>');
     $dealer.replaceWith('<select id="dealer"><option value="">请选择经销商</option></select>');
     var provinceChild = e.target.value ? datas[e.target.value.split(',')[0]]: {}
-    var data = Object.keys(provinceChild.child)
-    city = $.map(data, function(value) {
-      return '<option value='+provinceChild.child[value].code+','+provinceChild.child[value].name+'>'+provinceChild.child[value].name+'</option>'
-    })
-    $('#city').append(city)
+    var data = provinceChild.child
+    $('#city').append(getData(data))
+
     $('#city').change(function(e){
       var $dealer = $("#dealer");
       $dealer.replaceWith('<select id="dealer"><option value="">请选择经销商</option></select>');
       var cityChild = e.target.value ? datas[provinceCode].child[e.target.value.split(',')[0]] : {}
-      dealer = $.map(Object.keys(cityChild.child), function(value){
-        return '<option value='+cityChild.child[value].code+','+cityChild.child[value].name+'>'+cityChild.child[value].name+'</option>'
-      })
-      $('#dealer').append(dealer)
+      $('#dealer').append(getData(cityChild.child))
     })
   })
+  $('#city').change(function(e){
+    var $dealer = $("#dealer");
+    $dealer.replaceWith('<select id="dealer"><option value="">请选择经销商</option></select>');
+    var cityChild = e.target.value ? datas[provinceCode].child[e.target.value.split(',')[0]] : {}
+    $('#dealer').append(getData(cityChild.child))
+  })
 
+
+  var param = function(paramObj) {
+    var str = [];
+    for (var i in paramObj) {
+      if (paramObj[i] !== undefined) {
+        str.push(i + '=' + encodeURIComponent(paramObj[i]));
+      }
+    }
+    return str.join('&');
+  }
   $('.form-submit').click(function () {
     var name = $('.name').val();
     var phone = $('.phone-num').val();
@@ -89,12 +128,12 @@ Zepto(function($){
       RequestObjectList: [{
         TRUE_NAME: name,
         MOBILE: phone,
-        PROVINCE: +provinceId.split(',')[0],
-        CITY: +cityId.split(',')[0],
+        PROVINCE: provinceId.split(',')[0],
+        CITY: cityId.split(',')[0],
         DEALER: dealerId.split(',')[0],
         SERIES: '4374B1D6-6F2E-4892-AFC6-2B06E76248A0',
         LEAD_TYPE: '771A1CF7-0E2C-440B-9D0E-5F5D792431DC',
-        CREATED_TIME: (new Date()).Format('YYYY-MM-DD hh:mm:ss'),
+        CREATED_TIME: (new Date()).Format('yyyy-MM-dd hh:mm:ss'),
         MARKETING_NUMBER: '1-54383317'
       }]
     };
@@ -108,29 +147,71 @@ Zepto(function($){
       LEAD_TYPE: '771A1CF7-0E2C-440B-9D0E-5F5D792431DC',
       MARKETING_NUMBER: '1-54383317'
     };
+    var goldParams = {
+      activity_id: 7,
+      amount: '100',
+      client_id: 1,
+      ip: ip,
+      token: '307f073efb4ca727fa55597a7ads4567',
+      valid_content: JSON.stringify([{
+        key: 'tel',
+        value: phone,
+        require: true
+      }])
+    }
+    console.log(decodeURIComponent(param(goldParams)))
     $.ajax({
-      url: host+'AdLeadsService.asmx',
-      type: 'post',
-      processData: true,
-      data: params,
+      url: goldHost + 'api/h5/sendGold',
+      type: 'get',
+      // processData: false,
+      headers: {
+        token: $.md5('307f073efb4ca727fa55597a7ads4567'+decodeURIComponent(param(goldParams))+'307f073efb4ca727fa55597a7ads4567')
+      },
+      data: goldParams,
       contentType: 'application/json',
       dataType: 'json',
       success: function (response) {
-        if (response.code === 0) {
-          showPrompt('提交成功');
-          setTimeout(function(){
-            location.href = './success.html'
-          }, 500)
-          // $.ajax({
-          //   url: '',
-          //   type: 'post',
-          //   processData: false,
-          //   contentType: 'application/json',
-          //   data: JSON.stringify({datas: params.datas}),
-          //   dataType: 'json',
-          // });
-        }
-      },
-    });
+      }
+    })
+    // $.ajax({
+    //   url: host+'api/sendLeads',
+    //   type: 'post',
+    //   processData: false,
+    //   data: JSON.stringify(params),
+    //   contentType: 'application/json',
+    //   dataType: 'json',
+    //   success: function (response) {
+    //     if (response.code === 0) {
+    //       showPrompt('提交成功');
+    //       $.ajax({
+    //         url: goldHost + '/api/gold',
+    //         type: 'post',
+    //         processData: false,
+    //         headers: {
+    //           token: $.md5(param(goldParams))
+    //         },
+    //         data: JSON.stringify(goldParams),
+    //         contentType: 'application/json',
+    //         dataType: 'json',
+    //         success: function (response) {
+    //           showPrompt('金币发送成功')
+    //           $.ajax({
+    //             url: 'http://openapi.fancysmp.com/api/create?project=lingpai',
+    //             type: 'post',
+    //             processData: false,
+    //             contentType: 'application/json',
+    //             data: JSON.stringify({datas: params.datas}),
+    //             dataType: 'json',
+    //             success: function() {
+    //               setTimeout(function(){
+    //                 location.href = './success.html'
+    //               }, 500)
+    //             }
+    //           });
+    //         }
+    //       })
+    //     }
+    //   },
+    // });
   });
 })

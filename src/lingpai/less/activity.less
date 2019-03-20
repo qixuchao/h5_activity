@@ -174,7 +174,10 @@ input::-webkit-input-placeholder {
       box-sizing: border-box;
       margin-top: @rem*30;
       &.consumer{
-        margin-top: @rem*400;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: @rem*150;
       }
       h3{
         padding: 0 0 @rem*10 0;
@@ -216,6 +219,7 @@ input::-webkit-input-placeholder {
         background: url('../images/lp_orderButton_bg.png') no-repeat;
         background-size: 100%;
         color: #022D86;
+        outline: none;
         font-size: @rem*40;
       }
     }
