@@ -60,9 +60,18 @@ Zepto(function($){
             $('#province').val(datas[value].code+','+datas[value].name)
             provinceCode = datas[value].code
             cityList = datas[value].child
+            $('#city').append(getData(cityList))
           }
         })
-        $('#city').append(getData(cityList))
+
+
+        Object.keys(cityList).forEach(function (value) {
+          console.log(cityList)
+          if (cityList[value].name === response.data.city_str) {
+            $('#city').val(cityList[value].code+','+cityList[value].name)
+            $('#dealer').append(getData(cityList[value].child))
+          }
+        })
       }
     }
   })
@@ -147,71 +156,82 @@ Zepto(function($){
       LEAD_TYPE: '771A1CF7-0E2C-440B-9D0E-5F5D792431DC',
       MARKETING_NUMBER: '1-54383317'
     };
+    console.log(qttToken)
     var goldParams = {
       activity_id: 7,
       amount: '100',
       client_id: 1,
       ip: ip,
-      token: '307f073efb4ca727fa55597a7ads4567',
-      valid_content: JSON.stringify([{
-        key: 'tel',
-        value: phone,
-        require: true
-      }])
+      token: '7f02MJatG3ZDibXQ0XqYbegjOPTvkXvvBaqgphT8eMmo5YXPkqtImOS17TR0oxTF0xcQgL7tKUpxv6IU6g',
     }
-    console.log(decodeURIComponent(param(goldParams)))
     $.ajax({
       url: goldHost + 'api/h5/sendGold',
       type: 'get',
-      // processData: false,
       headers: {
-        token: $.md5('307f073efb4ca727fa55597a7ads4567'+decodeURIComponent(param(goldParams))+'307f073efb4ca727fa55597a7ads4567')
+        token: $.md5('307f073efb4ca727fa55597a7ads1234'+decodeURIComponent(param(goldParams))+'307f073efb4ca727fa55597a7ads1234')
       },
-      data: goldParams,
+      data: Object.assign(goldParams, {valid_content: JSON.stringify([{
+      key: 'tel',
+      value: phone,
+      require: true
+    }])}),
       contentType: 'application/json',
       dataType: 'json',
       success: function (response) {
       }
     })
-    // $.ajax({
-    //   url: host+'api/sendLeads',
-    //   type: 'post',
-    //   processData: false,
-    //   data: JSON.stringify(params),
-    //   contentType: 'application/json',
-    //   dataType: 'json',
-    //   success: function (response) {
-    //     if (response.code === 0) {
-    //       showPrompt('提交成功');
-    //       $.ajax({
-    //         url: goldHost + '/api/gold',
-    //         type: 'post',
-    //         processData: false,
-    //         headers: {
-    //           token: $.md5(param(goldParams))
-    //         },
-    //         data: JSON.stringify(goldParams),
-    //         contentType: 'application/json',
-    //         dataType: 'json',
-    //         success: function (response) {
-    //           showPrompt('金币发送成功')
-    //           $.ajax({
-    //             url: 'http://openapi.fancysmp.com/api/create?project=lingpai',
-    //             type: 'post',
-    //             processData: false,
-    //             contentType: 'application/json',
-    //             data: JSON.stringify({datas: params.datas}),
-    //             dataType: 'json',
-    //             success: function() {
-    //               setTimeout(function(){
-    //                 location.href = './success.html'
-    //               }, 500)
-    //             }
-    //           });
-    //         }
-    //       })
-    //     }
-    //   },
-    // });
+    $.ajax({
+      url: host+'api/sendLeads',
+      type: 'post',
+      processData: false,
+      data: JSON.stringify(params),
+      contentType: 'application/json',
+      dataType: 'json',
+      success: function (response) {
+        if (response.code === 0) {
+          showPrompt('提交成功');
+          $.ajax({
+            url: 'http://openapi.fancysmp.com/api/create?project=lingpai',
+            type: 'post',
+            processData: true,
+            // contentType: 'application/json',
+            data: localParams,
+            dataType: 'json',
+            success: function() {
+              // setTimeout(function(){
+              //   location.href = './success.html'
+              // }, 500)
+            }
+          });
+          // $.ajax({
+          //   url: goldHost + '/api/gold',
+          //   type: 'post',
+          //   processData: false,
+          //   headers: {
+          //     token: $.md5(param(goldParams))
+          //   },
+          //   data: JSON.stringify(goldParams),
+          //   contentType: 'application/json',
+          //   dataType: 'json',
+          //   success: function (response) {
+          //     showPrompt('金币发送成功')
+          //     $.ajax({
+          //       url: 'http://openapi.fancysmp.com/api/create?project=lingpai',
+          //       type: 'post',
+          //       processData: false,
+          //       contentType: 'application/json',
+          //       data: JSON.stringify({datas: params.datas}),
+          //       dataType: 'json',
+          //       success: function() {
+          //         setTimeout(function(){
+          //           location.href = './success.html'
+          //         }, 500)
+          //       }
+          //     });
+          //   }
+          // })
+        }
+      },
+    });
   });
 })

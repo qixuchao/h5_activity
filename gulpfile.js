@@ -184,7 +184,7 @@ gulp.task('server', () => {
   })
 })
 
-gulp.task('build', $.sequence('clean', [ 'images' ], [ 'styles' ], [ 'script' ], 'lib', 'html'))
+gulp.task('build', $.sequence('clean', [ 'styles' ], [ 'script' ], 'lib', 'html'))
 
 gulp.task('default', () => {
   console.log(chalk.green(
