@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>openapi 数据导出功能</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0,viewport-fit=cover">
+</head>
+<body>
+<form>
+  <label>开始时间<input type="date" name="startTime"></label>
+  <label>结束时间<input type="date" name="endTime"></label>
+  <button type="button" onclick="query()">查询</button>
+  <button type="button" onclick="exportCSV()">导出</button>
+</form>
+<p class="total">
+
+</p>
+<table cellpadding="1" cellspacing="1" border="1">
+  <thead>
+  <tr>
+    <th>时间</th>
+    <th>姓名</th>
+    <th>电话</th>
+    <th>省份</th>
+    <th>市区</th>
+    <th>经销商</th>
+    <th>来源</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  </tbody>
+</table>
+<script src="https://cdn.jsdelivr.net/npm/json2csv"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery"></script>
+<script type="text/javascript">
+  const BOM = '\uFEFF';
+  function exportCsv(inputData, filename) {
+    filename = filename || 'export.csv'
+    const csv =  new json2csv.Parser({fields:['create_time','TRUE_NAME','MOBILE','PROVINCE','CITY','DEALER','source']}).parse(inputData);
+
+    if (navigator.msSaveOrOpenBlob) {
+      let blob = new Blob([BOM + csv], { type: 'text/csv;charset=utf-8;' });
+      navigator.msSaveOrOpenBlob(blob, filename);
+    } else {
+      let uri = encodeURI(`data:text/csv;charset=utf-8,${BOM}${csv}`);
+      let downloadLink = document.createElement('a');
+      downloadLink.href = uri;
+      downloadLink.download = filename;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    }
+  }
+</script>
+<script type="text/javascript">
+  var data = [];
+  var page = 1;
+  var dataObj = {}
+
+  function zeroFill(val){
+    val += ''
+    if(val.length > 1){
+      return val
+    }else{
+      return '0'+val
+    }
+  }
+
+  function formatData(time){
+    time = time || new Date()
+    var date = new Date(time)
+    return date.getFullYear()+'-'+zeroFill(date.getMonth()+1)+'-'+zeroFill(date.getDate())
+  }
+
+  function query(){
+    page = 1;
+    data = []
+    $('table tbody').html('')
+    loadData(function(){
+      writeTable()
+    })
+  }
+
+  function getDate(d,add){
+      var date = new Date(d || new Date);
+      add = add || 0
+      return new Date(date.getFullYear()+'-'+(date.getMonth()+1)+'-'+ (date.getDate()+add)+' 00:00:00')
+  }
+
+  function loadData(callback){
+    var startTime = Math.floor( getDate($('[name=startTime]').val()).getTime()/1000)
+    var endTime = Math.floor( getDate($('[name=endTime]').val(),1).getTime()/1000)
+    $.ajax({
+      url:'http://openapi.fancysmp.com/api/get_list',
+      data:{
+        project:'lingpai',
+        page:page,
+        page_size:30
+      },
+      dataType:"json",
+      success:function(result){
+        if(result.code == 0){
+          if(result.data){
+            result.data.list.forEach(function(item){
+              if(item.create_time > startTime && item.create_time < endTime){
+                item.create_time = formatData(item.order_time*1000)
+                data.push(item)
+              }
+            })
+            //结果分页有问题，只能限定数量，所以循环查询
+            if(data.length<result.data.total && result.data.list.length){
+              page++
+              loadData(callback)
+            }else{
+              callback();
+            }
+          }
+        }else{
+          callback()
+        }
+      }
+    })
+  }
+
+  function writeTable(){
+    $('.total').text('总计：'+data.length+'条')
+    var tbody = '';
+    data.forEach(function(item){
+      tbody += '<tr>'
+      tbody += '<td>'+item.create_time+'</td><td>'+item.TRUE_NAME+'</td><td>'+(item.MOBILE||'')+
+      '</td><td>'+item.PROVINCE+'</td><td>'+item.CITY+'</td><td>'+item.DEALER+'</td>' +
+      '<td>'+item.source+'</td>'
+      tbody += '</tr>'
+    })
+    $('table tbody').html(tbody)
+  }
+
+  function exportCSV(){
+    exportCsv(data, $('[name=startTime]').val() || formatData()+'.csv')
+  }
+</script>
+</body>
+</html>

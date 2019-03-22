@@ -171,7 +171,7 @@ Zepto(function ($) {
     var picSwiper2 = new Swiper('#preview-pic2')
   })
   $('#order_driver').click(function(){
-    location.href = './form.html'
+    location.href = './form.html'+location.search
   })
   $('.comment-list').on('touchmove', function(e){
     e.stopPropagation()
