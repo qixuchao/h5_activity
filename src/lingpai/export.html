@@ -104,7 +104,7 @@
           if(result.data){
             result.data.list.forEach(function(item){
               if(item.create_time > startTime && item.create_time < endTime){
-                item.create_time = formatData(item.order_time*1000)
+                item.create_time = formatData(item.create_time*1000)
                 data.push(item)
               }
             })
