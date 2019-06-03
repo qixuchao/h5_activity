@@ -5,22 +5,48 @@ define(function (require, exports, module) {
   require("../lib/formValidate");
   require("Swiper");
 
+  // 给元素添加指定动画，执行animate动画
+  var runAnimate = function ($container) {
+    $container.find("[data-animate-class]").each(function () {
+      $(this).addClass($(this).attr("data-animate-class"))
+        .one("animationend", function () {
+          $(this).removeClass($(this).attr("data-animate-class"));
+        });
+    });
+  };
+
+  $(function () {
+    setTimeout(function () {
+      runAnimate($('.swiper-slide').eq(0));
+    });
+  });
+
   new Swiper('#page', {
     direction: 'vertical',
     on: {
-      slideChangeTransitionStart: function(){
-        $($('.swiper-slide')[this.activeIndex]).addClass('animated fadeIn')
+      slideChangeTransitionStart: function () {
+        runAnimate($('.swiper-slide').eq(this.activeIndex));
+
       },
-      slideChangeTransitionEnd: function(){
-        $($('.swiper-slide')[this.activeIndex]).removeClass('animated')
+      slideChangeTransitionEnd: function () {
+        if (this.activeIndex < $('.swiper-slide').length - 1) {
+          $('.page-next').show();
+        } else {
+          $('.page-next').hide();
+        }
       },
     }
   });
-  var dealerList = $.map(dealer, function(list){
-    return '<option value="'+list['经销商简称']+'">'+list['经销商简称']+'</option>'
-  })
 
-  $('.dealer').append(dealerList.join())
+  // $('.page-next').click(function(e){
+  //
+  // })
+
+  var dealerList = $.map(dealer, function (list) {
+    return '<option value="' + list['经销商简称'] + '">' + list['经销商简称'] + '</option>';
+  });
+
+  $('.dealer').append(dealerList.join());
 
   var timer = null;
   var showPrompt = function (data) {
@@ -33,17 +59,17 @@ define(function (require, exports, module) {
     }, 1500);
   };
 
-  $('select').blur(function(){
+  $('select, input').blur(function () {
     'use strict';
     $(window).scrollTop(0);
-    document.body.scrollTop = 0
-  })
+    document.body.scrollTop = 0;
+  });
 
   // form表单显示，提交功能
   var validate = $('form').validate();
 
   $('.form-submit').click(function () {
-    console.log('....')
+    console.log('....');
     var name = $('.name').val();
     var gender = $("[name='gender']").val();
     var phone = $('.phone-num').val();
@@ -73,23 +99,23 @@ define(function (require, exports, module) {
       processData: true,
       data: params,
       dataType: 'json',
-      success: function(res){
+      success: function (res) {
         if (res.code === 0) {
-          var currentDealer = {}
-          $.each(dealer, function(index,list) {
+          var currentDealer = {};
+          $.each(dealer, function (index, list) {
             if (list['经销商简称'] === params.dealer) {
-              currentDealer = list
-              return false
+              currentDealer = list;
+              return false;
             }
-          })
-          $('#page').hide()
-          $('.page15').show().addClass('animated fadeIn')
-          $('.dealer-address').text(currentDealer['经销商地址'])
-          $('.dealer-phone').text(currentDealer['销售热线'])
+          });
+          $('#page').hide();
+          $('.page15').show().addClass('animated fadeIn');
+          $('.dealer-address').text(currentDealer['经销商地址']);
+          $('.dealer-phone').text(currentDealer['销售热线']);
         } else {
-          showPrompt(res.message)
+          showPrompt(res.message);
         }
       }
-    })
+    });
   });
 });

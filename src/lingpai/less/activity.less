@@ -16,6 +16,13 @@ a {
   text-decoration: none;
 }
 
+[data-animate-class]{
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
 input::-webkit-input-placeholder {
   color: #383838;
   font-size: @rem*30;
@@ -56,14 +63,14 @@ input::-webkit-input-placeholder {
 
 .page {
   height: 100%;
-  background: linear-gradient(to right, #F9F9F9, #ffffff);
+  background: #ffffff;
   .page-container {
     height: 100%;
     padding: @rem*25;
     box-sizing: border-box;
     background: url('../images/bq_index_bg.png') no-repeat;
-    background-size: 100%;
-    background-position: bottom;
+    background-size: 100% 100%;
+    background-position: top;
     .page-desc {
       width: @rem*632;
       margin: 0 auto;
@@ -78,23 +85,25 @@ input::-webkit-input-placeholder {
       position: absolute;
       left: @rem*15;
     }
-    .page-next {
-      width: 100%;
-      text-align: center;
-      font-size: @rem*24;
-      position: absolute;
-      bottom: @rem*31;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: @rem*20 0;
-      .page-next-img {
-        width: @rem*44;
-        margin-top: @rem*18;
-        -webkit-animation: snake .5s infinite alternate;
-      }
-    }
+  }
+}
+
+.page-next {
+  width: 100%;
+  text-align: center;
+  font-size: @rem*24;
+  position: fixed;
+  bottom: @rem*31;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: @rem*20 0;
+  z-index:9999;
+  .page-next-img {
+    width: @rem*44;
+    margin-top: @rem*18;
+    -webkit-animation: snake .5s infinite alternate;
   }
 }
 
@@ -103,7 +112,7 @@ input::-webkit-input-placeholder {
   .page-container {
     background: url('../images/page1_bg.png') no-repeat;
     background-position: bottom;
-    background-size: 100%;
+    background-size: 100% 100%;
     .page-desc {
       margin-bottom: @rem*80;
     }
@@ -115,7 +124,7 @@ input::-webkit-input-placeholder {
   .page-container {
     background: url('../images/part2_bg.png') no-repeat;
     background-position: bottom;
-    background-size: 100%;
+    background-size: 100% 100%;
     .bq-main-log {
       width: @rem*187;
       position: absolute;
@@ -133,8 +142,8 @@ input::-webkit-input-placeholder {
   background: #ffffff;
   .page-container {
     background: url('../images/part3_bg.png') no-repeat;
-    background-position: bottom;
-    background-size: 100%;
+    background-position: top;
+    background-size: 100% 100%;
     .bq-main-log {
       right: @rem*15;
       left: unset;
@@ -147,7 +156,7 @@ input::-webkit-input-placeholder {
   .page-container {
     background: url('../images/part4_bg.png') no-repeat;
     background-position: bottom;
-    background-size: 100%;
+    background-size: 100% 100%;
     .bq-main-log {
       right: @rem*15;
       left: unset;
@@ -160,7 +169,7 @@ input::-webkit-input-placeholder {
   .page-container {
     background: url('../images/part5_bg.png') no-repeat;
     background-position: bottom;
-    background-size: 100%;
+    background-size: 100% 100%;
     .bq-main-log {
       right: @rem*15;
       left: unset;
@@ -173,16 +182,16 @@ input::-webkit-input-placeholder {
   .page-container {
     background: url('../images/part6_bg.png') no-repeat;
     background-position: bottom;
-    background-size: 100%;
+    background-size: 100% 100%;
   }
 }
 
 .page8 {
-  background: linear-gradient(to right, #F9F9F9, #e5e5e5);
+  background: lffffffgradient(to right, #F9F9F9, #dbdbdb);
   .page-container {
     background: url('../images/part7_bg.png') no-repeat;
     background-position: bottom;
-    background-size: 100%;
+    background-size: 100% 100%;
   }
 }
 
@@ -191,7 +200,7 @@ input::-webkit-input-placeholder {
   .page-container {
     background: url('../images/bq_part8_bg.png') no-repeat;
     background-position: bottom;
-    background-size: 100%;
+    background-size: 100% 100%;
     .bq-main-log {
       width: @rem*271;
     }
@@ -207,7 +216,7 @@ input::-webkit-input-placeholder {
   .page-container {
     background: url('../images/bq_part9_bg.png') no-repeat;
     background-position: bottom;
-    background-size: 100%;
+    background-size: 100% 100%;
     .bq-main-log {
       width: @rem*271;
       right: @rem*15;
@@ -225,7 +234,7 @@ input::-webkit-input-placeholder {
   .page-container {
     background: url('../images/bq_part10_bg.png') no-repeat;
     background-position: bottom;
-    background-size: 100%;
+    background-size: 100% 100%;
     .bq-main-log {
       width: @rem*271;
     }
@@ -241,7 +250,7 @@ input::-webkit-input-placeholder {
   .page-container {
     background: url('../images/bq_part11_bg.png') no-repeat;
     background-position: bottom;
-    background-size: 100%;
+    background-size: 100% 100%;
     .bq-main-log {
       width: @rem*271;
       right: @rem*15;
@@ -258,7 +267,7 @@ input::-webkit-input-placeholder {
   .page-container {
     background: url('../images/bq_part12_bg.png') no-repeat;
     background-position: bottom;
-    background-size: 100%;
+    background-size: 100% 100%;
     .bq-main-log {
       width: @rem*271;
     }
@@ -273,7 +282,7 @@ input::-webkit-input-placeholder {
   .page-container {
     background: url('../images/bq_form_bg.png') no-repeat;
     background-position: bottom;
-    background-size: 100%;
+    background-size: 100% 100%;
     .bq-main-log {
       width: @rem*442;
       left: 0;
@@ -287,7 +296,7 @@ p{
 .page15{
   background: url('../images/bq_end_bg.png') no-repeat;
   background-position: bottom;
-  background-size: 100%;
+  background-size: 100% 100%;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -388,6 +397,7 @@ p{
     margin-top: @rem*73;
     font-size: @rem*38;
     background: #010863;
+    border: none;
   }
 }
 .prompt {
