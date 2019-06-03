@@ -165,7 +165,7 @@ gulp.task('clean', () => {
 gulp.task('watch', () => {
   gulp.watch(config.dev.html, [ 'html' ]).on('change', reload)
   gulp.watch(config.dev.styles, [ 'styles' ]).on('change', reload)
-  //gulp.watch(config.dev.script, ['script']).on('change', reload)
+  gulp.watch(config.dev.script, ['script']).on('change', reload)
   gulp.watch(config.dev.images, [ 'images' ]).on('change', reload)
 })
 

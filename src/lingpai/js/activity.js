@@ -1,179 +1,95 @@
-Zepto(function ($) {
-  var pageSwiper = new Swiper('#page', {
+define(function (require, exports, module) {
+  'use strict';
+  var $ = require("$");
+
+  require("../lib/formValidate");
+  require("Swiper");
+
+  new Swiper('#page', {
     direction: 'vertical',
+    on: {
+      slideChangeTransitionStart: function(){
+        $($('.swiper-slide')[this.activeIndex]).addClass('animated fadeIn')
+      },
+      slideChangeTransitionEnd: function(){
+        $($('.swiper-slide')[this.activeIndex]).removeClass('animated')
+      },
+    }
   });
-  var $playerModal = $('#player-modal')
-  var $previewModal = $('#preview-modal')
-  $('.view-video1').click(function (e) {
-    $playerModal.css({ display: 'flex' })
-    $('#example_video_1').attr('src', './video/video1.mov')
-  });
-  $('.view-video2').click(function (e) {
-    $playerModal.css({ display: 'flex' })
-    $('#example_video_1').attr('src', './video/video2.mov')
-  });
-  $('.view-video3').click(function (e) {
-    $playerModal.css({ display: 'flex' })
-    $('#example_video_1').attr('src', './video/video3.mov')
-  });
-  $('#close-video').click(function () {
-    $('#example_video_1')[0].pause()
-    $('.player-modal').css({ display: 'none' });
-  });
-  $('#close').click(function () {
-    $('.container').show()
-    $('#preview-modal').hide();
-  });
-  $('#close1').click(function () {
-    $('.container').show()
-    $('#preview1-modal').hide();
-  });
-  $('#close2').click(function () {
-    $('.container').show()
-    $('#preview2-modal').hide();
-  });
-  $('.preview-pic1').click(function(){
-    $('.container').hide()
-    $previewModal.css({ display: 'flex' })
-    $previewModal.append('  <div class="wrap-pic" >\n' +
-      '    <div class="swiper-container" id="preview-pic" >\n' +
-      '      <div class="swiper-wrapper" >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/waiguan/1.jpg" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/waiguan/2.jpg" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/waiguan/3.jpg" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/waiguan/4.jpg" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/waiguan/5.jpg" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/waiguan/6.jpg" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/waiguan/7.jpg" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '      </div >\n' +
-      '    </div >\n' +
-      '  </div >\n')
-    var picSwiper = new Swiper('#preview-pic')
+  var dealerList = $.map(dealer, function(list){
+    return '<option value="'+list['经销商简称']+'">'+list['经销商简称']+'</option>'
   })
-  $('.preview-pic2').click(function(){
-    $('.container').hide()
-    $('#preview1-modal').css({ display: 'flex' })
-    $('#preview1-modal').append('  <div class="wrap-pic" >\n' +
-      '    <div class="swiper-container" id="preview-pic1" >\n' +
-      '      <div class="swiper-wrapper" >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/kongjian/1.jpg" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/kongjian/2.jpg" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/kongjian/3.jpg" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/kongjian/4.jpg" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/kongjian/5.jpg" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/kongjian/6.jpg" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/kongjian/7.jpg" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '      </div >\n' +
-      '    </div >\n' +
-      '  </div >\n')
-    var picSwiper1 = new Swiper('#preview-pic1')
+
+  $('.dealer').append(dealerList.join())
+
+  var timer = null;
+  var showPrompt = function (data) {
+    var $prompt = $('.prompt');
+    $prompt.css({ display: 'block' });
+    $prompt.text(data);
+    timer = setTimeout(function () {
+      $prompt.css({ display: 'none' });
+      clearTimeout(timer);
+    }, 1500);
+  };
+
+  $('select').blur(function(){
+    'use strict';
+    $(window).scrollTop(0);
+    document.body.scrollTop = 0
   })
-  $('.preview-pic3').click(function(){
-    $('.container').hide()
-    $('#preview2-modal').css({ display: 'flex' })
-    $('#preview2-modal').append('  <div class="wrap-pic" >\n' +
-      '    <div class="swiper-container" id="preview-pic2" >\n' +
-      '      <div class="swiper-wrapper" >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/anquan/1.jpg" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/anquan/2.png" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/anquan/3.png" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/anquan/4.png" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/anquan/5.png" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/anquan/6.png" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '        <div class="swiper-slide" >\n' +
-      '          <div class="view-pic" >\n' +
-      '            <img src="images/anquan/7.jpg" alt="" >\n' +
-      '          </div >\n' +
-      '        </div >\n' +
-      '      </div >\n' +
-      '    </div >\n' +
-      '  </div >\n')
-    var picSwiper2 = new Swiper('#preview-pic2')
-  })
-  $('#order_driver').click(function(){
-    location.href = './form.html'+location.search
-  })
-  $('.comment-list').on('touchmove', function(e){
-    e.stopPropagation()
-  })
+
+  // form表单显示，提交功能
+  var validate = $('form').validate();
+
+  $('.form-submit').click(function () {
+    console.log('....')
+    var name = $('.name').val();
+    var gender = $("[name='gender']").val();
+    var phone = $('.phone-num').val();
+    var province = $('#province').val();
+    var city = $('#city').val();
+    var dealerId = $('#dealer').val();
+    var car = $('#car').val();
+
+
+    if (validate.inspect()) {
+      return;
+    }
+
+    var params = {
+      name: name,
+      gender: gender,
+      phone: phone,
+      province: province,
+      city: city,
+      dealer: dealerId,
+      car: car
+    };
+
+    $.ajax({
+      url: 'http://openapi.fancysmp.com/api/create?project=beiqi',
+      type: 'post',
+      processData: true,
+      data: params,
+      dataType: 'json',
+      success: function(res){
+        if (res.code === 0) {
+          var currentDealer = {}
+          $.each(dealer, function(index,list) {
+            if (list['经销商简称'] === params.dealer) {
+              currentDealer = list
+              return false
+            }
+          })
+          $('#page').hide()
+          $('.page15').show().addClass('animated fadeIn')
+          $('.dealer-address').text(currentDealer['经销商地址'])
+          $('.dealer-phone').text(currentDealer['销售热线'])
+        } else {
+          showPrompt(res.message)
+        }
+      }
+    })
+  });
 });
