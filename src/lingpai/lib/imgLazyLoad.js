@@ -76,6 +76,7 @@
             r: (root.innerWidth || document.documentElement.clientWidth) + offset.r
         }
         var box = element.getBoundingClientRect();
+        console.log(box,element)
         return ((box.top >= view.t && box.top < view.b || box.bottom >= view.t && box.bottom < view.b || box.bottom > view.b && box.top < view.t)
             && (box.left >= view.l && box.left < view.r || box.right < view.l && box.right<= view.r || view.l >= box.left && view.r <= box.right))
     };
@@ -154,6 +155,8 @@
 
         /**
          * 检测加载状态
+         * 这里存在两次请求的情况，背景图加载的时候会出现两次。为了检测图片是否被加载成功
+         *
          * @param  {Element}   elem  需要添加检测的标签，如果为空，创建一个新的image标签
          * @param  {Function} sucFn [description]
          * @param  {Function} failFn [description]
@@ -177,9 +180,9 @@
             loadWay,
             placeholderSrc,
             waitElem;
-
-        for (var i = 0; i < length; i++) {
+        for (; i < length; i++) {
             waitElem = elem = nodes[i];
+            console.log(elem,isShow(elem) , inView(elem))
             if (isShow(elem) && inView(elem)) {
 
                 //判断是通过什么方式加载
@@ -215,36 +218,33 @@
                         loadError(this);
                     });
 
-                    //elem.src = src;
+                    elem.src = src;
 
                 }
                 else {
-
-                    /*monitorLoad(null, function (src) {
+                    if(0){
+                      elem.style.backgroundImage = 'url(' + src + ')';
+                    }else{
+                      waitElem = monitorLoad(null, function (src) {
                         this.style.backgroundImage = 'url(' + src + ')';
                         callback(this, 'load');
-                    }, function () {
+                      }, function () {
                         loadError(elem);
-                    }, elem).src = src;*/
+                      }, elem);
+                    }
 
-                    waitElem = monitorLoad(null, function (src) {
-                        this.style.backgroundImage = 'url(' + src + ')';
-                        callback(this, 'load');
-                    }, function () {
-                        loadError(elem);
-                    }, elem);
                 }
-                //console.log(waitElem,src)
-                /* queues.push({
-                     elem:new Image()
-                 })*/
-                queues.unshift({
-                    elem: waitElem,
-                    src: src
-                });
-
-                //console.log(queues)
-                loadNextImg();
+                // //console.log(waitElem,src)
+                // /* queues.push({
+                //      elem:new Image()
+                //  })*/
+                // queues.unshift({
+                //     elem: waitElem,
+                //     src: src
+                // });
+                //
+                // //console.log(queues)
+                // loadNextImg();
             }
         }
     };

@@ -10,7 +10,9 @@ define(function (require, exports, module) {
   require("../lib/imgLazyLoad")
 
   // 初始化图片加载器
-  lazyLoad.init()
+  lazyLoad.init({
+    offset:window.innerHeight
+  })
 
   // 初始化分享
   var query = utils.getUrlObj()
@@ -53,10 +55,10 @@ define(function (require, exports, module) {
     direction: 'vertical',
     on: {
       slideChangeTransitionStart: function () {
-        lazyLoad.check()
         runAnimate($('.swiper-slide').eq(this.activeIndex));
       },
       slideChangeTransitionEnd: function () {
+        lazyLoad.check()
         if (this.activeIndex < $('.swiper-slide').length - 1) {
           $('.page-next').show();
         } else {
