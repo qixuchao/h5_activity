@@ -110,7 +110,7 @@ input::-webkit-input-placeholder {
 .page2 {
   background: #ffffff;
   .page-container {
-    background: url('../images/page1_bg.png') no-repeat;
+    background: url('') no-repeat;
     background-position: bottom;
     background-size: 100% 100%;
     .page-desc {
@@ -122,7 +122,7 @@ input::-webkit-input-placeholder {
 .page3 {
   background: #ffffff;
   .page-container {
-    background: url('../images/part2_bg.png') no-repeat;
+    background: url('') no-repeat;
     background-position: bottom;
     background-size: 100% 100%;
     .bq-main-log {
@@ -141,7 +141,7 @@ input::-webkit-input-placeholder {
 .page4 {
   background: #ffffff;
   .page-container {
-    background: url('../images/part3_bg.png') no-repeat;
+    background: url('') no-repeat;
     background-position: top;
     background-size: 100% 100%;
     .bq-main-log {
@@ -154,7 +154,7 @@ input::-webkit-input-placeholder {
 .page5 {
   background: #ffffff;
   .page-container {
-    background: url('../images/part4_bg.png') no-repeat;
+    background: url('') no-repeat;
     background-position: bottom;
     background-size: 100% 100%;
     .bq-main-log {
@@ -167,7 +167,7 @@ input::-webkit-input-placeholder {
 .page6 {
   background: #ffffff;
   .page-container {
-    background: url('../images/part5_bg.png') no-repeat;
+    background: url('') no-repeat;
     background-position: bottom;
     background-size: 100% 100%;
     .bq-main-log {
@@ -180,7 +180,7 @@ input::-webkit-input-placeholder {
 .page7 {
   background: #ffffff;
   .page-container {
-    background: url('../images/part6_bg.png') no-repeat;
+    background: url('') no-repeat;
     background-position: bottom;
     background-size: 100% 100%;
   }
@@ -189,7 +189,7 @@ input::-webkit-input-placeholder {
 .page8 {
   background: lffffffgradient(to right, #F9F9F9, #dbdbdb);
   .page-container {
-    background: url('../images/part7_bg.png') no-repeat;
+    background: url('') no-repeat;
     background-position: bottom;
     background-size: 100% 100%;
   }
@@ -198,7 +198,7 @@ input::-webkit-input-placeholder {
 .page9 {
   background: #ffffff;
   .page-container {
-    background: url('../images/bq_part8_bg.png') no-repeat;
+    background: url('') no-repeat;
     background-position: bottom;
     background-size: 100% 100%;
     .bq-main-log {
@@ -214,7 +214,7 @@ input::-webkit-input-placeholder {
 .page10 {
   background: #ffffff;
   .page-container {
-    background: url('../images/bq_part9_bg.png') no-repeat;
+    background: url('') no-repeat;
     background-position: bottom;
     background-size: 100% 100%;
     .bq-main-log {
@@ -232,7 +232,7 @@ input::-webkit-input-placeholder {
 .page11 {
   background: #ffffff;
   .page-container {
-    background: url('../images/bq_part10_bg.png') no-repeat;
+    background: url('') no-repeat;
     background-position: bottom;
     background-size: 100% 100%;
     .bq-main-log {
@@ -248,7 +248,7 @@ input::-webkit-input-placeholder {
 .page12 {
   background: #ffffff;
   .page-container {
-    background: url('../images/bq_part11_bg.png') no-repeat;
+    background: url('') no-repeat;
     background-position: bottom;
     background-size: 100% 100%;
     .bq-main-log {
@@ -265,7 +265,7 @@ input::-webkit-input-placeholder {
 .page13 {
   background: #ffffff;
   .page-container {
-    background: url('../images/bq_part12_bg.png') no-repeat;
+    background: url('') no-repeat;
     background-position: bottom;
     background-size: 100% 100%;
     .bq-main-log {
@@ -280,7 +280,7 @@ input::-webkit-input-placeholder {
 .page14 {
   background: #ffffff;
   .page-container {
-    background: url('../images/bq_form_bg.png') no-repeat;
+    background: url('') no-repeat;
     background-position: bottom;
     background-size: 100% 100%;
     .bq-main-log {
@@ -325,12 +325,19 @@ p{
         }
       }
     }
+    .share{
+      height: @rem*94;
+      width: @rem*400;
+      background: #010863;
+      color: #ffffff;
+      font-size: @rem*34;
+    }
   }
 }
 
 .form {
-  padding: @rem*49 @rem*40 0;
-  margin-top: @rem*272;
+  padding: 0 @rem*40 0;
+  margin-top: @rem*250;
   .form-wrap {
     width: 100%;
     padding: 0 @rem*35;
@@ -340,7 +347,7 @@ p{
       font-size: @rem*20;
       text-align: center;
       color: #020202;
-      margin: @rem*32 0 0;
+      margin: @rem*32 0;
       line-height: @rem*33;
       .treaty{
         display: flex;
@@ -389,12 +396,16 @@ p{
       pointer-events: none;
     }
   }
+  .submit-desc{
+    text-align: center;
+    font-size: @rem*30;
+  }
   .form-submit {
     width: 100%;
     text-align: center;
     height: @rem*84;
     color: #ffffff;
-    margin-top: @rem*73;
+    margin-top: @rem*43;
     font-size: @rem*38;
     background: #010863;
     border: none;
@@ -415,6 +426,77 @@ p{
   text-align: center;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, .7);
+}
+
+.modal{
+  position: fixed;
+  display: none;
+  z-index: 33;
+  margin:auto;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, .3);
+  .wrap{
+    width: @rem*638;
+    height: @rem*565;
+    background: #ffffff;
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+    padding: @rem*62 @rem*45 @rem*30;
+    box-sizing: border-box;
+    border-radius: @rem*20;
+    .close{
+      position: absolute;
+      height: @rem*30;
+      width: @rem*30;
+      top: @rem*35;
+      right: @rem*35;
+    }
+  }
+  .modal-body {
+    position: relative;
+    height: 100%;
+    .modal-content {
+      line-height: @rem*42;
+      li {
+        font-size: @rem*30;
+        color: #383838;
+      }
+    }
+  }
+}
+
+.share-modal{
+  .wrap{
+    height: @rem*750;
+    .modal-body{
+      text-align: center;
+      height: auto;
+    }
+    .action{
+      display: inline-block;
+      width: 90%;
+      left: 0;
+      right: 0;
+      margin:0 auto;
+      bottom: @rem*40;
+      position: absolute;
+      height: @rem*80;
+      background: #004EAA;
+      border-radius: @rem*10;
+      line-height: @rem*80;
+      text-align: center;
+      a{
+        color: #ffffff;
+        width: 100%;
+        display: inline-block;
+      }
+    }
+  }
 }
 
 @-webkit-keyframes slide {

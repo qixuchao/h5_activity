@@ -1,4 +1,22 @@
-(function($){
+
+!function (t, e) {
+  if( typeof exports === 'object' && typeof module !== 'undefined' ){
+    module.exports = e(require('$'))
+  } else if(typeof define === 'function'){
+    if(define.amd){
+      define(['$'], e)
+    }else{
+      define(function(r,exports,module){
+        'use strict';
+        var $ = r('$')
+        module.exports =e($)
+      })
+    }
+  }else{
+    (t = t || self, t.md5 = e(t.$));
+  }
+}(this,function($){
+
   var rotateLeft = function(lValue, iShiftBits) {
     return (lValue << iShiftBits) | (lValue >>> (32 - iShiftBits));
   }
@@ -180,4 +198,4 @@
       return tempValue.toLowerCase();
     }
   });
-})(Zepto);
+});
