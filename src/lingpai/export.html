@@ -24,7 +24,7 @@
     <th>省份</th>
     <th>市区</th>
     <th>经销商</th>
-    <th>来源</th>
+    <th>车型</th>
   </tr>
   </thead>
   <tbody>
@@ -94,7 +94,7 @@
     $.ajax({
       url:'http://openapi.fancysmp.com/api/get_list',
       data:{
-        project:'lingpai',
+        project:'beiqi',
         page:page,
         page_size:30
       },
@@ -128,9 +128,9 @@
     var tbody = '';
     data.forEach(function(item){
       tbody += '<tr>'
-      tbody += '<td>'+item.create_time+'</td><td>'+item.TRUE_NAME+'</td><td>'+(item.MOBILE||'')+
-      '</td><td>'+item.PROVINCE+'</td><td>'+item.CITY+'</td><td>'+item.DEALER+'</td>' +
-      '<td>'+item.source+'</td>'
+      tbody += '<td>'+item.create_time+'</td><td>'+item.name+'</td><td>'+(item.phone||'')+
+      '</td><td>'+item.province+'</td><td>'+item.city+'</td><td>'+item.dealer+'</td>' +
+      '<td>'+item.car+'</td>'
       tbody += '</tr>'
     })
     $('table tbody').html(tbody)
