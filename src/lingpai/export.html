@@ -37,7 +37,7 @@
   const BOM = '\uFEFF';
   function exportCsv(inputData, filename) {
     filename = filename || 'export.csv'
-    const csv =  new json2csv.Parser({fields:['create_time','TRUE_NAME','MOBILE','PROVINCE','CITY','DEALER','source']}).parse(inputData);
+    const csv =  new json2csv.Parser({fields:['create_time','name','phone','province','city','dealer','car']}).parse(inputData);
 
     if (navigator.msSaveOrOpenBlob) {
       let blob = new Blob([BOM + csv], { type: 'text/csv;charset=utf-8;' });
@@ -137,7 +137,7 @@
   }
 
   function exportCSV(){
-    exportCsv(data, $('[name=startTime]').val() || formatData()+'.csv')
+    exportCsv(data, formatData()+'.csv')
   }
 </script>
 </body>
