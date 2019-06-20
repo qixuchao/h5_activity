@@ -1,5 +1,5 @@
 const path = require('path')
-const projectPath = 'lingpai/'
+const projectPath = 'oakridge/'
 
 function resolveDev(dir) {
   return path.join(__dirname, '../src/' + projectPath, dir)
