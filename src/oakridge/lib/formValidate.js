@@ -6,7 +6,7 @@
     } else {
       define(function(require, exports, module){
         var $ = require("$")
-        factory($)
+        module.exports = factory($)
       })
     }
   } else if (typeof exports === 'object') {
@@ -139,7 +139,6 @@
           regExp = new RegExp(rule.regExp.rule);
         }
         if (!regExp.test(value)) {
-          console.log('phone', value)
           return validateObj = {
             type: 'regExp',
             hasErr: true,
@@ -191,20 +190,25 @@
     }
   }
 
-  $.fn.validate = function () {
-    var _validate = this.data('validate')
+  return function(jquery){
+    (function($) {
 
-    if (!_validate) {
-      var option = arguments[0],
-        options = $.extend({}, $.fn.validate.defaults, option);
+      $.fn.validate = function () {
+        var _validate = this.data('validate')
 
-      _validate = new Validate(this[0], options);
+        if (!_validate) {
+          var option = arguments[0],
+            options = $.extend({}, $.fn.validate.defaults, option);
 
-      this.data('validate', _validate);
-    }
-    return _validate
+          _validate = new Validate(this[0], options);
+
+          this.data('validate', _validate);
+        }
+        return _validate
+      }
+
+      $.fn.validate.defaults = {}
+    })(jquery);
   }
-
-  $.fn.validate.defaults = {}
 
 }));

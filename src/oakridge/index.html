@@ -10,6 +10,7 @@
   <link rel="stylesheet" type="text/css" href="./styles/index.css" >
   <link rel="stylesheet" type="text/css" href="./styles/swiper.min.css" >
   <link rel="stylesheet" type="text/css" href="./styles/animate.css" >
+  <link rel="stylesheet" type="text/css" href="./styles/cityPicker.css" >
   <script data-js-path="redraw.js" >
     !(function (f, o) {
       var a = navigator.userAgent, b = /iphone|ipad|ipod/i.test(a), i = /android/ig.test(a),
@@ -78,123 +79,119 @@
   <div class="swiper-container" id="page" >
     <div class="swiper-wrapper" >
       <div class="swiper-slide" >
-        <div class="page1" >
+        <div class="page page1" >
           <img lazy-load="./images/oakridge_page1.jpg" alt="" >
         </div >
       </div >
       <div class="swiper-slide" >
-        <div class="page2 " >
+        <div class="page page2 " >
           <img lazy-load="./images/oakridge_page2.jpg" alt="" >
         </div >
       </div >
       <div class="swiper-slide" >
-        <div class="page3" >
+        <div class="page page3" >
           <img lazy-load="./images/oakridge_page3.jpg" alt="" >
         </div >
       </div >
       <div class="swiper-slide" >
-        <div class="page4" >
+        <div class="page page4" >
           <img lazy-load="./images/oakridge_page4.jpg" alt="" >
         </div >
       </div >
       <div class="swiper-slide" >
-        <div class="page5" >
-          <img lazy-load="./images/oakridge_page5.jpg" alt="" >
+        <div class="swiper-container" id="page1" >
+          <div class="swiper-wrapper" >
+            <div class="swiper-slide" >
+              <div class="page page5" >
+                <img lazy-load="./images/oakridge_page5.jpg" alt="" >
+              </div >
+            </div >
+            <div class="swiper-slide" >
+              <div class="page page6" >
+                <img lazy-load="./images/oakridge_page6.jpg" alt="" >
+              </div >
+            </div >
+            <div class="swiper-slide" >
+              <div class="page page7" >
+                <img lazy-load="./images/oakridge_page7.jpg" alt="" >
+              </div >
+            </div >
+            <div class="swiper-slide" >
+              <div class="page page8" >
+                <img lazy-load="./images/oakridge_page8.jpg" alt="" >
+              </div >
+            </div >
+          </div >
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div >
       </div >
       <div class="swiper-slide" >
-        <div class="page" >
-          <img lazy-load="./images/oakridge_page6.jpg" alt="" >
+        <div class="swiper-container" id="page2" >
+          <div class="swiper-wrapper" >
+            <div class="swiper-slide" >
+              <div class="page page9" >
+                <img lazy-load="./images/oakridge_page9.jpg" alt="" >
+              </div >
+            </div >
+            <div class="swiper-slide" >
+              <div class="page page10" >
+                <img lazy-load="./images/oakridge_page10.jpg" alt="" >
+              </div >
+            </div >
+            <div class="swiper-slide" >
+              <div class="page page11" >
+                <img lazy-load="./images/oakridge_page11.jpg" alt="" >
+              </div >
+            </div >
+            <div class="swiper-slide" >
+              <div class="page page12" >
+                <img lazy-load="./images/oakridge_page12.jpg" alt="" >
+              </div >
+            </div >
+          </div >
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div >
       </div >
       <div class="swiper-slide" >
-        <div class="page" >
-          <img lazy-load="./images/oakridge_page7.jpg" alt="" >
-        </div >
-      </div >
-      <div class="swiper-slide" >
-        <div class="page" >
-          <img lazy-load="./images/oakridge_page8.jpg" alt="" >
-        </div >
-      </div >
-      <div class="swiper-slide" >
-        <div class="page" >
-          <img lazy-load="./images/oakridge_page9.jpg" alt="" >
-        </div >
-      </div >
-      <div class="swiper-slide" >
-        <div class="page" >
-          <img lazy-load="./images/oakridge_page10.jpg" alt="" >
-        </div >
-      </div >
-      <div class="swiper-slide" >
-        <div class="page" >
-          <img lazy-load="./images/oakridge_page11.jpg" alt="" >
-        </div >
-      </div >
-      <div class="swiper-slide" >
-        <div class="page" >
-          <img lazy-load="./images/oakridge_page12.jpg" alt="" >
-        </div >
-      </div >
-      <div class="swiper-slide" >
-        <div class="page" >
+        <div class="page page13" >
           <img lazy-load="./images/oakridge_page13.jpg" alt="" >
         </div >
       </div >
       <div class="swiper-slide" >
-        <div class="page" >
+        <div class="page page14" >
           <img lazy-load="./images/oakridge_page14.jpg" alt="" >
         </div >
       </div >
       <div class="swiper-slide" >
-        <div class="page page3 page" lazy-load-background="./images/bq_form_bg.png" >
+        <div class="page page15" >
           <div class="page-container" >
-            <div class="bq-main-log" >
-              <img lazy-load="./images/bq_form_title.png" data-animate-class="slideInDown" alt="" >
+            <div class="oakridge-main-log" >
+              <img lazy-load="./images/oakridge_form_title.jpg" data-animate-class="slideInDown" alt="" >
+            </div >
+            <div class="oakridge-desc" >
+              <p >想了解更多信息，可留下您的信息</p >
+              <p >我们将有专职客服与您沟通</p >
             </div >
             <form class="form" data-animate-class="fadeInRight" >
               <div class="form-wrap" >
                 <div class="form-item" >
-                  <input class='name' placeholder="请填写您的姓名" rv-validate-rule="required: '姓名必需填写填'" type="text" >
+                  <input class='name' placeholder="姓名" rv-validate-rule="required: '姓名必需填写填'" type="text" >
                 </div >
                 <div class="form-item" >
-                  <input class="phone-num" placeholder="请输入11位手机号" rv-validate-rule="required: '手机号必需填写填',regExp:{rule:'^1\\d{10}',msg:'手机号格式错误'}" type="number" >
+                  <input class="phone" placeholder="电话" rv-validate-rule="required: '电话必需填写填',regExp:{rule:'^1\\d{10}',msg:'电话格式错误'}" type="number" >
                 </div >
                 <div class="form-item" >
-                  <div style="width: 50%" >
-                    <select class="province" id="province" rv-validate-rule="required: '省份必需填写填'" >
-                      <option value="北京" >北京</option >
-                    </select >
-                  </div >
-                  <div style="width: 50%" >
-                    <select class="city" id="city" rv-validate-rule="required: '市区必需填写填'" >
-                      <option value="北京市" >北京市</option >
-                    </select >
-                  </div >
+                  <input class="email" placeholder="邮箱" type="email" >
                 </div >
                 <div class="form-item" >
-                  <select class="dealer" id="dealer" rv-validate-rule="required: '经销商必需填写填'" >
-                    <option value="" >请选择经销商</option >
-                  </select >
-                </div >
-                <div class="form-item" >
-                  <select class="car" id="car" rv-validate-rule="required: '车型必需填写填'" >
-                    <option value="" >请选择车型</option >
-                    <option value="EU5" >EU5</option >
-                    <option value="EX3" >EX3</option >
-                  </select >
-                </div >
-                <div class="form-treaty" >
-                  <div class="treaty" >
-                    <input checked type="checkbox" >我同意《个人信息保护说明》
-                  </div >
-                  <p >上述信息将提交至北汽新能源授权经销商，以便与您进一步沟通。</p >
+                  <input class='city' placeholder="城市" rv-validate-rule="required: '城市必需填写填'" type="text" >
+                  <div class="form-item-img">
+                    <img src="./images/oakridge_select.png" alt="" >
+                  </div>
                 </div >
               </div >
-              <script >
-                !/MicroMessenger/i.test(navigator.userAgent) && document.write('<p class="submit-desc">提交个人资料可获得200金币</p>');
-              </script >
               <button type="button" class="form-submit" data-animate-class="fadeInRight" >立即提交</button >
             </form >
           </div >
@@ -203,17 +200,18 @@
     </div >
   </div >
   <!--<div class="page-next" >-->
-    <!--<div class="page-next-img" >-->
-      <!--<img src="./images/bq_arrow.png" alt="" >-->
-    <!--</div >-->
+  <!--<div class="page-next-img" >-->
+  <!--<img src="./images/bq_arrow.png" alt="" >-->
   <!--</div >-->
+  <!--</div >-->
+
 </div >
+<a class="tel_phone" href="tel:400-8207-536" ></a >
 <div class="prompt" ></div >
 </body >
-<script src="//static.xiawan8.com/module/vendor/sea.js"></script >
+<script src="//static.xiawan8.com/module/vendor/sea.js" ></script >
 <script src="./js/config.js" ></script >
 <script >
-  seajs.use('./js/index')
+  seajs.use('./js/index');
 </script >
-<!--<script src="./js/data.js" ></script >-->
 </html >

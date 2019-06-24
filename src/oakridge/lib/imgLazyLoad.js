@@ -37,13 +37,11 @@
      * 加载下一张图片
      */
     var loadNextImg = function () {
-        console.log(queues)
             //判断是否可以加载下一张图片
         if (loading <= maxParallel) {
             var waitObj = queues.shift();
             //判断是否在可视窗口中，否则优先加载可视图片
             //if(inView(waitObj.elem)){
-            console.log(waitObj)
             if(waitObj){
                 loading++;
                 waitObj.elem.src = waitObj.src;
@@ -76,7 +74,6 @@
             r: (root.innerWidth || document.documentElement.clientWidth) + offset.r
         }
         var box = element.getBoundingClientRect();
-        console.log(box,element)
         return ((box.top >= view.t && box.top < view.b || box.bottom >= view.t && box.bottom < view.b || box.bottom > view.b && box.top < view.t)
             && (box.left >= view.l && box.left < view.r || box.right < view.l && box.right<= view.r || view.l >= box.left && view.r <= box.right))
     };
@@ -182,7 +179,6 @@
             waitElem;
         for (; i < length; i++) {
             waitElem = elem = nodes[i];
-            console.log(elem,isShow(elem) , inView(elem))
             if (isShow(elem) && inView(elem)) {
 
                 //判断是通过什么方式加载
@@ -234,7 +230,6 @@
                     }
 
                 }
-                // //console.log(waitElem,src)
                 // /* queues.push({
                 //      elem:new Image()
                 //  })*/
@@ -243,7 +238,6 @@
                 //     src: src
                 // });
                 //
-                // //console.log(queues)
                 // loadNextImg();
             }
         }
