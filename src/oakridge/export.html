@@ -56,7 +56,7 @@
     }
     input{
       outline: none;
-      margin: 0 20px 0 10px;
+      /*margin: 0 20px 0 10px;*/
     }
     .title {
       color: #1f2f3d;
@@ -100,6 +100,45 @@
   <script type="text/javascript" src="https://unpkg.com/vue@2.6.10/dist/vue.min.js" ></script >
   <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1" ></script >
   <script src="https://unpkg.com/element-ui/lib/index.js" ></script >
+  <script data-js-path="redraw.js" >
+    !(function (f, o) {
+      var a = navigator.userAgent, b = /iphone|ipad|ipod/i.test(a), i = /android/ig.test(a),
+        j = /Mobile/i.test(a) || b || i;
+      var n = document.querySelector("[name=viewport]"),
+        k = b ? window.devicePixelRatio ? Math.min(window.devicePixelRatio, 3) : 1 : 1, c = document.documentElement,
+        l = k * (c.dataset.mw || 750), d = 1 / k, e;
+      f = f || 320;
+      o = o || 16;
+      if (n) {
+        var h = n.content || "", g = h.match(/initial\-scale=([\d\.]+)/);
+        if (g) {
+          h = h.replace(/initial\-scale=([\d\.]+)/, "initial-scale=" + d);
+        } else {
+          h += ",initial-scale=" + d;
+        }
+        n.content = h.replace(/minimum\-scale=([\d\.]+)/, "").replace(/maximum\-scale=([\d\.]+)/, "");
+      } else {
+        n = doc.createElement("meta");
+        n.name = "viewport";
+        n.content = "maximum-scale=" + d + ",minimum-scale=" + d + ",user-scalable=0,width=device-width;initial-scale=" + d;
+        c.firstElementChild.appendChild(n);
+      }
+      var m = function () {
+        var q = window.innerWidth;
+        var p = Math.min(q, l) / f * o;
+        c.style.fontSize = p + "px";
+      };
+      if (j) {
+        window.addEventListener("resize", function () {
+          clearTimeout(e);
+          e = setTimeout(m, 300);
+        }, false);
+        m();
+      } else {
+        c.style.fontSize = "16px";
+      }
+    })(375, 16);
+  </script >
 </head >
 
 <body >
@@ -109,15 +148,25 @@
   <div class="container header-inner" >
     <div class="logo" >
       <img src="./images/fancy_logo.png" >
-      openapi 数据导出功能
+      oakridge 数据导出功能
     </div >
   </div >
 </header >
 <div class="container content" id="app" >
   <section data-id="business" >
     <div class="table-tools" >
-      <label >开始时间<input type="date" name="startTime" ></label >
-      <label >结束时间<input type="date" name="endTime" ></label >
+      <label >开始时间</label >
+      <el-date-picker
+        v-model="startTime"
+        type="date"
+        placeholder="选择日期">
+      </el-date-picker>
+      <label >结束时间</label>
+      <el-date-picker
+        v-model="endTime"
+        type="date"
+        placeholder="选择日期">
+      </el-date-picker>
       <el-button
         size="mini"
         @click="query"
@@ -175,6 +224,8 @@
         formLabelWidth: "120px",
         tableData: [],
         limit: 1,
+        startTime: '',
+        endTime: '',
         fileList: []
       };
     },
@@ -224,8 +275,8 @@
 
       loadData: function (callback) {
         var _this = this
-        var startTime = Math.floor(_this.getDate($('[name=startTime]').val()).getTime() / 1000);
-        var endTime = Math.floor(_this.getDate($('[name=endTime]').val(), 1).getTime() / 1000);
+        var startTime = Math.floor(_this.getDate(_this.startTime).getTime() / 1000);
+        var endTime = Math.floor(_this.getDate(_this.endTime, 1).getTime() / 1000);
         $.ajax({
           url: 'http://openapi.fancysmp.com/api/get_list',
           data: {
@@ -238,7 +289,8 @@
             if (result.code == 0) {
               if (result.data) {
                 result.data.list.forEach(function (item) {
-                  if (item.create_time > startTime && item.create_time < endTime) {
+                  console.log(item.create_time, startTime, endTime)
+                  if (item.create_time >= startTime && item.create_time < endTime) {
                     item.create_time = _this.formatData(item.create_time * 1000);
                     data.push(item);
                   }

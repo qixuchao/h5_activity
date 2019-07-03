@@ -6,7 +6,18 @@ define(function (require, exports, module) {
   require("Swiper");
   require("../lib/imgLazyLoad");
   require("../lib/cityPicker")($);
+  require("jweixin")
+  var jskit = require("jskit")
   $(function () {
+    if (jskit.isWechat) {
+      jskit.openShare({
+        title: '温哥华橡树岭大型豪华社区',
+        desc: '拥抱温西品质生活的一次机会，完美学区，豪华配置，首付20万人民币起，永久产权，交房按揭。',
+        link: location.href,
+        imgUrl: 'http://static.xiawan8.com/activity/20190620/oakridge/images/oakridge_share_icon.png'
+      }, true)
+    }
+
     // 初始化图片加载器
     lazyLoad.init({
       offset: window.innerHeight
