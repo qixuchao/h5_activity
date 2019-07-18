@@ -9,9 +9,10 @@ define(function (require, exports, module) {
   require("jweixin")
   var jskit = require("jskit")
   $(function () {
+
     if (jskit.isWechat) {
       jskit.openShare({
-        title: '温哥华橡树岭大型豪华社区',
+        title: '首付20万起入住橡树岭',
         desc: '拥抱温西品质生活的一次机会，完美学区，豪华配置，首付20万人民币起，永久产权，交房按揭。',
         link: location.href,
         imgUrl: 'http://static.xiawan8.com/activity/20190620/oakridge/images/oakridge_share_icon.png'
@@ -29,55 +30,15 @@ define(function (require, exports, module) {
       env: query.env || ''
     }]);
 
-    // 给元素添加指定动画，执行animate动画
-    var runAnimate = function ($container) {
-      $container.find("[data-animate-class]").each(function () {
-        $(this).addClass($(this).attr("data-animate-class"))
-          .one("animationend", function () {
-            $(this).removeClass($(this).attr("data-animate-class"));
-          });
-      });
-    };
-
-
-    setTimeout(function () {
-      runAnimate($('.swiper-slide').eq(0));
-    });
-
     $('.city').CityPicker();
 
     new Swiper('#page', {
       direction: 'vertical',
       on: {
         slideChangeTransitionStart: function () {
-          runAnimate($('.swiper-slide').eq(this.activeIndex));
         },
         slideChangeTransitionEnd: function () {
           lazyLoad.check();
-          if (this.activeIndex === 4) {
-            new Swiper('#page1', {
-              direction: 'horizontal',
-              loop: true,
-              on: {
-
-              },
-              navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-              },
-            });
-            $('.J-swiper-button').show();
-
-          } else if (this.activeIndex === 5) {
-            new Swiper('#page2', {
-              direction: 'horizontal',
-              loop: true,
-              navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-              },
-            });
-          }
         },
       }
     });
