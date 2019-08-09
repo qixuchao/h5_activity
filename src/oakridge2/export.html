@@ -167,6 +167,15 @@
         type="date"
         placeholder="选择日期">
       </el-date-picker>
+      <label>投放地点</label>
+      <el-select v-model="currentSource" placeholder="请选择">
+        <el-option
+          v-for="item in source"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value">
+        </el-option>
+      </el-select>
       <el-button
         size="mini"
         @click="query"
@@ -221,6 +230,14 @@
         form: {
           url: []
         },
+        source: [{
+          label: '上海',
+          value: '',
+        }, {
+          label: '南京',
+          value: 'nanjing'
+        }],
+        currentSource: '',
         formLabelWidth: "120px",
         tableData: [],
         limit: 1,
@@ -270,13 +287,14 @@
       getDate: function (d, add) {
         var date = new Date(d || new Date);
         add = add || 0;
-        return new Date(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() + add) + ' 00:00:00');
+        return new Date(date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + (date.getDate() + add) + ' 00:00:00');
       },
 
       loadData: function (callback) {
         var _this = this
         var startTime = Math.floor(_this.getDate(_this.startTime).getTime() / 1000);
         var endTime = Math.floor(_this.getDate(_this.endTime, 1).getTime() / 1000);
+        var source = _this.currentSource
         $.ajax({
           url: 'http://openapi.fancysmp.com/api/get_list',
           data: {
@@ -289,8 +307,7 @@
             if (result.code == 0) {
               if (result.data) {
                 result.data.list.forEach(function (item) {
-                  console.log(item.create_time, startTime, endTime)
-                  if (item.create_time >= startTime && item.create_time < endTime) {
+                  if (item.create_time >= startTime && item.create_time < endTime && (source ? source === item.source : item.source === undefined )) {
                     item.create_time = _this.formatData(item.create_time * 1000);
                     data.push(item);
                   }
@@ -333,4 +350,3 @@
 </body >
 
 </html >
-

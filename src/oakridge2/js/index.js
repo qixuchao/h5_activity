@@ -82,6 +82,7 @@ define(function (require, exports, module) {
         phone: phone,
         city: city,
         email: email,
+        source: /20190805/.test(location.pathname) ? 'nanjing' : 'shanghai'
       };
       $.ajax({
         url: 'http://openapi.fancysmp.com/api/create?project=oakridge',
