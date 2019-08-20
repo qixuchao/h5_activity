@@ -19,6 +19,18 @@ define(function (require, exports, module) {
       }, true)
     }
 
+    // // 获取周六的日期
+    var setActivityTime = function() {
+      var _date = new Date()
+      var da = _date.getDate()
+      var d = 6 - _date.getDay()
+      _date.setDate(da+d)
+
+      $('.activity_time').text(_date.getMonth() + 1+ '月'+ _date.getDate()+'日')
+    }
+
+    setActivityTime()
+
     // 初始化图片加载器
     lazyLoad.init({
       offset: window.innerHeight
