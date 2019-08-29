@@ -1,0 +1,47 @@
+@import "./_reset";
+
+@rem: 1rem/32;
+
+@mainColor: #3ABA4D;
+@linearStartColor: #43D658;
+@linearEndColor: #36AF48;
+@submitBtnShadowColor: rgba(24, 111, 37, 36);
+
+@_linearStartColor: #43D658, #2DC3C6, #9F36FF, #2DC3C6;
+@_linearEndColor: #36AF48, #269EA1, #6236FF,black;
+@buttonBgColor: linear-gradient(to right bottom, #43D658, #36AF48), linear-gradient(to right bottom, #2DC3C6, #269EA1), linear-gradient(to right bottom, #9F36FF, #6236FF);
+
+*{
+  box-sizing: border-box;
+}
+
+body {
+  font-family: PingFangSC-Regular, "微软雅黑", arial, "宋体", helvetica, verdana, sans-serif;
+  background: @mainColor;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+p{
+  margin: 0;
+}
+
+[data-animate-class]{
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.pc {
+  width: 375px;
+  position: relative;
+  margin: 0 auto;
+}

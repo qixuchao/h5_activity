@@ -1,0 +1,59 @@
+@import "common";
+
+body{
+  background: #ECF9F6;
+}
+
+@bgImages: url('../images/aier_main.jpg'), url('../images/aier_main1.jpg'), url('../images/aier_main2.jpg');
+
+.loop(@n, @i:1) when (@i <= @n) {
+  .page_@{i} {
+    .question-button{
+      background: extract(@buttonBgColor, @i);
+    }
+    .container{
+      background-image: extract(@bgImages, @i);
+    }
+  }
+  .loop(@n, (@i + 1));
+}
+.loop(4);
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('../images/aier_main.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.question-desc{
+  margin: @rem*555 0 @rem*20;
+  font-size: @rem*36;
+  line-height: @rem*50;
+  text-align: center;
+}
+.question-coupon{
+  width: @rem*352;
+  margin: 0 auto;
+}
+
+.question-button{
+  width: @rem*640;
+  height: @rem*94;
+  border: none;
+  margin: 0 auto;
+  display: block;
+  font-size: @rem*36;
+  color: #ffffff;
+  margin-top: @rem*40;
+  line-height: @rem*94;
+  background: linear-gradient(to right bottom, @linearStartColor, @linearEndColor);
+  border-radius: @rem*65;
+  box-shadow: @rem*5 @rem*5 @rem*20 0 @submitBtnShadowColor;
+}
+
+
+
+

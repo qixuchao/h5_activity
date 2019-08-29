@@ -1,0 +1,128 @@
+@import "./common";
+
+@mainColor: #3ABA4D;
+@mainBgColor: rgba(58, 186, 77, .8 );
+@buttonBorderColor: #52C162;
+
+@_mainColor: #3ABA4DCF, #269ea1a6, #6236FFB0;
+@_submitColor: #52C162, #269EA1, #6236FF;
+@_submitFontColor: #52C162, #0D6D6F, #6236FF;
+
+.loop(@n, @i:1) when (@i <= @n) {
+  .page_@{i} {
+    background: extract(@_mainColor, @i);
+    .container{
+      background-color: extract(@_mainColor, @i);
+    }
+    .form-submit{
+      border: @rem*5 solid extract(@_submitColor, @i);
+      box-shadow: 0 @rem*10 0 0 extract(@_submitColor, @i);
+      color: extract(@_submitFontColor, @i);
+    }
+  }
+  .loop(@n, (@i + 1));
+}
+.loop(4);
+
+
+input::-webkit-input-placeholder {
+  color: #ffffff;
+  font-size: @rem*30;
+}
+
+
+.container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: @rem*45 @rem*75;
+  &:before{
+    position: absolute;
+    z-index: -11;
+    width: 100%;
+    height: 100%;
+    background: url('../images/aier_form_bg.png') no-repeat;
+    background-position: bottom;
+    background-size: 100%;
+    content: '';
+    bottom: 0;
+    left: 0;
+    -webkit-filter: blur(8px);
+  }
+}
+
+.form-desc{
+  color: #ffffff;
+  font-size: @rem*34;
+  line-height: @rem*48;
+  margin: 0 auto;
+}
+
+.form {
+  margin-top: @rem*40;
+  .form-wrap {
+    width: 100%;
+  }
+  .multi-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .item{
+      width: @rem*280
+    }
+  }
+  .form-item {
+    width: 100%;
+    position: relative;
+    height: @rem*100;
+    line-height: @rem*100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #383838;
+    font-size: @rem*36;
+    border-bottom: @rem*6 solid #ffffff;
+    margin-bottom: @rem*30;
+    padding: @rem*15 0;
+    box-sizing: border-box;
+    input, select {
+      background: none;
+      border: none;
+      outline: none;
+      height: @rem*80;
+      color: #ffffff;
+      -webkit-appearance: none;
+      width: 100%;
+    }
+  }
+}
+
+.form-submit {
+  width: 100%;
+  text-align: center;
+  height: @rem*94;
+  margin-top: @rem*97;
+  font-size: @rem*32;
+  background: rgba(255, 255, 255, .6);
+  border: @rem*5 solid @buttonBorderColor;
+  box-shadow: 0 @rem*10 0 0 @buttonBorderColor;
+  color: @mainColor;
+  border-radius: @rem*65;
+}
+
+.prompt {
+  position: fixed;
+  top: 60%;
+  left: 0;
+  right: 0;
+  z-index: 22;
+  display: none;
+  margin: 0 auto;
+  color: #ffffff;
+  padding: @rem*20;
+  max-width: @rem*400;
+  font-size: @rem*30;
+  text-align: center;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, .7);
+}

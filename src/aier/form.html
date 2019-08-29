@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head >
+  <meta charset="UTF-8" >
+  <title >爱尔眼科</title >
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="share-title" content="爱尔眼科" />
+  <meta name="share-desc" content="爱尔眼科" />
+  <link rel="stylesheet" type="text/css" href="./styles/form.css" >
+  <script data-js-path="redraw.js" >
+    !(function (f, o) {
+      var a = navigator.userAgent, b = /iphone|ipad|ipod/i.test(a), i = /android/ig.test(a),
+        j = /Mobile/i.test(a) || b || i;
+      var n = document.querySelector("[name=viewport]"),
+        k = b ? window.devicePixelRatio ? Math.min(window.devicePixelRatio, 3) : 1 : 1, c = document.documentElement,
+        l = k * (c.dataset.mw || 750), d = 1 / k, e;
+      f = f || 320;
+      o = o || 16;
+      if (n) {
+        var h = n.content || "", g = h.match(/initial\-scale=([\d\.]+)/);
+        if (g) {
+          h = h.replace(/initial\-scale=([\d\.]+)/, "initial-scale=" + d);
+        } else {
+          h += ",initial-scale=" + d;
+        }
+        n.content = h.replace(/minimum\-scale=([\d\.]+)/, "").replace(/maximum\-scale=([\d\.]+)/, "");
+      } else {
+        n = doc.createElement("meta");
+        n.name = "viewport";
+        n.content = "maximum-scale=" + d + ",minimum-scale=" + d + ",user-scalable=0,width=device-width;initial-scale=" + d;
+        c.firstElementChild.appendChild(n);
+      }
+      var m = function () {
+        var q = window.innerWidth;
+        var p = Math.min(q, l) / f * o;
+        c.style.fontSize = p + "px";
+      };
+      if (j) {
+        window.addEventListener("resize", function () {
+          clearTimeout(e);
+          e = setTimeout(m, 300);
+        }, false);
+        m();
+      } else {
+        c.style.fontSize = "16px";
+      }
+    })(375, 16);
+  </script >
+  <script >
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?45b472947281cad914aa315e6e59750f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script >
+  <!-- ft tag -->
+  <script type="text/javascript" >
+    _ft_ = window._ft_ || [];
+    _ft_.push(['aid', '2003354']);
+    +(function () {
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = ('https:' === document.location.protocol ? 'https' : 'http') + '://pic.fancyapi.com/SDK/ft.js';
+      var w = document.getElementsByTagName('script')[0];
+      w.parentNode.insertBefore(s, w);
+    })();
+  </script >
+  <!--ft tag-->
+</head >
+<body >
+<script >
+  var pageType = ['page_1', 'page_2', 'page_3', 'page_4']
+
+  var getUrlParams = function(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); //定义正则表达式
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return decodeURIComponent(r[2]);
+    return null;
+  };
+
+  pageType.forEach(function (val) {
+    if (getUrlParams('page_type') === val) {
+      document.querySelector('body').classList.add(val)
+    }
+  })
+</script >
+<div class="container" >
+    <p class="form-desc" >
+      想了解专业解决方案，留下您的信息，
+      我们将有专业医师向您提供解决方案
+    </p >
+    <form class="form" >
+      <div class="form-wrap" >
+        <div class="form-item" >
+          <input class='name' placeholder="姓名" rv-validate-rule="required: '姓名必需填写填'" type="text" >
+        </div >
+        <div class="form-item" >
+          <input class="phone" placeholder="电话" rv-validate-rule="required: '电话必需填写填',regExp:{rule:'^1\\d{10}$',msg:'电话格式错误'}" type="number" >
+        </div >
+        <div class="form-item" >
+          <select name="age" >
+            <option value="" >年龄</option >
+            <option value="20岁以下" >20岁以下</option >
+            <option value="20岁-30岁" >20岁-30岁</option >
+            <option value="31岁-40岁" >31岁-40岁</option >
+            <option value="41岁-50岁" >41岁-50岁</option >
+            <option value="51岁以上" >51岁以上</option >
+          </select>
+        </div >
+        <div class="multi-item">
+          <div class="form-item item" >
+            <select name='province' rv-validate-rule="required: '城市必需填写填'" >
+              <option value="" >省</option >
+            </select>
+          </div >
+          <div class="form-item item" >
+            <select name='city' rv-validate-rule="required: '城市必需填写填'" >
+              <option value="" >市</option >
+            </select>
+          </div >
+        </div>
+        <div class="form-item" >
+          <select name='location' rv-validate-rule="required: '区域必需填写填'" >
+            <option value="" >区</option >
+          </select>
+        </div >
+      </div >
+      <button type="button" class="form-submit" >提交领体验券</button >
+    </form >
+  </div >
+<div class="prompt" ></div >
+</body >
+<script src="//static.xiawan8.com/module/vendor/sea.js" ></script >
+<script src="./js/config.js" ></script >
+<script >
+  seajs.use('./js/form');
+</script >
+</html >
