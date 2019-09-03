@@ -1,14 +1,26 @@
 @import "common";
 
-@_mainColor: #3ABA4D, #269EA1, #6236FF;
+@uiBtnColor: #52C162;
+@uiBtnShadowColor: #34A444;
+@_mainColor: rgba(58, 186, 77, .8), rgba(38, 158, 161, .8), rgba(98, 54, 255, .8), rgba(0, 145, 255, .8);
+@_uiBtnColor: #52C162, #269EA1, #6236FF, #0091FF;
 
 .loop(@n, @i:1) when (@i <= @n) {
   .page_@{i} {
-    background: extract(@_mainColor, @i);
+    background-color: extract(@_mainColor, @i);
+    .ui-radio{
+      border: @rem*5 solid extract(@_uiBtnColor, @i);
+      box-shadow: 0 @rem*5 0 0 extract(@_uiBtnColor, @i);
+      color: extract(@_uiBtnColor, @i);
+    }
   }
   .loop(@n, (@i + 1));
 }
 .loop(4);
+
+body{
+
+}
 
 .container {
   position: absolute;
@@ -64,6 +76,30 @@
   }
 }
 
+.share-button{
+  width: @rem*552;
+  margin: @rem*0 0 0 @rem*180;
+  position: relative;
+  top: @rem*100;
+  text-align: center;
+}
+
+.ui-btn{
+  background: none;
+  border: none;
+}
+
+.ui-radio{
+  width: @rem*450;
+  height: @rem*94;
+  background: #ffffff;
+  border: @rem*5 solid @uiBtnColor;
+  box-shadow: 0 @rem*5 0 0 @uiBtnShadowColor;
+  color: @uiBtnColor;
+  border-radius: @rem*65;
+  margin: @rem*20 0 @rem*20;
+}
+
 .success-coupon {
   width: @rem*535;
   margin: 0 auto;
@@ -78,6 +114,74 @@
     content: ' ';
     top: -@rem*90;
     right: -@rem*80
+  }
+}
+
+.f-modal{
+  &-wrap{
+    position: fixed;
+    background: rgba(0,0,0,.6);
+    width: 100%;
+    height: 100%;
+    left:0;
+    top:0;
+    z-index: 90;
+    display: none;
+  }
+  position: absolute;
+  z-index: 91;
+  box-shadow: 0 @rem*2 @rem*4 rgba(0,0,0,.4);
+  width: @rem*650;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  border-radius: @rem*10;
+  overflow: hidden;
+  max-height: 90%;
+  &-hd{
+    padding:@rem*33 @rem*40;
+    font-size: @rem*40;
+    font-weight: bold;
+    &_close{
+      width:@rem*30;
+      height: @rem*30;
+      background:url(../images/aier_close.png) no-repeat;
+      background-size:contain;
+      outline: none;
+      border:none;
+      position:absolute;
+      right:@rem*25;
+      top:@rem*25;
+    }
+  }
+  &-bd{
+    padding:@rem*10 @rem*40 @rem*50;
+  }
+  &-ft{
+
+  }
+}
+
+.share-modal{
+  .example-img{
+    width: 100%;
+    display: block;
+  }
+  .f-modal-ft{
+    padding:@rem*20;
+  }
+  .btn{
+    width:100%;
+    color:#fff;
+    background-color: #953535;
+    border-radius:@rem*10;
+    line-height: @rem*80;
+    padding:0;
+    height:@rem*80;
+    text-align: center;
+    display: block;
+    font-size: @rem*30;
   }
 }
 

@@ -1,10 +1,6 @@
 @import "common";
 
-body{
-  background: #ECF9F6;
-}
-
-@bgImages: url('../images/aier_main.jpg'), url('../images/aier_main1.jpg'), url('../images/aier_main2.jpg');
+@bgImages: url('../images/aier_main.jpg'), url('../images/aier_main1.jpg'), url('../images/aier_main2.jpg'), url('../images/aier_main3.jpg');
 
 .loop(@n, @i:1) when (@i <= @n) {
   .page_@{i} {
@@ -19,6 +15,10 @@ body{
 }
 .loop(4);
 
+body{
+  background: #ECF9F6;
+}
+
 .container {
   position: absolute;
   width: 100%;
@@ -29,7 +29,7 @@ body{
 }
 
 .question-desc{
-  margin: @rem*555 0 @rem*20;
+  margin: @rem*450 0 @rem*50;
   font-size: @rem*36;
   line-height: @rem*50;
   text-align: center;
@@ -47,7 +47,10 @@ body{
   display: block;
   font-size: @rem*36;
   color: #ffffff;
-  margin-top: @rem*40;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 85%;
   line-height: @rem*94;
   background: linear-gradient(to right bottom, @linearStartColor, @linearEndColor);
   border-radius: @rem*65;

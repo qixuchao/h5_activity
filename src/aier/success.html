@@ -4,8 +4,7 @@
   <meta charset="UTF-8" >
   <title >爱尔眼科</title >
   <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-  <meta name="share-title" content="Oakridge" />
-  <meta name="share-desc" content="Oakridge" />
+  <meta name="share-imgUrl" content="http://static.xiawan8.com/activity/aier2/20190827/images/aier_logo.jpg" />
   <link rel="stylesheet" type="text/css" href="./styles/success.css" >
   <script data-js-path="redraw.js" >
     !(function (f, o) {
@@ -58,7 +57,7 @@
   <!-- ft tag -->
   <script type="text/javascript" >
     _ft_ = window._ft_ || [];
-    _ft_.push(['aid', '2003354']);
+    _ft_.push(['aid', '2003324']);
     +(function () {
       var s = document.createElement('script');
       s.type = 'text/javascript';
@@ -80,9 +79,13 @@
     if (r != null) return decodeURIComponent(r[2]);
     return null;
   };
+  var _pageType = getUrlParams('page_type') || 'page_1'
 
+  _ft_.push(['pv', _pageType, {
+    page_type: _pageType
+  }])
   pageType.forEach(function (val) {
-    if (getUrlParams('page_type') === val) {
+    if (_pageType === val) {
       document.querySelector('body').classList.add(val)
     }
   })
@@ -100,12 +103,32 @@
         凭短信可就近前往您所在城市的爱尔眼科使用。
       </p>
     </div>
+    <div class="share-button">
+      <button class="ui-btn ui-radio">分享好友</button>
+    </div>
+  </div>
+  <div class="f-modal-wrap J-modal share-modal">
+    <div class="f-modal">
+      <div class="f-modal-hd">
+        <button class="f-modal-hd_close J-modal-close"></button>
+      </div>
+      <div class="f-modal-bd my-sects-wrap">
+        <div>
+          <div class="title" >链接已复制</div >
+          <div class="subtitle" >直接粘贴发送微信好友即可</div >
+          <img src="http://fancysmp.oss-cn-shanghai.aliyuncs.com/activity/20190606%2Fhonor/images/model_share.png" alt="" class="example-img">
+        </div>
+      </div>
+      <div class="f-modal-ft">
+        <a class="btn " href="weixin://" >点击前往微信，邀请好友</a >
+      </div>
+    </div>
   </div>
 </div >
 </body >
 <script src="//static.xiawan8.com/module/vendor/sea.js" ></script >
 <script src="./js/config.js" ></script >
 <script >
-  seajs.use('./js/index');
+  seajs.use('./js/success');
 </script >
 </html >

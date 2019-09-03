@@ -3,12 +3,59 @@ define(function (require, exports, module) {
   var $ = require("$");
   require("../lib/formValidate")($);
   require('./cityData')
+  var common = require("module/common")
+  var shareUtils = require("module/share")
+  var utils = require("module/utils");
+  require("./shareContent")
+
+  var getUrlParams = function(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); //定义正则表达式
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return decodeURIComponent(r[2]);
+    return null;
+  };
+
+  var _pageType = getUrlParams('page_type') || 'page_1'
+
+  _ft_.push(['pv', _pageType])
+
   $(function () {
 
     var provinceList = []
     var cityList = []
     var location = []
     var $province = $('[name=province]')
+
+    // 初始化分享微信
+    if (utils.env.isWechat) {
+      shareUtils.initShare({
+        title: shareContent[_pageType].title,
+        desc: shareContent[_pageType].desc,
+        link: shareContent[_pageType].link,
+        success: function (e) {
+          _ft_.push(["action", "share_success"]);
+        },
+        cancel: function (e) {
+          _ft_.push(["action", "share_cancel"]);
+        }
+      });
+    }
+
+    function sendGold() {
+      var data = {
+        activity_id: common.activityId,
+        user_token: common.getToken(),
+        channel_type: common.getChannelType()
+      };
+      utils.ajax({
+        url: common.HOST + "/api/sendGold",
+        method: "post",
+        data: JSON.stringify(data),
+        callback: function(res) {
+          _ft_.push(["action", "send-gold"]);
+        }
+      });
+    }
 
     cityData.forEach(function (city) {
       if (city.pid === '0') {
@@ -66,10 +113,10 @@ define(function (require, exports, module) {
     $('.form-submit').click(function () {
       var name = $('.name').val();
       var phone = $('.phone').val();
-      var age = $('.age').val();
-      var city = $('[name=city]').val();
-      var province = $('[name=province]').val();
-      var location = $('[name=location]').val();
+      var age = $('[name=age]').val();
+      var city = $('[name=city]').val().split(',')[0];
+      var province = $('[name=province]').val().split(',')[0];
+      var location = $('[name=location]').val().split(',')[0];
       var answer = getUrlParams('answer')
 
       if (validate.inspect()) {
@@ -83,9 +130,14 @@ define(function (require, exports, module) {
         city: city,
         province: province,
         location: location,
-        page_type: getUrlParams('page_type'),
+        page_type: _pageType,
         answer: answer,
       };
+
+      if (utils.env.isQTT) {
+        sendGold()
+      }
+
       $.ajax({
         url: 'http://openapi.fancysmp.com/api/create?project=aier_new',
         type: 'post',
@@ -96,12 +148,16 @@ define(function (require, exports, module) {
           if (res.code === 0) {
             showPrompt('提交成功');
             setTimeout(function () {
-              window.location.href = './success.html?page_type=' + getUrlParams('page_type')
+              window.location.href = './success.html?page_type=' + _pageType
             }, 300)
 
-            _ft_.push(['action', 'submit_success']);
+            _ft_.push(['action', 'submit_success', {
+              page_type: _pageType,
+            }]);
           } else {
-            _ft_.push(['action', 'submit_error']);
+            _ft_.push(['action', 'submit_error',  {
+              page_type: _pageType,
+            }]);
             showPrompt(res.message);
           }
         }

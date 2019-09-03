@@ -3,21 +3,17 @@
 @uiBtnColor: #52C162;
 @uiBtnShadowColor: #34A444;
 
-@_mainColor: #3ABA4D, #269da0, #6236FF;
-@bgImages: url('../images/aier_main_bg.png'), url('../images/aier_main_bg1.jpg') ;
-@_uiBtnColor: #52C162, #269EA1, #6236FF;
-@_uiBtnShadowColor: #34A444, #198386, #3B16BE;
+@_mainColor: #3ABA4D, #269da0, #6236FF, #0091FF;
+@_uiBtnColor: #52C162, #269EA1, #6236FF, #0091FF;
+@_uiBtnShadowColor: rgba(24, 111, 37, .36), #2AB5B85c, #6236FF5c, #036DBC5c;
 
 .loop(@n, @i:1) when (@i <= @n) {
   .page_@{i} {
     background: extract(@_mainColor, @i);
-    .container{
-      background-image: extract(@bgImages, @i);
-    }
     .question-select{
       .ui-radio{
         border: @rem*5 solid extract(@_uiBtnColor, @i);
-        box-shadow: 0 @rem*5 0 0 extract(@_uiBtnShadowColor, @i);
+        box-shadow: 0 @rem*5 0 0 extract(@_uiBtnColor, @i);
         color: extract(@_uiBtnColor, @i);
       }
       .ui-radio-select{
@@ -32,6 +28,7 @@
       }
       .ui-question-submit{
         background: extract(@buttonBgColor, @i);
+        box-shadow: @rem*5 @rem*5 @rem*20 0 extract(@_uiBtnShadowColor, @i);
       }
     }
   }
@@ -41,6 +38,7 @@
 
 .ui-btn{
   background: none;
+  border: none;
 }
 
 .pc {
@@ -77,11 +75,37 @@
     img{
       border-radius: @rem*65 @rem*65 0 0;
     }
+    p{
+      padding: 0 @rem*28 0 @rem*45;
+      line-height: @rem*45;
+      font-size: @rem*32;
+      font-weight: bold;
+      .question-step{
+        color: #0091FF;
+      }
+      &:nth-child(1){
+        margin-top: @rem*35;
+      }
+    }
   }
   .content{
     padding: @rem*51 @rem*36 0;
     .question-content{
       height: @rem*112;
+    }
+  }
+  .content-img{
+    padding: @rem*20 @rem*36 0;
+    .question-select{
+      img{
+        width: 80%;
+        margin: 0 auto;
+      }
+    }
+    p{
+      margin-top: @rem*10;
+      font-size: @rem*32;
+      line-height: @rem*45;
     }
   }
 }
@@ -96,7 +120,7 @@
     box-shadow: 0 @rem*5 0 0 @uiBtnShadowColor;
     color: @uiBtnColor;
     border-radius: @rem*65;
-    margin: @rem*25 0 @rem*20;
+    margin: @rem*20 0 @rem*20;
     &.multi-radio{
       width: @rem*290;
       margin: @rem*20 0 @rem*20;
@@ -111,7 +135,7 @@
 .jump-btn{
   display: flex;
   justify-content: space-between;
-  margin-top: @rem*45;
+  margin-top: @rem*25;
   align-items: center;
   .ui-jump-btn{
     width: @rem*155;
@@ -129,6 +153,7 @@
     width: @rem*405;
     height: @rem*102;
     line-height: @rem*102;
+    border: none;
     color: #ffffff;
     font-size: @rem*32;
     background: linear-gradient(to right bottom, @linearStartColor, @linearEndColor);

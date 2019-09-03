@@ -4,19 +4,21 @@
 @mainBgColor: rgba(58, 186, 77, .8 );
 @buttonBorderColor: #52C162;
 
-@_mainColor: #3ABA4DCF, #269ea1a6, #6236FFB0;
-@_submitColor: #52C162, #269EA1, #6236FF;
-@_submitFontColor: #52C162, #0D6D6F, #6236FF;
+@_bodyBgColor: rgba(58, 186, 77, 0.16), rgba(38, 158, 161, .16), rgba(98, 54, 255, 0.16), rgba(0, 145, 255, 0.16);
+@_mainColor: rgba(58, 186, 77, .65), rgba(38, 158, 161, .65), rgba(98, 54, 255, 0.65), rgba(0, 145, 255, 0.65);
+@_submitColor: #52C162, #269EA1, #6236FF, #0091FF;
+@_submitFontColor: #3ABA4D, #0D6D6F, #6236FF, #0091FF;
+@_submitShadowColor: #2C8A3A, #0D6D6F, #6236FF, #036FC1;
 
 .loop(@n, @i:1) when (@i <= @n) {
   .page_@{i} {
-    background: extract(@_mainColor, @i);
+    background: extract(@_bodyBgColor, @i);
     .container{
       background-color: extract(@_mainColor, @i);
     }
     .form-submit{
       border: @rem*5 solid extract(@_submitColor, @i);
-      box-shadow: 0 @rem*10 0 0 extract(@_submitColor, @i);
+      box-shadow: 0 @rem*10 0 0 extract(@_submitShadowColor, @i);
       color: extract(@_submitFontColor, @i);
     }
   }
@@ -27,7 +29,7 @@
 
 input::-webkit-input-placeholder {
   color: #ffffff;
-  font-size: @rem*30;
+  font-size: @rem*36;
 }
 
 
@@ -47,7 +49,7 @@ input::-webkit-input-placeholder {
     content: '';
     bottom: 0;
     left: 0;
-    -webkit-filter: blur(8px);
+    //-webkit-filter: blur(8px);
   }
 }
 
@@ -90,6 +92,7 @@ input::-webkit-input-placeholder {
       border: none;
       outline: none;
       height: @rem*80;
+      font-size: @rem*36;
       color: #ffffff;
       -webkit-appearance: none;
       width: 100%;
@@ -103,7 +106,7 @@ input::-webkit-input-placeholder {
   height: @rem*94;
   margin-top: @rem*97;
   font-size: @rem*32;
-  background: rgba(255, 255, 255, .6);
+  background: rgba(255, 255, 255, 1);
   border: @rem*5 solid @buttonBorderColor;
   box-shadow: 0 @rem*10 0 0 @buttonBorderColor;
   color: @mainColor;
