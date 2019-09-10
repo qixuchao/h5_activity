@@ -129,15 +129,15 @@ gulp.task("images", () => {
   return gulp
     .src(config.dev.images)
     .pipe($.plumber(onError))
-    .pipe(
-      $.cache(
-        $.imagemin({
-          progressive: true, // 无损压缩JPG图片
-          svgoPlugins: [{ removeViewBox: false }], // 不移除svg的viewbox属性
-          use: [pngquant()] // 使用pngquant插件进行深度压缩
-        })
-      )
-    )
+    // .pipe(
+    //   $.cache(
+    //     $.imagemin({
+    //       progressive: true, // 无损压缩JPG图片
+    //       svgoPlugins: [{ removeViewBox: false }], // 不移除svg的viewbox属性
+    //       use: [pngquant()] // 使用pngquant插件进行深度压缩
+    //     })
+    //   )
+    // )
     .pipe(gulp.dest(".tmp/images"))
     .pipe($.if(condition, $.rev()))
     .pipe($.if(condition, gulp.dest(config.build.images)))

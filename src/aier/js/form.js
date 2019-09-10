@@ -134,12 +134,12 @@ define(function (require, exports, module) {
         answer: answer,
       };
 
-      if (utils.env.isQTT) {
+      if (utils.env.isQTT && !utils.env.isIphone) {
         sendGold()
       }
 
       $.ajax({
-        url: 'http://openapi.fancysmp.com/api/create?project=aier_new',
+        url: '//openapi.xiawan8.com/api/create?project=aier_new',
         type: 'post',
         processData: true,
         data: params,

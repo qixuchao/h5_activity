@@ -12,7 +12,7 @@
 
 .loop(@n, @i:1) when (@i <= @n) {
   .page_@{i} {
-    background: extract(@_bodyBgColor, @i);
+    background: extract(@_bodyBgColor, @i) !important;
     .container{
       background-color: extract(@_mainColor, @i);
     }

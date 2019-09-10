@@ -9,7 +9,7 @@
 
 .loop(@n, @i:1) when (@i <= @n) {
   .page_@{i} {
-    background: extract(@_mainColor, @i);
+    background: extract(@_mainColor, @i) !important;
     .question-select{
       .ui-radio{
         border: @rem*5 solid extract(@_uiBtnColor, @i);

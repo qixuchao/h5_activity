@@ -58,7 +58,7 @@ define(function (require, exports, module) {
     })
 
     $('.ui-radio').click(function (e) {
-      if (utils.env.isQTT) {
+      if (utils.env.isQTT && !utils.env.isIphone) {
         sendGold()
       }
       shareUtils.open({

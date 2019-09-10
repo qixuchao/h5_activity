@@ -95,7 +95,7 @@ define(function(require, exports, module) {
       Object.assign(quickShareParams, _params);
 
       QApp.openShare(quickShareParams);
-    } else if (QTTB.isQTT && QTTB.isQukan) {
+    } else if (QTTB.isQTT && QTTB.isQukan && !QTTB.isIphone) {
       qttShareParams.url = params.link;
       qttShareParams.title = params.title;
       qttShareParams.target = params.target || 1;
