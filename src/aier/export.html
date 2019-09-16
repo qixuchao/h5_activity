@@ -1,0 +1,353 @@
+<!doctype html>
+<html class="no-js" lang="zh-cn" >
+<head >
+  <meta charset="utf-8" >
+  <meta http-equiv="x-ua-compatible" content="ie=edge" >
+  <title >数据导出功能</title >
+  <meta name="description" content="" >
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
+  <style type="text/css" >
+    * {
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+      font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+    }
+
+    ul, li {
+      list-style: none
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    .header-wrapper {
+      height: 56px;
+      line-height: 56px;
+      background: #111;
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .header-inner a {
+      color: #ddd;
+      text-decoration: initial;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .content {
+      margin-top: 20px;
+    }
+    .logo{
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      width: 40px;
+      margin-right: 10px;
+      margin-top: 8px;
+    }
+    input{
+      outline: none;
+      /*margin: 0 20px 0 10px;*/
+    }
+    .title {
+      color: #1f2f3d;
+      margin: 35px 0 20px;
+      font-size: 22px;
+    }
+
+    .table-selection {
+      padding: 24px;
+      border: 1px solid #ebebeb;
+      border-radius: 3px;
+      transition: .2s;
+      margin-top: 20px;
+    }
+
+    .meida {
+      margin-top: 30px;
+    }
+
+    .meida h3 {
+      font-size: 20px;
+      text-align: center;
+      margin: 8px 0;
+    }
+
+    .meida img {
+      vertical-align: middle;
+      margin-right: 15px;
+    }
+
+    .wrap-ellipsis {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  </style >
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" >
+  <!-- 引入组件库 -->
+  <script type="text/javascript" src="https://unpkg.com/vue@2.6.10/dist/vue.min.js" ></script >
+  <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1" ></script >
+  <script src="https://unpkg.com/element-ui/lib/index.js" ></script >
+  <script data-js-path="redraw.js" >
+    !(function (f, o) {
+      var a = navigator.userAgent, b = /iphone|ipad|ipod/i.test(a), i = /android/ig.test(a),
+        j = /Mobile/i.test(a) || b || i;
+      var n = document.querySelector("[name=viewport]"),
+        k = b ? window.devicePixelRatio ? Math.min(window.devicePixelRatio, 3) : 1 : 1, c = document.documentElement,
+        l = k * (c.dataset.mw || 750), d = 1 / k, e;
+      f = f || 320;
+      o = o || 16;
+      if (n) {
+        var h = n.content || "", g = h.match(/initial\-scale=([\d\.]+)/);
+        if (g) {
+          h = h.replace(/initial\-scale=([\d\.]+)/, "initial-scale=" + d);
+        } else {
+          h += ",initial-scale=" + d;
+        }
+        n.content = h.replace(/minimum\-scale=([\d\.]+)/, "").replace(/maximum\-scale=([\d\.]+)/, "");
+      } else {
+        n = doc.createElement("meta");
+        n.name = "viewport";
+        n.content = "maximum-scale=" + d + ",minimum-scale=" + d + ",user-scalable=0,width=device-width;initial-scale=" + d;
+        c.firstElementChild.appendChild(n);
+      }
+      var m = function () {
+        var q = window.innerWidth;
+        var p = Math.min(q, l) / f * o;
+        c.style.fontSize = p + "px";
+      };
+      if (j) {
+        window.addEventListener("resize", function () {
+          clearTimeout(e);
+          e = setTimeout(m, 300);
+        }, false);
+        m();
+      } else {
+        c.style.fontSize = "16px";
+      }
+    })(375, 16);
+  </script >
+</head >
+
+<body >
+<!--[if lte IE 9]>
+<![endif]-->
+<header class="header-wrapper" >
+  <div class="container header-inner" >
+    <div class="logo" >
+      <img src="./images/fancy_logo.png" >
+      oakridge 数据导出功能
+    </div >
+  </div >
+</header >
+<div class="container content" id="app" >
+  <section data-id="business" >
+    <div class="table-tools" >
+      <label >开始时间</label >
+      <el-date-picker
+        v-model="startTime"
+        type="date"
+        placeholder="选择日期">
+      </el-date-picker>
+      <label >结束时间</label>
+      <el-date-picker
+        v-model="endTime"
+        type="date"
+        placeholder="选择日期">
+      </el-date-picker>
+      <label>投放链接</label>
+      <el-select v-model="currentSource" placeholder="请选择">
+        <el-option
+          v-for="item in source"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value">
+        </el-option>
+      </el-select>
+      <el-button
+        size="mini"
+        @click="query"
+        type="primary" >查询
+      </el-button >
+      <el-button
+        size="mini"
+        @click="exportCsv"
+        type="primary" >导出
+      </el-button >
+    </div >
+    <div class="table-selection" >
+      <el-table
+        :data="tableData"
+        style="width: 100%" >
+        <el-table-column
+          prop="create_time"
+          label="创建时间"
+          width="180" >
+        </el-table-column >
+        <el-table-column
+          prop="name"
+          label="姓名"
+          width="180" >
+        </el-table-column >
+        <el-table-column
+          prop="phone"
+          label="电话" >
+        </el-table-column >
+        <el-table-column
+          prop="age"
+          label="年龄" >
+        </el-table-column >
+        <el-table-column
+          prop="province"
+          label="省" >
+        </el-table-column >
+        <el-table-column
+          prop="city"
+          label="市" >
+        </el-table-column >
+        <el-table-column
+          prop="location"
+          label="区" >
+        </el-table-column >
+      </el-table >
+    </div >
+  </section >
+</div >
+<script src="https://gosspublic.alicdn.com/aliyun-oss-sdk-6.0.0.min.js" ></script >
+<script src="https://cdn.jsdelivr.net/npm/json2csv" ></script >
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery" ></script >
+<script >
+  var data = []
+  new Vue({
+    el: '#app',
+    data: function () {
+      return {
+        dialogFormVisible: false,
+        form: {
+          url: []
+        },
+        source: [{
+          label: 'page_1',
+          value: 'page_1',
+        }, {
+          label: 'page_2',
+          value: 'page_2',
+        }, {
+          label: 'page_3',
+          value: 'page_3',
+        }, {
+          label: 'page_4',
+          value: 'page_4',
+        }],
+        currentSource: '',
+        formLabelWidth: "120px",
+        tableData: [],
+        limit: 1,
+        startTime: '',
+        endTime: '',
+        fileList: []
+      };
+    },
+    methods: {
+      zeroFill: function (val) {
+        val += '';
+        if (val.length > 1) {
+          return val;
+        } else {
+          return '0' + val;
+        }
+      },
+
+      formatData: function (time) {
+        time = time || new Date();
+        var date = new Date(time);
+        return date.getFullYear() + '-' + this.zeroFill(date.getMonth() + 1) + '-' + this.zeroFill(date.getDate());
+      },
+
+      query: function () {
+        page = 1;
+        data = [];
+        var _this = this
+        _this.loadData(function () {
+          _this.tableData = data
+        });
+      },
+
+      getDate: function (d, add) {
+        var date = new Date(d || new Date);
+        add = add || 0;
+        return new Date(date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + (date.getDate() + add) + ' 00:00:00');
+      },
+
+      loadData: function (callback) {
+        var _this = this
+        var startTime = Math.floor(_this.getDate(_this.startTime).getTime() / 1000);
+        var endTime = Math.floor(_this.getDate(_this.endTime, 1).getTime() / 1000);
+        var source = _this.currentSource
+        $.ajax({
+          url: 'http://openapi.fancysmp.com/api/get_list',
+          data: {
+            project: 'aier_new',
+            page: page,
+            page_size: 30
+          },
+          dataType: "json",
+          success: function (result) {
+            if (result.code == 0) {
+              if (result.data) {
+                result.data.list.forEach(function (item) {
+                  if (item.create_time >= startTime && item.create_time < endTime && (source ? source === item.page_type : item.page_type === undefined )) {
+                    item.create_time = _this.formatData(item.create_time * 1000);
+                    data.push(item);
+                  }
+                });
+                //结果分页有问题，只能限定数量，所以循环查询
+                if (data.length < result.data.total && result.data.list.length) {
+                  page++;
+                  _this.loadData(callback);
+                } else {
+                  callback()
+                }
+              }
+            } else {
+              callback();
+            }
+          }
+        });
+      },
+      exportCsv: function (filename) {
+        const BOM = '\uFEFF';
+        filename = this.formatData()+'.csv' || 'export.csv';
+        const csv = new json2csv.Parser({ fields: ['create_time', 'name', 'phone', 'age', 'province','city', 'location'] }).parse(this.tableData);
+
+        if (navigator.msSaveOrOpenBlob) {
+          let blob = new Blob([BOM + csv], { type: 'text/csv;charset=utf-8;' });
+          navigator.msSaveOrOpenBlob(blob, filename);
+        } else {
+          let uri = encodeURI(`data:text/csv;charset=utf-8,${BOM}${csv}`);
+          let downloadLink = document.createElement('a');
+          downloadLink.href = uri;
+          downloadLink.download = filename;
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
+          document.body.removeChild(downloadLink);
+        }
+      }
+    },
+  });
+</script >
+</body >
+
+</html >
