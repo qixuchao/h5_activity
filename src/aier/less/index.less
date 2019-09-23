@@ -1,11 +1,17 @@
 @import "common";
 
 @bgImages: url('../images/aier_main.jpg'), url('../images/aier_main1.jpg'), url('../images/aier_main2.jpg'), url('../images/aier_main3.jpg');
+@couponImg: url('../images/aier_coupon.png'), url('../images/aier_coupon1.png'), url('../images/aier_coupon1.png'), url('../images/aier_coupon1.png');
 
 .loop(@n, @i:1) when (@i <= @n) {
   .page_@{i} {
     .question-button{
       background: extract(@buttonBgColor, @i);
+    }
+    .question-coupon{
+      background: extract(@couponImg, @i);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
     }
     .container{
       background-image: extract(@bgImages, @i);
@@ -35,7 +41,11 @@ body{
   text-align: center;
 }
 .question-coupon{
-  width: @rem*352;
+  background: url("../images/aier_coupon.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: @rem*351;
+  height: @rem*156;
   margin: 0 auto;
 }
 

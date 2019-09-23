@@ -3,11 +3,17 @@
 @uiBtnColor: #52C162;
 @uiBtnShadowColor: #34A444;
 @_mainColor: rgba(58, 186, 77, .8), rgba(38, 158, 161, .8), rgba(98, 54, 255, .8), rgba(0, 145, 255, .8);
+@couponImg: url('../images/aier_coupon.png'), url('../images/aier_coupon1.png'), url('../images/aier_coupon1.png'), url('../images/aier_coupon1.png');
 @_uiBtnColor: #52C162, #269EA1, #6236FF, #0091FF;
 
 .loop(@n, @i:1) when (@i <= @n) {
   .page_@{i} {
     background-color: extract(@_mainColor, @i) !important;
+    .success-coupon{
+      background: extract(@couponImg, @i);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
     .ui-radio{
       border: @rem*5 solid extract(@_uiBtnColor, @i);
       box-shadow: 0 @rem*5 0 0 extract(@_uiBtnColor, @i);
@@ -101,7 +107,11 @@ body{
 }
 
 .success-coupon {
+  background: url("../images/aier_coupon.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   width: @rem*535;
+  height: @rem*238;
   margin: 0 auto;
   position: relative;
 
