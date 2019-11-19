@@ -212,7 +212,7 @@ define(function (require, modules, exports) {
 
           if (index + 1 === questionList[val].length) {
             jumpButton = '<button class="ui-btn ui-jump-btn J-prev" >上一题</button >\n' +
-              '<button class="ui-btn ui-question-submit ui-disable J-next" disabled >提交问卷领取优惠券</button >'
+              '<button class="ui-btn ui-question-submit ui-disable J-next" disabled >提交问卷</button >'
           }
 
           if (index === 0) {

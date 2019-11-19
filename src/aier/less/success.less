@@ -5,12 +5,18 @@
 @_mainColor: rgba(58, 186, 77, .8), rgba(38, 158, 161, .8), rgba(98, 54, 255, .8), rgba(0, 145, 255, .8);
 @couponImg: url('../images/aier_coupon.png'), url('../images/aier_coupon1.png'), url('../images/aier_coupon1.png'), url('../images/aier_coupon1.png');
 @_uiBtnColor: #52C162, #269EA1, #6236FF, #0091FF;
+@submitSuccessImg: url('../images/aier_submit_success.png'), url('../images/aier_submit_success1.png'), url('../images/aier_submit_success2.png'), url('../images/aier_submit_success3.png');
 
 .loop(@n, @i:1) when (@i <= @n) {
   .page_@{i} {
     background-color: extract(@_mainColor, @i) !important;
     .success-coupon{
       background: extract(@couponImg, @i);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+    .success-submit{
+      background: extract(@submitSuccessImg, @i);
       background-repeat: no-repeat;
       background-size: 100% 100%;
     }
@@ -40,26 +46,27 @@ body{
   text-align: center;
   font-size: @rem*50;
   color: #F9F9F9;
-  margin: @rem*114 0 @rem*35;
+  margin: @rem*160 0 @rem*451;
 }
 
 .aier-participation {
   width: 100%;
-  height: @rem*639;
+  height: @rem*541;
   background: url('../images/aier_doctor.png') no-repeat;
   background-position: left;
-  background-size: @rem*225 @rem*639;
-  margin-top: @rem*100;
+  background-size: @rem*225 @rem*541;
+  margin-top: @rem*128;
+  margin-left: @rem*50;
 
   .activity-desc {
-    height: @rem*310;
-    width: @rem*552;
+    height: @rem*127;
+    width: @rem*420;
     background: #ffffff;
     border-radius: @rem*35;
     top: @rem*60;
-    margin: @rem*0 0 0 @rem*180;
+    margin: @rem*0 @rem*72 0 @rem*184;
     position: relative;
-    padding: @rem*36 @rem*20 @rem*31 @rem*50;
+    padding: @rem*42 @rem*70 @rem*9 @rem*129;
     font-size: @rem*28;
     line-height: @rem*40;
     color: rgba(0, 0, 0, .85);
@@ -83,7 +90,7 @@ body{
 }
 
 .share-button{
-  width: @rem*552;
+  width: @rem*420;
   margin: @rem*0 0 0 @rem*180;
   position: relative;
   top: @rem*100;
@@ -124,6 +131,27 @@ body{
     content: ' ';
     top: -@rem*90;
     right: -@rem*80
+  }
+}
+
+.success-submit {
+  background: url("../images/aier_submit_success.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: @rem*158;
+  height: @rem*158;
+  margin: -@rem*400 auto @rem*190 auto;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    height: @rem*128;
+    width: @rem*125;
+    background: url('../images/aier_star.png') no-repeat;
+    background-size: 100% 100%;
+    content: ' ';
+    top: -@rem*160;
+    right: -@rem*256;
   }
 }
 
