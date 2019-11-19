@@ -7,16 +7,28 @@ define(function (require, exports, module) {
   var symptom = {
     1: '您或您的家人如存在<br/>'+
       '<Strong>近视、近视度数近期猛增</Strong> 等问题，<br/>'+
-      '填写以下问卷了解眼睛状况<br/>' ,
+      '<span class="not-wechat is-wechat">填写以下问卷了解眼睛状况<br/></span>'+
+      '<span class="qtt">请填写以下问卷可获得</span><br>'+
+      '<span class="qtt">200金币奖励<br></span>'+
+      '<span class="qtt">分享好友也可获得200金币奖励</span>',
     2: '您或您的家人如存在<br/>'+
       '<Strong>眼干眼涩、畏光流泪</Strong> 等问题，<br/>'+
-      '填写以下问卷了解眼睛状况<br/>' ,
+      '<span class="not-wechat is-wechat">填写以下问卷了解眼睛状况<br/></span>'+
+      '<span class="qtt">请填写以下问卷可获得</span><br>'+
+      '<span class="qtt">200金币奖励<br></span>'+
+      '<span class="qtt">分享好友也可获得200金币奖励</span>',
     3: '您或您的家人有<strong>视物浑浊、</strong><br/>'+
       '<Strong>模糊、</Strong> 总是感到眼前<strong>朦朦胧胧、雾蒙感</strong>，<br/>'+
-      '填写以下问卷了解眼睛状况<br/>' ,
+      '<span class="not-wechat is-wechat">填写以下问卷了解眼睛状况<br/></span>' +
+      '<span class="qtt">请填写以下问卷可获得</span><br>'+
+      '<span class="qtt">200金币奖励<br></span>'+
+      '<span class="qtt">分享好友也可获得200金币奖励</span>',
     4: '您或您的家人有<strong>糖尿病问题、</strong><br/>'+
       '近视高达<Strong>600度</Strong>以上，<br/>'+
-      '填写以下问卷了解眼睛状况<br/>' ,
+      '<span class="not-wechat is-wechat">填写以下问卷了解眼睛状况<br/></span>'+
+      '<span class="qtt">请填写以下问卷可获得</span><br>'+
+      '<span class="qtt">200金币奖励<br></span>'+
+      '<span class="qtt">分享好友也可获得200金币奖励</span>',
   }
 
   var getUrlParams = function(name) {
