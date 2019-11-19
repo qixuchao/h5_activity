@@ -87,6 +87,12 @@
     }
   })
 </script >
+<script>
+  if (/MicroMessenger/i.test(navigator.userAgent)) {
+    document.getElementById('question').classList.add('wechat')
+    console.log(document.getElementById('question').classList)
+  }
+</script>
 <div class="container" >
   <div class="swiper-container" id="question" >
     <div class="swiper-wrapper" >
