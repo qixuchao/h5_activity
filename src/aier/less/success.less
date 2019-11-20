@@ -49,7 +49,100 @@ body{
   margin: @rem*160 0 @rem*451;
 }
 
-.aier-participation {
+// .aier-participation {
+//   width: 100%;
+//   height: @rem*541;
+//   background: url('../images/aier_doctor.png') no-repeat;
+//   background-position: left;
+//   background-size: @rem*225 @rem*541;
+//   margin-top: @rem*128;
+//   margin-left: @rem*50;
+
+//   .activity-desc {
+//     height: @rem*127;
+//     width: @rem*420;
+//     background: #ffffff;
+//     border-radius: @rem*35;
+//     top: @rem*60;
+//     margin: @rem*0 @rem*72 0 @rem*184;
+//     position: relative;
+//     padding: @rem*42 @rem*70 @rem*9 @rem*129;
+//     font-size: @rem*28;
+//     line-height: @rem*40;
+//     color: rgba(0, 0, 0, .85);
+//     .desc-title{
+//       margin-bottom: @rem*45;
+//     }
+
+//     &:before {
+//       content: ' ';
+//       position: absolute;
+//       width: 0;
+//       height: 0;
+//       border-left: @rem*30 solid transparent;
+//       border-right: @rem*30 solid transparent;
+//       border-bottom: @rem*60 solid #ffffff;
+//       transform: rotateZ(30deg);
+//       left: -@rem*20;
+//       top: @rem*10;
+//     }
+//   }
+// }
+
+.wechat{
+  .qtt{
+    display: none;
+  }
+  .is-wechat{
+    display: block;
+  }
+  .aier-participation {
+    display: block;
+    width: 100%;
+    height: @rem*541;
+    background: url('../images/aier_doctor.png') no-repeat;
+    background-position: left;
+    background-size: @rem*225 @rem*541;
+    margin-top: @rem*128;
+    margin-left: @rem*50;
+  
+    .activity-desc {
+      height: @rem*127;
+      width: @rem*420;
+      background: #ffffff;
+      border-radius: @rem*35;
+      top: @rem*60;
+      margin: @rem*0 @rem*72 0 @rem*184;
+      position: relative;
+      padding: @rem*42 @rem*70 @rem*9 @rem*129;
+      font-size: @rem*28;
+      line-height: @rem*40;
+      color: rgba(0, 0, 0, .85);
+      .desc-title{
+        margin-bottom: @rem*45;
+      }
+  
+      &:before {
+        content: ' ';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: @rem*30 solid transparent;
+        border-right: @rem*30 solid transparent;
+        border-bottom: @rem*60 solid #ffffff;
+        transform: rotateZ(30deg);
+        left: -@rem*20;
+        top: @rem*10;
+      }
+    }
+  }
+}
+
+.not-wechat {
+  display: none;
+}
+
+.not-wechat-aier-participation {
   width: 100%;
   height: @rem*541;
   background: url('../images/aier_doctor.png') no-repeat;
@@ -59,14 +152,14 @@ body{
   margin-left: @rem*50;
 
   .activity-desc {
-    height: @rem*127;
-    width: @rem*420;
+    height: @rem*220;
+    width: @rem*500;
     background: #ffffff;
     border-radius: @rem*35;
     top: @rem*60;
     margin: @rem*0 @rem*72 0 @rem*184;
     position: relative;
-    padding: @rem*42 @rem*70 @rem*9 @rem*129;
+    padding: @rem*60 @rem*0 @rem*9 @rem*30;
     font-size: @rem*28;
     line-height: @rem*40;
     color: rgba(0, 0, 0, .85);

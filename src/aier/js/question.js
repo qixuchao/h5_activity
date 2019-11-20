@@ -213,7 +213,7 @@ define(function (require, modules, exports) {
           if (index + 1 === questionList[val].length) {
             jumpButton = '<button class="ui-btn ui-jump-btn J-prev" >上一题</button >\n' +
               '<button class="ui-btn ui-question-submit ui-disable J-next not-wechat is-wechat" disabled >提交问卷</button >'+
-              '<button class="ui-btn ui-question-submit ui-disable J-next qqt" disabled >提交问卷领取金币</button >'
+              '<button class="ui-btn ui-question-submit ui-disable J-next qtt" disabled >提交问卷领取金币</button >'
           }
 
           if (index === 0) {

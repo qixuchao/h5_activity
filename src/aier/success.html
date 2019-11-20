@@ -69,7 +69,12 @@
   </script >
   <!--ft tag-->
 </head >
-<body >
+<body>
+  <script>
+    if (/MicroMessenger/i.test(navigator.userAgent)) {
+      document.body.classList.add('wechat')
+    }
+  </script>
 <script >
   var pageType = ['page_1', 'page_2', 'page_3', 'page_4']
 
@@ -98,9 +103,11 @@
   <!-- <div class="success-coupon"> -->
 <!--    <img src="./images/aier_coupon.png" alt="" >-->
   <!-- </div> -->
-  <div class="aier-participation">
+  <div class="aier-participation not-wechat">
     <div class="activity-desc">
-      <p class="desc-title">感谢您的参与!</p>
+      <p class="desc-title">
+        <span>感谢您的参与!</span>
+      </p>
       <!-- <p class="desc-content">
         您的体验券验证码将在7个工作日内，以短信的形式发送至您手机。
         凭短信可就近前往您所在城市的爱尔眼科使用。
@@ -110,6 +117,23 @@
       <button class="ui-btn ui-radio">分享好友</button>
     </div>
   </div>
+
+  <div class="not-wechat-aier-participation qtt">
+      <div class="activity-desc">
+        <p class="desc-title">
+          <span>感谢您的参与!<br/></span>
+          <span>分享给好友可获得200金币奖励哦！</span>
+        </p>
+        <!-- <p class="desc-content">
+          您的体验券验证码将在7个工作日内，以短信的形式发送至您手机。
+          凭短信可就近前往您所在城市的爱尔眼科使用。
+        </p> -->
+      </div>
+      <div class="share-button">
+        <button class="ui-btn ui-radio">分享好友</button>
+      </div>
+    </div>
+
   <div class="f-modal-wrap J-modal share-modal">
     <div class="f-modal">
       <div class="f-modal-hd">
