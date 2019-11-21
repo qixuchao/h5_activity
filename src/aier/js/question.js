@@ -146,7 +146,7 @@ define(function (require, modules, exports) {
         B: 'B. 否',
       },
     }, {
-      titleImg: './images/aier_question_img8.jpg',
+      titleImg: './images/aier_question_img1.jpg',
       questionLabel: '4. 您/您家人是否愿意接受专业全面的眼部检查？',
       answers: {
         A: 'A. 是',
