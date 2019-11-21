@@ -45,12 +45,7 @@
       }
     })(375, 16);
   </script >
-  <script>
-    if (/MicroMessenger/i.test(navigator.userAgent)) {
-      document.body.classList.add('wechat')
-    }
-  </script>
-
+ 
   <script >
     var _hmt = _hmt || [];
     (function () {
@@ -77,6 +72,9 @@
 </head >
 <body>
 <script >
+  if (/MicroMessenger/i.test(navigator.userAgent)) {
+    document.body.classList.add('wechat')
+  }
   var pageType = ['page_1', 'page_2', 'page_3', 'page_4']
 
   var getUrlParams = function(name) {
